@@ -10,15 +10,15 @@ const pack=context.window.languagePacks[0];
 const cases=[
   [
     "I see the dog.",
-    "Ik nu hundulta se."
+    "Ik nu hunduta se."
   ],
   [
     "The dogs see me.",
-    "Hundenle nu ikta se."
+    "Hindenle nu ikta se."
   ],
   [
     "She gives the red apple to him.",
-    "Ea nu æpelulta rod til han gif."
+    "Ea nu æpeluta rod ham gif."
   ],
   [
     "We did not walk to the river yesterday.",
@@ -26,7 +26,7 @@ const cases=[
   ],
   [
     "Will you eat the bread tomorrow?",
-    "Þu va brædulta amorgăn et li?"
+    "Þu va bræduta amorgăn et li?"
   ],
   [
     "Why is the black bird singing?",
@@ -34,7 +34,7 @@ const cases=[
   ],
   [
     "My brother's sword is sharper than yours.",
-    "Sverdul av broþărul ikes nu șærer þan þuesul es."
+    "Sverdul broþărules ikes nu șærer þan þuesul es."
   ],
   [
     "They must hide inside the old fortress before night.",
@@ -42,7 +42,7 @@ const cases=[
   ],
   [
     "The woman who lives in the mountains knows our names.",
-    "Viful þe nu in bergenle lev, nu namăenleta vies wit."
+    "Viful þe nu in bergenle lev, nu namenla vies wit."
   ],
   [
     "If it rains, the road will become mud.",
@@ -58,7 +58,7 @@ const cases=[
   ],
   [
     "Can she read the book?",
-    "Ea nu bokulta kæn ræd li?"
+    "Ea nu bokuta kæn ræd li?"
   ],
   [
     "We will travel to the city tomorrow.",
@@ -66,11 +66,11 @@ const cases=[
   ],
   [
     "They should not close the window.",
-    "Dei nu vindagulta ne bur luk."
+    "Dei nu vindaguta ne bur luk."
   ],
   [
     "Three children see two dogs.",
-    "Þri țilden nu tva hundenta se."
+    "Þri țilden nu tva hindenta se."
   ],
   [
     "Where are you going?",
@@ -78,11 +78,11 @@ const cases=[
   ],
   [
     "I read the book.",
-    "Ik nu bokulta ræd."
+    "Ik nu bokuta ræd."
   ],
   [
     "She bought a red apple.",
-    "Ea er æpelta rod byg."
+    "Ea er æpel rod byg."
   ],
   [
     "The house was cold.",
@@ -90,7 +90,7 @@ const cases=[
   ],
   [
     "They will open our door.",
-    "Dei va dorulta vies opn."
+    "Dei va doruta vies opn."
   ],
   [
     "Do you know me?",
@@ -98,23 +98,23 @@ const cases=[
   ],
   [
     "I am reading my book.",
-    "Ik dur bokulta ikes ræd."
+    "Ik dur bokuta ikes ræd."
   ],
   [
     "My mother's house is bigger than ours.",
-    "Husul av modărul ikes nu storer þan viesul es."
+    "Husul modărules ikes nu storer þan viesul es."
   ],
   [
     "The teacher who reads the book knows me.",
-    "Lærărul þe nu bokulta ræd, nu ikta wit."
+    "Lærărul þe nu bokuta ræd, nu ikta wit."
   ],
   [
     "If you come, we will eat bread.",
-    "Gif þu nu kum, vi va brædta et."
+    "Gif þu nu kum, vi va bræd et."
   ],
   [
     "The father and the mother see the children.",
-    "Fædărul end modărul nu țildenleta se."
+    "Fædărul end modărul nu țildenla se."
   ],
   [
     "The dog is smaller than the horse.",
@@ -122,11 +122,11 @@ const cases=[
   ],
   [
     "My father drinks water.",
-    "Fædărul ikes nu vætărta drink."
+    "Fædărul ikes nu vætăr drink."
   ],
   [
     "The king sees the children.",
-    "Țyningul nu țildenleta se."
+    "Țyningul nu țildenla se."
   ],
   [
     "She is singing.",
@@ -138,11 +138,63 @@ const cases=[
   ],
   [
     "The mother knows my brother.",
-    "Modărul nu broþărulta ikes wit."
+    "Modărul nu broþăruta ikes wit."
   ],
   [
     "The deer sees the heart.",
-    "Hertul nu hertăulta se."
+    "Hertul nu hertăuta se."
+  ],
+  [
+    "My sister does not remember those strange stories.",
+    "Șystărul ikes nu þa sægenta fremdige ne mynd."
+  ],
+  [
+    "The old kings see the thirsty horses.",
+    "Țyningenle alde nu hersenla þyrstige se."
+  ],
+  [
+    "The old kings' books are red.",
+    "Bokenle țyningenles alde nu rod es."
+  ],
+  [
+    "She gives the bread to him.",
+    "Ea nu bræduta ham gif."
+  ],
+  [
+    "He gives water to her.",
+    "Han nu vætăr eam gif."
+  ],
+  [
+    "I see a dog.",
+    "Ik nu hundta se."
+  ],
+  [
+    "I see a book.",
+    "Ik nu bok se."
+  ],
+  [
+    "I see the book.",
+    "Ik nu bokuta se."
+  ],
+  [
+    "The people know our names.",
+    "Mænnenle nu namenla vies wit."
+  ],
+  [
+    "We see the feet.",
+    "Vi nu fetenla se."
+  ],
+  [
+    "The hearts are strong.",
+    "Hertăenle nu strang es."
+  ],
+  [
+    "She sends the letters to them.",
+    "Ea nu brevenla dem send."
+  ],
+  [
+    "The children see the red apples.",
+    "Țildenle nu æpelenla rode se."
   ]
 ];
 for(const [en,ra] of cases){
