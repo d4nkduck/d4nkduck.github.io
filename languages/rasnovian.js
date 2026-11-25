@@ -1,12 +1,31 @@
 // Each language pack registers its own vocabulary, documentation and grammar adapter.
 window.languagePacks = window.languagePacks || [];
 window.languagePacks.push({
- id:"rasnovian", name:"Rasnovian", native:"Rașnovæsk", version:"0.4",
+ id:"rasnovian", name:"Rasnovian", native:"Rașnovæsk", version:"0.5",
  origins:[["Anglo-Saxon",60],["Romanian",30],["Russian",10]],
  alphabet:"A Ă Æ B D E F G H I J K L M N O P R S Ș T Ț Þ U V Y Z".split(" "),
  sounds:[["Ă","unstressed uh"],["Æ","a in cat"],["Ș","sh"],["Ț","ts"],["Þ","th in think"],["Y","Russian ы"],["J","zh in vision"],["R","rolled r"],["V","v"]],
  // [English lemma, Rasnovian lemma, part of speech]
  words:[
+ ["sword","sverd","noun","Society & travel"],
+ ["sharp","skær","adjective","Qualities"],
+ ["mud","slud","noun","Nature & weather"],
+ ["deer","heort","noun","Nature & weather"],
+ ["blood","blod","noun","Body & mind"],
+ ["iron","isern","noun","Home & daily life"],
+ ["gold","gold","noun","Home & daily life"],
+ ["rain","regnan","verb","Actions"],
+ ["become","verdan","verb","Actions"],
+ ["hide","hydan","verb","Actions"],
+ ["hunt","hentan","verb","Actions"],
+ ["must","skul","modal","Foundation"],
+ ["can","kæn","modal","Foundation"],
+ ["may","mot","modal","Foundation"],
+ ["should","bur","modal","Foundation"],
+ ["than","þan","preposition","Foundation"],
+ ["of","av","preposition","Foundation"],
+ ["then","þæn","adverb","Connectors & time"],
+ ["relative who/which/that","þe","particle","Foundation"],
  ["fresh","fersk","adjective","Qualities"],
  ["help","help","noun","Foundation"],
  ["for","for","preposition","Connectors & time"],
@@ -479,7 +498,6 @@ window.languagePacks.push({
  ["The stone remembers the hand.","Stænul nu handulta mynd."],
  ["A quiet word is strong.","Ord stil nu strang es."],
  ["The home remembers its guests.","Heimul nu gæstenleta hites mynd."],
- ["I understand you.","Ik nu þuta understand."],
  ["Good morning!","Morgăn god!"],
  ["Good night!","Nișt god!"],
  ["Thank you for your help.","Þank þu for helpul þues."],
@@ -487,18 +505,19 @@ window.languagePacks.push({
  ["What is your name?","Hvat nu namăul þues es?"],
  ["My name is...","Namăul ikes nu ... es."],
  ["I speak Rasnovian.","Ik nu Rașnovæskta sprek."],
- ["I do not understand.","Ik nu ne understand."],
  ["See you tomorrow!","Amorgăn þuta se!"],
- ["The bread is fresh.","Brædul nu fersk es."],
- ["Man, fuck those idiots over at the bakery. They messed up our order, it is so bad we might as well report this to the parliament HAH!","Mann, þa dolenta bi bakhusul verdom! Dei er ordrulta vies forspill. Hit nu sva yvel es; vi hed jafn hitta til þingul meld. HAH!"],
- ["Man, fuck those idiots over at the bakery.","Mann, þa dolenta bi bakhusul verdom!"],
- ["They messed up our order.","Dei er ordrulta vies forspill."],
- ["It is so bad; we might as well report this to the parliament.","Hit nu sva yvel es; vi hed jafn hitta til þingul meld."],
- ["Fuck those idiots!","Þa dolenta verdom!"],
- ["They messed up our order, it is so bad we might as well report this to the parliament HAH!","Dei er ordrulta vies forspill. Hit nu sva yvel es; vi hed jafn hitta til þingul meld. HAH!"],
- ["Hello!","Hæl!"],["Goodbye!","Farvæl!"],["How are you?","Hu nu þu es?"],["I am well, thanks.","Ik nu væl es, þank."],["I see the house.","Ik nu husulta se."],["I do not see the house.","Ik nu husulta ne se."],["Do you see the house?","Þu nu husulta se li?"],["I ate.","Ik er et."],["I will eat.","Ik va et."],["I am eating.","Ik dur et."],["I would eat.","Ik hed et."],["The night is cold.","Niștul nu kald es."],["The cold house","Husul kald"],["Yes, my friend.","Ja, priat ikes."],["Shall we go home?","Vi va til heim far li?"]
+ ["Hello!","Hæl!"],
+ ["Goodbye!","Farvæl!"],
+ ["How are you?","Hu nu þu es?"],
+ ["I am well, thanks.","Ik nu væl es, þank."],
+ ["Yes, my friend.","Ja, priat ikes."],
+ ["Shall we go home?","Vi va til heim far li?"]
  ],
  grammar:[
+ ["Prepositions and time","A direct object precedes prepositional phrases; time adverbs can follow these before the verb. Prepositions govern unmarked noun phrases and base pronouns: til han = to him. Time expressions can also precede other adjuncts."],
+ ["Wh-questions","Hvi (why), hvar (where), hven (when), hu (how) precede the tense particle, then the subject and verb-final predicate. They do not take li. Object and subject wh-questions are not yet parsed."],
+ ["Modals","Skul must, kæn can, mot may, bur should precede the bare verb stem; ne precedes the modal. Present modal clauses are currently implemented."],
+ ["Quantified nouns","Cardinal numbers precede the noun and any article remains suffixed. Quantity one uses singular; other cardinals use plural -en. The parser accepts individual recorded numerals, not all composed number phrases."],
  ["Proverbs and idioms","Stænul nu handulta mynd (the stone remembers the hand) means that work bears the mark of its maker, even when the maker is forgotten. Ord stil nu strang es (a quiet word is strong) values restraint and influence over loudness. Heimul nu gæstenleta hites mynd (the home remembers its guests) expresses the belief that hospitality leaves lasting traces. These are cultural sayings, not literal translation rules."],
  ["Everyday register","Greetings often take the form noun + adjective, e.g. morgăn god (good morning) and nișt god (good night). Short farewell formulas may omit a subject and tense particle, e.g. amorgăn þuta se (see you tomorrow)."],
  ["Noun phrase grammar","Possessive nouns carry a definite article and their possessor follows any adjective: bokulta ikes = my book (object). Demonstratives precede nouns and suppress the article. Personal objects use -ta: ikta me, þuta you, hanta him, eata her, hitta it, vita us, deita them."],
@@ -526,13 +545,15 @@ window.languagePacks.push({
  const punct=input.trim().match(/[.!?]$/)?.[0]||"";
  const tokens=split(norm(input).replace(/[.!?]$/,"").replace(/n['’]t\b/g," not").replace(/\bwo not\b/g,"will not").replace(/\bi['’]m\b/g,"i am").replace(/\b(he|she|it)['’]s\b/g,"$1 is").replace(/\b(we|you|they)['’]re\b/g,"$1 are"));
  const words=this.words, nouns=words.filter(w=>["noun","concept"].includes(w[2])), forms={"go":["goes","went","going"],"come":["comes","came","coming"],"have":["has","had","having"],"make":["makes","made","making"],"do":["does","did","doing"],"get":["gets","got","getting"],"give":["gives","gave","giving"],"take":["takes","took","taking"],"find":["finds","found","finding"],"lose":["loses","lost","losing"],"hear":["hears","heard","hearing"],"listen":["listens","listened","listening"],"say":["says","said","saying"],"tell":["tells","told","telling"],"ask":["asks","asked","asking"],"answer":["answers","answered","answering"],"read":["reads","read","reading"],"write":["writes","wrote","writing"],"learn":["learns","learned","learning"],"teach":["teaches","taught","teaching"],"understand":["understands","understood","understanding"],"think":["thinks","thought","thinking"],"remember":["remembers","remembered","remembering"],"forget":["forgets","forgot","forgetting"],"believe":["believes","believed","believing"],"want":["wants","wanted","wanting"],"need":["needs","needed","needing"],"like":["likes","liked","liking"],"hate":["hates","hated","hating"],"help":["helps","helped","helping"],"wait":["waits","waited","waiting"],"start":["starts","started","starting"],"finish":["finishes","finished","finishing"],"stop":["stops","stopped","stopping"],"open":["opens","opened","opening"],"close":["closes","closed","closing"],"buy":["buys","bought","buying"],"sell":["sells","sold","selling"],"pay":["pays","paid","paying"],"cook":["cooks","cooked","cooking"],"bake":["bakes","baked","baking"],"wash":["washes","washed","washing"],"clean":["cleans","cleaned","cleaning"],"build":["builds","built","building"],"carry":["carries","carried","carrying"],"bring":["brings","brought","bringing"],"send":["sends","sent","sending"],"walk":["walks","walked","walking"],"run":["runs","ran","running"],"sit":["sits","sat","sitting"],"stand":["stands","stood","standing"],"sleep":["sleeps","slept","sleeping"],"wake":["wakes","woke","waking"],"rest":["rests","rested","resting"],"laugh":["laughs","laughed","laughing"],"smile":["smiles","smiled","smiling"],"cry":["cries","cried","crying"],"sing":["sings","sang","singing"],"play":["plays","played","playing"],"work":["works","worked","working"],"stay":["stays","stayed","staying"],"leave":["leaves","left","leaving"],"return":["returns","returned","returning"],"meet":["meets","met","meeting"],"choose":["chooses","chose","choosing"],"change":["changes","changed","changing"],"feel":["feels","felt","feeling"],"hope":["hopes","hoped","hoping"],"try":["tries","tried","trying"],"happen":["happens","happened","happening"],"fall":["falls","fell","falling"],"grow":["grows","grew","growing"],"move":["moves","moved","moving"],"report":["reports","reported","reporting"],"mess up":["messes up","messed up","messing up"],"see":["sees","saw","seeing"],"eat":["eats","ate","eating"],"drink":["drinks","drank","drinking"],"love":["loves","loved","loving"],"travel":["travels","traveled","traveling"],"speak":["speaks","spoke","speaking"],"live":["lives","lived","living"],"know":["knows","knew","knowing"]};
+ Object.assign(forms,{"rain":["rains","rained","raining"],"become":["becomes","became","becoming"],"hide":["hides","hid","hiding"],"hunt":["hunts","hunted","hunting"]});
  const find=(s,pos,rev=false)=>words.find(w=>norm(w[rev?1:0])===s&&w[2]===pos);
  const pron=words.filter(w=>w[2]==="pronoun"), poss=words.filter(w=>w[2]==="possessive");
+ const num=words.filter(w=>w[2]==="number");
  const verbs=words.filter(w=>w[2]==="verb"&&forms[w[0]]);
  const demo={this:"þes",that:"þat",these:"þesne",those:"þa"}, ob={me:"ikta",you:"þuta",him:"hanta",her:"eata",it:"hitta",us:"vita",them:"deita"};
- const irreg={person:"people",child:"children",man:"men",woman:"women",tooth:"teeth",foot:"feet",sheep:"sheep",fish:"fish",life:"lives",leaf:"leaves",knife:"knives",wolf:"wolves"};
+ const irreg={person:"people",child:"children",man:"men",woman:"women",tooth:"teeth",foot:"feet",sheep:"sheep",fish:"fish",life:"lives",leaf:"leaves",knife:"knives",wolf:"wolves",deer:"deer"};
  const plural=s=>irreg[s]||(/[^aeiou]y$/.test(s)?s.slice(0,-1)+"ies":/(s|x|z|ch|sh)$/.test(s)?s+"es":s+"s");
- const mass=new Set("water snow fire peace freedom life love hope rain milk bread cheese butter meat salt sugar coffee tea juice money clothing grass sand soil fog ice health pain work time sleep rest truth darkness sunlight".split(" "));
+ const mass=new Set("water snow fire peace freedom life love hope rain milk bread cheese butter meat salt sugar coffee tea juice money clothing grass sand soil fog ice health pain work time sleep rest truth darkness sunlight mud blood iron gold".split(" "));
  function np(a,obj=false,rev=false){
   if(!a.length)return null;
   if(a.length===1){
@@ -540,41 +561,70 @@ window.languagePacks.push({
    else {const p=pron.find(w=>norm(w[rev?1:0])===a[0]);if(p)return {text:rev?(p[0]==="you (plural)"?"you":p[0]):p[1],third:["he","she","it"].includes(p[0]),first:p[0]==="I"};}
   }
   if(!rev){
-   let b=a.slice(),d="",ps="",dm="";
+   let b=a.slice(),d="",ps="",dm="",quantity=null;
    if(["the","a","an"].includes(b[0]))d=b.shift();else if(demo[b[0]])dm=b.shift();else{const p=poss.find(w=>norm(w[0])===b[0]);if(p){ps=p[1];b.shift();}}
+   quantity=num.find(w=>w[0]===b[0]);if(quantity)b.shift();
    for(const n of nouns)for(const pl of [false,true]){
+    if(quantity&&pl===(quantity[0]==="one"))continue;
     const en=split(norm(pl?plural(n[0]):n[0]));if(b.length<en.length||b.slice(-en.length).join(" ")!==en.join(" "))continue;
     if(pl&&["a","an","this","that"].includes(d||dm)||!pl&&["these","those"].includes(dm))continue;
     const ad=b.slice(0,b.length-en.length).map(x=>find(x,"adjective"));if(ad.some(x=>!x))continue;
-    if(!d&&!ps&&!dm&&!pl&&!mass.has(n[0])&&n[2]!=="concept")continue;
+    if(!d&&!ps&&!dm&&!quantity&&!pl&&!mass.has(n[0])&&n[2]!=="concept")continue;
     const def=d==="the"||!!ps;
-    return {text:[demo[dm],n[1]+(pl?"en":"")+(def?(pl?"le":"ul"):"")+(obj?"ta":""),...ad.map(x=>x[1]),ps].filter(Boolean).join(" "),third:!pl};
+    return {text:[demo[dm],quantity?.[1],n[1]+(pl?"en":"")+(def?(pl?"le":"ul"):"")+(obj?"ta":""),...ad.map(x=>x[1]),ps].filter(Boolean).join(" "),third:!pl};
    }
    return null;
   }
-  let b=a.slice(),dm="",ps="";
+  let b=a.slice(),dm="",ps="",quantity=null;
   const d=Object.keys(demo).find(k=>demo[k]===b[0]);if(d){dm=d;b.shift();}
+  quantity=num.find(w=>w[1]===b[0]);if(quantity)b.shift();
   const p=poss.find(w=>w[1]===b[b.length-1]);if(p){ps=p[0];b.pop();}
   const marked=b.shift(),ad=b.map(x=>find(x,"adjective",true));if(ad.some(x=>!x))return null;
   for(const n of nouns)for(const pl of [false,true])for(const def of [false,true]){
    if(n[1]+(pl?"en":"")+(def?(pl?"le":"ul"):"")+(obj?"ta":"")!==marked)continue;
-   if(dm&&def||ps&&!def||dm&&["these","those"].includes(dm)!==pl)continue;
+   if(dm&&def||ps&&!def||dm&&["these","those"].includes(dm)!==pl||quantity&&pl===(quantity[0]==="one"))continue;
    const body=[...ad.map(x=>x[0]),pl?plural(n[0]):n[0]].join(" ");
-   const prefix=dm||ps||(def?"the":pl||mass.has(n[0])||n[2]==="concept"?"":/^[aeiou]/.test(body)?"an":"a");
-   return {text:[prefix,body].filter(Boolean).join(" "),third:!pl};
+   const prefix=dm||ps||(def?"the":pl||quantity||mass.has(n[0])||n[2]==="concept"?"":/^[aeiou]/.test(body)?"an":"a");
+   return {text:[prefix,quantity?.[0],body].filter(Boolean).join(" "),third:!pl};
   }return null;
  }
  function pred(a,rev,obj=true){
   if(!a.length)return {text:""};
-  if(!obj){const ad=find(a[a.length-1],"adjective",rev);const deg=rev?{sva:"so",særli:"very"}:{so:"sva",very:"særli"};if(ad&&(a.length===1||a.length===2&&deg[a[0]]))return {text:[a.length===2?deg[a[0]]:"",ad[rev?0:1]].filter(Boolean).join(" ")};}
-  return np(a,obj,rev);
+  const preps=words.filter(w=>w[2]==="preposition"&&!["than","of"].includes(w[0]));
+  const times=words.filter(w=>w[2]==="adverb"&&["yesterday","today","tomorrow","now","always","never","often","sometimes","already","again","together","apart","then","here","there"].includes(w[0]));
+  const side=rev?1:0,other=1-side;
+  const bare={night:"nișt",home:"heim",morning:"morgăn",evening:"æven",school:"skol",work:"verk"};
+  const ppnp=(b)=>{
+   if(b.length===1){
+    if(rev){const row=pron.find(w=>w[1]===b[0]);if(row){const english=row[0]==="you (plural)"?"you":row[0];return {text:{I:"me",he:"him",she:"her",we:"us",they:"them"}[english]||english};}}
+    else{const r=pron.find(w=>w[0]===( {me:"I",him:"he",her:"she",us:"we",them:"they"}[b[0]]||b[0]));if(r)return {text:r[1]};}
+    const k=rev?Object.keys(bare).find(k=>bare[k]===b[0]):bare[b[0]];if(k)return {text:k};
+   }
+   return np(b,false,rev);
+  };
+  function core(b){
+   if(!b.length)return {text:""};
+   if(!obj){const ad=find(b[b.length-1],"adjective",rev);const deg=rev?{sva:"so",særli:"very"}:{so:"sva",very:"særli"};if(ad&&(b.length===1||b.length===2&&deg[b[0]]))return {text:[b.length===2?deg[b[0]]:"",ad[other]].filter(Boolean).join(" ")};}
+   return np(b,obj,rev);
+  }
+  function extras(b){
+   if(!b.length)return [];
+   const t=times.find(w=>w[side]===b[0]);if(t){const tail=extras(b.slice(1));if(tail)return [t[other],...tail];}
+   const prep=preps.find(w=>w[side]===b[0]);if(!prep)return null;
+   for(let i=b.length;i>=2;i--){const n=ppnp(b.slice(1,i));if(!n)continue;const tail=extras(b.slice(i));if(tail)return [prep[other]+" "+n.text,...tail];}
+   return null;
+  }
+  for(let i=a.length;i>=0;i--){const main=core(a.slice(0,i));if(!main)continue;const tail=extras(a.slice(i));if(tail)return {text:[main.text,...tail].filter(Boolean).join(" ")};}
+  return null;
  }
  const particles=["nu","er","va","dur","hed"];
+ const modals={must:"skul",can:"kæn",may:"mot",should:"bur"};
+ const whs={why:"hvi",where:"hvar",when:"hven",how:"hu"};
  if(!reverse){
-  let a=tokens.slice(),q=false,aux="";
-  const auxes=["do","does","did","will","would","am","is","are","was","were"];
-  if(auxes.includes(a[0])){aux=a.shift();q=true;}
-  function out(s,t,o,neg,stem){return cap([s.text,t,o.text,neg?"ne":"",stem,q?"li":""].filter(Boolean).join(" "))+(q?"?":punct);}
+  let a=tokens.slice(),q=false,aux="",wh="";if(whs[a[0]])wh=a.shift();
+  const auxes=["do","does","did","will","would","am","is","are","was","were",...Object.keys(modals)];
+  if(auxes.includes(a[0])){aux=a.shift();q=true;}else if(wh)return null;
+  function out(s,t,o,neg,stem,modal=""){return cap([...(wh?[whs[wh],t,s.text]:[s.text,t]),o.text,neg?"ne":"",modal,stem,q&&!wh?"li":""].filter(Boolean).join(" "))+(q?"?":punct);}
   for(let i=1;i<a.length;i++){
    const s=np(a.slice(0,i));if(!s)continue;
    let b=a.slice(i),ax=aux;if(!ax&&auxes.includes(b[0]))ax=b.shift();
@@ -588,19 +638,20 @@ window.languagePacks.push({
    for(const v of verbs){
     const [en,ra]=v,[third,past,ing]=forms[en];
     const variants=be?[[ing,"dur"]]:ax?[[en,tense]]:[[s.third?third:en,"nu"],[past,"er"]];
-    for(const [form,t] of variants){const vt=split(form);if(b.slice(0,vt.length).join(" ")!==form)continue;const o=pred(b.slice(vt.length),false);if(o)return out(s,t,o,neg,ra.slice(0,-2));}
+    for(const [form,t] of variants){const vt=split(form);if(b.slice(0,vt.length).join(" ")!==form)continue;const o=pred(b.slice(vt.length),false);if(o)return out(s,t,o,neg,ra.slice(0,-2),modals[ax]);}
    }
   }return null;
  }
  let a=tokens.slice(),q=a[a.length-1]==="li";if(q)a.pop();
+ const wh=Object.keys(whs).find(k=>whs[k]===a[0]);if(wh){const tense=a[1];if(!particles.includes(tense))return null;for(let j=a.length-1;j>=3;j--){if(!np(a.slice(2,j),false,true))continue;const translated=this.translateClause([...a.slice(2,j),tense,...a.slice(j),"li"].join(" ")+"?",true);if(translated)return cap(wh+" "+translated[0].toLowerCase()+translated.slice(1));}return null;}
  const i=a.findIndex(x=>particles.includes(x));if(i<1)return null;
  const s=np(a.slice(0,i),false,true);if(!s)return null;
- const t=a[i];a=a.slice(i+1);const stem=a.pop();const neg=a[a.length-1]==="ne";if(neg)a.pop();
+ const t=a[i];a=a.slice(i+1);const stem=a.pop();const modal=Object.keys(modals).find(k=>modals[k]===a[a.length-1]);if(modal)a.pop();const neg=a[a.length-1]==="ne";if(neg)a.pop();
  const cop=stem==="es",v=verbs.find(w=>w[1].slice(0,-2)===stem);if(!cop&&!v)return null;
  const o=pred(a,true,!cop);if(!o||cop&&!o.text)return null;
  const be=s.first?"am":s.third?"is":"are",pastBe=s.first||s.third?"was":"were";let aux="",vv="";
  if(cop){if(t==="dur")return null;if(t==="va"||t==="hed"){aux=t==="va"?"will":"would";vv="be";}else aux=t==="er"?pastBe:be;}
- else{const en=v[0],[third,past,ing]=forms[en];vv=en;if(t==="va"||t==="hed")aux=t==="va"?"will":"would";else if(t==="dur"){aux=be;vv=ing;}else if(q||neg)aux=t==="er"?"did":s.third?"does":"do";else vv=t==="er"?past:s.third?third:en;}
+ else{const en=v[0],[third,past,ing]=forms[en];vv=en;if(modal){if(t!=="nu")return null;aux=modal;}else if(t==="va"||t==="hed")aux=t==="va"?"will":"would";else if(t==="dur"){aux=be;vv=ing;}else if(q||neg)aux=t==="er"?"did":s.third?"does":"do";else vv=t==="er"?past:s.third?third:en;}
  return cap((q?[aux,s.text,neg?"not":"",vv,o.text]:[s.text,aux,neg?"not":"",vv,o.text]).filter(Boolean).join(" "))+(q?"?":punct);
 }
 });
