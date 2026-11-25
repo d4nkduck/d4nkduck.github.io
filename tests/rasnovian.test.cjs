@@ -227,3 +227,18 @@ console.log(cases.length+" bidirectional regression cases passed.");
    assert.equal(JSON.stringify([...new Set(parts.flatMap(p=>p.rules))]),JSON.stringify(entry.rules));
  }
  assert.equal(new Set(pack.words.map(w=>w[1])).size,pack.words.length,"Native spelling collision");
+
+ // Audit all noun forms by case; nominative and accusative may intentionally
+ // share a form, but distinct nouns must not collide within the same case.
+ for(const kase of ["nom","acc","gen"]){
+   const seen=new Map();
+   for(const noun of pack.words.filter(w=>["noun","concept"].includes(w[2])))
+     for(const plural of [false,true])for(const definite of [false,true]){
+       const form=pack.inflectNoun(noun,plural,definite,kase);
+       assert.ok(!seen.has(form),"Collision in "+kase+": "+form);
+       seen.set(form,noun[0]);
+     }
+ }
+ const dog=pack.words.find(w=>w[0]==="dog");
+ assert.equal(pack.inflectNoun(dog,true,true,"acc"),"hindenla");
+ console.log("Historical replay and noun paradigm audit passed.");
