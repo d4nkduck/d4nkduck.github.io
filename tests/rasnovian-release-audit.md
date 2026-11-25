@@ -4,7 +4,7 @@ This is a usable rule-based prototype, not a completed natural language or an un
 
 ## Checks
 - Previous suite: 521 equality assertions and full noun/history/phrase integrity checks, run using an equivalent JavaScript assert harness.
-- New test set: 61 prompts; v0.8.5 returned 25 full forward parses, v0.9.0 returned 55, of which 55 also returned a reverse parse. These are parser-coverage counts, not independent linguistic accuracy scores. The set was used during development; it is not an unseen held-out benchmark.
+- New test set: 62 prompts; v0.8.5 returned 25 full forward parses, v0.9.0 returned 55, of which 55 also returned a reverse parse. These are parser-coverage counts, not independent linguistic accuracy scores. The set was used during development; it is not an unseen held-out benchmark.
 - Added 53 bidirectional regression cases. The curated phrasebook remains 17 entries; no test sentence was added.
 - Dictionary: 794 entries, 801 English alias keys, no duplicate native headwords or audited nominal paradigm collisions. Legacy witan/wit uses w outside the stated alphabet; retained for compatibility.
 - Existing noun and history checks pass. JavaScript source validated; full browser deployment and Node CLI execution not independently tested.
