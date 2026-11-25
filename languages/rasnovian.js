@@ -1,18 +1,595 @@
 // Each language pack registers its own vocabulary, documentation and grammar adapter.
 window.languagePacks = window.languagePacks || [];
 window.languagePacks.push({
- id:"rasnovian", name:"Rasnovian", native:"Rașnovæsk", version:"0.5",
+ id:"rasnovian", name:"Rasnovian", native:"Rașnovæsk", version:"0.6",
  origins:[["Anglo-Saxon",60],["Romanian",30],["Russian",10]],
  alphabet:"A Ă Æ B D E F G H I J K L M N O P R S Ș T Ț Þ U V Y Z".split(" "),
  sounds:[["Ă","unstressed uh"],["Æ","a in cat"],["Ș","sh"],["Ț","ts"],["Þ","th in think"],["Y","Russian ы"],["J","zh in vision"],["R","rolled r"],["V","v"]],
  // [English lemma, Rasnovian lemma, part of speech]
+ history:{
+ "stages": [
+  [
+   "Forrașnovæsk",
+   "Ancestral settlement speech",
+   "Years 0–250 (relative chronology). Germanic-speaking settlers establish communities along a river corridor. The inherited core supplies basic verbs, kinship and natural vocabulary."
+  ],
+  [
+   "Aldrașnovæsk",
+   "Old Rasnovian",
+   "Years 250–550. Bilingual Romance communities introduce postposed definite articles, vowel ă and household/civic loans. Existing Germanic compounds remain productive."
+  ],
+  [
+   "Midrașnovæsk",
+   "Middle Rasnovian",
+   "Years 550–900. Eastern Slavic trade and bilingual towns encourage palatalisation, particles and loanwords; older sound changes spread through inherited vocabulary."
+  ],
+  [
+   "Nevrașnovæsk",
+   "Modern Rasnovian",
+   "Years 900 onward. Monophthongisation and weak-vowel reduction stabilise; a written standard preserves some conservative forms. Later loans and regional varieties remain distinct."
+  ]
+ ],
+ "laws": [
+  {
+   "id": "S1",
+   "stage": "Old → Middle",
+   "name": "Front-vowel palatalisation",
+   "description": "Inherited root-initial k before i or y becomes ț; s before i or y becomes ș; sk before æ, e, i or y becomes ș. Later loans can retain original clusters.",
+   "examples": [
+    "kild → țild",
+    "singan → șingan",
+    "skær → șær"
+   ]
+  },
+  {
+   "id": "S2",
+   "stage": "Old → Middle",
+   "name": "Loss of preaspiration",
+   "description": "Inherited initial hl simplifies to l. This affects lexical roots, not every written h.",
+   "examples": [
+    "hlud → lud",
+    "hlystan → lystan",
+    "hlæhan → læhan"
+   ]
+  },
+  {
+   "id": "S3",
+   "stage": "Middle",
+   "name": "Intervocalic voicing",
+   "description": "Single s between vowels becomes z in inherited lexical roots; the high-frequency copula esan retains conservative s.",
+   "examples": [
+    "isern → izern",
+    "losan → lozan"
+   ]
+  },
+  {
+   "id": "S4",
+   "stage": "Middle → Modern",
+   "name": "Monophthongisation",
+   "description": "Inherited eo becomes e in the stressed root. The spelling represents a merged mid-front vowel, not a deletion in arbitrary modern words.",
+   "examples": [
+    "heort → hert",
+    "deork → derk",
+    "feor → fer"
+   ]
+  },
+  {
+   "id": "S5",
+   "stage": "Middle → Modern",
+   "name": "Unstressed vowel reduction",
+   "description": "Unstressed e in the final -er syllable of inherited polysyllabic stems becomes ă. Monosyllables such as ber stay unchanged; later learned agent formations may retain -er.",
+   "examples": [
+    "broþer → broþăr",
+    "fæder → fædăr",
+    "væter → vætăr"
+   ]
+  }
+ ],
+ "changes": [
+  {
+   "english": "sharp",
+   "pos": "adjective",
+   "earlier": "skær",
+   "modern": "șær",
+   "rules": [
+    "S1"
+   ],
+   "components": [
+    "skær"
+   ]
+  },
+  {
+   "english": "deer",
+   "pos": "noun",
+   "earlier": "heort",
+   "modern": "hert",
+   "rules": [
+    "S4"
+   ],
+   "components": [
+    "heort"
+   ]
+  },
+  {
+   "english": "iron",
+   "pos": "noun",
+   "earlier": "isern",
+   "modern": "izern",
+   "rules": [
+    "S3"
+   ],
+   "components": [
+    "isern"
+   ]
+  },
+  {
+   "english": "mother",
+   "pos": "noun",
+   "earlier": "moder",
+   "modern": "modăr",
+   "rules": [
+    "S5"
+   ],
+   "components": [
+    "moder"
+   ]
+  },
+  {
+   "english": "brother",
+   "pos": "noun",
+   "earlier": "broþer",
+   "modern": "broþăr",
+   "rules": [
+    "S5"
+   ],
+   "components": [
+    "broþer"
+   ]
+  },
+  {
+   "english": "sister",
+   "pos": "noun",
+   "earlier": "syster",
+   "modern": "șystăr",
+   "rules": [
+    "S1",
+    "S5"
+   ],
+   "components": [
+    "syster"
+   ]
+  },
+  {
+   "english": "daughter",
+   "pos": "noun",
+   "earlier": "dohter",
+   "modern": "dohtăr",
+   "rules": [
+    "S5"
+   ],
+   "components": [
+    "dohter"
+   ]
+  },
+  {
+   "english": "grandmother",
+   "pos": "noun",
+   "earlier": "aldmoder",
+   "modern": "aldmodăr",
+   "rules": [
+    "S5"
+   ],
+   "components": [
+    "ald",
+    "moder"
+   ]
+  },
+  {
+   "english": "grandfather",
+   "pos": "noun",
+   "earlier": "aldfæder",
+   "modern": "aldfædăr",
+   "rules": [
+    "S5"
+   ],
+   "components": [
+    "ald",
+    "fæder"
+   ]
+  },
+  {
+   "english": "teacher",
+   "pos": "noun",
+   "earlier": "lærer",
+   "modern": "lærăr",
+   "rules": [
+    "S5"
+   ],
+   "components": [
+    "lærer"
+   ]
+  },
+  {
+   "english": "doctor",
+   "pos": "noun",
+   "earlier": "læker",
+   "modern": "lækăr",
+   "rules": [
+    "S5"
+   ],
+   "components": [
+    "læker"
+   ]
+  },
+  {
+   "english": "baker",
+   "pos": "noun",
+   "earlier": "bakker",
+   "modern": "bakkăr",
+   "rules": [
+    "S5"
+   ],
+   "components": [
+    "bakker"
+   ]
+  },
+  {
+   "english": "leader",
+   "pos": "noun",
+   "earlier": "forer",
+   "modern": "forăr",
+   "rules": [
+    "S5"
+   ],
+   "components": [
+    "forer"
+   ]
+  },
+  {
+   "english": "butter",
+   "pos": "noun",
+   "earlier": "buter",
+   "modern": "butăr",
+   "rules": [
+    "S5"
+   ],
+   "components": [
+    "buter"
+   ]
+  },
+  {
+   "english": "bowl",
+   "pos": "noun",
+   "earlier": "skæl",
+   "modern": "șæl",
+   "rules": [
+    "S1"
+   ],
+   "components": [
+    "skæl"
+   ]
+  },
+  {
+   "english": "winter",
+   "pos": "noun",
+   "earlier": "vinter",
+   "modern": "vintăr",
+   "rules": [
+    "S5"
+   ],
+   "components": [
+    "vinter"
+   ]
+  },
+  {
+   "english": "heart",
+   "pos": "noun",
+   "earlier": "heortă",
+   "modern": "hertă",
+   "rules": [
+    "S4"
+   ],
+   "components": [
+    "heort",
+    "ă"
+   ]
+  },
+  {
+   "english": "choice",
+   "pos": "noun",
+   "earlier": "kyr",
+   "modern": "țyr",
+   "rules": [
+    "S1"
+   ],
+   "components": [
+    "kyr"
+   ]
+  },
+  {
+   "english": "judge",
+   "pos": "noun",
+   "earlier": "domer",
+   "modern": "domăr",
+   "rules": [
+    "S5"
+   ],
+   "components": [
+    "domer"
+   ]
+  },
+  {
+   "english": "nation",
+   "pos": "noun",
+   "earlier": "þeod",
+   "modern": "þed",
+   "rules": [
+    "S4"
+   ],
+   "components": [
+    "þeod"
+   ]
+  },
+  {
+   "english": "dark",
+   "pos": "adjective",
+   "earlier": "deork",
+   "modern": "derk",
+   "rules": [
+    "S4"
+   ],
+   "components": [
+    "deork"
+   ]
+  },
+  {
+   "english": "loud",
+   "pos": "adjective",
+   "earlier": "hlud",
+   "modern": "lud",
+   "rules": [
+    "S2"
+   ],
+   "components": [
+    "hlud"
+   ]
+  },
+  {
+   "english": "different",
+   "pos": "adjective",
+   "earlier": "ander",
+   "modern": "andăr",
+   "rules": [
+    "S5"
+   ],
+   "components": [
+    "ander"
+   ]
+  },
+  {
+   "english": "four",
+   "pos": "number",
+   "earlier": "feor",
+   "modern": "fer",
+   "rules": [
+    "S4"
+   ],
+   "components": [
+    "feor"
+   ]
+  },
+  {
+   "english": "forty",
+   "pos": "number",
+   "earlier": "feortig",
+   "modern": "fertig",
+   "rules": [
+    "S4"
+   ],
+   "components": [
+    "feor",
+    "tig"
+   ]
+  },
+  {
+   "english": "lose",
+   "pos": "verb",
+   "earlier": "losan",
+   "modern": "lozan",
+   "rules": [
+    "S3"
+   ],
+   "components": [
+    "losan"
+   ]
+  },
+  {
+   "english": "listen",
+   "pos": "verb",
+   "earlier": "hlystan",
+   "modern": "lystan",
+   "rules": [
+    "S2"
+   ],
+   "components": [
+    "hlyst",
+    "an"
+   ]
+  },
+  {
+   "english": "sit",
+   "pos": "verb",
+   "earlier": "sittan",
+   "modern": "șittan",
+   "rules": [
+    "S1"
+   ],
+   "components": [
+    "sitt",
+    "an"
+   ]
+  },
+  {
+   "english": "laugh",
+   "pos": "verb",
+   "earlier": "hlæhan",
+   "modern": "læhan",
+   "rules": [
+    "S2"
+   ],
+   "components": [
+    "hlæh",
+    "an"
+   ]
+  },
+  {
+   "english": "sing",
+   "pos": "verb",
+   "earlier": "singan",
+   "modern": "șingan",
+   "rules": [
+    "S1"
+   ],
+   "components": [
+    "sing",
+    "an"
+   ]
+  },
+  {
+   "english": "choose",
+   "pos": "verb",
+   "earlier": "kyran",
+   "modern": "țyran",
+   "rules": [
+    "S1"
+   ],
+   "components": [
+    "kyr",
+    "an"
+   ]
+  },
+  {
+   "english": "the comfort of watching rain from indoors",
+   "pos": "concept",
+   "earlier": "væterheim",
+   "modern": "vætărheim",
+   "rules": [
+    "S5"
+   ],
+   "components": [
+    "væter",
+    "heim"
+   ]
+  },
+  {
+   "english": "the warmth of belonging among friends",
+   "pos": "concept",
+   "earlier": "kinfyr",
+   "modern": "ținfyr",
+   "rules": [
+    "S1"
+   ],
+   "components": [
+    "kin",
+    "fyr"
+   ]
+  },
+  {
+   "english": "family",
+   "pos": "noun",
+   "earlier": "kină",
+   "modern": "țină",
+   "rules": [
+    "S1"
+   ],
+   "components": [
+    "kină"
+   ]
+  },
+  {
+   "english": "kingdom",
+   "pos": "noun",
+   "earlier": "kyningdom",
+   "modern": "țyningdom",
+   "rules": [
+    "S1"
+   ],
+   "components": [
+    "kyning",
+    "dom"
+   ]
+  },
+  {
+   "english": "water",
+   "pos": "noun",
+   "earlier": "væter",
+   "modern": "vætăr",
+   "rules": [
+    "S5"
+   ],
+   "components": [
+    "væter"
+   ]
+  },
+  {
+   "english": "child",
+   "pos": "noun",
+   "earlier": "kild",
+   "modern": "țild",
+   "rules": [
+    "S1"
+   ],
+   "components": [
+    "kild"
+   ]
+  },
+  {
+   "english": "king",
+   "pos": "noun",
+   "earlier": "kyning",
+   "modern": "țyning",
+   "rules": [
+    "S1"
+   ],
+   "components": [
+    "kyning"
+   ]
+  },
+  {
+   "english": "father",
+   "pos": "noun",
+   "earlier": "fæder",
+   "modern": "fædăr",
+   "rules": [
+    "S5"
+   ],
+   "components": [
+    "fæder"
+   ]
+  },
+  {
+   "english": "humanity",
+   "pos": "noun",
+   "earlier": "erþăkin",
+   "modern": "erþățin",
+   "rules": [
+    "S1"
+   ],
+   "components": [
+    "erþă",
+    "kin"
+   ]
+  }
+ ],
+ "notice": "Earlier forms are reconstructed in-world literary forms and prior project spellings, not authenticated Old English words. This is a first audited inherited-root cohort; unchanged entries are not automatically proven late loans."
+},
  words:[
  ["sword","sverd","noun","Society & travel"],
- ["sharp","skær","adjective","Qualities"],
+ ["sharp","șær","adjective","Qualities"],
  ["mud","slud","noun","Nature & weather"],
- ["deer","heort","noun","Nature & weather"],
+ ["deer","hert","noun","Nature & weather"],
  ["blood","blod","noun","Body & mind"],
- ["iron","isern","noun","Home & daily life"],
+ ["iron","izern","noun","Home & daily life"],
  ["gold","gold","noun","Home & daily life"],
  ["rain","regnan","verb","Actions"],
  ["become","verdan","verb","Actions"],
@@ -34,28 +611,28 @@ window.languagePacks.push({
  ["lake","lak","noun","Nature & weather"],
  ["tired","mæd","adjective","Qualities"],
  ["very","særli","adverb","Connectors & time"],
- ["mother","moder","noun","People & family"],
- ["brother","broþer","noun","People & family"],
- ["sister","syster","noun","People & family"],
+ ["mother","modăr","noun","People & family"],
+ ["brother","broþăr","noun","People & family"],
+ ["sister","șystăr","noun","People & family"],
  ["son","sună","noun","People & family"],
- ["daughter","dohter","noun","People & family"],
+ ["daughter","dohtăr","noun","People & family"],
  ["parent","eldren","noun","People & family"],
- ["grandmother","aldmoder","noun","People & family"],
- ["grandfather","aldfæder","noun","People & family"],
+ ["grandmother","aldmodăr","noun","People & family"],
+ ["grandfather","aldfædăr","noun","People & family"],
  ["woman","vif","noun","People & family"],
  ["man","ver","noun","People & family"],
  ["baby","bærn","noun","People & family"],
  ["neighbour","nehbor","noun","People & family"],
  ["guest","gæst","noun","People & family"],
  ["stranger","fremd","noun","People & family"],
- ["teacher","lærer","noun","People & family"],
+ ["teacher","lærăr","noun","People & family"],
  ["student","lernend","noun","People & family"],
  ["worker","verkend","noun","People & family"],
- ["doctor","læker","noun","People & family"],
+ ["doctor","lækăr","noun","People & family"],
  ["farmer","feldmann","noun","People & family"],
- ["baker","bakker","noun","People & family"],
+ ["baker","bakkăr","noun","People & family"],
  ["merchant","marșant","noun","People & family"],
- ["leader","forer","noun","People & family"],
+ ["leader","forăr","noun","People & family"],
  ["citizen","borgmann","noun","People & family"],
  ["name","namă","noun","People & family"],
  ["voice","stefn","noun","People & family"],
@@ -101,7 +678,7 @@ window.languagePacks.push({
  ["bread","bræd","noun","Food & drink"],
  ["milk","melk","noun","Food & drink"],
  ["cheese","kes","noun","Food & drink"],
- ["butter","buter","noun","Food & drink"],
+ ["butter","butăr","noun","Food & drink"],
  ["egg","æg","noun","Food & drink"],
  ["meat","flæș","noun","Food & drink"],
  ["fish","fisk","noun","Food & drink"],
@@ -129,7 +706,7 @@ window.languagePacks.push({
  ["plate","teler","noun","Food & drink"],
  ["spoon","spel","noun","Food & drink"],
  ["knife","knif","noun","Food & drink"],
- ["bowl","skæl","noun","Food & drink"],
+ ["bowl","șæl","noun","Food & drink"],
  ["morning","morgăn","noun","Nature & weather"],
  ["evening","æven","noun","Nature & weather"],
  ["breeze","vaș","noun","Nature & weather"],
@@ -172,7 +749,7 @@ window.languagePacks.push({
  ["spring","vornă","noun","Nature & weather"],
  ["summer","sumăr","noun","Nature & weather"],
  ["autumn","hærvest","noun","Nature & weather"],
- ["winter","vinter","noun","Nature & weather"],
+ ["winter","vintăr","noun","Nature & weather"],
  ["head","hevd","noun","Body & mind"],
  ["hair","hær","noun","Body & mind"],
  ["eye","egă","noun","Body & mind"],
@@ -184,7 +761,7 @@ window.languagePacks.push({
  ["arm","arm","noun","Body & mind"],
  ["leg","leg","noun","Body & mind"],
  ["foot","fot","noun","Body & mind"],
- ["heart","heortă","noun","Body & mind"],
+ ["heart","hertă","noun","Body & mind"],
  ["mind","mod","noun","Body & mind"],
  ["thought","þoht","noun","Body & mind"],
  ["memory","mynd","noun","Body & mind"],
@@ -205,18 +782,18 @@ window.languagePacks.push({
  ["strength","kraft","noun","Body & mind"],
  ["rest","ræst","noun","Body & mind"],
  ["sleep","slæp","noun","Body & mind"],
- ["choice","kyr","noun","Body & mind"],
+ ["choice","țyr","noun","Body & mind"],
  ["idea","ideă","noun","Body & mind"],
  ["law","lag","noun","Society & travel"],
  ["government","landvald","noun","Society & travel"],
  ["council","rad","noun","Society & travel"],
- ["judge","domer","noun","Society & travel"],
+ ["judge","domăr","noun","Society & travel"],
  ["court","domhus","noun","Society & travel"],
  ["tax","daz","noun","Society & travel"],
  ["vote","stemmă","noun","Society & travel"],
  ["election","stemmval","noun","Society & travel"],
  ["border","mærk","noun","Society & travel"],
- ["nation","þeod","noun","Society & travel"],
+ ["nation","þed","noun","Society & travel"],
  ["flag","fænă","noun","Society & travel"],
  ["capital","hovedgrod","noun","Society & travel"],
  ["history","aldsægă","noun","Society & travel"],
@@ -256,7 +833,7 @@ window.languagePacks.push({
  ["slow","træg","adjective","Qualities"],
  ["heavy","tung","adjective","Qualities"],
  ["light","leht","adjective","Qualities"],
- ["dark","deork","adjective","Qualities"],
+ ["dark","derk","adjective","Qualities"],
  ["bright","berht","adjective","Qualities"],
  ["clean","ren","adjective","Qualities"],
  ["dirty","snav","adjective","Qualities"],
@@ -279,7 +856,7 @@ window.languagePacks.push({
  ["right","rișt","adjective","Qualities"],
  ["wrong","vrang","adjective","Qualities"],
  ["quiet","stil","adjective","Qualities"],
- ["loud","hlud","adjective","Qualities"],
+ ["loud","lud","adjective","Qualities"],
  ["rich","rik","adjective","Qualities"],
  ["poor","armă","adjective","Qualities"],
  ["young","jung","adjective","Qualities"],
@@ -287,7 +864,7 @@ window.languagePacks.push({
  ["safe","sæf","adjective","Qualities"],
  ["ready","ræd","adjective","Qualities"],
  ["important","mærlig","adjective","Qualities"],
- ["different","ander","adjective","Qualities"],
+ ["different","andăr","adjective","Qualities"],
  ["same","sam","adjective","Qualities"],
  ["red","rod","adjective","Qualities"],
  ["blue","blav","adjective","Qualities"],
@@ -351,7 +928,7 @@ window.languagePacks.push({
  ["one","ană","number","Numbers"],
  ["two","tva","number","Numbers"],
  ["three","þri","number","Numbers"],
- ["four","feor","number","Numbers"],
+ ["four","fer","number","Numbers"],
  ["five","fim","number","Numbers"],
  ["six","seks","number","Numbers"],
  ["seven","sefen","number","Numbers"],
@@ -362,7 +939,7 @@ window.languagePacks.push({
  ["twelve","tvalef","number","Numbers"],
  ["twenty","tvatig","number","Numbers"],
  ["thirty","þritig","number","Numbers"],
- ["forty","feortig","number","Numbers"],
+ ["forty","fertig","number","Numbers"],
  ["fifty","fimtig","number","Numbers"],
  ["sixty","sekstig","number","Numbers"],
  ["seventy","sefentig","number","Numbers"],
@@ -391,9 +968,9 @@ window.languagePacks.push({
  ["give","gifan","verb","Actions"],
  ["take","takan","verb","Actions"],
  ["find","findan","verb","Actions"],
- ["lose","losan","verb","Actions"],
+ ["lose","lozan","verb","Actions"],
  ["hear","heran","verb","Actions"],
- ["listen","hlystan","verb","Actions"],
+ ["listen","lystan","verb","Actions"],
  ["say","sægan","verb","Actions"],
  ["tell","tælan","verb","Actions"],
  ["ask","æskan","verb","Actions"],
@@ -431,22 +1008,22 @@ window.languagePacks.push({
  ["send","sendan","verb","Actions"],
  ["walk","gangan","verb","Actions"],
  ["run","rinnan","verb","Actions"],
- ["sit","sittan","verb","Actions"],
+ ["sit","șittan","verb","Actions"],
  ["stand","standan","verb","Actions"],
  ["sleep","slæpan","verb","Actions"],
  ["wake","vakan","verb","Actions"],
  ["rest","ræstan","verb","Actions"],
- ["laugh","hlæhan","verb","Actions"],
+ ["laugh","læhan","verb","Actions"],
  ["smile","smilan","verb","Actions"],
  ["cry","grætan","verb","Actions"],
- ["sing","singan","verb","Actions"],
+ ["sing","șingan","verb","Actions"],
  ["play","plegan","verb","Actions"],
  ["work","verkan","verb","Actions"],
  ["stay","blivan","verb","Actions"],
  ["leave","lævan","verb","Actions"],
  ["return","vendan","verb","Actions"],
  ["meet","metan","verb","Actions"],
- ["choose","kyran","verb","Actions"],
+ ["choose","țyran","verb","Actions"],
  ["change","șiftan","verb","Actions"],
  ["feel","felan","verb","Actions"],
  ["hope","nadan","verb","Actions"],
@@ -460,9 +1037,9 @@ window.languagePacks.push({
  ["the hope of returning home","heimnadă","concept"],
  ["the hush of the world at night","niștstil","concept"],
  ["longing for a day that can never return","dæidor","concept"],
- ["the comfort of watching rain from indoors","væterheim","concept"],
+ ["the comfort of watching rain from indoors","vætărheim","concept"],
  ["pleasant drowsiness in sunlight","sunnăslæp","concept"],
- ["the warmth of belonging among friends","kinfyr","concept"],
+ ["the warmth of belonging among friends","ținfyr","concept"],
  ["quiet determination despite hardship","stænvil","concept"],
  ["the distant hum of a city","grodþrum","concept"],
  ["the silence after fresh snowfall","snægstil","concept"],
@@ -486,13 +1063,75 @@ window.languagePacks.push({
  ["our","vies","possessive"],
  ["but","ak","conjunction"],
  ["man!","mann!","expression"],
- ["hello","hæl","expression"],["goodbye","farvæl","expression"],["yes","ja","expression"],["no","nei","expression"],["thanks","þank","expression"],
- ["person","mann","noun"],["friend","priat","noun"],["family","kină","noun"],["home","heim","noun"],["country","landă","noun"],["kingdom","kyningdom","noun"],["city","grod","noun"],["road","drum","noun"],["world","lume","noun"],["fire","fyr","noun"],["water","væter","noun"],["snow","snæg","noun"],["forest","væld","noun"],["mountain","berg","noun"],["sun","sunnă","noun"],["moon","monă","noun"],["sky","hebăn","noun"],["peace","friþ","noun"],["freedom","freidom","noun"],["life","levă","noun"],["love","luvă","noun"],["hope","nadă","noun"],["house","hus","noun"],["stone","stæn","noun"],["night","nișt","noun"],["day","dæi","noun"],["child","kild","noun"],["king","kyning","noun"],["earth","erþă","noun"],["father","fæder","noun"],
- ["good","god","adjective"],["bad","yvel","adjective"],["beautiful","frumos","adjective"],["cold","kald","adjective"],["warm","varm","adjective"],["old","ald","adjective"],["new","nev","adjective"],["green","gren","adjective"],
- ["see","sean","verb"],["travel","faran","verb"],["eat","etan","verb"],["drink","drinkan","verb"],["love","luvan","verb"],["speak","sprekan","verb"],["live","levan","verb"],["know","witan","verb"],["be","esan","verb"],
- ["I","ik","pronoun"],["you","þu","pronoun"],["he","han","pronoun"],["she","ea","pronoun"],["it","hit","pronoun"],["we","vi","pronoun"],["you (plural)","gi","pronoun"],["they","dei","pronoun"],
- ["and","end","conjunction"],["well","væl","adverb"],["tomorrow","amorgăn","adverb"],
- ["darkness","niștvald","noun"],["sunlight","sunnăfyr","noun"],["humanity","erþăkin","noun"],["homesickness","heimdor","noun"],["fortress","stænhus","noun"],["sanctuary","friþland","noun"]
+ ["hello","hæl","expression"],
+ ["goodbye","farvæl","expression"],
+ ["yes","ja","expression"],
+ ["no","nei","expression"],
+ ["thanks","þank","expression"],
+ ["person","mann","noun"],
+ ["friend","priat","noun"],
+ ["family","țină","noun"],
+ ["home","heim","noun"],
+ ["country","landă","noun"],
+ ["kingdom","țyningdom","noun"],
+ ["city","grod","noun"],
+ ["road","drum","noun"],
+ ["world","lume","noun"],
+ ["fire","fyr","noun"],
+ ["water","vætăr","noun"],
+ ["snow","snæg","noun"],
+ ["forest","væld","noun"],
+ ["mountain","berg","noun"],
+ ["sun","sunnă","noun"],
+ ["moon","monă","noun"],
+ ["sky","hebăn","noun"],
+ ["peace","friþ","noun"],
+ ["freedom","freidom","noun"],
+ ["life","levă","noun"],
+ ["love","luvă","noun"],
+ ["hope","nadă","noun"],
+ ["house","hus","noun"],
+ ["stone","stæn","noun"],
+ ["night","nișt","noun"],
+ ["day","dæi","noun"],
+ ["child","țild","noun"],
+ ["king","țyning","noun"],
+ ["earth","erþă","noun"],
+ ["father","fædăr","noun"],
+ ["good","god","adjective"],
+ ["bad","yvel","adjective"],
+ ["beautiful","frumos","adjective"],
+ ["cold","kald","adjective"],
+ ["warm","varm","adjective"],
+ ["old","ald","adjective"],
+ ["new","nev","adjective"],
+ ["green","gren","adjective"],
+ ["see","sean","verb"],
+ ["travel","faran","verb"],
+ ["eat","etan","verb"],
+ ["drink","drinkan","verb"],
+ ["love","luvan","verb"],
+ ["speak","sprekan","verb"],
+ ["live","levan","verb"],
+ ["know","witan","verb"],
+ ["be","esan","verb"],
+ ["I","ik","pronoun"],
+ ["you","þu","pronoun"],
+ ["he","han","pronoun"],
+ ["she","ea","pronoun"],
+ ["it","hit","pronoun"],
+ ["we","vi","pronoun"],
+ ["you (plural)","gi","pronoun"],
+ ["they","dei","pronoun"],
+ ["and","end","conjunction"],
+ ["well","væl","adverb"],
+ ["tomorrow","amorgăn","adverb"],
+ ["darkness","niștvald","noun"],
+ ["sunlight","sunnăfyr","noun"],
+ ["humanity","erþățin","noun"],
+ ["homesickness","heimdor","noun"],
+ ["fortress","stænhus","noun"],
+ ["sanctuary","friþland","noun"]
  ],
  phrases:[
  ["The stone remembers the hand.","Stænul nu handulta mynd."],
@@ -514,6 +1153,9 @@ window.languagePacks.push({
  ["Shall we go home?","Vi va til heim far li?"]
  ],
  grammar:[
+ ["Historical development","See the historical sound laws and word histories below. The five laws apply to an audited inherited-root cohort, including compounds. Later loans, analogical forms and conservative grammar are not blindly transformed. The relative chronology is fictional and does not assign real-world dates."],
+ ["Stress and vowel reduction","Historical stress fell on the first syllable of inherited roots; weak final -er became -ăr in selected inherited stems. Modern lexical stress defaults to the penultimate syllable unless historical stress is specified. Loanword stress and exceptions remain to be documented."],
+ ["Conservative spelling and modern standards","Modern dictionary and translation outputs use v0.6 forms. Earlier spellings remain in the historical index and can be found by searching the dictionary. The present release changes inherited roots, not the productive noun suffixes or the copula; those are separate future developments."],
  ["Complex possession and comparison","A nominal possessor follows the owned noun after av (of). Comparative adjectives take -er and introduce a standard with þan. Standalone possessives take -ul, e.g. ikesul mine, þuesul yours. The English parser handles common single-word comparatives."],
  ["Relative subjects","Þe introduces a subject relative clause; the head noun is not repeated inside it. A comma closes the relative clause before the main tense particle. The engine supports simple subject-relative clauses and normalizes who/which by the head noun."],
  ["Conditional and coordinated structures","Gif introduces a condition, followed by a comma and an independent result clause. End coordinates noun phrases. Contrastive ne may follow a complete clause after a comma. Verdan (become) selects an unmarked nominal or adjective complement."],
@@ -532,14 +1174,13 @@ window.languagePacks.push({
  ["Vocabulary register","The standard lexicon is intentionally curated rather than a letter substitution. Germanic roots dominate everyday actions and compounding; Romance and Slavic-inspired loans contribute civic, household and cultural vocabulary. Ancestry proportions remain design goals rather than audited counts."],
  ["Pronunciation revision","Every canonical native spelling uses the 27-letter alphabet. Unstressed ă is /ə/, æ is /æ/, ș is /ʃ/, ț is /ts/, þ is /θ/, y is /ɨ/, j is /ʒ/. Other vowels are generally pure; g and k stay hard. Diphthongs ai/ei are pronounced as a single syllable."],
  ["Basic clauses","The engine supports simple noun or pronoun subjects, direct objects, prepositional and time adjuncts, copular predicates, modals, comparatives, and restricted conditionals and relative subjects. Other subordinate clauses and free word order are not yet supported."],
- ["Experiential vocabulary (Sælord)","Sælord is a proposed cultural term for words that name whole experiences rather than simple objects. These are lexicalised compounds, with meaning extending beyond the component roots. Morgănvaș evokes warm morning air felt against the skin (morgăn, morning; vaș, soft brush or breeze). Vældfriþ combines forest and peace; kinfyr combines family and fire; þingdol combines assembly and foolishness, specifically institutional absurdity. New roots used in this collection are provisional: stil (stillness), slæp (sleep), vil (will), þrum (hum), ord (word), smæl (a sharp remark), skuld (obligation or guilt), fram (forward). Concepts function as nouns and can take regular noun endings."],
+ ["Experiential vocabulary (Sælord)","Sælord is a proposed cultural term for words that name whole experiences rather than simple objects. These are lexicalised compounds, with meaning extending beyond the component roots. Morgănvaș evokes warm morning air felt against the skin (morgăn, morning; vaș, soft brush or breeze). Vældfriþ combines forest and peace; ținfyr combines family and fire; þingdol combines assembly and foolishness, specifically institutional absurdity. New roots used in this collection are provisional: stil (stillness), slæp (sleep), vil (will), þrum (hum), ord (word), smæl (a sharp remark), skuld (obligation or guilt), fram (forward). Concepts function as nouns and can take regular noun endings."],
  ["Colloquial speech","Mann! is an interjection. Verdom is a strong curse used as a verb-final imperative without a tense particle. Þa marks plural demonstratives, replacing the definite article: þa dolenta = those idiots (object). Possessives can follow the noun: ordrulta vies = our order (object). Jafn with hed conveys 'might as well'; direct-object hit may take -ta: hitta. Bi = at, til = to."],
  ["Sentence order","The default is subject–object–verb. Put the tense particle after the first major element. Objects can move to the front for emphasis."],
  ["Tense and aspect","nu = present; er = past; va = future; dur = ongoing; hed = conditional. Remove -an from an infinitive to obtain the verb stem."],
  ["Nouns","Add -en for plural, -ul for definite singular, -le after a plural for definite plural, -ta for direct objects, and -es for possession. Example: hus → husul → husulta."],
  ["Adjectives","Adjectives normally follow the noun: husul kald = the cold house."],
  ["Negation and questions","Place ne immediately before the verb. A yes/no question ends with li."],
- ["Sound history","Illustrative fictional sound shifts: Old English wæter → væter, stān → stæn, niht → nișt, hūs → hus. Stress usually falls on the penultimate syllable."],
  ["Dialect concepts","Aldrașnovæsk (ancient), Nordrașnovæsk (northern), Sudrașnovæsk (southern), Hohrașnovæsk (formal), Folkrașnovæsk (colloquial). These are not yet separately implemented."]
  ],
  // Grammar adapter: deliberately limited to supported regular clauses. Return null for unsupported syntax.
