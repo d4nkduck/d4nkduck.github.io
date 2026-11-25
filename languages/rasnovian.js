@@ -1,7 +1,7 @@
 // Each language pack registers its own vocabulary, documentation and grammar adapter.
 window.languagePacks = window.languagePacks || [];
 window.languagePacks.push({
- id:"rasnovian", name:"Rasnovian", native:"Rașnovæsk", version:"0.6",
+ id:"rasnovian", name:"Rasnovian", native:"Rașnovæsk", version:"0.7",
  origins:[["Anglo-Saxon",60],["Romanian",30],["Russian",10]],
  alphabet:"A Ă Æ B D E F G H I J K L M N O P R S Ș T Ț Þ U V Y Z".split(" "),
  sounds:[["Ă","unstressed uh"],["Æ","a in cat"],["Ș","sh"],["Ț","ts"],["Þ","th in think"],["Y","Russian ы"],["J","zh in vision"],["R","rolled r"],["V","v"]],
@@ -583,7 +583,10 @@ window.languagePacks.push({
  ],
  "notice": "Earlier forms are reconstructed in-world literary forms and prior project spellings, not authenticated Old English words. This is a first audited inherited-root cohort; unchanged entries are not automatically proven late loans."
 },
+ morphology:{"mutating":{"hund":"hind","hors":"hers","fot":"fet","toþ":"teþ","mann":"mænn"},"datives":{"ik":"im","þu":"þem","han":"ham","ea":"eam","hit":"him","vi":"vim","gi":"gim","dei":"dem"},"animate":["person","friend","child","king","mother","father","brother","sister","son","daughter","parent","grandmother","grandfather","woman","man","baby","neighbour","guest","stranger","teacher","student","worker","doctor","farmer","baker","merchant","leader","citizen","judge","idiot","animal","bird","dog","cat","horse","cow","sheep","wolf","bear","fox","bee","insect","fish","deer"],"description":"Plural stem mutation is lexical, inherited from a lost earlier front-vowel plural ending; it is not applied to every back-vowel root.","elisionExceptions":["kartă","hertă"]},
  words:[
+ ["strange","fremdig","adjective","Qualities"],
+ ["your (plural)","gies","possessive","Foundation"],
  ["sword","sverd","noun","Society & travel"],
  ["sharp","șær","adjective","Qualities"],
  ["mud","slud","noun","Nature & weather"],
@@ -1134,38 +1137,43 @@ window.languagePacks.push({
  ["sanctuary","friþland","noun"]
  ],
  phrases:[
- ["The stone remembers the hand.","Stænul nu handulta mynd."],
+ ["The stone remembers the hand.","Stænul nu handuta mynd."],
  ["A quiet word is strong.","Ord stil nu strang es."],
- ["The home remembers its guests.","Heimul nu gæstenleta hites mynd."],
+ ["The home remembers its guests.","Heimul nu gæstenla hites mynd."],
  ["Good morning!","Morgăn god!"],
  ["Good night!","Nișt god!"],
  ["Thank you for your help.","Þank þu for helpul þues."],
  ["Where is the market?","Hvar nu torgul es?"],
- ["What is your name?","Hvat nu namăul þues es?"],
+ ["What is your name?","Hvat nu namul þues es?"],
  ["My name is...","Namăul ikes nu ... es."],
- ["I speak Rasnovian.","Ik nu Rașnovæskta sprek."],
+ ["I speak Rasnovian.","Ik nu Rașnovæsk sprek."],
  ["See you tomorrow!","Amorgăn þuta se!"],
  ["Hello!","Hæl!"],
  ["Goodbye!","Farvæl!"],
  ["How are you?","Hu nu þu es?"],
  ["I am well, thanks.","Ik nu væl es, þank."],
- ["Yes, my friend.","Ja, priat ikes."],
+ ["Yes, my friend.","Ja, priatul ikes."],
  ["Shall we go home?","Vi va til heim far li?"]
  ],
  grammar:[
+ ["Modern noun morphology","v0.7 introduces conditioned erosion: final ă disappears before vowel-initial -en/-ul/-uta unless it distinguishes two lexical roots (exceptions: kartă, hertă). Definite accusatives fuse -ul-ta → -uta and -en-le-ta → -en-la. Indefinite accusative -ta survives for animate nouns; definite, demonstrative and possessive objects are marked even when inanimate. Generic indefinite inanimate objects are unmarked. Pronouns retain distinct accusatives."],
+ ["Inherited plural classes","The old front-vowel plural ending produced fossilised stem mutation in a small class: hund → hinden, hors → hersen, fot → feten, toþ → teþen, mann → mænnen. Other nouns retain regular -en. Mutations apply before article and case endings; this is a historical class, not a universal sound rule."],
+ ["Adjective agreement","Attributive adjectives follow the noun and agree in number: singular rod, plural rode; final ă becomes e, final e remains unchanged. Predicative and comparative adjectives remain uninflected. No gender agreement is required."],
+ ["Genitive possession","Nominal possessors follow the possessed phrase with genitive -es on the head: sverdul broþărules ikes (my brother's sword). Definite plurals take -enles; English singular 's and plural s' are parsed. Av remains a lexical preposition for material/source; it is not the modern default for nominal possession."],
+ ["Dative pronouns","Nominative / accusative / dative / genitive: ik / ikta / im / ikes; þu / þuta / þem / þues; han / hanta / ham / hanes; ea / eata / eam / eaes; hit / hitta / him / hites; vi / vita / vim / vies; gi / gita / gim / gies; dei / deita / dem / deies. Transfer verbs use bare dative recipients after the direct object; English to him becomes ham. Other prepositions retain base pronouns. Noun recipients still use til."],
+ ["Object marking limits","This is a grammaticalized differential object-marking system. It does not yet parse indefinite specificity, topicalization or free argument order. English number/second-person ambiguities can normalize on reverse translation."],
+ ["Comparatives","Comparative adjectives take -er and introduce a standard with þan. Standalone possessives take -ul, e.g. ikesul mine, þuesul yours."],
+ ["Prepositions and time","Objects precede prepositional and time adjuncts. Non-recipient prepositions govern unmarked noun phrases and base pronouns. Time adverbs precede the verb."],
+ ["Possessives and demonstratives","Possessed nouns carry the definite article, and personal possessors follow any adjective. Demonstratives precede nouns and suppress the definite article."],
  ["Historical development","See the historical sound laws and word histories below. The five laws apply to an audited inherited-root cohort, including compounds. Later loans, analogical forms and conservative grammar are not blindly transformed. The relative chronology is fictional and does not assign real-world dates."],
  ["Stress and vowel reduction","Historical stress fell on the first syllable of inherited roots; weak final -er became -ăr in selected inherited stems. Modern lexical stress defaults to the penultimate syllable unless historical stress is specified. Loanword stress and exceptions remain to be documented."],
- ["Conservative spelling and modern standards","Modern dictionary and translation outputs use v0.6 forms. Earlier spellings remain in the historical index and can be found by searching the dictionary. The present release changes inherited roots, not the productive noun suffixes or the copula; those are separate future developments."],
- ["Complex possession and comparison","A nominal possessor follows the owned noun after av (of). Comparative adjectives take -er and introduce a standard with þan. Standalone possessives take -ul, e.g. ikesul mine, þuesul yours. The English parser handles common single-word comparatives."],
  ["Relative subjects","Þe introduces a subject relative clause; the head noun is not repeated inside it. A comma closes the relative clause before the main tense particle. The engine supports simple subject-relative clauses and normalizes who/which by the head noun."],
  ["Conditional and coordinated structures","Gif introduces a condition, followed by a comma and an independent result clause. End coordinates noun phrases. Contrastive ne may follow a complete clause after a comma. Verdan (become) selects an unmarked nominal or adjective complement."],
- ["Prepositions and time","A direct object precedes prepositional phrases; time adverbs can follow these before the verb. Prepositions govern unmarked noun phrases and base pronouns: til han = to him. Time expressions can also precede other adjuncts."],
  ["Wh-questions","Hvi (why), hvar (where), hven (when), hu (how) precede the tense particle, then the subject and verb-final predicate. They do not take li. Object and subject wh-questions are not yet parsed."],
  ["Modals","Skul must, kæn can, mot may, bur should precede the bare verb stem; ne precedes the modal. Present modal clauses are currently implemented."],
  ["Quantified nouns","Cardinal numbers precede the noun and any article remains suffixed. Quantity one uses singular; other cardinals use plural -en. The parser accepts individual recorded numerals, not all composed number phrases."],
- ["Proverbs and idioms","Stænul nu handulta mynd (the stone remembers the hand) means that work bears the mark of its maker, even when the maker is forgotten. Ord stil nu strang es (a quiet word is strong) values restraint and influence over loudness. Heimul nu gæstenleta hites mynd (the home remembers its guests) expresses the belief that hospitality leaves lasting traces. These are cultural sayings, not literal translation rules."],
+ ["Proverbs and idioms","Stænul nu handuta mynd (the stone remembers the hand) means that work bears the mark of its maker, even when the maker is forgotten. Ord stil nu strang es (a quiet word is strong) values restraint and influence over loudness. Heimul nu gæstenla hites mynd (the home remembers its guests) expresses the belief that hospitality leaves lasting traces. These are cultural sayings, not literal translation rules."],
  ["Everyday register","Greetings often take the form noun + adjective, e.g. morgăn god (good morning) and nișt god (good night). Short farewell formulas may omit a subject and tense particle, e.g. amorgăn þuta se (see you tomorrow)."],
- ["Noun phrase grammar","Possessive nouns carry a definite article and their possessor follows any adjective: bokulta ikes = my book (object). Demonstratives precede nouns and suppress the article. Personal objects use -ta: ikta me, þuta you, hanta him, eata her, hitta it, vita us, deita them."],
  ["Copular clauses","Adjectives and nominal predicates come before es without object marking: han nu blid es = he is happy. Særli means very."],
  ["Translation ambiguity","English read and other identical present/past forms default to present unless an auxiliary disambiguates. The engine supports a restricted compositional grammar; ambiguous or unsupported structures may need clarification. It does not claim general translation coverage."],
  ["Canonical conjunctions","Standard Rasnovian v0.4 distinguishes end (and) from ak (but). Older v0.1 examples used ak for both; this is a deliberate revision."],
@@ -1175,11 +1183,9 @@ window.languagePacks.push({
  ["Pronunciation revision","Every canonical native spelling uses the 27-letter alphabet. Unstressed ă is /ə/, æ is /æ/, ș is /ʃ/, ț is /ts/, þ is /θ/, y is /ɨ/, j is /ʒ/. Other vowels are generally pure; g and k stay hard. Diphthongs ai/ei are pronounced as a single syllable."],
  ["Basic clauses","The engine supports simple noun or pronoun subjects, direct objects, prepositional and time adjuncts, copular predicates, modals, comparatives, and restricted conditionals and relative subjects. Other subordinate clauses and free word order are not yet supported."],
  ["Experiential vocabulary (Sælord)","Sælord is a proposed cultural term for words that name whole experiences rather than simple objects. These are lexicalised compounds, with meaning extending beyond the component roots. Morgănvaș evokes warm morning air felt against the skin (morgăn, morning; vaș, soft brush or breeze). Vældfriþ combines forest and peace; ținfyr combines family and fire; þingdol combines assembly and foolishness, specifically institutional absurdity. New roots used in this collection are provisional: stil (stillness), slæp (sleep), vil (will), þrum (hum), ord (word), smæl (a sharp remark), skuld (obligation or guilt), fram (forward). Concepts function as nouns and can take regular noun endings."],
- ["Colloquial speech","Mann! is an interjection. Verdom is a strong curse used as a verb-final imperative without a tense particle. Þa marks plural demonstratives, replacing the definite article: þa dolenta = those idiots (object). Possessives can follow the noun: ordrulta vies = our order (object). Jafn with hed conveys 'might as well'; direct-object hit may take -ta: hitta. Bi = at, til = to."],
+ ["Colloquial speech","Mann! is an interjection. Verdom is a strong curse used as a verb-final imperative without a tense particle. Þa marks plural demonstratives, replacing the definite article: þa dolenta = those idiots (object). Possessives can follow the noun: ordruta vies = our order (object). Jafn with hed conveys 'might as well'; direct-object hit takes -ta: hitta. Bi = at, til = to."],
  ["Sentence order","The default is subject–object–verb. Put the tense particle after the first major element. Objects can move to the front for emphasis."],
  ["Tense and aspect","nu = present; er = past; va = future; dur = ongoing; hed = conditional. Remove -an from an infinitive to obtain the verb stem."],
- ["Nouns","Add -en for plural, -ul for definite singular, -le after a plural for definite plural, -ta for direct objects, and -es for possession. Example: hus → husul → husulta."],
- ["Adjectives","Adjectives normally follow the noun: husul kald = the cold house."],
  ["Negation and questions","Place ne immediately before the verb. A yes/no question ends with li."],
  ["Dialect concepts","Aldrașnovæsk (ancient), Nordrașnovæsk (northern), Sudrașnovæsk (southern), Hohrașnovæsk (formal), Folkrașnovæsk (colloquial). These are not yet separately implemented."]
  ],
@@ -1207,24 +1213,44 @@ window.languagePacks.push({
  const irreg={person:"people",child:"children",man:"men",woman:"women",tooth:"teeth",foot:"feet",sheep:"sheep",fish:"fish",life:"lives",leaf:"leaves",knife:"knives",wolf:"wolves",deer:"deer"};
  const plural=s=>irreg[s]||(/[^aeiou]y$/.test(s)?s.slice(0,-1)+"ies":/(s|x|z|ch|sh)$/.test(s)?s+"es":s+"s");
  const mass=new Set("water snow fire peace freedom life love hope rain milk bread cheese butter meat salt sugar coffee tea juice money clothing grass sand soil fog ice health pain work time sleep rest truth darkness sunlight mud blood iron gold".split(" "));
- function np(a,obj=false,rev=false){
+ const morphology=this.morphology;
+ const animate=new Set(morphology.animate);
+ const dative={me:"im",you:"þem",him:"ham",her:"eam",it:"him",us:"vim",them:"dem"};
+ const recipientVerbs=new Set(["give","send","bring","tell","sell","lend","offer"]);
+ const adjForm=(r,pl)=>pl?(r.endsWith("e")?r:r.endsWith("ă")?r.slice(0,-1)+"e":r+"e"):r;
+ const nounForm=(n,pl,def,caseName="nom",demo=false)=>{
+  let r=pl?(morphology.mutating[n[1]]||n[1]):n[1];
+  const marked=caseName==="acc"&&(def||demo||animate.has(n[0]));
+  let suffix=pl?(def?(marked?"enla":"enle"):(marked?"enta":"en")):def?(marked?"uta":"ul"):(marked?"ta":"");
+  if(caseName==="gen")suffix=pl&&def?"enles":suffix+"es";
+  if(r.endsWith("ă")&&/^[eu]/.test(suffix)&&!morphology.elisionExceptions.includes(n[1]))r=r.slice(0,-1);
+  return r+suffix;
+ };
+ function np(a,obj=false,rev=false,genitive=false){
   if(!a.length)return null;
-  const joint=a.indexOf(rev?"end":"and");if(joint>0&&joint<a.length-1){const l=np(a.slice(0,joint),obj,rev),r=np(a.slice(joint+1),obj,rev);if(l&&r)return {text:l.text+(rev?" and ":" end ")+r.text,third:false};}
-  if(a.length===1){
-   if(obj){const o=rev?Object.keys(ob).find(k=>ob[k]===a[0]):ob[a[0]];if(o)return {text:o,third:false};}
+  const joint=a.indexOf(rev?"end":"and");if(joint>0&&joint<a.length-1){const l=np(a.slice(0,joint),obj,rev,genitive),r=np(a.slice(joint+1),obj,rev,genitive);if(l&&r)return {text:l.text+(rev?" and ":" end ")+r.text,third:false};}
+  if(a.length===1&&!genitive){
+   if(obj){const o=rev?Object.keys(ob).find(k=>ob[k]===a[0]):ob[a[0]];if(o)return {text:o,third:false};if(rev&&a[0]==="gita")return {text:"you",third:false};}
    else {const p=pron.find(w=>norm(w[rev?1:0])===a[0]);if(p)return {text:rev?(p[0]==="you (plural)"?"you":p[0]):p[1],third:["he","she","it"].includes(p[0]),first:p[0]==="I"};}
   }
-  // A nominal possessor is introduced by av in Rasnovian.
-  if(!rev){
-   const gen=a.findIndex(x=>/['’]s$/.test(x));
-   if(gen>=0&&gen<a.length-1){
-    const owner=np([...a.slice(0,gen),a[gen].slice(0,-2)],false,false);
-    const owned=np(["the",...a.slice(gen+1)],obj,false);
-    if(owner&&owned)return {...owned,text:owned.text+" av "+owner.text};
+  // Genitive owner follows the possessed noun; the owner itself bears -es.
+  if(!genitive){
+   if(!rev){
+    const gen=a.findIndex(x=>/['’]s$|s['’]$/.test(x));
+    if(gen>=0&&gen<a.length-1){
+     const root=a[gen].replace(/['’]s$|['’]$/,"");
+     const owner=np([...a.slice(0,gen),root],false,false,true);
+     const owned=np(["the",...a.slice(gen+1)],obj,false);
+     if(owner&&owned)return {...owned,text:owned.text+" "+owner.text};
+    }
+   }else{
+    for(let i=1;i<a.length;i++){
+     const owner=np(a.slice(i),false,true,true);
+     if(!owner)continue;
+     const owned=np(a.slice(0,i),obj,true);
+     if(owned&&owned.text.startsWith("the "))return {...owned,text:owner.text+(owner.plural&&owner.text.endsWith("s")?"'":"'s")+" "+owned.text.slice(4)};
+    }
    }
-  }else{
-   const gen=a.indexOf("av");
-   if(gen>0&&gen<a.length-1){const owned=np(a.slice(0,gen),obj,true),owner=np(a.slice(gen+1),false,true);if(owned&&owner&&owned.text.startsWith("the "))return {...owned,text:owner.text+(owner.text.endsWith("s")?"'":"'s")+" "+owned.text.slice(4)};}
   }
   if(!rev){
    let b=a.slice(),d="",ps="",dm="",quantity=null;
@@ -1237,7 +1263,7 @@ window.languagePacks.push({
     const ad=b.slice(0,b.length-en.length).map(x=>find(x,"adjective"));if(ad.some(x=>!x))continue;
     if(!d&&!ps&&!dm&&!quantity&&!pl&&!mass.has(n[0])&&n[2]!=="concept")continue;
     const def=d==="the"||!!ps;
-    return {text:[demo[dm],quantity?.[1],n[1]+(pl?"en":"")+(def?(pl?"le":"ul"):"")+(obj?"ta":""),...ad.map(x=>x[1]),ps].filter(Boolean).join(" "),third:!pl};
+    return {text:[demo[dm],quantity?.[1],nounForm(n,pl,def,genitive?"gen":obj?"acc":"nom",!!dm),...ad.map(x=>adjForm(x[1],pl)),ps].filter(Boolean).join(" "),third:!pl,plural:pl,nativeRoot:n[1]};
    }
    return null;
   }
@@ -1245,16 +1271,17 @@ window.languagePacks.push({
   const d=Object.keys(demo).find(k=>demo[k]===b[0]);if(d){dm=d;b.shift();}
   quantity=num.find(w=>w[1]===b[0]);if(quantity)b.shift();
   const p=poss.find(w=>w[1]===b[b.length-1]);if(p){ps=p[0];b.pop();}
-  const marked=b.shift(),ad=b.map(x=>find(x,"adjective",true));if(ad.some(x=>!x))return null;
+  const marked=b.shift();
   for(const n of nouns)for(const pl of [false,true])for(const def of [false,true]){
-   if(n[1]+(pl?"en":"")+(def?(pl?"le":"ul"):"")+(obj?"ta":"")!==marked)continue;
+   if(nounForm(n,pl,def,genitive?"gen":obj?"acc":"nom",!!dm)!==marked)continue;
+   const ad=b.map(x=>words.find(w=>w[2]==="adjective"&&adjForm(w[1],pl)===x));if(ad.some(x=>!x))continue;
    if(dm&&def||ps&&!def||dm&&["these","those"].includes(dm)!==pl||quantity&&pl===(quantity[0]==="one"))continue;
    const body=[...ad.map(x=>x[0]),pl?plural(n[0]):n[0]].join(" ");
    const prefix=dm||ps||(def?"the":pl||quantity||mass.has(n[0])||n[2]==="concept"?"":/^[aeiou]/.test(body)?"an":"a");
-   return {text:[prefix,quantity?.[0],body].filter(Boolean).join(" "),third:!pl};
+   return {text:[prefix,quantity?.[0],body].filter(Boolean).join(" "),third:!pl,plural:pl,nativeRoot:n[1],human:animate.has(n[0])&&!(["animal","bird","dog","cat","horse","cow","sheep","wolf","bear","fox","bee","insect","fish","deer"].includes(n[0]))};
   }return null;
  }
- function pred(a,rev,obj=true){
+ function pred(a,rev,obj=true,recipient=false){
   if(!a.length)return {text:""};
   const preps=words.filter(w=>w[2]==="preposition"&&!["than","of"].includes(w[0]));
   const times=words.filter(w=>w[2]==="adverb"&&["yesterday","today","tomorrow","now","always","never","often","sometimes","already","again","together","apart","then","here","there"].includes(w[0]));
@@ -1287,6 +1314,10 @@ window.languagePacks.push({
   }
   function extras(b){
    if(!b.length)return [];
+   if(recipient){
+    if(rev){const who=Object.keys(dative).find(k=>dative[k]===b[0]);if(who){const tail=extras(b.slice(1));if(tail)return ["to "+who,...tail];}if(b[0]==="gim"){const tail=extras(b.slice(1));if(tail)return ["to you",...tail];}}
+    else if(b[0]==="to"&&dative[b[1]]){const tail=extras(b.slice(2));if(tail)return [dative[b[1]],...tail];}
+   }
    const t=times.find(w=>w[side]===b[0]);if(t){const tail=extras(b.slice(1));if(tail)return [t[other],...tail];}
    const prep=preps.find(w=>w[side]===b[0]);if(!prep)return null;
    for(let i=b.length;i>=2;i--){const n=ppnp(b.slice(1,i));if(!n)continue;const tail=extras(b.slice(i));if(tail)return [prep[other]+" "+n.text,...tail];}
@@ -1318,7 +1349,7 @@ window.languagePacks.push({
    for(const v of verbs){
     const [en,ra]=v,[third,past,ing]=forms[en];
     const variants=be?[[ing,"dur"]]:ax?[[en,tense]]:[[s.third?third:en,"nu"],[past,"er"]];
-    for(const [form,t] of variants){const vt=split(form);if(b.slice(0,vt.length).join(" ")!==form)continue;const o=pred(b.slice(vt.length),false,en!=="become");if(o)return out(s,t,o,neg,ra.slice(0,-2),modals[ax]);}
+    for(const [form,t] of variants){const vt=split(form);if(b.slice(0,vt.length).join(" ")!==form)continue;const o=pred(b.slice(vt.length),false,en!=="become",recipientVerbs.has(en));if(o)return out(s,t,o,neg,ra.slice(0,-2),modals[ax]);}
    }
   }return null;
  }
@@ -1326,12 +1357,12 @@ window.languagePacks.push({
  const wh=Object.keys(whs).find(k=>whs[k]===a[0]);if(wh){const tense=a[1];if(!particles.includes(tense))return null;for(let j=a.length-1;j>=3;j--){if(!np(a.slice(2,j),false,true))continue;const translated=this.translateClause([...a.slice(2,j),tense,...a.slice(j),"li"].join(" ")+"?",true);if(translated)return cap(wh+" "+translated[0].toLowerCase()+translated.slice(1));}return null;}
  let i=a.findIndex(x=>particles.includes(x)),s=null;
  const ri=a.indexOf("þe");
- if(ri>0){const boundary=a.findIndex((x,j)=>j>ri&&x.endsWith(","));if(boundary<0||!particles.includes(a[boundary+1]))return null;const head=np(a.slice(0,ri),false,true);if(!head)return null;const relTokens=a.slice(ri+1,boundary+1);relTokens[relTokens.length-1]=relTokens[relTokens.length-1].slice(0,-1);const rel=this.translateClause([head.third?"han":"dei",...relTokens].join(" "),true);if(!rel)return null;const body=rel.replace(/^(He|They)\s+/i,"");if(body===rel)return null;const nounHead=a[ri-1];const human=words.some(w=>w[2]==="noun"&&w[3]==="People & family"&&[w[1],w[1]+"ul",w[1]+"en",w[1]+"enle"].includes(nounHead));s={...head,text:head.text+" "+(human?"who":"which")+" "+body};i=boundary+1;}
+ if(ri>0){const boundary=a.findIndex((x,j)=>j>ri&&x.endsWith(","));if(boundary<0||!particles.includes(a[boundary+1]))return null;const head=np(a.slice(0,ri),false,true);if(!head)return null;const relTokens=a.slice(ri+1,boundary+1);relTokens[relTokens.length-1]=relTokens[relTokens.length-1].slice(0,-1);const rel=this.translateClause([head.third?"han":"dei",...relTokens].join(" "),true);if(!rel)return null;const body=rel.replace(/^(He|They)\s+/i,"");if(body===rel)return null;const nounHead=a[ri-1];const human=head.human||false;s={...head,text:head.text+" "+(human?"who":"which")+" "+body};i=boundary+1;}
  else if(i>0)s=np(a.slice(0,i),false,true);
  if(i<1||!s)return null;
  const t=a[i];a=a.slice(i+1);const stem=a.pop();const modal=Object.keys(modals).find(k=>modals[k]===a[a.length-1]);if(modal)a.pop();const neg=a[a.length-1]==="ne";if(neg)a.pop();
  const cop=stem==="es",v=verbs.find(w=>w[1].slice(0,-2)===stem);if(!cop&&!v)return null;
- const o=pred(a,true,!cop&&v?.[0]!=="become");if(!o||cop&&!o.text)return null;
+ const o=pred(a,true,!cop&&v?.[0]!=="become",recipientVerbs.has(v?.[0]));if(!o||cop&&!o.text)return null;
  const be=s.first?"am":s.third?"is":"are",pastBe=s.first||s.third?"was":"were";let aux="",vv="";
  if(cop){if(t==="dur")return null;if(t==="va"||t==="hed"){aux=t==="va"?"will":"would";vv="be";}else aux=t==="er"?pastBe:be;}
  else{const en=v[0],[third,past,ing]=forms[en];vv=en;if(modal){if(t!=="nu")return null;aux=modal;}else if(t==="va"||t==="hed")aux=t==="va"?"will":"would";else if(t==="dur"){aux=be;vv=ing;}else if(q||neg)aux=t==="er"?"did":s.third?"does":"do";else vv=t==="er"?past:s.third?third:en;}
