@@ -1,12 +1,28 @@
 // Each language pack registers its own vocabulary, documentation and grammar adapter.
 window.languagePacks = window.languagePacks || [];
 window.languagePacks.push({
- id:"rasnovian", name:"Rasnovian", native:"Rașnovæsk", version:"0.2",
+ id:"rasnovian", name:"Rasnovian", native:"Rașnovæsk", version:"0.3",
  origins:[["Anglo-Saxon",60],["Romanian",30],["Russian",10]],
  alphabet:"A Ă Æ B D E F G H I J K L M N O P R S Ș T Ț Þ U V Y Z".split(" "),
  sounds:[["Ă","unstressed uh"],["Æ","a in cat"],["Ș","sh"],["Ț","ts"],["Þ","th in think"],["Y","Russian ы"],["J","zh in vision"],["R","rolled r"],["V","v"]],
  // [English lemma, Rasnovian lemma, part of speech]
  words:[
+ ["the feeling of a warm morning breeze","morgănvaș","concept"],
+ ["peace felt deep in a forest","vældfriþ","concept"],
+ ["the hope of returning home","heimnadă","concept"],
+ ["the hush of the world at night","niștstil","concept"],
+ ["longing for a day that can never return","dæidor","concept"],
+ ["the comfort of watching rain from indoors","væterheim","concept"],
+ ["pleasant drowsiness in sunlight","sunnăslæp","concept"],
+ ["the warmth of belonging among friends","kinfyr","concept"],
+ ["quiet determination despite hardship","stænvil","concept"],
+ ["the distant hum of a city","grodþrum","concept"],
+ ["the silence after fresh snowfall","snægstil","concept"],
+ ["thinking of the perfect reply too late","ordsmæl","concept"],
+ ["absurdity caused by bureaucracy","þingdol","concept"],
+ ["guilt felt while resting","friþskuld","concept"],
+ ["hope for an uncertain future","framnadă","concept"],
+ ["a strange familiarity in an unfamiliar place","nevheim","concept"],
  ["idiot","dol","noun"],
  ["bakery","bakhus","noun"],
  ["order","ordr","noun"],
@@ -40,6 +56,7 @@ window.languagePacks.push({
  ["Hello!","Hæl!"],["Goodbye!","Farvæl!"],["How are you?","Hu nu þu es?"],["I am well, thanks.","Ik nu væl es, þank."],["I see the house.","Ik nu husulta se."],["I do not see the house.","Ik nu husulta ne se."],["Do you see the house?","Þu nu husulta se li?"],["I ate.","Ik er et."],["I will eat.","Ik va et."],["I am eating.","Ik dur et."],["I would eat.","Ik hed et."],["The night is cold.","Niștul nu kald es."],["The cold house","Husul kald"],["Yes, my friend.","Ja, priat ikes."],["Shall we go home?","Vi va til heim far li?"]
  ],
  grammar:[
+ ["Experiential vocabulary (Sælord)","Sælord is a proposed cultural term for words that name whole experiences rather than simple objects. These are lexicalised compounds, with meaning extending beyond the component roots. Morgănvaș evokes warm morning air felt against the skin (morgăn, morning; vaș, soft brush or breeze). Vældfriþ combines forest and peace; kinfyr combines family and fire; þingdol combines assembly and foolishness, specifically institutional absurdity. New roots used in this collection are provisional: stil (stillness), slæp (sleep), vil (will), þrum (hum), ord (word), smæl (a sharp remark), skuld (obligation or guilt), fram (forward). Concepts function as nouns and can take regular noun endings."],
  ["Colloquial speech","Mann! is an interjection. Verdom is a strong curse used as a verb-final imperative without a tense particle. Þa marks plural demonstratives, replacing the definite article: þa dolenta = those idiots (object). Possessives can follow the noun: ordrulta vies = our order (object). Jafn with hed conveys 'might as well'; direct-object hit may take -ta: hitta. Bi = at, til = to."],
  ["Sentence order","The default is subject–object–verb. Put the tense particle after the first major element. Objects can move to the front for emphasis."],
  ["Tense and aspect","nu = present; er = past; va = future; dur = ongoing; hed = conditional. Remove -an from an infinitive to obtain the verb stem."],
