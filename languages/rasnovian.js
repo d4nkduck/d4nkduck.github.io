@@ -7,6 +7,10 @@ window.languagePacks.push({
  sounds:[["Ă","unstressed uh"],["Æ","a in cat"],["Ș","sh"],["Ț","ts"],["Þ","th in think"],["Y","Russian ы"],["J","zh in vision"],["R","rolled r"],["V","v"]],
  // [English lemma, Rasnovian lemma, part of speech]
  words:[
+ ["clothing","væþ","noun","Home & daily life"],
+ ["lake","lak","noun","Nature & weather"],
+ ["tired","mæd","adjective","Qualities"],
+ ["very","særli","adverb","Connectors & time"],
  ["mother","moder","noun","People & family"],
  ["brother","broþer","noun","People & family"],
  ["sister","syster","noun","People & family"],
@@ -477,6 +481,9 @@ window.languagePacks.push({
  ["Hello!","Hæl!"],["Goodbye!","Farvæl!"],["How are you?","Hu nu þu es?"],["I am well, thanks.","Ik nu væl es, þank."],["I see the house.","Ik nu husulta se."],["I do not see the house.","Ik nu husulta ne se."],["Do you see the house?","Þu nu husulta se li?"],["I ate.","Ik er et."],["I will eat.","Ik va et."],["I am eating.","Ik dur et."],["I would eat.","Ik hed et."],["The night is cold.","Niștul nu kald es."],["The cold house","Husul kald"],["Yes, my friend.","Ja, priat ikes."],["Shall we go home?","Vi va til heim far li?"]
  ],
  grammar:[
+ ["Noun phrase grammar","Possessive nouns carry a definite article and their possessor follows any adjective: bokulta ikes = my book (object). Demonstratives precede nouns and suppress the article. Personal objects use -ta: ikta me, þuta you, hanta him, eata her, hitta it, vita us, deita them."],
+ ["Copular clauses","Adjectives and nominal predicates come before es without object marking: han nu blid es = he is happy. Særli means very."],
+ ["Translation ambiguity","English read and other identical present/past forms default to present unless an auxiliary disambiguates. The engine supports simple noun and pronoun subjects, direct objects, adjective and possessive noun phrases, questions and copulas; other syntax may require a recorded phrase."],
  ["Canonical conjunctions","Standard Rasnovian v0.4 distinguishes end (and) from ak (but). Older v0.1 examples used ak for both; this is a deliberate revision."],
  ["Word-building","Compounds are modifier-first and head-last: bak-hus (bake-house), land-vald (country-rule), and læk-hus (healing-house). Productive suffixes are -end for an active participant, -er for a habitual agent, and -ig for a quality. Not every imaginable compound is automatically canonical."],
  ["Numbers","ană to ten are basic numerals; eleven and twelve have distinct forms. Multiples of ten end in -tig. Compound numerals put the tens first, then the unit joined by end: tvatig end þri (23)."],
@@ -494,60 +501,86 @@ window.languagePacks.push({
  ["Dialect concepts","Aldrașnovæsk (ancient), Nordrașnovæsk (northern), Sudrașnovæsk (southern), Hohrașnovæsk (formal), Folkrașnovæsk (colloquial). These are not yet separately implemented."]
  ],
  // Grammar adapter: deliberately limited to supported regular clauses. Return null for unsupported syntax.
- translateClause(input, reverse){
- const norm=s=>s.toLowerCase().normalize("NFC").trim();
- const words=this.words;
- const find=(s,pos,side=0)=>words.find(w=>norm(w[side])===s&&w[2]===pos);
- const punc=input.match(/[.!?]$/)?.[0]||"";
- const t=norm(input).replace(/[.!?]$/,"").split(/\s+/);
- const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
- const forms={...{"go":["goes","went","going"],"come":["comes","came","coming"],"have":["has","had","having"],"make":["makes","made","making"],"do":["does","did","doing"],"get":["gets","got","getting"],"give":["gives","gave","giving"],"take":["takes","took","taking"],"find":["finds","found","finding"],"lose":["loses","lost","losing"],"hear":["hears","heard","hearing"],"listen":["listens","listened","listening"],"say":["says","said","saying"],"tell":["tells","told","telling"],"ask":["asks","asked","asking"],"answer":["answers","answered","answering"],"read":["reads","read","reading"],"write":["writes","wrote","writing"],"learn":["learns","learned","learning"],"teach":["teaches","taught","teaching"],"understand":["understands","understood","understanding"],"think":["thinks","thought","thinking"],"remember":["remembers","remembered","remembering"],"forget":["forgets","forgot","forgetting"],"believe":["believes","believed","believing"],"want":["wants","wanted","wanting"],"need":["needs","needed","needing"],"like":["likes","liked","liking"],"hate":["hates","hated","hating"],"help":["helps","helped","helping"],"wait":["waits","waited","waiting"],"start":["starts","started","starting"],"finish":["finishes","finished","finishing"],"stop":["stops","stopped","stopping"],"open":["opens","opened","opening"],"close":["closes","closed","closing"],"buy":["buys","bought","buying"],"sell":["sells","sold","selling"],"pay":["pays","paid","paying"],"cook":["cooks","cooked","cooking"],"bake":["bakes","baked","baking"],"wash":["washes","washed","washing"],"clean":["cleans","cleaned","cleaning"],"build":["builds","built","building"],"carry":["carries","carried","carrying"],"bring":["brings","brought","bringing"],"send":["sends","sent","sending"],"walk":["walks","walked","walking"],"run":["runs","ran","running"],"sit":["sits","sat","sitting"],"stand":["stands","stood","standing"],"sleep":["sleeps","slept","sleeping"],"wake":["wakes","woke","waking"],"rest":["rests","rested","resting"],"laugh":["laughs","laughed","laughing"],"smile":["smiles","smiled","smiling"],"cry":["cries","cried","crying"],"sing":["sings","sang","singing"],"play":["plays","played","playing"],"work":["works","worked","working"],"stay":["stays","stayed","staying"],"leave":["leaves","left","leaving"],"return":["returns","returned","returning"],"meet":["meets","met","meeting"],"choose":["chooses","chose","choosing"],"change":["changes","changed","changing"],"feel":["feels","felt","feeling"],"hope":["hopes","hoped","hoping"],"try":["tries","tried","trying"],"happen":["happens","happened","happening"],"fall":["falls","fell","falling"],"grow":["grows","grew","growing"],"move":["moves","moved","moving"],"report":["reports","reported","reporting"],"mess up":["messes up","messed up","messing up"]},see:["sees","saw","seeing"],eat:["eats","ate","eating"],drink:["drinks","drank","drinking"],love:["loves","loved","loving"],travel:["travels","traveled","traveling"],speak:["speaks","spoke","speaking"],live:["lives","lived","living"],know:["knows","knew","knowing"]};
- const particles={nu:0,er:1,va:2,dur:3,hed:4};
- const nounForms=(noun)=>[[noun,false,false],[noun+"ul",false,true],[noun+"en",true,false],[noun+"enle",true,true]];
- const plurals={person:"people",child:"children",family:"families",country:"countries",city:"cities",life:"lives"};
- const plural=s=>plurals[s]||(s.endsWith("s")?s+"es":s+"s");
+ translateClause(input,reverse){
+ const norm=s=>s.normalize("NFC").toLowerCase().trim(), cap=s=>s[0].toUpperCase()+s.slice(1), split=s=>s.split(/\s+/);
+ const punct=input.trim().match(/[.!?]$/)?.[0]||"";
+ const tokens=split(norm(input).replace(/[.!?]$/,"").replace(/n['’]t\b/g," not").replace(/\bwo not\b/g,"will not").replace(/\bi['’]m\b/g,"i am").replace(/\b(he|she|it)['’]s\b/g,"$1 is").replace(/\b(we|you|they)['’]re\b/g,"$1 are"));
+ const words=this.words, nouns=words.filter(w=>["noun","concept"].includes(w[2])), forms={"go":["goes","went","going"],"come":["comes","came","coming"],"have":["has","had","having"],"make":["makes","made","making"],"do":["does","did","doing"],"get":["gets","got","getting"],"give":["gives","gave","giving"],"take":["takes","took","taking"],"find":["finds","found","finding"],"lose":["loses","lost","losing"],"hear":["hears","heard","hearing"],"listen":["listens","listened","listening"],"say":["says","said","saying"],"tell":["tells","told","telling"],"ask":["asks","asked","asking"],"answer":["answers","answered","answering"],"read":["reads","read","reading"],"write":["writes","wrote","writing"],"learn":["learns","learned","learning"],"teach":["teaches","taught","teaching"],"understand":["understands","understood","understanding"],"think":["thinks","thought","thinking"],"remember":["remembers","remembered","remembering"],"forget":["forgets","forgot","forgetting"],"believe":["believes","believed","believing"],"want":["wants","wanted","wanting"],"need":["needs","needed","needing"],"like":["likes","liked","liking"],"hate":["hates","hated","hating"],"help":["helps","helped","helping"],"wait":["waits","waited","waiting"],"start":["starts","started","starting"],"finish":["finishes","finished","finishing"],"stop":["stops","stopped","stopping"],"open":["opens","opened","opening"],"close":["closes","closed","closing"],"buy":["buys","bought","buying"],"sell":["sells","sold","selling"],"pay":["pays","paid","paying"],"cook":["cooks","cooked","cooking"],"bake":["bakes","baked","baking"],"wash":["washes","washed","washing"],"clean":["cleans","cleaned","cleaning"],"build":["builds","built","building"],"carry":["carries","carried","carrying"],"bring":["brings","brought","bringing"],"send":["sends","sent","sending"],"walk":["walks","walked","walking"],"run":["runs","ran","running"],"sit":["sits","sat","sitting"],"stand":["stands","stood","standing"],"sleep":["sleeps","slept","sleeping"],"wake":["wakes","woke","waking"],"rest":["rests","rested","resting"],"laugh":["laughs","laughed","laughing"],"smile":["smiles","smiled","smiling"],"cry":["cries","cried","crying"],"sing":["sings","sang","singing"],"play":["plays","played","playing"],"work":["works","worked","working"],"stay":["stays","stayed","staying"],"leave":["leaves","left","leaving"],"return":["returns","returned","returning"],"meet":["meets","met","meeting"],"choose":["chooses","chose","choosing"],"change":["changes","changed","changing"],"feel":["feels","felt","feeling"],"hope":["hopes","hoped","hoping"],"try":["tries","tried","trying"],"happen":["happens","happened","happening"],"fall":["falls","fell","falling"],"grow":["grows","grew","growing"],"move":["moves","moved","moving"],"report":["reports","reported","reporting"],"mess up":["messes up","messed up","messing up"],"see":["sees","saw","seeing"],"eat":["eats","ate","eating"],"drink":["drinks","drank","drinking"],"love":["loves","loved","loving"],"travel":["travels","traveled","traveling"],"speak":["speaks","spoke","speaking"],"live":["lives","lived","living"],"know":["knows","knew","knowing"]};
+ const find=(s,pos,rev=false)=>words.find(w=>norm(w[rev?1:0])===s&&w[2]===pos);
+ const pron=words.filter(w=>w[2]==="pronoun"), poss=words.filter(w=>w[2]==="possessive");
+ const verbs=words.filter(w=>w[2]==="verb"&&forms[w[0]]);
+ const demo={this:"þes",that:"þat",these:"þesne",those:"þa"}, ob={me:"ikta",you:"þuta",him:"hanta",her:"eata",it:"hitta",us:"vita",them:"deita"};
+ const irreg={person:"people",child:"children",man:"men",woman:"women",tooth:"teeth",foot:"feet",sheep:"sheep",fish:"fish",life:"lives",leaf:"leaves",knife:"knives",wolf:"wolves"};
+ const plural=s=>irreg[s]||(/[^aeiou]y$/.test(s)?s.slice(0,-1)+"ies":/(s|x|z|ch|sh)$/.test(s)?s+"es":s+"s");
+ const mass=new Set("water snow fire peace freedom life love hope rain milk bread cheese butter meat salt sugar coffee tea juice money clothing grass sand soil fog ice health pain work time sleep rest truth darkness sunlight".split(" "));
+ function np(a,obj=false,rev=false){
+  if(!a.length)return null;
+  if(a.length===1){
+   if(obj){const o=rev?Object.keys(ob).find(k=>ob[k]===a[0]):ob[a[0]];if(o)return {text:o,third:false};}
+   else {const p=pron.find(w=>norm(w[rev?1:0])===a[0]);if(p)return {text:rev?(p[0]==="you (plural)"?"you":p[0]):p[1],third:["he","she","it"].includes(p[0]),first:p[0]==="I"};}
+  }
+  if(!rev){
+   let b=a.slice(),d="",ps="",dm="";
+   if(["the","a","an"].includes(b[0]))d=b.shift();else if(demo[b[0]])dm=b.shift();else{const p=poss.find(w=>norm(w[0])===b[0]);if(p){ps=p[1];b.shift();}}
+   for(const n of nouns)for(const pl of [false,true]){
+    const en=split(norm(pl?plural(n[0]):n[0]));if(b.length<en.length||b.slice(-en.length).join(" ")!==en.join(" "))continue;
+    if(pl&&["a","an","this","that"].includes(d||dm)||!pl&&["these","those"].includes(dm))continue;
+    const ad=b.slice(0,b.length-en.length).map(x=>find(x,"adjective"));if(ad.some(x=>!x))continue;
+    if(!d&&!ps&&!dm&&!pl&&!mass.has(n[0])&&n[2]!=="concept")continue;
+    const def=d==="the"||!!ps;
+    return {text:[demo[dm],n[1]+(pl?"en":"")+(def?(pl?"le":"ul"):"")+(obj?"ta":""),...ad.map(x=>x[1]),ps].filter(Boolean).join(" "),third:!pl};
+   }
+   return null;
+  }
+  let b=a.slice(),dm="",ps="";
+  const d=Object.keys(demo).find(k=>demo[k]===b[0]);if(d){dm=d;b.shift();}
+  const p=poss.find(w=>w[1]===b[b.length-1]);if(p){ps=p[0];b.pop();}
+  const marked=b.shift(),ad=b.map(x=>find(x,"adjective",true));if(ad.some(x=>!x))return null;
+  for(const n of nouns)for(const pl of [false,true])for(const def of [false,true]){
+   if(n[1]+(pl?"en":"")+(def?(pl?"le":"ul"):"")+(obj?"ta":"")!==marked)continue;
+   if(dm&&def||ps&&!def||dm&&["these","those"].includes(dm)!==pl)continue;
+   const body=[...ad.map(x=>x[0]),pl?plural(n[0]):n[0]].join(" ");
+   const prefix=dm||ps||(def?"the":pl||mass.has(n[0])||n[2]==="concept"?"":/^[aeiou]/.test(body)?"an":"a");
+   return {text:[prefix,body].filter(Boolean).join(" "),third:!pl};
+  }return null;
+ }
+ function pred(a,rev,obj=true){
+  if(!a.length)return {text:""};
+  if(!obj){const ad=find(a[a.length-1],"adjective",rev);const deg=rev?{sva:"so",særli:"very"}:{so:"sva",very:"særli"};if(ad&&(a.length===1||a.length===2&&deg[a[0]]))return {text:[a.length===2?deg[a[0]]:"",ad[rev?0:1]].filter(Boolean).join(" ")};}
+  return np(a,obj,rev);
+ }
+ const particles=["nu","er","va","dur","hed"];
  if(!reverse){
- let a=t.slice(),question=false,neg=false,tense="nu";
- if(["do","does","did","will","would"].includes(a[0])){const aux=a.shift();question=true;tense={did:"er",will:"va",would:"hed"}[aux]||"nu";}
- const subject=find(a.shift(),"pronoun"); if(!subject)return null;
- if(["will","would","do","does","did","am","is","are","was","were"].includes(a[0])){
- const aux=a.shift(); if(aux==="will")tense="va";else if(aux==="would")tense="hed";else if(aux==="did")tense="er";else if(["am","is","are"].includes(aux))tense="dur";else if(["was","were"].includes(aux))return null;
+  let a=tokens.slice(),q=false,aux="";
+  const auxes=["do","does","did","will","would","am","is","are","was","were"];
+  if(auxes.includes(a[0])){aux=a.shift();q=true;}
+  function out(s,t,o,neg,stem){return cap([s.text,t,o.text,neg?"ne":"",stem,q?"li":""].filter(Boolean).join(" "))+(q?"?":punct);}
+  for(let i=1;i<a.length;i++){
+   const s=np(a.slice(0,i));if(!s)continue;
+   let b=a.slice(i),ax=aux;if(!ax&&auxes.includes(b[0]))ax=b.shift();
+   let neg=b[0]==="not";if(neg)b.shift();
+   const tense=ax==="will"?"va":ax==="would"?"hed":["did","was","were"].includes(ax)?"er":"nu";
+   const be=["am","is","are","was","were"].includes(ax);
+   if(be||["will","would"].includes(ax)&&b[0]==="be"){
+    const o=pred(be?b:b.slice(1),false,false);if(o?.text)return out(s,tense,o,neg,"es");
+    if(["was","were"].includes(ax))continue;
+   }
+   for(const v of verbs){
+    const [en,ra]=v,[third,past,ing]=forms[en];
+    const variants=be?[[ing,"dur"]]:ax?[[en,tense]]:[[s.third?third:en,"nu"],[past,"er"]];
+    for(const [form,t] of variants){const vt=split(form);if(b.slice(0,vt.length).join(" ")!==form)continue;const o=pred(b.slice(vt.length),false);if(o)return out(s,t,o,neg,ra.slice(0,-2));}
+   }
+  }return null;
  }
- if(a[0]==="not"){a.shift();neg=true;}
- const v=a.shift();let verb=Object.keys(forms).find(k=>k===v||forms[k].includes(v));
- if(!verb)return null;
- if(forms[verb][1]===v)tense="er";if(forms[verb][2]===v)tense="dur";
- const stem=find(verb,"verb")[1].slice(0,-2);
- let obj="";
- if(a.length){
- let definite=a[0]==="the";let indefinite=["a","an"].includes(a[0]);if(definite||indefinite)a.shift();
- let adjective="";if(a.length===2){const adj=find(a.shift(),"adjective");if(!adj)return null;adjective=" "+adj[1];}
- if(a.length!==1)return null;
- const noun=words.find(w=>w[2]==="noun"&&(w[0]===a[0]||plural(w[0])===a[0]));if(!noun)return null;
- const pl=noun[0]!==a[0];if(pl&&indefinite)return null;
- obj=noun[1]+(pl?"en":"")+(definite?(pl?"le":"ul"):"")+"ta"+adjective;
- }
- return cap([subject[1],tense,obj,neg?"ne":"",stem,question?"li":""].filter(Boolean).join(" "))+(question?"?":punc);
- }else{
- let a=t.slice(),question=a[a.length-1]==="li";if(question)a.pop();
- const subject=find(a.shift(),"pronoun",1);const tense=a.shift();if(!subject||!(tense in particles))return null;
- const stem=a.pop();const verb=words.find(w=>w[2]==="verb"&&w[1].slice(0,-2)===stem);if(!verb||!forms[verb[0]])return null;
- let neg=a[a.length-1]==="ne";if(neg)a.pop();
- let obj="";
- if(a.length){
- const marked=a.shift();let match;
- for(const n of words.filter(w=>w[2]==="noun"))for(const [f,pl,def] of nounForms(n[1]))if(f+"ta"===marked)match=[n,pl,def];
- if(!match)return null;
- let adj="";if(a.length){const ad=find(a.shift(),"adjective",1);if(!ad||a.length)return null;adj=ad[0]+" ";}
- const [n,pl,def]=match;const phrase=adj+(pl?plural(n[0]):n[0]);
- obj=(def?"the ":pl||["water","snow","fire","peace","freedom","life","love","hope"].includes(n[0])?"":/^[aeiou]/i.test(phrase)?"an ":"a ")+phrase;
- }
- const s=subject[0]==="you (plural)"?"you":subject[0];const third=["he","she","it"].includes(s);
- const base=verb[0],f=forms[base],be=s==="I"?"am":third?"is":"are";
- let aux="",vv=base;
- if(tense==="va")aux="will";else if(tense==="hed")aux="would";else if(tense==="dur"){aux=be;vv=f[2];}
- else if(question||neg)aux=tense==="er"?"did":third?"does":"do";else vv=tense==="er"?f[1]:third?f[0]:base;
- return cap((question?[aux,s,neg?"not":"",vv,obj]:[s,aux,neg?"not":"",vv,obj]).filter(Boolean).join(" "))+(question?"?":punc);
- }
- }
+ let a=tokens.slice(),q=a[a.length-1]==="li";if(q)a.pop();
+ const i=a.findIndex(x=>particles.includes(x));if(i<1)return null;
+ const s=np(a.slice(0,i),false,true);if(!s)return null;
+ const t=a[i];a=a.slice(i+1);const stem=a.pop();const neg=a[a.length-1]==="ne";if(neg)a.pop();
+ const cop=stem==="es",v=verbs.find(w=>w[1].slice(0,-2)===stem);if(!cop&&!v)return null;
+ const o=pred(a,true,!cop);if(!o||cop&&!o.text)return null;
+ const be=s.first?"am":s.third?"is":"are",pastBe=s.first||s.third?"was":"were";let aux="",vv="";
+ if(cop){if(t==="dur")return null;if(t==="va"||t==="hed"){aux=t==="va"?"will":"would";vv="be";}else aux=t==="er"?pastBe:be;}
+ else{const en=v[0],[third,past,ing]=forms[en];vv=en;if(t==="va"||t==="hed")aux=t==="va"?"will":"would";else if(t==="dur"){aux=be;vv=ing;}else if(q||neg)aux=t==="er"?"did":s.third?"does":"do";else vv=t==="er"?past:s.third?third:en;}
+ return cap((q?[aux,s.text,neg?"not":"",vv,o.text]:[s.text,aux,neg?"not":"",vv,o.text]).filter(Boolean).join(" "))+(q?"?":punct);
+}
 });
