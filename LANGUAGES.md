@@ -8,12 +8,18 @@ Copy `languages/rasnovian.js` to a new file and register a pack in `window.langu
 
 ## Current scope
 
-Rasnovian v0.1 is a provisional constructed language. Origins are fictional design proportions. Translation prioritises recorded phrases, then a limited regular clause parser, then a labelled word-by-word fallback. Unknown words appear in brackets; fallback is not grammatical translation. No unrestricted English translation, speech synthesis or accounts. Quiz progress is stored locally per language. The original README is intentionally preserved.
+Rasnovian v0.9.0 is a usable but incomplete constructed language and a rule-based translation prototype. Origins are fictional design targets, not measured ancestry. Translation checks recorded phrases and direct dictionary matches, then full grammar with local synonym alternatives, partial grammar and labelled word-by-word fallback. Unknown words appear in brackets. Reverse output may choose canonical English synonyms. No unrestricted translation, speech synthesis or accounts. Quiz progress is stored locally per language. The historical reconstruction baseline remains separate.
+
+## Regression and release audit
+
+Run `node tests/rasnovian.test.cjs` from the repository root. See [release audit](tests/rasnovian-release-audit.md) for coverage, examples and limitations. Test sentences must not become curated phrasebook entries.
 
 ## Manual smoke tests
 
-- I see the house. → Ik nu husulta se.
-- We drink water. → Vi nu væterta drink.
-- Vi nu væterta drink. → We drink water.
+- I see the house. → Ik nu husuta se.
+- We drink water. → Vi nu vætăr drink.
+- Vi nu vætăr drink. → We drink water.
 - I will eat. → Ik va et.
-- Search `house` in the dictionary; answer a vocabulary question and refresh to check progress; inspect the alphabet and grammar sections.
+- Verify version v0.9.0, search a synonym in the dictionary, answer a vocabulary question and refresh to check progress, inspect the alphabet and grammar sections.
+
+When updating a pack, update its script cache identifier in index.html. Do not claim deployment until the public page has been checked.
