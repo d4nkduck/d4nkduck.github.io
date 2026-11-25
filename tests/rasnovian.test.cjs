@@ -1013,3 +1013,273 @@ const foodFollowupCases=[
   ]
 ];
 for(const [en,ra,back] of foodFollowupCases){assert.equal(pack.translateClause(en,false),ra,en);assert.equal(pack.translateClause(ra,true),back,ra);assert.ok(!pack.phrases.some(p=>p[0]===en));}
+
+// Release audit fixtures stay separate from the existing curated phrasebook.
+const releaseCases=[
+  [
+    "The child has a bowl of soup.",
+    "Țildul nu șæl av supă hav.",
+    "The child has a bowl of soup."
+  ],
+  [
+    "What did you talk about, dude?",
+    "Um hvat er þu sprek, broþ?",
+    "What did you speak about, bro?"
+  ],
+  [
+    "The movie is almost finished.",
+    "Filmul nu endd mæstli es.",
+    "The movie is finished almost."
+  ],
+  [
+    "The movie is almost over.",
+    "Filmul nu endd mæstli es.",
+    "The movie is finished almost."
+  ],
+  [
+    "I have a friend.",
+    "Ik nu priatta hav.",
+    "I have a friend."
+  ],
+  [
+    "She has a new phone.",
+    "Ea nu telfon nev hav.",
+    "She has a new phone."
+  ],
+  [
+    "We are going to the market.",
+    "Vi dur til torgul gan.",
+    "We are going to the market."
+  ],
+  [
+    "I want to buy a new shirt.",
+    "Ik nu șirt nev til bygan vilj.",
+    "I want to buy a new shirt."
+  ],
+  [
+    "Who lives in the house?",
+    "Hva nu in husul lev?",
+    "Who lives in the house?"
+  ],
+  [
+    "What happened yesterday?",
+    "Hvat er gistrăn hap?",
+    "What happened yesterday?"
+  ],
+  [
+    "I think that she is right.",
+    "Ik nu þenk atþe ea nu rișt es.",
+    "I think that she is right."
+  ],
+  [
+    "Can you tell me your name?",
+    "Þu nu namuta þues im kæn tæl li?",
+    "Can you tell your name to me?"
+  ],
+  [
+    "Please give me a cup of tea.",
+    "Gif kop av țeai bidde im.",
+    "Give a cup of tea please to me."
+  ],
+  [
+    "I am looking for my keys.",
+    "Ik dur for kleșenle ikes skav.",
+    "I am looking for my keys."
+  ],
+  [
+    "The red door is open.",
+    "Dorul rod nu opăn es.",
+    "The red door is open."
+  ],
+  [
+    "There is a cat in the garden.",
+    "Þær nu mætă in gardul es.",
+    "There is a cat in the garden."
+  ],
+  [
+    "There are three people outside.",
+    "Þær nu þri mænnen utanhus es.",
+    "There are three people outside."
+  ],
+  [
+    "I am not ready yet.",
+    "Ik nu ræd ennnu ne es.",
+    "I am not ready yet."
+  ],
+  [
+    "We will meet at the station tomorrow.",
+    "Vi va bi statul amorgăn met.",
+    "We will meet at the station tomorrow."
+  ],
+  [
+    "The guard will open the gate for us.",
+    "Vaktărul va gatuta for vi opn.",
+    "The guard will open the gate for us."
+  ],
+  [
+    "The traveller walked through the village.",
+    "Farendul er þurh þorpul gang.",
+    "The traveller walked through the village."
+  ],
+  [
+    "The king's messenger arrived at dawn.",
+    "Bodărul țyningules er bi dægberht kum.",
+    "The king's messenger came at dawn."
+  ],
+  [
+    "After we ate dinner, we went home.",
+    "Æfter vi er ævenmet et, vi er heimtil gan.",
+    "After we ate dinner, we went home."
+  ],
+  [
+    "I have been waiting for an hour.",
+    "Ik nu ju dur for orătid bid.",
+    "I have been waiting for a hour."
+  ],
+  [
+    "She doesn't like the music.",
+    "Ea nu muzikuta ne lik.",
+    "She does not like the music."
+  ],
+  [
+    "I would like some water.",
+    "Ik hed sum vætăr lik.",
+    "I would like some water."
+  ],
+  [
+    "The children are playing a game.",
+    "Țildenle dur spæl pleg.",
+    "The children are playing a game."
+  ],
+  [
+    "I can't find my bag.",
+    "Ik nu punguta ikes ne kæn find.",
+    "I can not find my bag."
+  ],
+  [
+    "I need to go home.",
+    "Ik nu heimtil til ganan þurf.",
+    "I need to go home."
+  ],
+  [
+    "I am going home now.",
+    "Ik dur heimtil nuna gan.",
+    "I am going home now."
+  ],
+  [
+    "I am feeling better.",
+    "Ik dur betăr fel.",
+    "I am feeling better."
+  ],
+  [
+    "This is my favourite song.",
+    "Þes nu sangul liefest ikes es.",
+    "This is my favourite song."
+  ],
+  [
+    "No problem.",
+    "Nei trud.",
+    "No problem."
+  ],
+  [
+    "I am learning Rasnovian.",
+    "Ik dur rașnovæsk lern.",
+    "I am learning Rasnovian."
+  ],
+  [
+    "Do you speak English?",
+    "Þu nu engliș sprek li?",
+    "Do you speak English?"
+  ],
+  [
+    "The weather is cold today.",
+    "Vedrul nu kald hidæi es.",
+    "The weather is cold today."
+  ],
+  [
+    "It is raining outside.",
+    "Hit dur utanhus regn.",
+    "It is raining outside."
+  ],
+  [
+    "He is taller than his brother.",
+    "Han nu hehstiger þan broþărul hanes es.",
+    "He is taller than his brother."
+  ],
+  [
+    "My sister is reading a book.",
+    "Șystărul ikes dur bok ræd.",
+    "My sister is reading a book."
+  ],
+  [
+    "The shop opens at nine.",
+    "Bodul nu bi nigen opn.",
+    "The shop opens at nine."
+  ],
+  [
+    "I will see you later.",
+    "Ik va þuta sæfter se.",
+    "I will see you later."
+  ],
+  [
+    "Good luck!",
+    "Godgeluk!",
+    "Good luck!"
+  ],
+  [
+    "Don't worry, my friend.",
+    "Ne sorg, priatul ikes.",
+    "Do not worry, my friend."
+  ],
+  [
+    "The house was built by my father.",
+    "Husul er av fædărul ikes ves byld.",
+    "The house was built by my father."
+  ],
+  [
+    "We had already eaten when she arrived.",
+    "Vi er ju ærnu et hven ea er kum.",
+    "We had eaten already when she came."
+  ],
+  [
+    "The woman who lives here is my friend.",
+    "Viful þe nu her lev, nu priatul ikes es.",
+    "The woman who lives here is my friend."
+  ],
+  [
+    "I have two brothers and a sister.",
+    "Ik nu tva broþărenta end șystărta hav.",
+    "I have two brothers and a sister."
+  ],
+  [
+    "We bought three bottles of water.",
+    "Vi er þri flasken av vætăr byg.",
+    "We bought three bottles of water."
+  ],
+  [
+    "She gave me the keys.",
+    "Ea er kleșenla im gif.",
+    "She gave the keys to me."
+  ],
+  [
+    "I can see the mountains from here.",
+    "Ik nu bergenla fra her kæn se.",
+    "I can see the mountains from here."
+  ],
+  [
+    "The book is on the table.",
+    "Bokul nu an bordul es.",
+    "The book is on the table."
+  ],
+  [
+    "I like this song, but it is too loud.",
+    "Ik nu þes sangta lik, ak hit nu ovărli lud es.",
+    "I like this song, but it is too loud."
+  ],
+  [
+    "The door is closed.",
+    "Dorul nu lukd es.",
+    "The door is closed."
+  ]
+];
+for(const [en,ra,back] of releaseCases){assert.equal(pack.translateClause(en,false),ra,en);assert.equal(pack.translateClause(ra,true),back,ra);assert.ok(!pack.phrases.some(p=>p[0]===en),en);}
