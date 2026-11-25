@@ -1582,7 +1582,7 @@ window.languagePacks.push({
  Object.assign(forms,{"sound":["sounds","sounded","sounding"],"seem":["seems","seemed","seeming"],"lie":["lies","lied","lying"],"mean":["means","meant","meaning"],"warn":["warns","warned","warning"],"invite":["invites","invited","inviting"],"enter":["enters","entered","entering"],"promise":["promises","promised","promising"],"refuse":["refuses","refused","refusing"],"agree":["agrees","agreed","agreeing"],"kill":["kills","killed","killing"],"step":["steps","stepped","stepping"],"move":["moves","moved","moving"],"look":["looks","looked","looking"],"offer":["offers","offered","offering"],"protect":["protects","protected","protecting"],"allow":["allows","allowed","allowing"],"lower":["lowers","lowered","lowering"],"follow":["follows","followed","following"],"cross":["crosses","crossed","crossing"],"rain":["rains","rained","raining"],"become":["becomes","became","becoming"],"hide":["hides","hid","hiding"],"hunt":["hunts","hunted","hunting"]});
  const irregularPart={"cut":"cut","show":"shown","mean":"meant","go":"gone","come":"come","do":"done","get":"got","give":"given","take":"taken","find":"found","lose":"lost","hear":"heard","say":"said","tell":"told","read":"read","write":"written","teach":"taught","understand":"understood","think":"thought","forget":"forgotten","buy":"bought","sell":"sold","pay":"paid","build":"built","bring":"brought","send":"sent","run":"run","sit":"sat","stand":"stood","sleep":"slept","wake":"woken","sing":"sung","leave":"left","meet":"met","choose":"chosen","feel":"felt","fall":"fallen","grow":"grown","see":"seen","eat":"eaten","drink":"drunk","speak":"spoken","know":"known","become":"become","hide":"hidden"};
  const enPart=k=>irregularPart[k]||forms[k][1];
- const linking=new Set(["become","sound","seem","feel"]);
+ const linking=new Set(["become","sound","seem","feel","taste","smell"]);
  const complementVerbs=new Set(["love","expect","decide","promise","refuse","agree","start","finish","stop","try","want","need","like","hate","learn"]);
  const transitive=new Set("consume taste smell cut mix add pour share serve prepare bore watch interest excite annoy surprise worry disappoint scare tire imagine expect explain decide discuss suggest hurry show warn invite enter promise refuse kill offer protect allow lower follow cross look move give take find lose hear say tell read write teach understand remember forget believe like love help open close buy sell pay cook bake wash clean build carry bring send choose change feel see eat drink speak know hide hunt make do report mess up".split(" "));
  const find=(s,pos,rev=false)=>words.find(w=>norm(w[rev?1:0])===s&&w[2]===pos);
@@ -1593,6 +1593,7 @@ window.languagePacks.push({
  const irreg={person:"people",child:"children",man:"men",woman:"women",tooth:"teeth",foot:"feet",sheep:"sheep",fish:"fish",life:"lives",leaf:"leaves",knife:"knives",wolf:"wolves",deer:"deer"};
  const plural=s=>irreg[s]||(/[^aeiou]y$/.test(s)?s.slice(0,-1)+"ies":/(s|x|z|ch|sh)$/.test(s)?s+"es":s+"s");
  const mass=new Set("cheddar cheese mozzarella rice pasta beef pork lettuce cabbage pepper garlic oil flour honey chocolate music fun boredom interest attention excitement stuff water food clothing silence help joy sadness anger fear respect hunger thirst sleep snow fire peace freedom life love hope rain milk bread cheese butter meat salt sugar coffee tea juice money clothing grass sand soil fog ice health pain work time sleep rest truth darkness sunlight mud blood iron gold".split(" "));
+ for(const k of ["cheddar cheese","breakfast","lunch","dinner","chicken","noodles"])mass.add(k);
  const morphology=this.morphology;
  const animate=new Set([...morphology.animate,"comrade","actor","character","audience","bro","guard","bandit","traveller","ally","enemy"]);
  const dative={me:"im",you:"þem",him:"ham",her:"eam",it:"him",us:"vim",them:"dem"};
@@ -1754,6 +1755,11 @@ window.languagePacks.push({
    if(perfect&&b[0]==="been"){progress=true;b.shift();}
    else if(["will","would"].includes(ax)&&b[0]==="be"){progress=true;b.shift();}
    else if(be)progress=true;
+   // Have as possession is distinct from the perfect auxiliary. Try a complete noun phrase first.
+   if(["have","has","had"].includes(ax)&&perfect&&!progress){
+    const possession=pred([...b,...leading],false,true);
+    if(possession?.text)return out(s,tense,possession,neg,"hav");
+   }
    const marker=(pr=progress)=>[tense,perfect?"ju":"",pr?"dur":""].filter(Boolean).join(" ").replace(/^nu dur$/,"dur");
    if((be||progress)&&!perfect){const o=pred([...b,...leading],false,false);if(o?.text)return out(s,tense,o,neg,"es");}
    for(const v of verbs){
@@ -1765,7 +1771,7 @@ window.languagePacks.push({
      let tail=b.slice(vt.length);
      if(!voice&&recipientVerbs.has(en)&&dative[tail[0]]&&tail.length>1&&!["to","for","in","on","at","from"].includes(tail[1]))tail=[...tail.slice(1),"to",tail[0]];
      let o=pred([...tail,...leading],false,voice?false:!linking.has(en),recipientVerbs.has(en)&&!voice,!!voice);
-     if(!o&&!voice&&en==="feel")o=pred([...tail,...leading],false,true);
+     if(!o&&!voice&&["feel","taste","smell"].includes(en))o=pred([...tail,...leading],false,true);
      if(!o&&!voice&&complementVerbs.has(en)){
       const rest=b.slice(vt.length),to=rest[0]==="to";
       for(const sub of verbs){
@@ -1801,7 +1807,7 @@ window.languagePacks.push({
  const modal=Object.keys(modals).find(k=>modals[k]===a[a.length-1]);if(modal)a.pop();const neg=a[a.length-1]==="ne";if(neg)a.pop();
  const cop=stem==="es",v=verbs.find(w=>w[1].slice(0,-2)===stem);if(!cop&&!v)return null;
  let o=pred(a,true,!cop&&!passive&&!linking.has(v?.[0]),recipientVerbs.has(v?.[0])&&!passive,passive);
- if(!o&&!passive&&v?.[0]==="feel")o=pred(a,true,true);
+ if(!o&&!passive&&["feel","taste","smell"].includes(v?.[0]))o=pred(a,true,true);
  if(!o&&!passive&&complementVerbs.has(v?.[0])){
   const sub=verbs.find(w=>w[1]===a[a.length-1]),to=a[a.length-2]==="til";
   if(sub){const inner=pred(a.slice(0,to?-2:-1),true,!linking.has(sub[0]),recipientVerbs.has(sub[0]));if(inner)o={text:[to?"to":"",to?sub[0]:forms[sub[0]][2],inner.text].filter(Boolean).join(" ")};}
