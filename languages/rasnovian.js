@@ -1,12 +1,27 @@
 // Each language pack registers its own vocabulary, documentation and grammar adapter.
 window.languagePacks = window.languagePacks || [];
 window.languagePacks.push({
- id:"rasnovian", name:"Rasnovian", native:"Rașnovæsk", version:"0.1",
+ id:"rasnovian", name:"Rasnovian", native:"Rașnovæsk", version:"0.2",
  origins:[["Anglo-Saxon",60],["Romanian",30],["Russian",10]],
  alphabet:"A Ă Æ B D E F G H I J K L M N O P R S Ș T Ț Þ U V Y Z".split(" "),
  sounds:[["Ă","unstressed uh"],["Æ","a in cat"],["Ș","sh"],["Ț","ts"],["Þ","th in think"],["Y","Russian ы"],["J","zh in vision"],["R","rolled r"],["V","v"]],
  // [English lemma, Rasnovian lemma, part of speech]
  words:[
+ ["idiot","dol","noun"],
+ ["bakery","bakhus","noun"],
+ ["order","ordr","noun"],
+ ["parliament","þing","noun"],
+ ["mess up","forspillan","verb"],
+ ["report","meldan","verb"],
+ ["curse","verdom","expression"],
+ ["so","sva","adverb"],
+ ["just as well","jafn","adverb"],
+ ["those","þa","demonstrative"],
+ ["at","bi","preposition"],
+ ["to","til","preposition"],
+ ["our","vies","possessive"],
+ ["but","ak","conjunction"],
+ ["man!","mann!","expression"],
  ["hello","hæl","expression"],["goodbye","farvæl","expression"],["yes","ja","expression"],["no","nei","expression"],["thanks","þank","expression"],
  ["person","mann","noun"],["friend","priat","noun"],["family","kină","noun"],["home","heim","noun"],["country","landă","noun"],["kingdom","kyningdom","noun"],["city","grod","noun"],["road","drum","noun"],["world","lume","noun"],["fire","fyr","noun"],["water","væter","noun"],["snow","snæg","noun"],["forest","væld","noun"],["mountain","berg","noun"],["sun","sunnă","noun"],["moon","monă","noun"],["sky","hebăn","noun"],["peace","friþ","noun"],["freedom","freidom","noun"],["life","levă","noun"],["love","luvă","noun"],["hope","nadă","noun"],["house","hus","noun"],["stone","stæn","noun"],["night","nișt","noun"],["day","dæi","noun"],["child","kild","noun"],["king","kyning","noun"],["earth","erþă","noun"],["father","fæder","noun"],
  ["good","god","adjective"],["bad","yvel","adjective"],["beautiful","frumos","adjective"],["cold","kald","adjective"],["warm","varm","adjective"],["old","ald","adjective"],["new","nev","adjective"],["green","gren","adjective"],
@@ -16,9 +31,16 @@ window.languagePacks.push({
  ["darkness","niștvald","noun"],["sunlight","sunnăfyr","noun"],["humanity","erþăkin","noun"],["homesickness","heimdor","noun"],["fortress","stænhus","noun"],["sanctuary","friþland","noun"]
  ],
  phrases:[
+ ["Man, fuck those idiots over at the bakery. They messed up our order, it is so bad we might as well report this to the parliament HAH!","Mann, þa dolenta bi bakhusul verdom! Dei er ordrulta vies forspill. Hit nu sva yvel es; vi hed jafn hitta til þingul meld. HAH!"],
+ ["Man, fuck those idiots over at the bakery.","Mann, þa dolenta bi bakhusul verdom!"],
+ ["They messed up our order.","Dei er ordrulta vies forspill."],
+ ["It is so bad; we might as well report this to the parliament.","Hit nu sva yvel es; vi hed jafn hitta til þingul meld."],
+ ["Fuck those idiots!","Þa dolenta verdom!"],
+ ["They messed up our order, it is so bad we might as well report this to the parliament HAH!","Dei er ordrulta vies forspill. Hit nu sva yvel es; vi hed jafn hitta til þingul meld. HAH!"],
  ["Hello!","Hæl!"],["Goodbye!","Farvæl!"],["How are you?","Hu nu þu es?"],["I am well, thanks.","Ik nu væl es, þank."],["I see the house.","Ik nu husulta se."],["I do not see the house.","Ik nu husulta ne se."],["Do you see the house?","Þu nu husulta se li?"],["I ate.","Ik er et."],["I will eat.","Ik va et."],["I am eating.","Ik dur et."],["I would eat.","Ik hed et."],["The night is cold.","Niștul nu kald es."],["The cold house","Husul kald"],["Yes, my friend.","Ja, priat ikes."],["Shall we go home?","Vi va til heim far li?"]
  ],
  grammar:[
+ ["Colloquial speech","Mann! is an interjection. Verdom is a strong curse used as a verb-final imperative without a tense particle. Þa marks plural demonstratives, replacing the definite article: þa dolenta = those idiots (object). Possessives can follow the noun: ordrulta vies = our order (object). Jafn with hed conveys 'might as well'; direct-object hit may take -ta: hitta. Bi = at, til = to."],
  ["Sentence order","The default is subject–object–verb. Put the tense particle after the first major element. Objects can move to the front for emphasis."],
  ["Tense and aspect","nu = present; er = past; va = future; dur = ongoing; hed = conditional. Remove -an from an infinitive to obtain the verb stem."],
  ["Nouns","Add -en for plural, -ul for definite singular, -le after a plural for definite plural, -ta for direct objects, and -es for possession. Example: hus → husul → husulta."],
