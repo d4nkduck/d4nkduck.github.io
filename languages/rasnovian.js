@@ -1,7 +1,7 @@
 // Each language pack registers its own vocabulary, documentation and grammar adapter.
 window.languagePacks = window.languagePacks || [];
 window.languagePacks.push({
- id:"rasnovian", name:"Rasnovian", native:"Rașnovæsk", version:"0.7",
+ id:"rasnovian", name:"Rasnovian", native:"Rașnovæsk", version:"0.8",
  origins:[["Anglo-Saxon",60],["Romanian",30],["Russian",10]],
  alphabet:"A Ă Æ B D E F G H I J K L M N O P R S Ș T Ț Þ U V Y Z".split(" "),
  sounds:[["Ă","unstressed uh"],["Æ","a in cat"],["Ș","sh"],["Ț","ts"],["Þ","th in think"],["Y","Russian ы"],["J","zh in vision"],["R","rolled r"],["V","v"]],
@@ -585,6 +585,15 @@ window.languagePacks.push({
 },
  morphology:{"mutating":{"hund":"hind","hors":"hers","fot":"fet","toþ":"teþ","mann":"mænn"},"datives":{"ik":"im","þu":"þem","han":"ham","ea":"eam","hit":"him","vi":"vim","gi":"gim","dei":"dem"},"animate":["person","friend","child","king","mother","father","brother","sister","son","daughter","parent","grandmother","grandfather","woman","man","baby","neighbour","guest","stranger","teacher","student","worker","doctor","farmer","baker","merchant","leader","citizen","judge","idiot","animal","bird","dog","cat","horse","cow","sheep","wolf","bear","fox","bee","insect","fish","deer"],"description":"Plural stem mutation is lexical, inherited from a lost earlier front-vowel plural ending; it is not applied to every back-vowel root.","elisionExceptions":["kartă","hertă"]},
  words:[
+ ["anterior aspect","ju","particle","Grammar"],
+ ["passive voice","ves","particle","Grammar"],
+ ["reflexive self","sek","pronoun-reflexive","Grammar"],
+ ["one's own","sines","possessive-reflexive","Grammar"],
+ ["each other","samsek","pronoun-reciprocal","Grammar"],
+ ["while","medan","conjunction","Connectors & time"],
+ ["although","þoh","conjunction","Connectors & time"],
+ ["therefore","forþi","conjunction","Connectors & time"],
+ ["soon","snat","adverb","Connectors & time"],
  ["strange","fremdig","adjective","Qualities"],
  ["your (plural)","gies","possessive","Foundation"],
  ["sword","sverd","noun","Society & travel"],
@@ -1156,6 +1165,13 @@ window.languagePacks.push({
  ["Shall we go home?","Vi va til heim far li?"]
  ],
  grammar:[
+ ["Tense, aspect and mood (v0.8)","Fixed order: tense/mood (nu, er, va, hed), optional anterior ju, optional progressive dur. Nu dur contracts to dur. Ju marks completion relative to reference time. Finite verbs remain bare stems: er ju = past perfect; va ju = future perfect; er ju dur = past perfect progressive. English adverbs may normalize to clause-final position."],
+ ["Passive voice","Ves precedes the finite stem after negation. Simple past, present, future and conditional passives are parsed; compound passives are deferred."],
+ ["Reflexives and reciprocity","Sek is invariant across persons; sines marks subject-owned possession; samsek is reciprocal. Pronoun-subject reflexives are implemented; noun-subject and nested reference resolution is deferred."],
+ ["Independent possessives","Singular independent possessives take -ul as subject or predicate and -uta as object. English does not identify the omitted noun's number, so the parser defaults to singular."],
+ ["Imperatives","A bare verb is fronted in commands without a subject or tense particle; ne precedes negative commands. Double-object commands normalize to English to-recipient form."],
+ ["Subordination","Þoh although, medan while and foran before introduce comma-delimited initial clauses. Gif conditionals can combine er ju and hed ju for past counterfactuals. Embedded object clauses and broader subordination are deferred."],
+ ["Non-finite forms","Infinitives end in -an; finite verbs remove -an, including after modals. A lexical strong/weak participle system and non-finite clauses are planned but not implemented. Perfect and passive finite clauses do not require participles."],
  ["Modern noun morphology","v0.7 introduces conditioned erosion: final ă disappears before vowel-initial -en/-ul/-uta unless it distinguishes two lexical roots (exceptions: kartă, hertă). Definite accusatives fuse -ul-ta → -uta and -en-le-ta → -en-la. Indefinite accusative -ta survives for animate nouns; definite, demonstrative and possessive objects are marked even when inanimate. Generic indefinite inanimate objects are unmarked. Pronouns retain distinct accusatives."],
  ["Inherited plural classes","The old front-vowel plural ending produced fossilised stem mutation in a small class: hund → hinden, hors → hersen, fot → feten, toþ → teþen, mann → mænnen. Other nouns retain regular -en. Mutations apply before article and case endings; this is a historical class, not a universal sound rule."],
  ["Adjective agreement","Attributive adjectives follow the noun and agree in number: singular rod, plural rode; final ă becomes e, final e remains unchanged. Predicative and comparative adjectives remain uninflected. No gender agreement is required."],
@@ -1185,7 +1201,6 @@ window.languagePacks.push({
  ["Experiential vocabulary (Sælord)","Sælord is a proposed cultural term for words that name whole experiences rather than simple objects. These are lexicalised compounds, with meaning extending beyond the component roots. Morgănvaș evokes warm morning air felt against the skin (morgăn, morning; vaș, soft brush or breeze). Vældfriþ combines forest and peace; ținfyr combines family and fire; þingdol combines assembly and foolishness, specifically institutional absurdity. New roots used in this collection are provisional: stil (stillness), slæp (sleep), vil (will), þrum (hum), ord (word), smæl (a sharp remark), skuld (obligation or guilt), fram (forward). Concepts function as nouns and can take regular noun endings."],
  ["Colloquial speech","Mann! is an interjection. Verdom is a strong curse used as a verb-final imperative without a tense particle. Þa marks plural demonstratives, replacing the definite article: þa dolenta = those idiots (object). Possessives can follow the noun: ordruta vies = our order (object). Jafn with hed conveys 'might as well'; direct-object hit takes -ta: hitta. Bi = at, til = to."],
  ["Sentence order","The default is subject–object–verb. Put the tense particle after the first major element. Objects can move to the front for emphasis."],
- ["Tense and aspect","nu = present; er = past; va = future; dur = ongoing; hed = conditional. Remove -an from an infinitive to obtain the verb stem."],
  ["Negation and questions","Place ne immediately before the verb. A yes/no question ends with li."],
  ["Dialect concepts","Aldrașnovæsk (ancient), Nordrașnovæsk (northern), Sudrașnovæsk (southern), Hohrașnovæsk (formal), Folkrașnovæsk (colloquial). These are not yet separately implemented."]
  ],
@@ -1204,6 +1219,10 @@ window.languagePacks.push({
  const punct=input.trim().match(/[.!?]$/)?.[0]||"";
  // Sentence-level constructions are parsed recursively; not stored as phrase translations.
  const raw=input.trim();
+ for(const [en,ra] of [["although","þoh"],["while","medan"],["before","foran"]]){
+  const m=raw.match(new RegExp("^"+(reverse?ra:en)+"\\s+(.+?),\\s*(.+)$","i"));
+  if(m){const x=this.translateClause(m[1],reverse),y=this.translateClause(m[2],reverse);const lower=s=>s.startsWith("I ")?s:s[0].toLowerCase()+s.slice(1);return x&&y?cap((reverse?en:ra)+" "+lower(x)+", "+lower(y)):null;}
+ }
  const low=norm(raw);
  const decap=s=>s[0]==="I"&&(s.length===1||s[1]===" ")?s:s[0].toLowerCase()+s.slice(1);
  const cond=reverse?/^gif\s+(.+?),\s*(.+)$/i:/^if\s+(.+?),\s*(?:then\s+)?(.+)$/i;
@@ -1211,9 +1230,12 @@ window.languagePacks.push({
  if(cm){const first=this.translateClause(cm[1],reverse), second=this.translateClause(cm[2],reverse);if(first&&second)return (reverse?"If ":"Gif ")+decap(first)+", "+decap(second);return null;}
  const contrast=raw.match(reverse?/^(.+),\s*ne\s+(.+?)([.!?])?$/i:/^(.+),\s*not\s+(.+?)([.!?])?$/i);
  if(contrast){const main=this.translateClause(contrast[1],reverse);const item=this.words.find(w=>["noun","concept","pronoun"].includes(w[2])&&norm(w[reverse?1:0])===norm(contrast[2]));if(main&&item)return main+", "+(reverse?"not ":"ne ")+item[reverse?0:1]+(contrast[3]||"");return null;}
- const tokens=split(norm(input).replace(/[.!?]$/,"").replace(/n['’]t\b/g," not").replace(/\bwo not\b/g,"will not").replace(/\bi['’]m\b/g,"i am").replace(/\b(he|she|it)['’]s\b/g,"$1 is").replace(/\b(we|you|they)['’]re\b/g,"$1 are"));
+ const tokens=split(norm(input).replace(/[.!?]$/,"").replace(/\bcannot\b/g,"can not").replace(/\bcan[’\x27]t\b/g,"can not").replace(/n['’]t\b/g," not").replace(/\bwo not\b/g,"will not").replace(/\bi['’]m\b/g,"i am").replace(/\b(he|she|it)['’]s\b/g,"$1 is").replace(/\b(we|you|they)['’]re\b/g,"$1 are"));
  const words=this.words, nouns=words.filter(w=>["noun","concept"].includes(w[2])), forms={"go":["goes","went","going"],"come":["comes","came","coming"],"have":["has","had","having"],"make":["makes","made","making"],"do":["does","did","doing"],"get":["gets","got","getting"],"give":["gives","gave","giving"],"take":["takes","took","taking"],"find":["finds","found","finding"],"lose":["loses","lost","losing"],"hear":["hears","heard","hearing"],"listen":["listens","listened","listening"],"say":["says","said","saying"],"tell":["tells","told","telling"],"ask":["asks","asked","asking"],"answer":["answers","answered","answering"],"read":["reads","read","reading"],"write":["writes","wrote","writing"],"learn":["learns","learned","learning"],"teach":["teaches","taught","teaching"],"understand":["understands","understood","understanding"],"think":["thinks","thought","thinking"],"remember":["remembers","remembered","remembering"],"forget":["forgets","forgot","forgetting"],"believe":["believes","believed","believing"],"want":["wants","wanted","wanting"],"need":["needs","needed","needing"],"like":["likes","liked","liking"],"hate":["hates","hated","hating"],"help":["helps","helped","helping"],"wait":["waits","waited","waiting"],"start":["starts","started","starting"],"finish":["finishes","finished","finishing"],"stop":["stops","stopped","stopping"],"open":["opens","opened","opening"],"close":["closes","closed","closing"],"buy":["buys","bought","buying"],"sell":["sells","sold","selling"],"pay":["pays","paid","paying"],"cook":["cooks","cooked","cooking"],"bake":["bakes","baked","baking"],"wash":["washes","washed","washing"],"clean":["cleans","cleaned","cleaning"],"build":["builds","built","building"],"carry":["carries","carried","carrying"],"bring":["brings","brought","bringing"],"send":["sends","sent","sending"],"walk":["walks","walked","walking"],"run":["runs","ran","running"],"sit":["sits","sat","sitting"],"stand":["stands","stood","standing"],"sleep":["sleeps","slept","sleeping"],"wake":["wakes","woke","waking"],"rest":["rests","rested","resting"],"laugh":["laughs","laughed","laughing"],"smile":["smiles","smiled","smiling"],"cry":["cries","cried","crying"],"sing":["sings","sang","singing"],"play":["plays","played","playing"],"work":["works","worked","working"],"stay":["stays","stayed","staying"],"leave":["leaves","left","leaving"],"return":["returns","returned","returning"],"meet":["meets","met","meeting"],"choose":["chooses","chose","choosing"],"change":["changes","changed","changing"],"feel":["feels","felt","feeling"],"hope":["hopes","hoped","hoping"],"try":["tries","tried","trying"],"happen":["happens","happened","happening"],"fall":["falls","fell","falling"],"grow":["grows","grew","growing"],"move":["moves","moved","moving"],"report":["reports","reported","reporting"],"mess up":["messes up","messed up","messing up"],"see":["sees","saw","seeing"],"eat":["eats","ate","eating"],"drink":["drinks","drank","drinking"],"love":["loves","loved","loving"],"travel":["travels","traveled","traveling"],"speak":["speaks","spoke","speaking"],"live":["lives","lived","living"],"know":["knows","knew","knowing"]};
  Object.assign(forms,{"rain":["rains","rained","raining"],"become":["becomes","became","becoming"],"hide":["hides","hid","hiding"],"hunt":["hunts","hunted","hunting"]});
+ const irregularPart={"go":"gone","come":"come","do":"done","get":"got","give":"given","take":"taken","find":"found","lose":"lost","hear":"heard","say":"said","tell":"told","read":"read","write":"written","teach":"taught","understand":"understood","think":"thought","forget":"forgotten","buy":"bought","sell":"sold","pay":"paid","build":"built","bring":"brought","send":"sent","run":"run","sit":"sat","stand":"stood","sleep":"slept","wake":"woken","sing":"sung","leave":"left","meet":"met","choose":"chosen","feel":"felt","fall":"fallen","grow":"grown","see":"seen","eat":"eaten","drink":"drunk","speak":"spoken","know":"known","become":"become","hide":"hidden"};
+ const enPart=k=>irregularPart[k]||forms[k][1];
+ const transitive=new Set("give take find lose hear say tell read write teach understand remember forget believe like love help open close buy sell pay cook bake wash clean build carry bring send choose change feel see eat drink speak know hide hunt make do report mess up".split(" "));
  const find=(s,pos,rev=false)=>words.find(w=>norm(w[rev?1:0])===s&&w[2]===pos);
  const pron=words.filter(w=>w[2]==="pronoun"), poss=words.filter(w=>w[2]==="possessive");
  const num=words.filter(w=>w[2]==="number");
@@ -1228,10 +1250,19 @@ window.languagePacks.push({
  const recipientVerbs=new Set(["give","send","bring","tell","sell","lend","offer"]);
  const adjForm=(r,pl)=>pl?(r.endsWith("e")?r:r.endsWith("ă")?r.slice(0,-1)+"e":r+"e"):r;
  const nounForm=this.inflectNoun.bind(this);
+ const independent={mine:"ikes",yours:"þues",his:"hanes",hers:"eaes",ours:"vies",theirs:"deies"};
+ const selfFor=s=>({I:"myself",you:"yourself",he:"himself",she:"herself",it:"itself",we:"ourselves",they:"themselves"}[s]);
+ const ownerFor=s=>({I:"my",you:"your",he:"his",she:"her",it:"its",we:"our",they:"their"}[s]);
+ let subjectRef="";
+ const subjectEnglish=(s,rev)=>rev?s.text:pron.find(w=>w[1]===s.text)?.[0]||"";
  function np(a,obj=false,rev=false,genitive=false){
   if(!a.length)return null;
   const joint=a.indexOf(rev?"end":"and");if(joint>0&&joint<a.length-1){const l=np(a.slice(0,joint),obj,rev,genitive),r=np(a.slice(joint+1),obj,rev,genitive);if(l&&r)return {text:l.text+(rev?" and ":" end ")+r.text,third:false};}
+  if(obj&&!genitive&&!rev&&a.join(" ")==="each other")return {text:"samsek",third:false};
   if(a.length===1&&!genitive){
+   if(obj){if(!rev&&selfFor(subjectRef)===a[0])return {text:"sek",third:false};if(rev&&a[0]==="sek"&&selfFor(subjectRef))return {text:selfFor(subjectRef),third:false};if(rev&&a[0]==="samsek")return {text:"each other",third:false};}
+   const ind=rev?Object.keys(independent).find(k=>independent[k]+(obj?"uta":"ul")===a[0]):independent[a[0]];
+   if(ind)return {text:rev?ind:ind+(obj?"uta":"ul"),third:true};
    if(obj){const o=rev?Object.keys(ob).find(k=>ob[k]===a[0]):ob[a[0]];if(o)return {text:o,third:false};if(rev&&a[0]==="gita")return {text:"you",third:false};}
    else {const p=pron.find(w=>norm(w[rev?1:0])===a[0]);if(p)return {text:rev?(p[0]==="you (plural)"?"you":p[0]):p[1],third:["he","she","it"].includes(p[0]),first:p[0]==="I"};}
   }
@@ -1256,7 +1287,7 @@ window.languagePacks.push({
   }
   if(!rev){
    let b=a.slice(),d="",ps="",dm="",quantity=null;
-   if(["the","a","an"].includes(b[0]))d=b.shift();else if(demo[b[0]])dm=b.shift();else{const p=poss.find(w=>norm(w[0])===b[0]);if(p){ps=p[1];b.shift();}}
+   if(b.length>2&&b[1]==="own"&&ownerFor(subjectRef)===b[0]){ps="sines";b.splice(0,2);}else if(["the","a","an"].includes(b[0]))d=b.shift();else if(demo[b[0]])dm=b.shift();else{const p=poss.find(w=>norm(w[0])===b[0]);if(p){ps=p[1];b.shift();}}
    quantity=num.find(w=>w[0]===b[0]);if(quantity)b.shift();
    for(const n of nouns)for(const pl of [false,true]){
     if(quantity&&pl===(quantity[0]==="one"))continue;
@@ -1272,7 +1303,7 @@ window.languagePacks.push({
   let b=a.slice(),dm="",ps="",quantity=null;
   const d=Object.keys(demo).find(k=>demo[k]===b[0]);if(d){dm=d;b.shift();}
   quantity=num.find(w=>w[1]===b[0]);if(quantity)b.shift();
-  const p=poss.find(w=>w[1]===b[b.length-1]);if(p){ps=p[0];b.pop();}
+  const p=poss.find(w=>w[1]===b[b.length-1]);if(b[b.length-1]==="sines"){const owner=ownerFor(subjectRef);if(!owner)return null;ps=owner+" own";b.pop();}else if(p){ps=p[0];b.pop();}
   const marked=b.shift();
   for(const n of nouns)for(const pl of [false,true])for(const def of [false,true]){
    if(nounForm(n,pl,def,genitive?"gen":obj?"acc":"nom",!!dm)!==marked)continue;
@@ -1286,7 +1317,7 @@ window.languagePacks.push({
  function pred(a,rev,obj=true,recipient=false){
   if(!a.length)return {text:""};
   const preps=words.filter(w=>w[2]==="preposition"&&!["than","of"].includes(w[0]));
-  const times=words.filter(w=>w[2]==="adverb"&&["yesterday","today","tomorrow","now","always","never","often","sometimes","already","again","together","apart","then","here","there"].includes(w[0]));
+  const times=words.filter(w=>w[2]==="adverb"&&["yesterday","today","tomorrow","now","always","never","often","sometimes","already","soon","again","together","apart","then","here","there"].includes(w[0]));
   const side=rev?1:0,other=1-side;
   const bare={night:"nișt",home:"heim",morning:"morgăn",evening:"æven",school:"skol",work:"verk"};
   const ppnp=(b)=>{
@@ -1333,41 +1364,67 @@ window.languagePacks.push({
  const whs={why:"hvi",where:"hvar",when:"hven",how:"hu"};
  if(!reverse){
   let a=tokens.slice(),q=false,aux="",wh="";if(whs[a[0]])wh=a.shift();
-  const auxes=["do","does","did","will","would","am","is","are","was","were",...Object.keys(modals)];
+  const auxes=["do","does","did","will","would","am","is","are","was","were","have","has","had",...Object.keys(modals)];
   if(auxes.includes(a[0])){aux=a.shift();q=true;}else if(wh)return null;
   function out(s,t,o,neg,stem,modal=""){return cap([...(wh?[whs[wh],t,s.text]:[s.text,t]),o.text,neg?"ne":"",modal,stem,q&&!wh?"li":""].filter(Boolean).join(" "))+(q?"?":punct);}
   for(let i=1;i<a.length;i++){
    let s=np(a.slice(0,i));
    if(!s){const subject=a.slice(0,i);const ri=subject.findIndex(x=>["who","which","that"].includes(x));if(ri>0&&ri<subject.length-1){const head=np(subject.slice(0,ri));if(head){const rel=this.translateClause((head.third?"he":"they")+" "+subject.slice(ri+1).join(" "),false);if(rel){const body=rel.replace(/^(Han|Dei)\s+/i,"");s={...head,text:head.text+" þe "+body+","};}}}}
    if(!s)continue;
+   subjectRef=subjectEnglish(s,false);
    let b=a.slice(i),ax=aux;if(!ax&&auxes.includes(b[0]))ax=b.shift();
    let neg=b[0]==="not";if(neg)b.shift();
-   const tense=ax==="will"?"va":ax==="would"?"hed":["did","was","were"].includes(ax)?"er":"nu";
+   const tense=ax==="will"?"va":ax==="would"?"hed":["did","was","were","had"].includes(ax)?"er":"nu";
    const be=["am","is","are","was","were"].includes(ax);
-   if(be||["will","would"].includes(ax)&&b[0]==="be"){
-    const o=pred(be?b:b.slice(1),false,false);if(o?.text)return out(s,tense,o,neg,"es");
-    if(["was","were"].includes(ax))continue;
-   }
+   let perfect=["have","has","had"].includes(ax),progress=false;
+   if(["will","would"].includes(ax)&&b[0]==="have"){perfect=true;b.shift();}
+   const leading=[];
+   while(["already","never","often","always","sometimes","soon"].includes(b[0]))leading.push(b.shift());
+   if(perfect&&b[0]==="been"){progress=true;b.shift();}
+   else if(["will","would"].includes(ax)&&b[0]==="be"){progress=true;b.shift();}
+   else if(be)progress=true;
+   const marker=(pr=progress)=>[tense,perfect?"ju":"",pr?"dur":""].filter(Boolean).join(" ").replace(/^nu dur$/,"dur");
+   if((be||progress)&&!perfect){const o=pred([...b,...leading],false,false);if(o?.text)return out(s,tense,o,neg,"es");}
    for(const v of verbs){
     const [en,ra]=v,[third,past,ing]=forms[en];
-    const variants=be?[[ing,"dur"]]:ax?[[en,tense]]:[[s.third?third:en,"nu"],[past,"er"]];
-    for(const [form,t] of variants){const vt=split(form);if(b.slice(0,vt.length).join(" ")!==form)continue;const o=pred(b.slice(vt.length),false,en!=="become",recipientVerbs.has(en));if(o)return out(s,t,o,neg,ra.slice(0,-2),modals[ax]);}
+    let variants=perfect&&progress?[[ing,marker()]]:perfect?[[enPart(en),marker(false)]]:progress?[[ing,marker()]]:ax?[[en,tense]]:[[s.third?third:en,"nu"],[past,"er"]];
+    if(progress&&!perfect&&transitive.has(en))variants.push([enPart(en),tense,"ves"]);
+    for(const [form,tm,voice] of variants){
+     const vt=split(form);if(b.slice(0,vt.length).join(" ")!==form)continue;
+     const o=pred([...b.slice(vt.length),...leading],false,voice?false:en!=="become",recipientVerbs.has(en));
+     if(o)return out(s,tm,o,neg,voice?voice+" "+ra.slice(0,-2):ra.slice(0,-2),modals[ax]);
+    }
    }
+  }
+  if(!wh&&(!q||tokens.slice(0,2).join(" ")==="do not"&&punct!=="?")){
+   let b=tokens.slice(),neg=false;if(b.slice(0,2).join(" ")==="do not"){neg=true;b=b.slice(2);}
+   subjectRef="you";
+   for(const v of verbs){const vt=split(v[0]);if(b.slice(0,vt.length).join(" ")!==v[0])continue;let rest=b.slice(vt.length);if(recipientVerbs.has(v[0])&&dative[rest[0]]&&rest.length>1)rest=[...rest.slice(1),"to",rest[0]];const o=pred(rest,false,true,recipientVerbs.has(v[0]));if(o)return cap([neg?"ne":"",v[1].slice(0,-2),o.text].filter(Boolean).join(" "))+punct;}
   }return null;
  }
  let a=tokens.slice(),q=a[a.length-1]==="li";if(q)a.pop();
- const wh=Object.keys(whs).find(k=>whs[k]===a[0]);if(wh){const tense=a[1];if(!particles.includes(tense))return null;for(let j=a.length-1;j>=3;j--){if(!np(a.slice(2,j),false,true))continue;const translated=this.translateClause([...a.slice(2,j),tense,...a.slice(j),"li"].join(" ")+"?",true);if(translated)return cap(wh+" "+translated[0].toLowerCase()+translated.slice(1));}return null;}
+ const wh=Object.keys(whs).find(k=>whs[k]===a[0]);if(wh){const tense=a[1];if(!particles.includes(tense))return null;let k=2;while(["ju","dur"].includes(a[k]))k++;for(let j=a.length-1;j>k;j--){if(!np(a.slice(k,j),false,true))continue;const translated=this.translateClause([...a.slice(k,j),...a.slice(1,k),...a.slice(j),"li"].join(" ")+"?",true);if(translated)return cap(wh+" "+translated[0].toLowerCase()+translated.slice(1));}return null;}
  let i=a.findIndex(x=>particles.includes(x)),s=null;
  const ri=a.indexOf("þe");
  if(ri>0){const boundary=a.findIndex((x,j)=>j>ri&&x.endsWith(","));if(boundary<0||!particles.includes(a[boundary+1]))return null;const head=np(a.slice(0,ri),false,true);if(!head)return null;const relTokens=a.slice(ri+1,boundary+1);relTokens[relTokens.length-1]=relTokens[relTokens.length-1].slice(0,-1);const rel=this.translateClause([head.third?"han":"dei",...relTokens].join(" "),true);if(!rel)return null;const body=rel.replace(/^(He|They)\s+/i,"");if(body===rel)return null;const nounHead=a[ri-1];const human=head.human||false;s={...head,text:head.text+" "+(human?"who":"which")+" "+body};i=boundary+1;}
  else if(i>0)s=np(a.slice(0,i),false,true);
- if(i<1||!s)return null;
- const t=a[i];a=a.slice(i+1);const stem=a.pop();const modal=Object.keys(modals).find(k=>modals[k]===a[a.length-1]);if(modal)a.pop();const neg=a[a.length-1]==="ne";if(neg)a.pop();
+ if(i<1||!s){
+  if(!q&&i<0){const b=a.slice();const neg=b[0]==="ne";if(neg)b.shift();const v=verbs.find(w=>w[1].slice(0,-2)===b[0]);if(v){subjectRef="you";const o=pred(b.slice(1),true,true,recipientVerbs.has(v[0]));if(o)return cap([neg?"do not":"",v[0],o.text].filter(Boolean).join(" "))+punct;}}return null;
+ }
+ subjectRef=subjectEnglish(s,true);
+ let t=a[i];a=a.slice(i+1);const perfect=a[0]==="ju";if(perfect)a.shift();const progress=t==="dur"||a[0]==="dur";if(a[0]==="dur")a.shift();if(t==="dur")t="nu";
+ const stem=a.pop();const passive=a[a.length-1]==="ves";if(passive)a.pop();
+ const modal=Object.keys(modals).find(k=>modals[k]===a[a.length-1]);if(modal)a.pop();const neg=a[a.length-1]==="ne";if(neg)a.pop();
  const cop=stem==="es",v=verbs.find(w=>w[1].slice(0,-2)===stem);if(!cop&&!v)return null;
- const o=pred(a,true,!cop&&v?.[0]!=="become",recipientVerbs.has(v?.[0]));if(!o||cop&&!o.text)return null;
+ const o=pred(a,true,!cop&&!passive&&v?.[0]!=="become",recipientVerbs.has(v?.[0])&&!passive);if(!o||cop&&!o.text)return null;
  const be=s.first?"am":s.third?"is":"are",pastBe=s.first||s.third?"was":"were";let aux="",vv="";
- if(cop){if(t==="dur")return null;if(t==="va"||t==="hed"){aux=t==="va"?"will":"would";vv="be";}else aux=t==="er"?pastBe:be;}
- else{const en=v[0],[third,past,ing]=forms[en];vv=en;if(modal){if(t!=="nu")return null;aux=modal;}else if(t==="va"||t==="hed")aux=t==="va"?"will":"would";else if(t==="dur"){aux=be;vv=ing;}else if(q||neg)aux=t==="er"?"did":s.third?"does":"do";else vv=t==="er"?past:s.third?third:en;}
+ if(cop){if(perfect||progress||passive||modal)return null;if(t==="va"||t==="hed"){aux=t==="va"?"will":"would";vv="be";}else aux=t==="er"?pastBe:be;}
+ else{const en=v[0],[third,past,ing]=forms[en];vv=en;
+ if(modal){if(t!=="nu"||perfect||progress||passive)return null;aux=modal;}
+ else if(perfect){if(passive)return null;aux=t==="va"?"will":t==="hed"?"would":t==="er"?"had":s.third?"has":"have";vv=[t==="va"||t==="hed"?"have":"",progress?"been":"",progress?ing:enPart(en)].filter(Boolean).join(" ");}
+ else if(passive){if(progress||!transitive.has(en))return null;aux=t==="va"?"will":t==="hed"?"would":t==="er"?pastBe:be;vv=[t==="va"||t==="hed"?"be":"",enPart(en)].filter(Boolean).join(" ");}
+ else if(progress){aux=t==="va"?"will":t==="hed"?"would":t==="er"?pastBe:be;vv=[t==="va"||t==="hed"?"be":"",ing].filter(Boolean).join(" ");}
+ else if(t==="va"||t==="hed")aux=t==="va"?"will":"would";else if(q||neg)aux=t==="er"?"did":s.third?"does":"do";else vv=t==="er"?past:s.third?third:en;}
  return cap((q?[aux,s.text,neg?"not":"",vv,o.text]:[s.text,aux,neg?"not":"",vv,o.text]).filter(Boolean).join(" "))+(q?"?":punct);
 }
 });
