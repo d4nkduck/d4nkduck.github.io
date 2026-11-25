@@ -493,3 +493,65 @@ for(const [en,ra,canonical] of aliasCases){assert.equal(pack.translateClause(en,
 assert.equal(pack.lookupEnglish("hound")[0][1],"hund");
 assert.equal(pack.lookupEnglish("purchase")[0][1],"bygan");
 console.log(aliasCases.length+" flexible-input cases passed.");
+
+// Clause-aware parsing; unknown words never become permanent dictionary entries.
+const clauseCases=[
+  [
+    "I will see the guard, but she will wait.",
+    "Ik va vaktăruta se, ak ea va bid."
+  ],
+  [
+    "Open the door, brave traveller!",
+    "Opn doruta, farend dærig!"
+  ],
+  [
+    "I'll wait where you stand.",
+    "Ik va bid hvar þu nu stand."
+  ],
+  [
+    "Now!",
+    "Nuna!"
+  ],
+  [
+    "She warned the guard.",
+    "Ea er vaktăruta varn."
+  ],
+  [
+    "The merchant promised to return.",
+    "Marșantul er til vendan belov."
+  ],
+  [
+    "The guard is honest.",
+    "Vaktărul nu soþfast es."
+  ]
+];
+for(const [en,ra] of clauseCases){assert.equal(pack.translateClause(en,false),ra,en);assert.ok(!pack.phrases.some(p=>p[0]===en));}
+const partialCases=[
+  [
+    "I see the glorb.",
+    "Ik nu [glorb]uta se."
+  ],
+  [
+    "She reads the luminous book.",
+    "Ea nu bokuta [luminous] ræd."
+  ],
+  [
+    "We will open the zindle.",
+    "Vi va [zindle]uta opn."
+  ],
+  [
+    "The glorb sees the dog.",
+    "[glorb]ul nu hunduta se."
+  ],
+  [
+    "I see a glorb and she reads the book.",
+    "Ik nu [glorb] se end ea nu bokuta ræd."
+  ],
+  [
+    "I see the glorb and the zindle.",
+    "Ik nu [glorb]uta end [zindle]uta se."
+  ]
+];
+for(const [en,ra] of partialCases){assert.equal(pack.translatePartial(en,false)?.text,ra,en);}
+assert.equal(pack.translatePartial("I will flibble the door.",false),null);
+assert.equal(pack.lookupEnglish("glorb").length,0);
