@@ -30,11 +30,11 @@ const cases=[
   ],
   [
     "Why is the black bird singing?",
-    "Hvi dur fuglul svart sing?"
+    "Hvi dur fuglul svart șing?"
   ],
   [
     "My brother's sword is sharper than yours.",
-    "Sverdul av broþerul ikes nu skærer þan þuesul es."
+    "Sverdul av broþărul ikes nu șærer þan þuesul es."
   ],
   [
     "They must hide inside the old fortress before night.",
@@ -50,11 +50,11 @@ const cases=[
   ],
   [
     "Five wolves are hunting three deer in the dark forest.",
-    "Fim vulfen dur þri heortenta in vældul deork hent."
+    "Fim vulfen dur þri hertenta in vældul derk hent."
   ],
   [
     "Blood and iron built this city, not gold.",
-    "Blod end isern er þes grodta byld, ne gold."
+    "Blod end izern er þes grodta byld, ne gold."
   ],
   [
     "Can she read the book?",
@@ -70,7 +70,7 @@ const cases=[
   ],
   [
     "Three children see two dogs.",
-    "Þri kilden nu tva hundenta se."
+    "Þri țilden nu tva hundenta se."
   ],
   [
     "Where are you going?",
@@ -102,11 +102,11 @@ const cases=[
   ],
   [
     "My mother's house is bigger than ours.",
-    "Husul av moderul ikes nu storer þan viesul es."
+    "Husul av modărul ikes nu storer þan viesul es."
   ],
   [
     "The teacher who reads the book knows me.",
-    "Lærerul þe nu bokulta ræd, nu ikta wit."
+    "Lærărul þe nu bokulta ræd, nu ikta wit."
   ],
   [
     "If you come, we will eat bread.",
@@ -114,11 +114,35 @@ const cases=[
   ],
   [
     "The father and the mother see the children.",
-    "Fæderul end moderul nu kildenleta se."
+    "Fædărul end modărul nu țildenleta se."
   ],
   [
     "The dog is smaller than the horse.",
     "Hundul nu liter þan horsul es."
+  ],
+  [
+    "My father drinks water.",
+    "Fædărul ikes nu vætărta drink."
+  ],
+  [
+    "The king sees the children.",
+    "Țyningul nu țildenleta se."
+  ],
+  [
+    "She is singing.",
+    "Ea dur șing."
+  ],
+  [
+    "The iron is sharp.",
+    "Izernul nu șær es."
+  ],
+  [
+    "The mother knows my brother.",
+    "Modărul nu broþărulta ikes wit."
+  ],
+  [
+    "The deer sees the heart.",
+    "Hertul nu hertăulta se."
   ]
 ];
 for(const [en,ra] of cases){
@@ -127,4 +151,6 @@ for(const [en,ra] of cases){
  assert.ok(!pack.phrases.some(p=>p[0]===en),"Regression case leaked into phrasebook: "+en);
 }
 assert.equal(pack.translateClause("The glorb flimbles.",false),null);
+assert.equal(pack.history.changes.length,40);
+for (const x of pack.history.changes) assert.ok(pack.words.some(w=>w[0]===x.english&&w[1]===x.modern&&w[2]===x.pos));
 console.log(cases.length+" bidirectional regression cases passed.");
