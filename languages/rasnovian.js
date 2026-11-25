@@ -1166,7 +1166,7 @@ window.languagePacks.push({
  ],
  grammar:[
  ["Tense, aspect and mood (v0.8)","Fixed order: tense/mood (nu, er, va, hed), optional anterior ju, optional progressive dur. Nu dur contracts to dur. Ju marks completion relative to reference time. Finite verbs remain bare stems: er ju = past perfect; va ju = future perfect; er ju dur = past perfect progressive. English adverbs may normalize to clause-final position."],
- ["Passive voice","Ves precedes the finite stem after negation. Simple past, present, future and conditional passives are parsed; compound passives are deferred."],
+ ["Passive voice","Ves precedes the finite stem after negation. Simple past, present, future and conditional passives are parsed; an optional agent follows av. Compound passives are deferred."],
  ["Reflexives and reciprocity","Sek is invariant across persons; sines marks subject-owned possession; samsek is reciprocal. Pronoun-subject reflexives are implemented; noun-subject and nested reference resolution is deferred."],
  ["Independent possessives","Singular independent possessives take -ul as subject or predicate and -uta as object. English does not identify the omitted noun's number, so the parser defaults to singular."],
  ["Imperatives","A bare verb is fronted in commands without a subject or tense particle; ne precedes negative commands. Double-object commands normalize to English to-recipient form."],
@@ -1175,7 +1175,7 @@ window.languagePacks.push({
  ["Modern noun morphology","v0.7 introduces conditioned erosion: final ă disappears before vowel-initial -en/-ul/-uta unless it distinguishes two lexical roots (exceptions: kartă, hertă). Definite accusatives fuse -ul-ta → -uta and -en-le-ta → -en-la. Indefinite accusative -ta survives for animate nouns; definite, demonstrative and possessive objects are marked even when inanimate. Generic indefinite inanimate objects are unmarked. Pronouns retain distinct accusatives."],
  ["Inherited plural classes","The old front-vowel plural ending produced fossilised stem mutation in a small class: hund → hinden, hors → hersen, fot → feten, toþ → teþen, mann → mænnen. Other nouns retain regular -en. Mutations apply before article and case endings; this is a historical class, not a universal sound rule."],
  ["Adjective agreement","Attributive adjectives follow the noun and agree in number: singular rod, plural rode; final ă becomes e, final e remains unchanged. Predicative and comparative adjectives remain uninflected. No gender agreement is required."],
- ["Genitive possession","Nominal possessors follow the possessed phrase with genitive -es on the head: sverdul broþărules ikes (my brother's sword). Definite plurals take -enles; English singular 's and plural s' are parsed. Av remains a lexical preposition for material/source, although those constructions are not yet parsed; it is not the modern default for nominal possession."],
+ ["Genitive possession","Nominal possessors follow the possessed phrase with genitive -es on the head: sverdul broþărules ikes (my brother's sword). Definite plurals take -enles; English singular 's and plural s' are parsed. Av introduces passive agents; material/source uses are planned. It is not the modern default for nominal possession."],
  ["Dative pronouns","Nominative / accusative / dative / genitive: ik / ikta / im / ikes; þu / þuta / þem / þues; han / hanta / ham / hanes; ea / eata / eam / eaes; hit / hitta / him / hites; vi / vita / vim / vies; gi / gita / gim / gies; dei / deita / dem / deies. Transfer verbs use bare dative recipients after the direct object; English to him becomes ham. Other prepositions retain base pronouns. Noun recipients still use til."],
  ["Object marking limits","This is a grammaticalized differential object-marking system. It does not yet parse indefinite specificity, topicalization or free argument order. English number/second-person ambiguities can normalize on reverse translation."],
  ["Comparatives","Comparative adjectives take -er and introduce a standard with þan. Standalone possessives take -ul, e.g. ikesul mine, þuesul yours."],
@@ -1314,9 +1314,9 @@ window.languagePacks.push({
    return {text:[prefix,quantity?.[0],body].filter(Boolean).join(" "),third:!pl,plural:pl,nativeRoot:n[1],human:animate.has(n[0])&&!(["animal","bird","dog","cat","horse","cow","sheep","wolf","bear","fox","bee","insect","fish","deer"].includes(n[0]))};
   }return null;
  }
- function pred(a,rev,obj=true,recipient=false){
+ function pred(a,rev,obj=true,recipient=false,passive=false){
   if(!a.length)return {text:""};
-  const preps=words.filter(w=>w[2]==="preposition"&&!["than","of"].includes(w[0]));
+  const preps=words.filter(w=>w[2]==="preposition"&&!["than","of"].includes(w[0]));if(passive)preps.push(["by","av","preposition"]);
   const times=words.filter(w=>w[2]==="adverb"&&["yesterday","today","tomorrow","now","always","never","often","sometimes","already","soon","again","together","apart","then","here","there"].includes(w[0]));
   const side=rev?1:0,other=1-side;
   const bare={night:"nișt",home:"heim",morning:"morgăn",evening:"æven",school:"skol",work:"verk"};
@@ -1391,7 +1391,7 @@ window.languagePacks.push({
     if(progress&&!perfect&&transitive.has(en))variants.push([enPart(en),tense,"ves"]);
     for(const [form,tm,voice] of variants){
      const vt=split(form);if(b.slice(0,vt.length).join(" ")!==form)continue;
-     const o=pred([...b.slice(vt.length),...leading],false,voice?false:en!=="become",recipientVerbs.has(en));
+     const o=pred([...b.slice(vt.length),...leading],false,voice?false:en!=="become",recipientVerbs.has(en)&&!voice,!!voice);
      if(o)return out(s,tm,o,neg,voice?voice+" "+ra.slice(0,-2):ra.slice(0,-2),modals[ax]);
     }
    }
@@ -1416,7 +1416,7 @@ window.languagePacks.push({
  const stem=a.pop();const passive=a[a.length-1]==="ves";if(passive)a.pop();
  const modal=Object.keys(modals).find(k=>modals[k]===a[a.length-1]);if(modal)a.pop();const neg=a[a.length-1]==="ne";if(neg)a.pop();
  const cop=stem==="es",v=verbs.find(w=>w[1].slice(0,-2)===stem);if(!cop&&!v)return null;
- const o=pred(a,true,!cop&&!passive&&v?.[0]!=="become",recipientVerbs.has(v?.[0])&&!passive);if(!o||cop&&!o.text)return null;
+ const o=pred(a,true,!cop&&!passive&&v?.[0]!=="become",recipientVerbs.has(v?.[0])&&!passive,passive);if(!o||cop&&!o.text)return null;
  const be=s.first?"am":s.third?"is":"are",pastBe=s.first||s.third?"was":"were";let aux="",vv="";
  if(cop){if(perfect||progress||passive||modal)return null;if(t==="va"||t==="hed"){aux=t==="va"?"will":"would";vv="be";}else aux=t==="er"?pastBe:be;}
  else{const en=v[0],[third,past,ing]=forms[en];vv=en;
