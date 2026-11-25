@@ -682,3 +682,175 @@ const conversationCases=[
 for(const [en,ra,back] of conversationCases){assert.equal(pack.translateClause(en,false),ra,en);assert.equal(pack.translateClause(ra,true),back,ra);assert.ok(!pack.phrases.some(p=>p[0]===en));}
 assert.equal(pack.lookupEnglish("bruv")[0][1],"broþ");
 assert.equal(pack.lookupEnglish("dumb")[0][1],"dolig");
+
+// Productive everyday reactions, entertainment and independent demonstratives.
+const everydayCases=[
+  [
+    "Comrade, this movie is boring me.",
+    "Samfer, þes film dur ikta led.",
+    "Comrade, this movie is boring me."
+  ],
+  [
+    "Comrade, this move is boring me.",
+    "Samfer, þes mov dur ikta led.",
+    "Comrade, this move is boring me."
+  ],
+  [
+    "This film is boring.",
+    "Þes film nu ledsam es.",
+    "This movie is boring."
+  ],
+  [
+    "I am bored.",
+    "Ik nu ledig es.",
+    "I am bored."
+  ],
+  [
+    "The film bored me.",
+    "Filmul er ikta led.",
+    "The movie bored me."
+  ],
+  [
+    "The game is exciting.",
+    "Spælul nu fyrblidig es.",
+    "The game is exciting."
+  ],
+  [
+    "The game excites the children.",
+    "Spælul nu țildenla fyrblid.",
+    "The game excites the children."
+  ],
+  [
+    "The music annoys her.",
+    "Muzikul nu eata erg.",
+    "The music annoys her."
+  ],
+  [
+    "The picture surprised me.",
+    "Bildul er ikta mir.",
+    "The picture surprised me."
+  ],
+  [
+    "This is interesting.",
+    "Þes nu hugvilig es.",
+    "This is interesting."
+  ],
+  [
+    "I like that.",
+    "Ik nu þat lik.",
+    "I like that."
+  ],
+  [
+    "These are funny.",
+    "Þesne nu læhlig es.",
+    "These are funny."
+  ],
+  [
+    "The actor is watching the movie.",
+    "Leikărul dur filmuta vakanse.",
+    "The actor is watching the movie."
+  ],
+  [
+    "I watched the film yesterday.",
+    "Ik er filmuta gistrăn vakanse.",
+    "I watched the movie yesterday."
+  ],
+  [
+    "The show is not interesting.",
+    "Șauul nu hugvilig ne es.",
+    "The show is not interesting."
+  ],
+  [
+    "The game worries him.",
+    "Spælul nu hanta sorg.",
+    "The game worries him."
+  ],
+  [
+    "This is a problem.",
+    "Þes nu trud es.",
+    "This is a problem."
+  ],
+  [
+    "The audience is excited.",
+    "Herendul nu fyrblid es.",
+    "The audience is excited."
+  ],
+  [
+    "I will explain the problem.",
+    "Ik va truduta șær.",
+    "I will explain the problem."
+  ],
+  [
+    "She decided to watch the film.",
+    "Ea er filmuta til vakansean țyrord.",
+    "She decided to watch the movie."
+  ],
+  [
+    "He is still watching the movie.",
+    "Han dur filmuta enn vakanse.",
+    "He is watching the movie still."
+  ],
+  [
+    "The idea sounds genuinely good.",
+    "Ideul nu soþli god lud.",
+    "The idea sounds genuinely good."
+  ],
+  [
+    "Comrade, are you ready?",
+    "Samfer, þu nu ræd es li?",
+    "Comrade, are you ready?"
+  ],
+  [
+    "The comrade sees the picture.",
+    "Samferul nu bilduta se.",
+    "The comrade sees the picture."
+  ],
+  [
+    "The comrades are watching the screen.",
+    "Samferenle dur șermuta vakanse.",
+    "The comrades are watching the screen."
+  ],
+  [
+    "What did you watch?",
+    "Hvat er þu vakanse?",
+    "What did you watch?"
+  ],
+  [
+    "That annoys me.",
+    "Þat nu ikta erg.",
+    "That annoys me."
+  ],
+  [
+    "I am worried about the game.",
+    "Ik nu sorgig um spælul es.",
+    "I am worried about the game."
+  ],
+  [
+    "The movie was shown.",
+    "Filmul er ves șav.",
+    "The movie was shown."
+  ],
+  [
+    "The child asks the question.",
+    "Țildul nu fræguta æsk.",
+    "The child asks the question."
+  ],
+  [
+    "I understand the reason.",
+    "Ik nu grunduta understand.",
+    "I understand the reason."
+  ],
+  [
+    "We discussed the problem.",
+    "Vi er truduta samsprek.",
+    "We discussed the problem."
+  ],
+  [
+    "I am disappointed.",
+    "Ik nu nadlos es.",
+    "I am disappointed."
+  ]
+];
+for(const [en,ra,back] of everydayCases){assert.equal(pack.translateClause(en,false),ra,en);assert.equal(pack.translateClause(ra,true),back,ra);assert.ok(!pack.phrases.some(p=>p[0]===en));}
+assert.equal(pack.lookupEnglish("film")[0][1],"film");
+assert.ok(pack.lookupEnglish("move").some(w=>w[2]==="noun")&&pack.lookupEnglish("move").some(w=>w[2]==="verb"));
