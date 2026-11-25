@@ -949,3 +949,67 @@ const quantityCases=[
   ]
 ];
 for(const [en,ra,back] of quantityCases){assert.equal(pack.translateClause(en,false),ra,en);assert.equal(pack.translateClause(ra,true),back,ra);assert.ok(!pack.phrases.some(p=>p[0]===en));}
+
+const foodFollowupCases=[
+  [
+    "I love consuming vast amounts of cheddar cheese.",
+    "Ik nu mængden ormærlige av țedărkes forbrukan luv.",
+    "I love consuming enormous amounts of cheddar cheese."
+  ],
+  [
+    "I love consuming vast amounts of cheddar.",
+    "Ik nu mængden ormærlige av țedărkes forbrukan luv.",
+    "I love consuming enormous amounts of cheddar cheese."
+  ],
+  [
+    "She bought a piece of cheddar.",
+    "Ea er styk av țedărkes byg.",
+    "She bought a piece of cheddar cheese."
+  ],
+  [
+    "We have some rice.",
+    "Vi nu sum ris hav.",
+    "We have some rice."
+  ],
+  [
+    "We have few apples.",
+    "Vi nu fa æpelen hav.",
+    "We have few apples."
+  ],
+  [
+    "The soup tastes delicious.",
+    "Supul nu smækig smæk.",
+    "The soup tastes delicious."
+  ],
+  [
+    "The cake smells good.",
+    "Kakul nu god duft.",
+    "The cake smells good."
+  ],
+  [
+    "He is preparing dinner.",
+    "Han dur ævenmet forræd.",
+    "He is preparing dinner."
+  ],
+  [
+    "She had a bottle of milk.",
+    "Ea er flaskă av melk hav.",
+    "She had a bottle of milk."
+  ],
+  [
+    "Do you have some bread?",
+    "Þu nu sum bræd hav li?",
+    "Do you have some bread?"
+  ],
+  [
+    "I have eaten bread.",
+    "Ik nu ju bræd et.",
+    "I have eaten bread."
+  ],
+  [
+    "I love eating cheese.",
+    "Ik nu kes etan luv.",
+    "I love eating cheese."
+  ]
+];
+for(const [en,ra,back] of foodFollowupCases){assert.equal(pack.translateClause(en,false),ra,en);assert.equal(pack.translateClause(ra,true),back,ra);assert.ok(!pack.phrases.some(p=>p[0]===en));}
