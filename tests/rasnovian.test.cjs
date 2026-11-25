@@ -195,6 +195,82 @@ const cases=[
   [
     "The children see the red apples.",
     "Țildenle nu æpelenla rode se."
+  ],
+  [
+    "I have read the book.",
+    "Ik nu ju bokuta ræd."
+  ],
+  [
+    "She had eaten bread already.",
+    "Ea er ju bræd ærnu et."
+  ],
+  [
+    "We will have written the letters.",
+    "Vi va ju brevenla rit."
+  ],
+  [
+    "They had been working.",
+    "Dei er ju dur verk."
+  ],
+  [
+    "I was reading the book.",
+    "Ik er dur bokuta ræd."
+  ],
+  [
+    "She will be singing.",
+    "Ea va dur șing."
+  ],
+  [
+    "The book was written.",
+    "Bokul er ves rit."
+  ],
+  [
+    "The house will be built.",
+    "Husul va ves byld."
+  ],
+  [
+    "The bread is not eaten.",
+    "Brædul nu ne ves et."
+  ],
+  [
+    "He washes himself.",
+    "Han nu sek vaș."
+  ],
+  [
+    "She reads her own book.",
+    "Ea nu bokuta sines ræd."
+  ],
+  [
+    "We help each other.",
+    "Vi nu samsek help."
+  ],
+  [
+    "I see hers.",
+    "Ik nu eaesuta se."
+  ],
+  [
+    "Open the door!",
+    "Opn doruta!"
+  ],
+  [
+    "Do not close the window!",
+    "Ne luk vindaguta!"
+  ],
+  [
+    "Give the bread to him!",
+    "Gif bræduta ham!"
+  ],
+  [
+    "Although it rained, we worked.",
+    "Þoh hit er regn, vi er verk."
+  ],
+  [
+    "If I had known, I would have come.",
+    "Gif ik er ju wit, ik hed ju kum."
+  ],
+  [
+    "While she was singing, we slept.",
+    "Medan ea er dur șing, vi er slæp."
   ]
 ];
 for(const [en,ra] of cases){
@@ -242,3 +318,5 @@ console.log(cases.length+" bidirectional regression cases passed.");
  const dog=pack.words.find(w=>w[0]==="dog");
  assert.equal(pack.inflectNoun(dog,true,true,"acc"),"hindenla");
  console.log("Historical replay and noun paradigm audit passed.");
+
+assert.equal(pack.translateClause("She had already eaten bread.",false),"Ea er ju bræd ærnu et.");
