@@ -854,3 +854,98 @@ const everydayCases=[
 for(const [en,ra,back] of everydayCases){assert.equal(pack.translateClause(en,false),ra,en);assert.equal(pack.translateClause(ra,true),back,ra);assert.ok(!pack.phrases.some(p=>p[0]===en));}
 assert.equal(pack.lookupEnglish("film")[0][1],"film");
 assert.ok(pack.lookupEnglish("move").some(w=>w[2]==="noun")&&pack.lookupEnglish("move").some(w=>w[2]==="verb"));
+
+// Quantity phrases, food vocabulary and same-subject complements.
+const quantityCases=[
+  [
+    "I love eating cheese.",
+    "Ik nu kes etan luv.",
+    "I love eating cheese."
+  ],
+  [
+    "She likes drinking milk.",
+    "Ea nu melk drinkan lik.",
+    "She likes drinking milk."
+  ],
+  [
+    "I bought a bottle of water.",
+    "Ik er flaskă av vætăr byg.",
+    "I bought a bottle of water."
+  ],
+  [
+    "He eats a slice of bread.",
+    "Han nu șivă av bræd et.",
+    "He eats a slice of bread."
+  ],
+  [
+    "They bought many apples.",
+    "Dei er mang æpelen byg.",
+    "They bought many apples."
+  ],
+  [
+    "I bought a lot of cheese.",
+    "Ik er mik kes byg.",
+    "I bought much cheese."
+  ],
+  [
+    "She added some flour.",
+    "Ea er sum mel tilleg.",
+    "She added some flour."
+  ],
+  [
+    "He cut the tomato.",
+    "Han er tomatuta snid.",
+    "He cut the tomato."
+  ],
+  [
+    "We need more water.",
+    "Vi nu mer vætăr þurf.",
+    "We need more water."
+  ],
+  [
+    "She bought several cakes.",
+    "Ea er fler kaken byg.",
+    "She bought several cakes."
+  ],
+  [
+    "I saw a group of children.",
+    "Ik er flok av țilden se.",
+    "I saw a group of children."
+  ],
+  [
+    "I love cooking.",
+    "Ik nu kokan luv.",
+    "I love cooking."
+  ],
+  [
+    "I want a glass of milk.",
+    "Ik nu glas av melk vilj.",
+    "I want a glass of milk."
+  ],
+  [
+    "I need enough food.",
+    "Ik nu nog met þurf.",
+    "I need enough food."
+  ],
+  [
+    "I love reading books.",
+    "Ik nu boken rædan luv.",
+    "I love reading books."
+  ],
+  [
+    "She likes watching movies.",
+    "Ea nu filmen vakansean lik.",
+    "She likes watching movies."
+  ],
+  [
+    "He likes eating pasta.",
+    "Han nu pastă etan lik.",
+    "He likes eating pasta."
+  ],
+  [
+    "She poured a litre of milk.",
+    "Ea er litră av melk git.",
+    "She poured a litre of milk."
+  ]
+];
+for(const [en,ra,back] of quantityCases){assert.equal(pack.translateClause(en,false),ra,en);assert.equal(pack.translateClause(ra,true),back,ra);assert.ok(!pack.phrases.some(p=>p[0]===en));}
