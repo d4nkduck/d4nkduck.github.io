@@ -7,6 +7,10 @@ window.languagePacks.push({
  sounds:[["Ă","unstressed uh"],["Æ","a in cat"],["Ș","sh"],["Ț","ts"],["Þ","th in think"],["Y","Russian ы"],["J","zh in vision"],["R","rolled r"],["V","v"]],
  // [English lemma, Rasnovian lemma, part of speech]
  words:[
+ ["fresh","fersk","adjective","Qualities"],
+ ["help","help","noun","Foundation"],
+ ["for","for","preposition","Connectors & time"],
+ ["its","hites","possessive","Connectors & time"],
  ["clothing","væþ","noun","Home & daily life"],
  ["lake","lak","noun","Nature & weather"],
  ["tired","mæd","adjective","Qualities"],
@@ -472,6 +476,20 @@ window.languagePacks.push({
  ["darkness","niștvald","noun"],["sunlight","sunnăfyr","noun"],["humanity","erþăkin","noun"],["homesickness","heimdor","noun"],["fortress","stænhus","noun"],["sanctuary","friþland","noun"]
  ],
  phrases:[
+ ["The stone remembers the hand.","Stænul nu handulta mynd."],
+ ["A quiet word is strong.","Ord stil nu strang es."],
+ ["The home remembers its guests.","Heimul nu gæstenleta hites mynd."],
+ ["I understand you.","Ik nu þuta understand."],
+ ["Good morning!","Morgăn god!"],
+ ["Good night!","Nișt god!"],
+ ["Thank you for your help.","Þank þu for helpul þues."],
+ ["Where is the market?","Hvar nu torgul es?"],
+ ["What is your name?","Hvat nu namăul þues es?"],
+ ["My name is...","Namăul ikes nu ... es."],
+ ["I speak Rasnovian.","Ik nu Rașnovæskta sprek."],
+ ["I do not understand.","Ik nu ne understand."],
+ ["See you tomorrow!","Amorgăn þuta se!"],
+ ["The bread is fresh.","Brædul nu fersk es."],
  ["Man, fuck those idiots over at the bakery. They messed up our order, it is so bad we might as well report this to the parliament HAH!","Mann, þa dolenta bi bakhusul verdom! Dei er ordrulta vies forspill. Hit nu sva yvel es; vi hed jafn hitta til þingul meld. HAH!"],
  ["Man, fuck those idiots over at the bakery.","Mann, þa dolenta bi bakhusul verdom!"],
  ["They messed up our order.","Dei er ordrulta vies forspill."],
@@ -481,6 +499,8 @@ window.languagePacks.push({
  ["Hello!","Hæl!"],["Goodbye!","Farvæl!"],["How are you?","Hu nu þu es?"],["I am well, thanks.","Ik nu væl es, þank."],["I see the house.","Ik nu husulta se."],["I do not see the house.","Ik nu husulta ne se."],["Do you see the house?","Þu nu husulta se li?"],["I ate.","Ik er et."],["I will eat.","Ik va et."],["I am eating.","Ik dur et."],["I would eat.","Ik hed et."],["The night is cold.","Niștul nu kald es."],["The cold house","Husul kald"],["Yes, my friend.","Ja, priat ikes."],["Shall we go home?","Vi va til heim far li?"]
  ],
  grammar:[
+ ["Proverbs and idioms","Stænul nu handulta mynd (the stone remembers the hand) means that work bears the mark of its maker, even when the maker is forgotten. Ord stil nu strang es (a quiet word is strong) values restraint and influence over loudness. Heimul nu gæstenleta hites mynd (the home remembers its guests) expresses the belief that hospitality leaves lasting traces. These are cultural sayings, not literal translation rules."],
+ ["Everyday register","Greetings often take the form noun + adjective, e.g. morgăn god (good morning) and nișt god (good night). Short farewell formulas may omit a subject and tense particle, e.g. amorgăn þuta se (see you tomorrow)."],
  ["Noun phrase grammar","Possessive nouns carry a definite article and their possessor follows any adjective: bokulta ikes = my book (object). Demonstratives precede nouns and suppress the article. Personal objects use -ta: ikta me, þuta you, hanta him, eata her, hitta it, vita us, deita them."],
  ["Copular clauses","Adjectives and nominal predicates come before es without object marking: han nu blid es = he is happy. Særli means very."],
  ["Translation ambiguity","English read and other identical present/past forms default to present unless an auxiliary disambiguates. The engine supports simple noun and pronoun subjects, direct objects, adjective and possessive noun phrases, questions and copulas; other syntax may require a recorded phrase."],
