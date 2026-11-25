@@ -1159,7 +1159,7 @@ window.languagePacks.push({
  ["Modern noun morphology","v0.7 introduces conditioned erosion: final ă disappears before vowel-initial -en/-ul/-uta unless it distinguishes two lexical roots (exceptions: kartă, hertă). Definite accusatives fuse -ul-ta → -uta and -en-le-ta → -en-la. Indefinite accusative -ta survives for animate nouns; definite, demonstrative and possessive objects are marked even when inanimate. Generic indefinite inanimate objects are unmarked. Pronouns retain distinct accusatives."],
  ["Inherited plural classes","The old front-vowel plural ending produced fossilised stem mutation in a small class: hund → hinden, hors → hersen, fot → feten, toþ → teþen, mann → mænnen. Other nouns retain regular -en. Mutations apply before article and case endings; this is a historical class, not a universal sound rule."],
  ["Adjective agreement","Attributive adjectives follow the noun and agree in number: singular rod, plural rode; final ă becomes e, final e remains unchanged. Predicative and comparative adjectives remain uninflected. No gender agreement is required."],
- ["Genitive possession","Nominal possessors follow the possessed phrase with genitive -es on the head: sverdul broþărules ikes (my brother's sword). Definite plurals take -enles; English singular 's and plural s' are parsed. Av remains a lexical preposition for material/source; it is not the modern default for nominal possession."],
+ ["Genitive possession","Nominal possessors follow the possessed phrase with genitive -es on the head: sverdul broþărules ikes (my brother's sword). Definite plurals take -enles; English singular 's and plural s' are parsed. Av remains a lexical preposition for material/source, although those constructions are not yet parsed; it is not the modern default for nominal possession."],
  ["Dative pronouns","Nominative / accusative / dative / genitive: ik / ikta / im / ikes; þu / þuta / þem / þues; han / hanta / ham / hanes; ea / eata / eam / eaes; hit / hitta / him / hites; vi / vita / vim / vies; gi / gita / gim / gies; dei / deita / dem / deies. Transfer verbs use bare dative recipients after the direct object; English to him becomes ham. Other prepositions retain base pronouns. Noun recipients still use til."],
  ["Object marking limits","This is a grammaticalized differential object-marking system. It does not yet parse indefinite specificity, topicalization or free argument order. English number/second-person ambiguities can normalize on reverse translation."],
  ["Comparatives","Comparative adjectives take -er and introduce a standard with þan. Standalone possessives take -ul, e.g. ikesul mine, þuesul yours."],
@@ -1189,6 +1189,15 @@ window.languagePacks.push({
  ["Negation and questions","Place ne immediately before the verb. A yes/no question ends with li."],
  ["Dialect concepts","Aldrașnovæsk (ancient), Nordrașnovæsk (northern), Sudrașnovæsk (southern), Hohrașnovæsk (formal), Folkrașnovæsk (colloquial). These are not yet separately implemented."]
  ],
+ inflectNoun(n,pl=false,def=false,caseName="nom",demo=false){
+  const morphology=this.morphology;
+  let r=pl?(morphology.mutating[n[1]]||n[1]):n[1];
+  const marked=caseName==="acc"&&(def||demo||morphology.animate.includes(n[0]));
+  let suffix=pl?(def?(marked?"enla":"enle"):(marked?"enta":"en")):def?(marked?"uta":"ul"):(marked?"ta":"");
+  if(caseName==="gen")suffix=pl&&def?"enles":suffix+"es";
+  if(r.endsWith("ă")&&/^[eu]/.test(suffix)&&!morphology.elisionExceptions.includes(n[1]))r=r.slice(0,-1);
+  return r+suffix;
+ },
  // Grammar adapter: deliberately limited to supported regular clauses. Return null for unsupported syntax.
  translateClause(input,reverse){
  const norm=s=>s.normalize("NFC").toLowerCase().trim(), cap=s=>s[0].toUpperCase()+s.slice(1), split=s=>s.split(/\s+/);
@@ -1218,14 +1227,7 @@ window.languagePacks.push({
  const dative={me:"im",you:"þem",him:"ham",her:"eam",it:"him",us:"vim",them:"dem"};
  const recipientVerbs=new Set(["give","send","bring","tell","sell","lend","offer"]);
  const adjForm=(r,pl)=>pl?(r.endsWith("e")?r:r.endsWith("ă")?r.slice(0,-1)+"e":r+"e"):r;
- const nounForm=(n,pl,def,caseName="nom",demo=false)=>{
-  let r=pl?(morphology.mutating[n[1]]||n[1]):n[1];
-  const marked=caseName==="acc"&&(def||demo||animate.has(n[0]));
-  let suffix=pl?(def?(marked?"enla":"enle"):(marked?"enta":"en")):def?(marked?"uta":"ul"):(marked?"ta":"");
-  if(caseName==="gen")suffix=pl&&def?"enles":suffix+"es";
-  if(r.endsWith("ă")&&/^[eu]/.test(suffix)&&!morphology.elisionExceptions.includes(n[1]))r=r.slice(0,-1);
-  return r+suffix;
- };
+ const nounForm=this.inflectNoun.bind(this);
  function np(a,obj=false,rev=false,genitive=false){
   if(!a.length)return null;
   const joint=a.indexOf(rev?"end":"and");if(joint>0&&joint<a.length-1){const l=np(a.slice(0,joint),obj,rev,genitive),r=np(a.slice(joint+1),obj,rev,genitive);if(l&&r)return {text:l.text+(rev?" and ":" end ")+r.text,third:false};}
