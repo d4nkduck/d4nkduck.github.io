@@ -271,6 +271,46 @@ const cases=[
   [
     "While she was singing, we slept.",
     "Medan ea er dur șing, vi er slæp."
+  ],
+  [
+    "The book was written by her father.",
+    "Bokul er av fædărul eaes ves rit."
+  ],
+  [
+    "The bread was baked by the baker.",
+    "Brædul er av bakkărul ves bak."
+  ],
+  [
+    "An old woman lived in a small village.",
+    "Vif ald er in þorp lit lev."
+  ],
+  [
+    "She had lost her book.",
+    "Ea er ju bokuta eaes loz."
+  ],
+  [
+    "While she was walking in the forest, a child saw her.",
+    "Medan ea er dur in vældul gang, țild er eata se."
+  ],
+  [
+    "The child found the book near a river.",
+    "Țildul er bokuta neh ræn find."
+  ],
+  [
+    "The child gave the book to her.",
+    "Țildul er bokuta eam gif."
+  ],
+  [
+    "She opened her own book.",
+    "Ea er bokuta sines opn."
+  ],
+  [
+    "She remembered her father.",
+    "Ea er fædăruta eaes mynd."
+  ],
+  [
+    "Although the night was cold, they were happy.",
+    "Þoh niștul er kald es, dei er blid es."
   ]
 ];
 for(const [en,ra] of cases){
