@@ -154,3 +154,24 @@ assert.equal(pack.translateClause("The glorb flimbles.",false),null);
 assert.equal(pack.history.changes.length,40);
 for (const x of pack.history.changes) assert.ok(pack.words.some(w=>w[0]===x.english&&w[1]===x.modern&&w[2]===x.pos));
 console.log(cases.length+" bidirectional regression cases passed.");
+
+ // Replay the ordered laws on explicitly audited historical root components.
+ function evolve(root) {
+   let s=root, rules=[];
+   const laws=[
+     ["S1",x=>x.replace(/^sk(?=[æeiy])/,"ș").replace(/^k(?=[iy])/,"ț").replace(/^s(?=[iy])/,"ș")],
+     ["S2",x=>x.replace(/^hl/,"l")],
+     ["S3",x=>x.replace(/([aăæeiouy])s(?=[aăæeiouy])/g,"$1z")],
+     ["S4",x=>x.replace(/eo/g,"e")],
+     ["S5",x=>(x.match(/[aăæeiouy]+/g)||[]).length>1?x.replace(/er$/,"ăr"):x]
+   ];
+   for(const [id,apply] of laws){const next=apply(s);if(next!==s){rules.push(id);s=next;}}
+   return {s,rules};
+ }
+ for(const entry of pack.history.changes){
+   assert.equal(entry.components.join(""),entry.earlier);
+   const parts=entry.components.map(evolve);
+   assert.equal(parts.map(p=>p.s).join(""),entry.modern);
+   assert.equal(JSON.stringify([...new Set(parts.flatMap(p=>p.rules))]),JSON.stringify(entry.rules));
+ }
+ assert.equal(new Set(pack.words.map(w=>w[1])).size,pack.words.length,"Native spelling collision");
