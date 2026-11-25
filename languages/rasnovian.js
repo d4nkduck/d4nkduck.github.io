@@ -44,7 +44,7 @@ window.languagePacks.push({
   {
    "id": "S2",
    "stage": "Old → Middle",
-   "name": "Loss of preaspiration",
+   "name": "Initial hl-cluster simplification",
    "description": "Inherited initial hl simplifies to l. This affects lexical roots, not every written h.",
    "examples": [
     "hlud → lud",
