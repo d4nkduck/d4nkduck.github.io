@@ -22,12 +22,14 @@ window.languagePacks.push(Object.assign({
   "alphabet": [
     "A",
     "Á",
+    "Ä",
     "B",
     "C",
     "D",
     "E",
     "É",
     "È",
+    "Ê",
     "Ë",
     "F",
     "G",
@@ -48,6 +50,7 @@ window.languagePacks.push(Object.assign({
     "S",
     "T",
     "U",
+    "Ù",
     "Ü",
     "V",
     "W",
@@ -95,6 +98,18 @@ window.languagePacks.push(Object.assign({
     [
       "ŒRL",
       "silent in quick pronunciation of marked words; pronounced /œʁl/ deliberately"
+    ],
+    [
+      "Ä",
+      "open e-like vowel"
+    ],
+    [
+      "Ê",
+      "open e"
+    ],
+    [
+      "Ù",
+      "u with a written accent"
     ]
   ],
   "words": [
@@ -1792,7 +1807,7 @@ window.languagePacks.push(Object.assign({
     ],
     [
       "from",
-      "von",
+      "aus",
       "preposition",
       "Foundation"
     ],
@@ -1999,6 +2014,156 @@ window.languagePacks.push(Object.assign({
       "baujoie",
       "concept",
       "Javes cultural concepts"
+    ],
+    [
+      "help",
+      "hilf",
+      "noun",
+      "Home & relationships"
+    ],
+    [
+      "spend",
+      "passé",
+      "verb",
+      "Actions"
+    ],
+    [
+      "home",
+      "heim",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "back",
+      "zurück",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "you (familiar)",
+      "tei",
+      "pronoun",
+      "Personal register"
+    ],
+    [
+      "your (familiar)",
+      "tein",
+      "possessive",
+      "Personal register"
+    ],
+    [
+      "status",
+      "stat",
+      "particle",
+      "Work & industry"
+    ],
+    [
+      "past tense",
+      "pré",
+      "particle",
+      "Foundation"
+    ],
+    [
+      "future tense",
+      "va",
+      "particle",
+      "Foundation"
+    ],
+    [
+      "progressive aspect",
+      "dur",
+      "particle",
+      "Foundation"
+    ],
+    [
+      "perfect aspect",
+      "ja",
+      "particle",
+      "Foundation"
+    ],
+    [
+      "negation",
+      "ne",
+      "particle",
+      "Foundation"
+    ],
+    [
+      "yes/no question",
+      "est",
+      "particle",
+      "Foundation"
+    ],
+    [
+      "yes",
+      "oui",
+      "expression",
+      "Foundation"
+    ],
+    [
+      "no",
+      "non",
+      "expression",
+      "Foundation"
+    ],
+    [
+      "can",
+      "kan",
+      "modal",
+      "Foundation"
+    ],
+    [
+      "must",
+      "mus",
+      "modal",
+      "Foundation"
+    ],
+    [
+      "should",
+      "sol",
+      "modal",
+      "Foundation"
+    ],
+    [
+      "would",
+      "würd",
+      "modal",
+      "Foundation"
+    ],
+    [
+      "who",
+      "qui",
+      "interrogative",
+      "Foundation"
+    ],
+    [
+      "what",
+      "quoi",
+      "interrogative",
+      "Foundation"
+    ],
+    [
+      "where",
+      "où",
+      "interrogative",
+      "Foundation"
+    ],
+    [
+      "when",
+      "quand",
+      "interrogative",
+      "Foundation"
+    ],
+    [
+      "why",
+      "pourqui",
+      "interrogative",
+      "Foundation"
+    ],
+    [
+      "how",
+      "comment",
+      "interrogative",
+      "Foundation"
     ]
   ],
   "phrases": [
@@ -2063,6 +2228,10 @@ window.languagePacks.push(Object.assign({
     [
       "Scope",
       "v0.1 is a first working prototype: simple statements, questions, directives, common aspects, noun phrases, selected infinitive/gerund complements and synonyms. No full free-form translation, speech synthesis, nested clauses or historical etymology audit yet."
+    ],
+    [
+      "Javes cultural vocabulary",
+      "Fléisshonœr is honour earned through sustained diligence, rather than rank. Ruhœrl is deserved rest, and ensamœrl is the comfort of quietly sharing time with someone. The full œrl ending is a deliberate pronunciation choice, never a requirement for affection."
     ]
   ],
   "synonymGroups": [
@@ -2566,6 +2735,14 @@ window.languagePacks.push(Object.assign({
       [
         "really"
       ]
+    ],
+    [
+      "noun",
+      "help",
+      [
+        "assistance",
+        "aid"
+      ]
     ]
   ],
   "registers": [
@@ -2821,11 +2998,17 @@ window.languagePacks.push(Object.assign({
       "carried",
       "carrying",
       "carried"
+    ],
+    "spend": [
+      "spends",
+      "spent",
+      "spending",
+      "spent"
     ]
   }
 },{
  register:"everyday",
- lookupEnglish(input){const k=input.toLowerCase().trim();return this.words.filter(w=>w[0].toLowerCase()===k||this.synonymGroups.some(([pos,base,ss])=>pos===w[2]&&base===w[0]&&ss.includes(k)));},
+ lookupEnglish(input){const k=input.toLowerCase().trim();if(this.register==="personal"&&["you","your"].includes(k))return this.words.filter(w=>w[0]===k+" (familiar)");return this.words.filter(w=>w[0].toLowerCase()===k||this.synonymGroups.some(([pos,base,ss])=>pos===w[2]&&base===w[0]&&ss.includes(k)));},
  normalizeEnglish(input){return input.replace(/’/g,"'").replace(/\b(i|you|he|she|we|they|it)'ll\b/gi,"$1 will").replace(/\bi'm\b/gi,"I am").replace(/\b(you|we|they)'re\b/gi,"$1 are").replace(/\b(he|she|it)'s\b/gi,"$1 is").replace(/\bcan't\b/gi,"can not").replace(/\bcannot\b/gi,"can not").replace(/\bwon't\b/gi,"will not").replace(/n't\b/gi," not");},
  translateClause(input,reverse=false){
  const norm=s=>s.normalize("NFC").toLowerCase().trim(),cap=s=>s?s[0].toUpperCase()+s.slice(1):s;
@@ -2844,7 +3027,7 @@ window.languagePacks.push(Object.assign({
  const revPro={je:"I",vu:"you",tei:"you",il:"he",el:"she",it:"it",nus:"we",vus:"you",els:"they"};
  const revObj={me:"me",vu:"you",tei:"you",ilu:"him",elu:"her",it:"it",nusu:"us",elsu:"them",vus:"you"};
  const revPoss={mon:"my",von:"your",tein:"your",son:"his",sen:"her",iton:"its",nos:"our",lor:"their"};
- const mass=new Set("work growth progress diligence honour effort duty skill data equipment quality time rest supply material metal steel wood energy power water money love affection trust joy peace comfort hope music food bread cheese tea coffee rain language javenœrl rasnovian english".split(" "));
+ const mass=new Set("help work growth progress diligence honour effort duty skill data equipment quality time rest supply material metal steel wood energy power water money love affection trust joy peace comfort hope music food bread cheese tea coffee rain language javenœrl rasnovian english".split(" "));
  const plur=k=>({person:"people",child:"children",man:"men",woman:"women"}[k]||regular(k)[0]);
  const nativePlural=k=>k.endsWith("s")?k:k+"s";
  function np(b,object=false){
@@ -2914,7 +3097,7 @@ window.languagePacks.push(Object.assign({
  let b=a.slice(),status=b[0]==="stat",question=Object.keys(wh).find(k=>wh[k]===b[0]),q=b[0]==="est"||!!question;if(status||q)b.shift();
  if(status){for(let i=1;i<b.length;i++){const s=np(b.slice(0,i)),p=s&&predicate(b.slice(i),true);if(p?.text)return cap([s.text,s.first?"am":s.third?"is":"are",p.text].join(" "))+punct;}return null;}
  for(let i=1;i<b.length;i++){const s=np(b.slice(0,i));if(!s)continue;let t=b.slice(i),tense="",aspect="",neg=false,modal="";
- if(["pré","va"].includes(t[0]))tense=t.shift();if(["dur","ja"].includes(t[0]))aspect=t.shift();if(t[0]==="ne"){neg=true;t.shift();}if(Object.values(mod).includes(t[0]))modal=Object.keys(mod).find(k=>mod[k]===t.shift());
+ if(["pré","va"].includes(t[0]))tense=t.shift();if(["dur","ja"].includes(t[0]))aspect=t.shift();if(t[0]==="ne"){neg=true;t.shift();}if(Object.values(mod).includes(t[0])){const marker=t.shift();modal=Object.keys(mod).find(k=>mod[k]===marker);}
  const v=verbs.find(x=>x[1]===t[0]);if(!v)continue;t.shift();
  let p=predicate(t,link.has(v[0]));if(!p&&complements.has(v[0])&&["zu","en"].includes(t[0])){const sub=verbs.find(x=>x[1]===t[1]);if(sub){const rest=predicate(t.slice(2),link.has(sub[0]));if(rest)p={text:[t[0]==="zu"?"to":"",t[0]==="zu"?sub[0]:forms(sub[0])[2],rest.text].filter(Boolean).join(" ")};}}
  if(!p)continue;const past=tense==="pré",be=s.first?"am":s.third?"is":"are",pastBe=s.first||s.third?"was":"were";let aux=modal||(tense==="va"?"will":""),verb=v[0];
