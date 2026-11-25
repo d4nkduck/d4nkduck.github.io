@@ -360,3 +360,136 @@ console.log(cases.length+" bidirectional regression cases passed.");
  console.log("Historical replay and noun paradigm audit passed.");
 
 assert.equal(pack.translateClause("She had already eaten bread.",false),"Ea er ju bræd ærnu et.");
+
+// Synonyms normalize to a canonical English reading, so reverse need not preserve the original wording.
+const aliasCases=[
+  [
+    "The large hounds see the tiny cat.",
+    "Hindenle store nu mætuta lit se.",
+    "The big dogs see the small cat."
+  ],
+  [
+    "I purchased the book.",
+    "Ik er bokuta byg.",
+    "I bought the book."
+  ],
+  [
+    "She is strolling in the woods.",
+    "Ea dur in vældul gang.",
+    "She is walking in the forest."
+  ],
+  [
+    "Step away from the gate!",
+    "Fotmov avæg fra gatul!",
+    "Step away from the gate!"
+  ],
+  [
+    "Move away from the gate!",
+    "Mov avæg fra gatul!",
+    "Move away from the gate!"
+  ],
+  [
+    "Stride forward!",
+    "Fotmov fram!",
+    "Step forward!"
+  ],
+  [
+    "Get out of the room!",
+    "Læv rumuta!",
+    "Leave the room!"
+  ],
+  [
+    "I'll return tomorrow.",
+    "Ik va amorgăn vend.",
+    "I will return tomorrow."
+  ],
+  [
+    "Please shut the door!",
+    "Luk doruta bidde!",
+    "Close the door please!"
+  ],
+  [
+    "The sentry sees the traveller.",
+    "Vaktărul nu farenduta se.",
+    "The guard sees the traveller."
+  ],
+  [
+    "The guard offered the book to him.",
+    "Vaktărul er bokuta ham boden.",
+    "The guard offered the book to him."
+  ],
+  [
+    "The huge fortress is ancient.",
+    "Stænhusul stor nu ald es.",
+    "The big fortress is old."
+  ],
+  [
+    "They have to leave now.",
+    "Dei nu nuna skul læv.",
+    "They must leave now."
+  ],
+  [
+    "She is really tired.",
+    "Ea nu særli mæd es.",
+    "She is very tired."
+  ],
+  [
+    "I am looking at the tower.",
+    "Ik dur bi turnul skav.",
+    "I am looking at the tower."
+  ],
+  [
+    "We should go back.",
+    "Vi nu bak bur gan.",
+    "We should go back."
+  ],
+  [
+    "The guard protects the village.",
+    "Vaktărul nu þorputa vakt.",
+    "The guard protects the village."
+  ],
+  [
+    "The gray cat is silent.",
+    "Mætul græ nu stil es.",
+    "The grey cat is quiet."
+  ],
+  [
+    "He has begun working.",
+    "Han nu ju verkan beginn.",
+    "He has started working."
+  ],
+  [
+    "I need assistance.",
+    "Ik nu help þurf.",
+    "I need help."
+  ],
+  [
+    "They walked close to the tower.",
+    "Dei er neh turnul gang.",
+    "They walked near the tower."
+  ],
+  [
+    "The kids are frightened.",
+    "Țildenle nu fyrhtig es.",
+    "The children are afraid."
+  ],
+  [
+    "I have obtained the key.",
+    "Ik nu ju kleșuta get.",
+    "I have got the key."
+  ],
+  [
+    "The guard stepped back.",
+    "Vaktărul er bak fotmov.",
+    "The guard stepped back."
+  ],
+  [
+    "She gave him the book.",
+    "Ea er bokuta ham gif.",
+    "She gave the book to him."
+  ]
+];
+for(const [en,ra,canonical] of aliasCases){assert.equal(pack.translateClause(en,false),ra,en);assert.equal(pack.translateClause(ra,true),canonical,ra);assert.ok(!pack.phrases.some(p=>p[0]===en));}
+assert.equal(pack.lookupEnglish("hound")[0][1],"hund");
+assert.equal(pack.lookupEnglish("purchase")[0][1],"bygan");
+console.log(aliasCases.length+" flexible-input cases passed.");
