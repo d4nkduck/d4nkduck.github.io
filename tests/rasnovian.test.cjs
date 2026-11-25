@@ -555,3 +555,130 @@ const partialCases=[
 for(const [en,ra] of partialCases){assert.equal(pack.translatePartial(en,false)?.text,ra,en);}
 assert.equal(pack.translatePartial("I will flibble the door.",false),null);
 assert.equal(pack.lookupEnglish("glorb").length,0);
+
+// Conversational rules and register: no whole utterance phrasebook entries.
+const conversationCases=[
+  [
+    "What are you talking about, bro?",
+    "Um hvat dur þu sprek, broþ?",
+    "What are you speaking about, bro?"
+  ],
+  [
+    "You genuinely sound stupid as fuck right now, I can not even lie bro",
+    "Þu nu verdomli dolig nuna soþli lud, ik nu jafnli ne kæn lyg, broþ",
+    "You genuinely sound damn stupid now, I can not even lie, bro"
+  ],
+  [
+    "You genuinely sound stupid as fuck right now.",
+    "Þu nu verdomli dolig nuna soþli lud.",
+    "You genuinely sound damn stupid now."
+  ],
+  [
+    "I cannot even lie, bro.",
+    "Ik nu jafnli ne kæn lyg, broþ.",
+    "I can not even lie, bro."
+  ],
+  [
+    "What did you read?",
+    "Hvat er þu ræd?",
+    "What did you read?"
+  ],
+  [
+    "Who did she see?",
+    "Hva er ea se?",
+    "Who did she see?"
+  ],
+  [
+    "What are they thinking about?",
+    "Um hvat dur dei þenk?",
+    "What are they thinking about?"
+  ],
+  [
+    "The plan sounds good.",
+    "Ætlanul nu god lud.",
+    "The plan sounds good."
+  ],
+  [
+    "She seems confused.",
+    "Ea nu vildig șin.",
+    "She seems confused."
+  ],
+  [
+    "He feels tired.",
+    "Han nu mæd fel.",
+    "He feels tired."
+  ],
+  [
+    "I honestly cannot remember.",
+    "Ik nu soþli ne kæn mynd.",
+    "I genuinely can not remember."
+  ],
+  [
+    "They actually know the answer.",
+    "Dei nu svaruta verli wit.",
+    "They actually know the answer."
+  ],
+  [
+    "You sound damn tired.",
+    "Þu nu verdomli mæd lud.",
+    "You sound damn tired."
+  ],
+  [
+    "Maybe.",
+    "Motsva.",
+    "Maybe."
+  ],
+  [
+    "Okay!",
+    "Væla!",
+    "Okay!"
+  ],
+  [
+    "I am sorry.",
+    "Ik nu sarig es.",
+    "I am sorry."
+  ],
+  [
+    "I can't even remember.",
+    "Ik nu jafnli ne kæn mynd.",
+    "I can not even remember."
+  ],
+  [
+    "I can not even lie bro",
+    "Ik nu jafnli ne kæn lyg, broþ",
+    "I can not even lie, bro"
+  ],
+  [
+    "I genuinely like the book.",
+    "Ik nu bokuta soþli lik.",
+    "I genuinely like the book."
+  ],
+  [
+    "I feel pain.",
+    "Ik nu sær fel.",
+    "I feel pain."
+  ],
+  [
+    "You sound stupid right now, I cannot even lie, bro.",
+    "Þu nu dolig nuna lud, ik nu jafnli ne kæn lyg, broþ.",
+    "You sound stupid now, I can not even lie, bro."
+  ],
+  [
+    "They are honestly tired.",
+    "Dei nu mæd soþli es.",
+    "They genuinely are tired."
+  ],
+  [
+    "What will you buy?",
+    "Hvat va þu byg?",
+    "What will you buy?"
+  ],
+  [
+    "I probably will come tomorrow.",
+    "Ik va amorgăn venli kum.",
+    "I probably will come tomorrow."
+  ]
+];
+for(const [en,ra,back] of conversationCases){assert.equal(pack.translateClause(en,false),ra,en);assert.equal(pack.translateClause(ra,true),back,ra);assert.ok(!pack.phrases.some(p=>p[0]===en));}
+assert.equal(pack.lookupEnglish("bruv")[0][1],"broþ");
+assert.equal(pack.lookupEnglish("dumb")[0][1],"dolig");
