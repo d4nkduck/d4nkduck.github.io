@@ -6,6 +6,10 @@ Static website: open `index.html` with `languages/` alongside it. No API keys or
 
 Copy `languages/rasnovian.js` to a new file and register a pack in `window.languagePacks`. Set a unique `id`, `name`, `native`, `version`, `origins` (name and percent), `alphabet`, `sounds` (symbol and pronunciation), `words` (English lemma, native lemma, part of speech), `phrases` (English and native), and `grammar` (heading and text). Include the new script before the main application script in `index.html`. Supply at least five phrases and enough unambiguous vocabulary for quizzes. Implement an optional `translateClause(input, reverse)` returning a translated string or null when unsupported. Keep each language's rules independent.
 
+## Javenœrl v0.1.0
+
+The Javes speak Javenœrl, with a French 40%, technical English 30%, German 30% design target. The independent pack provides work (Werk), everyday (Jour), and personal (Cœur) modes. Work status reports use `stat`, personal singular address uses `tei/tein`. The spelling Javenœrl is retained even when its final œrl is silent. Select Javenœrl from the language menu or use `?lang=javenoerl`. Run `node tests/javenoerl.test.cjs` for grammar regression cases. The language is an initial prototype; vocabulary ancestry and full translation coverage are not audited.
+
 ## Current scope
 
 Rasnovian v0.9.0 is a usable but incomplete constructed language and a rule-based translation prototype. Origins are fictional design targets, not measured ancestry. Translation checks recorded phrases and direct dictionary matches, then full grammar with local synonym alternatives, partial grammar and labelled word-by-word fallback. Unknown words appear in brackets. Reverse output may choose canonical English synonyms. No unrestricted translation, speech synthesis or accounts. Quiz progress is stored locally per language. The historical reconstruction baseline remains separate.
