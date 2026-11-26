@@ -12,7 +12,7 @@ The Javes speak Javenœrl, with a French 40%, technical English 30%, German 30% 
 
 ## Translation paraphrase adapter (Javenœrl)
 
-The optional local adapter in `languages/paraphrase.js` runs after a direct grammar parse fails and before partial/word-by-word fallback. It uses bounded, explicit English expression and construction rewrites, then requires a full forward and reverse grammar parse. The UI identifies the English paraphrase used. This is not a neural or semantic-equivalence model: reverse parsing checks grammatical recoverability, not meaning guarantees. No new native words, no saved user sentences, no API. Run `node tests/paraphrase.test.cjs`. Rasnovian remains unchanged.
+The optional local adapter in `languages/paraphrase.js` runs after a direct grammar parse fails and before partial/word-by-word fallback. A narrow set of common idioms and obligation constructions runs before the direct parser to avoid misleading literal parses. It uses bounded, explicit English expression and construction rewrites, then requires a full forward and reverse grammar parse. The UI identifies the English paraphrase used. This is not a neural or semantic-equivalence model: reverse parsing checks grammatical recoverability, not meaning guarantees. No new native words, no saved user sentences, no API. Run `node tests/paraphrase.test.cjs`. Rasnovian remains unchanged.
 
 ## Current scope
 
