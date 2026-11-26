@@ -1,242 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MLGizer 4.0</title>
-<style>
-:root {
-  --bg: #0b0b0b;
-  --panel: #121820;
-  --accent: #00ff99;
-  --muted: #a0a8b0;
-}
-body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  background: var(--bg);
-  color: #fff;
-}
-.wrap {
-  max-width: 900px;
-  margin: auto;
-  padding: 16px;
-}
-h1 {
-  font-size: 1.5rem;
-  color: var(--accent);
-  margin-bottom: 4px;
-}
-p {
-  margin-top: 0;
-  color: var(--muted);
-}
-.card {
-  background: var(--panel);
-  padding: 12px;
-  border-radius: 10px;
-  margin-bottom: 12px;
-}
-textarea {
-  width: 100%;
-  min-height: 100px;
-  font-size: 1rem;
-  border-radius: 8px;
-  padding: 8px;
-  background: #1a1f27;
-  border: none;
-  color: #fff;
-  resize: vertical;
-}
-button {
-  padding: 10px 16px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.btn-primary {
-  background: var(--accent);
-  color: #000;
-  font-weight: bold;
-}
-.btn-secondary {
-  background: #1f2933;
-  color: var(--muted);
-}
-.controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 8px;
-}
-#output {
-  white-space: pre-wrap;
-  background: #1a1f27;
-  padding: 12px;
-  border-radius: 8px;
-  min-height: 80px;
-  font-size: 1.1rem;
-}
-label {
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <h1>⚡ MLGizer 4.0 ⚡</h1>
-  <p>Turn boring sentences into gamer-grade, meme-fueled chaos — with smart caps & phrasing.</p>
+# Lingua Atlas
 
-  <div class="card">
-    <textarea id="inputText" placeholder="Type your sentence..."></textarea>
-    <div class="controls">
-      <label>Intensity <input id="intensity" type="range" min="0" max="100" value="60" /></label>
-      <label><input type="checkbox" id="fullMeme" /> Full Meme Mode</label>
-      <label><input type="checkbox" id="emoji" checked /> Emoji</label>
-    </div>
-    <div class="controls">
-      <button class="btn-primary" id="mlgifyBtn">MLGify</button>
-      <button class="btn-secondary" id="clearBtn">Clear</button>
-      <button class="btn-secondary" id="exampleBtn">Example</button>
-    </div>
-  </div>
+**A fictional language archive, translator and learning tool.**
 
-  <div class="card">
-    <div id="output">Your dankified sentence will appear here.</div>
-    <div class="controls">
-      <button class="btn-secondary" id="copyBtn">Copy</button>
-    </div>
-  </div>
-</div>
+Explore constructed languages with independent grammars, cultural histories, searchable dictionaries and vocabulary quizzes. Lingua Atlas is a static website: translation runs in your browser, with no API key or backend.
 
-<script>
-const phraseReplacements = [
-  [/hit a trickshot/i, ["pulled a 360 noscope", "landed a montage clip"]],
-  [/won the game/i, ["clutched the dub", "secured the W"]],
-  [/lost the game/i, ["got farmed for free elo", "fed hard"]],
-];
+[Open Lingua Atlas](https://d4nkduck.github.io/) · [Language development guide](LANGUAGES.md) · [Changelog](CHANGELOG.md)
 
-const wordReplacements = {
-  verbs: {
-    hit: ["slapped", "360-noscope'd", "deleted"],
-    shoot: ["lasered", "quickscoped", "bodied"],
-    win: ["clutched", "outplayed", "smurfed on"],
-    lose: ["got dumpstered", "got farmed", "fed"],
-    run: ["speedran", "zoomed", "outran the meta"],
-    kill: ["fragged", "obliterated", "rekt"],
-    destroy: ["nuked", "annihilated", "demolished"],
-  },
-  nouns: {
-    enemy: ["bot", "npc", "camper"],
-    head: ["dome", "noggin", "brainbox"],
-    game: ["match", "scrim", "ranked lobby"],
-    shot: ["headshot", "quickscope", "flick"],
-    kill: ["frag", "wipe", "full send"],
-    team: ["squad", "stack", "crew"],
-    sniper: ["sniper rig", "glass cannon"],
-  },
-  adjectives: {
-    good: ["cracked", "broken", "godlike"],
-    bad: ["trash", "bot-tier", "laggy"],
-    fast: ["lightspeed", "frame-perfect", "sonic-tier"],
-    slow: ["potato-speed", "lagfest", "sluggish"],
-  }
-};
+## Languages
 
-const hypeWords = [
-  "💯","🔥","POG","EZ","CLUTCH","GODLIKE",
-  "DORITO BOOST","MOUNTAIN DEW RUSH","AIRHORN","GG EZ"
-];
+| Language | Current standard | Dictionary entries | Design |
+| --- | --- | ---: | --- |
+| [Rașnovæsk (Rasnovian)](https://d4nkduck.github.io/?lang=rasnovian) | 0.9.1 | 810 | Germanic-inspired verb-final grammar, Romance and Slavic contact, agricultural and communal culture |
+| [Javenœrl](https://d4nkduck.github.io/?lang=javenoerl) | 0.4.0 | 1,118 | Franco-Germanic analytical grammar, professional compression and personal registers |
 
-function randomChoice(arr) {
-  return arr[Math.floor(Math.random()*arr.length)];
-}
+Ancestry percentages in the archive are fictional design targets, not measured etymological results. The languages are works in progress.
 
-function matchCase(orig, repl) {
-  if (orig.toUpperCase() === orig) return repl.toUpperCase();
-  if (orig.toLowerCase() === orig) return repl.toLowerCase();
-  if (orig[0] === orig[0].toUpperCase()) {
-    return repl[0].toUpperCase() + repl.slice(1).toLowerCase();
-  }
-  return repl;
-}
+## What you can do
 
-function tokenize(text) {
-  return text.match(/(\w+|\s+|[^\w\s])/g) || [];
-}
+- Translate English into either language and back.
+- Explore grammar, pronunciation, historical notes and cultural vocabulary.
+- Switch Javenœrl between Werk (working), Jour (everyday) and Cœur (personal) registers.
+- Search the dictionary, practise vocabulary and browse curated phrases.
+- See when the translator has used a paraphrase, partial parse or literal fallback.
 
-function normalizeWord(w) {
-  return w.toLowerCase();
-}
+The shared English paraphrase adapter recognizes selected expressions and synonyms before resorting to literal lookup. This is a rule-based prototype, not a neural translation service. It can miss constructions, choose an inappropriate sense or simplify nuances; unknown words remain visible in brackets.
 
-function mlgifyText(text, opts) {
-  let out = text;
+## Run locally
 
-  // Phrase replacements first
-  phraseReplacements.forEach(([regex, repls]) => {
-    if (regex.test(out) && Math.random() < opts.intensity/100) {
-      out = out.replace(regex, matchCase(out.match(regex)[0], randomChoice(repls)));
-    }
-  });
+Open `index.html` in a modern browser, keeping the `languages/` directory alongside it. No build step is required.
 
-  // Tokenize
-  let tokens = tokenize(out);
-  let result = [];
-  tokens.forEach(token => {
-    if (/^\w+$/.test(token)) {
-      let norm = normalizeWord(token);
-      let repl = null;
-      if (wordReplacements.verbs[norm]) repl = randomChoice(wordReplacements.verbs[norm]);
-      else if (wordReplacements.nouns[norm]) repl = randomChoice(wordReplacements.nouns[norm]);
-      else if (wordReplacements.adjectives[norm]) repl = randomChoice(wordReplacements.adjectives[norm]);
+For development checks, use Node.js 22 or newer:
 
-      if (repl && Math.random() < opts.intensity/100) {
-        token = matchCase(token, repl);
-      }
-      result.push(token);
-      if (Math.random() < opts.intensity/250) {
-        if (opts.fullMeme) result.push(randomChoice(hypeWords));
-        else if (opts.emoji && Math.random() < 0.5) result.push(randomChoice(hypeWords.filter(x=>/[\u2190-\u2BFF\u{1F300}-\u{1FAFF}]/u.test(x))));
-      }
-    } else {
-      result.push(token);
-    }
-  });
+```sh
+npm test
+```
 
-  return result.join("");
-}
+No package installation or third-party JavaScript dependencies are required. The test command runs the language, shared-adapter and site-integration regression suites.
 
-document.getElementById("mlgifyBtn").addEventListener("click", () => {
-  const opts = {
-    intensity: parseInt(document.getElementById("intensity").value),
-    fullMeme: document.getElementById("fullMeme").checked,
-    emoji: document.getElementById("emoji").checked
-  };
-  const input = document.getElementById("inputText").value;
-  document.getElementById("output").textContent = input ? mlgifyText(input, opts) : "Type something first.";
-});
+## Repository map
 
-document.getElementById("clearBtn").addEventListener("click", () => {
-  document.getElementById("inputText").value = "";
-  document.getElementById("output").textContent = "Your dankified sentence will appear here.";
-});
+```text
+index.html                   Browser interface and translation pipeline
+languages/
+  rasnovian.js               Rasnovian grammar and vocabulary
+  javenoerl.js               Javenœrl grammar, vocabulary and registers
+  paraphrase.js              Shared English input adapter
+tests/                       Regression fixtures and development audits
+reconstruction/              Separate historical Rasnovian research track
+LANGUAGES.md                 Pack contract and maintenance guide
+CHANGELOG.md                 Selected release history
+package.json                 Local test command
+.github/workflows/           Automated regression checks
+```
 
-document.getElementById("exampleBtn").addEventListener("click", () => {
-  const examples = [
-    "I hit a trickshot earlier and felt amazing.",
-    "We won the game after a long comeback.",
-    "He tried to camp the spawn and failed.",
-    "I saw a sniper on the roof and took him out."
-  ];
-  document.getElementById("inputText").value = randomChoice(examples);
-});
+## Research and development
 
-document.getElementById("copyBtn").addEventListener("click", () => {
-  const text = document.getElementById("output").textContent;
-  navigator.clipboard.writeText(text).catch(()=>{});
-});
-</script>
-</body>
-</html>
+- [Rasnovian release audit (v0.9.0)](tests/rasnovian-release-audit.md)
+- [Shared English coverage audit](tests/shared-coverage-audit.md)
+- [Historical reconstruction project](reconstruction/README.md)
+- [Lexicon research inventory](reconstruction/lexicon-audit.csv)
+
+These audits describe earlier development snapshots, not current independent accuracy benchmarks. New linguistic rules should be tested compositionally; regression sentences must not become public phrasebook entries.
+
+## Project history
+
+The repository originally hosted MLGizer. Its previous README remains available in [Git history](https://github.com/d4nkduck/d4nkduck.github.io/blob/8ab009b5b435e2df5206f4b5b1db336b5b04f64a/README.md). The current project is Lingua Atlas.

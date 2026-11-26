@@ -1,0 +1,11 @@
+{
+  "name": "lingua-atlas",
+  "private": true,
+  "description": "Fictional language archive and rule-based translator",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

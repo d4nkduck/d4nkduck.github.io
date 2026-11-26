@@ -1,33 +1,70 @@
-# Lingua Atlas
+# Language development guide
 
-Static website: open `index.html` with `languages/` alongside it. No API keys or backend required. GitHub Pages can serve the branch after merging into its configured publishing source.
+[Project overview](README.md) · [Changelog](CHANGELOG.md)
 
-## Adding a language
+## Architecture
 
-Copy `languages/rasnovian.js` to a new file and register a pack in `window.languagePacks`. Set a unique `id`, `name`, `native`, `version`, `origins` (name and percent), `alphabet`, `sounds` (symbol and pronunciation), `words` (English lemma, native lemma, part of speech), `phrases` (English and native), and `grammar` (heading and text). Include the new script before the main application script in `index.html`. Supply at least five phrases and enough unambiguous vocabulary for quizzes. Implement an optional `translateClause(input, reverse)` returning a translated string or null when unsupported. Keep each language's rules independent. Packs with `translateClause` automatically use the shared English paraphrase layer; add pack-specific regression fixtures before release.
+Lingua Atlas is a static, dependency-free browser application. Each language pack registers itself in `window.languagePacks`. The UI reads pack metadata, the dictionary, grammar documentation and curated phrases. Keep language-specific morphology and syntax in the language pack, and general English expression recognition in `languages/paraphrase.js`.
 
-## Javenœrl v0.4.0
+The translation pipeline uses recorded phrases and lexical matches, preferred idiomatic rewrites, full grammar parsing, bounded paraphrase search, partial grammar, then labelled word-by-word fallback. English paraphrases must remain inspectable. A reverse parse is a useful grammar check, not proof of semantic equivalence. Native-to-English translation does not use English paraphrase rules.
 
-The Javes speak Javenœrl, with a French 40%, technical English 30%, German 30% design target. The independent pack provides work (Werk), everyday (Jour), and personal (Cœur) modes. Work definite status reports use `stat/stats` without article or copula, and other definite articles fuse as `l-/ls-`. Personal singular address uses `tei/tein`, with explicit dear and together morphology. The spelling standard accepts v0.2 legacy forms, and the word formation inventory includes transparent derivations and compounds. The spelling Javenœrl is retained even when its final œrl is silent. Select Javenœrl from the language menu or use `?lang=javenoerl`. Run `node tests/javenoerl.test.cjs` for grammar regression cases. The pack recognises common quantity phrases, inflected lexical fallback, and limited partial grammar for unknown nouns or adjectives. The language is an initial prototype; vocabulary ancestry and full translation coverage are not audited.
+## Language pack contract
 
-## Shared translation paraphrase adapter
+| Field or method | Purpose |
+| --- | --- |
+| `id`, `name`, `native`, `version` | Unique identifier and release metadata |
+| `origins` | Donor names and fictional design percentages |
+| `alphabet`, `sounds`, `grammar` | Reference documentation |
+| `words` | Rows: English lemma, native lemma, part of speech, optional category |
+| `phrases` | Curated bilingual phrase pairs |
+| `lookupEnglish(input)` | Optional synonym and inflection-aware lookup |
+| `lookupNative(input)` | Optional native lexical lookup, including legacy spellings |
+| `translateClause(input, reverse)` | Full grammatical translation or null |
+| `translatePartial(input, reverse)` | Optional partial result: text and unknown words |
+| `registers`, `register` | Optional register selection and current register |
 
-The optional local adapter (enabled for Rasnovian, Javenœrl and future packs implementing `translateClause`) in `languages/paraphrase.js` runs after a direct grammar parse fails and before partial/word-by-word fallback. A narrow set of common idioms and obligation constructions runs before the direct parser to avoid misleading literal parses. It uses bounded, explicit English expression and construction rewrites, then requires a full forward and reverse grammar parse. The UI identifies the English paraphrase used. This is not a neural or semantic-equivalence model: reverse parsing checks grammatical recoverability, not meaning guarantees. No new native words, no saved user sentences, no API. Run `node tests/paraphrase.test.cjs`. The shared English lexical fallback also looks up selected semantic families when direct dictionary lookup fails. See [shared coverage audit](tests/shared-coverage-audit.md) for before/after development coverage; these are not held-out accuracy results. The shared adapter is independent; the subsequent linguistic audit revision updates both grammar packs.
+Use `languages/rasnovian.js` or `languages/javenoerl.js` as a reference when creating a new independent pack. Add its script before the main application script in `index.html`. Include at least five curated phrases and add pack-specific regression tests. Packs implementing `translateClause` can use the shared adapter automatically.
 
-## Current scope
+## Current standards
 
-Rasnovian v0.9.1 is a usable but incomplete constructed language and a rule-based translation prototype. Origins are fictional design targets, not measured ancestry. Translation checks recorded phrases and direct dictionary matches, then full grammar with local synonym alternatives, partial grammar and labelled word-by-word fallback. Unknown words appear in brackets. Reverse output may choose canonical English synonyms. No unrestricted translation, speech synthesis or accounts. Quiz progress is stored locally per language. The historical reconstruction baseline remains separate.
+### Rasnovian 0.9.1
 
-## Regression and release audit
+Rașnovæsk uses verb-final clauses, suffixed articles and case marking, differential object marking, postnominal adjectives, invariant finite verb stems and tense/aspect particles. It supports selected subordinate clauses, relatives, reflexives, reciprocals, passives and advanced aspect constructions. The latest audit revision adds agricultural vocabulary and distinct run/manage/flow senses.
 
-Run `node tests/rasnovian.test.cjs` from the repository root. See [release audit](tests/rasnovian-release-audit.md) for coverage, examples and limitations. Test sentences must not become curated phrasebook entries.
+The intended Anglo-Saxon/Romanian/Russian split is 60/30/10, not an audited ancestry distribution. Historical reconstruction is kept separate in [reconstruction/](reconstruction/README.md). The inherited `witan/wit` spelling is a documented exception to the alphabet.
 
-## Manual smoke tests
+### Javenœrl 0.4.0
 
-- I see the house. → Ik nu husuta se.
-- We drink water. → Vi nu vætăr drink.
-- Vi nu vætăr drink. → We drink water.
-- I will eat. → Ik va et.
-- Verify version v0.9.0, search a synonym in the dictionary, answer a vocabulary question and refresh to check progress, inspect the alphabet and grammar sections.
+The Javes value diligence, craftsmanship, rest and close relationships. The intended French/technical English/German split is 40/30/30, not measured ancestry.
 
-When updating a pack, update its script cache identifier in index.html. Do not claim deployment until the public page has been checked.
+Javenœrl uses SVO order, invariant verbs and grammatical particles. Werk uses compressed status reports (`stat/stats/statn`) and fused definite articles (`l-/ls-`); Cœur uses familiar `tei/tein` and expressive morphology (`-lin/-sam`). The deliberate pronunciation of marked `œrl` endings is a spoken choice. Jour is the everyday register.
+
+The current standard includes selected finite complements and subordinate clauses, reflexives, reciprocals, possessors, object-control constructions, passive and perfect-progressive forms, quantity-subject questions, and restricted productive compounds and `-bar` derivatives. The spelling adaptation system accepts older spellings. Full phonology, historical integration, register differentiation and broader question grammar remain incomplete.
+
+## Testing
+
+Run all checks from the repository root:
+
+```sh
+npm test
+```
+
+Individual suites can be run with `node --test tests/rasnovian.test.cjs`, `node --test tests/javenoerl.test.cjs`, `node --test tests/paraphrase.test.cjs` or `node --test tests/site.test.cjs`. GitHub Actions runs the same command on pushes and pull requests.
+
+Keep separate:
+- Linguistic rules and native lexical meanings.
+- English aliases and paraphrase rules.
+- Curated public phrases.
+- Regression fixtures and development audits.
+
+Tests should include contrasting word senses, negative cases and forward/reverse examples. Do not add test sentences to the phrasebook or create a native root just to satisfy an English synonym. A successful parse does not establish meaning accuracy. Historical audit counts must not be silently updated as if they were new measurements.
+
+## Release checklist
+
+1. Run all regression tests.
+2. Update the affected pack's version and its script cache identifier in `index.html`.
+3. Update the README and changelog if the released standard or vocabulary count changes.
+4. Check the public page after deployment: language switch, translation directions, register switch, dictionary search, quiz and documentation.
+5. Verify new native roots against the alphabet and document provisional historical or semantic decisions. Keep reconstruction data and earlier audits intact.
+
+Do not claim a successful Pages deployment until the public site has been checked.
