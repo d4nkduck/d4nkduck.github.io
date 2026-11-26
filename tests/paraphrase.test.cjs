@@ -78,9 +78,9 @@ const cases=[
   ],
   [
     "I have to give you a hand.",
-    "I must give you a hand.",
-    "Je mus gebé un main zu vu.",
-    "I must give a hand to you."
+    "I must help you.",
+    "Je mus hilfé vu.",
+    "I must help you."
   ],
   [
     "I am going to take a look at the machine.",
@@ -108,7 +108,67 @@ const cases=[
   ]
 ];
 for(const [en,canonical,ja,back] of cases){assert.equal(p.translateClause(en),null,en);const r=window.linguaParaphrase(p,en);assert.equal(r.canonical,canonical,en);assert.equal(r.text,ja,en);assert.equal(r.back,back,en);assert.ok(!p.phrases.some(x=>x[0]===en));}
-for(const en of ["I do not have to work.","I am going to the shop.","The machine is worn out.","I am not fond of this movie."]){assert.equal(window.linguaParaphrase(p,en),null,en);}
+for(const en of ["I am going to the shop.","The machine is worn out.","I am not fond of this movie."]){assert.equal(window.linguaParaphrase(p,en),null,en);}
 assert.equal(window.linguaParaphrase(p,"Je werké.",true),null);
 assert.equal(p.words.length,1101);
 console.log(cases.length+" paraphrase cases passed.");
+
+const preferredCases=[
+  [
+    "She has to work tomorrow.",
+    "She must work tomorrow.",
+    "El mus werké morgen.",
+    "She must work tomorrow."
+  ],
+  [
+    "I do not have to work.",
+    "I do not need to work.",
+    "Je ne brauché zu werk.",
+    "I do not need to work."
+  ],
+  [
+    "She does not have to work tomorrow.",
+    "She does not need to work tomorrow.",
+    "El ne brauché zu werk morgen.",
+    "She does not need to work tomorrow."
+  ],
+  [
+    "Can you give me a hand?",
+    "Can you help me?",
+    "Est vu kan hilfé me?",
+    "Can you help me?"
+  ],
+  [
+    "He gave me a hand.",
+    "He helped me.",
+    "Il pré hilfé me.",
+    "He helped me."
+  ],
+  [
+    "She did not give me a hand.",
+    "She did not help me.",
+    "El pré ne hilfé me.",
+    "She did not help me."
+  ],
+  [
+    "I am working at the moment.",
+    "I am working now.",
+    "Je dur werké jetzt.",
+    "I am working now."
+  ],
+  [
+    "We had to repair the machine.",
+    "We needed to repair the machine.",
+    "Nus pré brauché zu réparé le mashin.",
+    "We needed to repair the machine."
+  ],
+  [
+    "I have to give you a hand.",
+    "I must help you.",
+    "Je mus hilfé vu.",
+    "I must help you."
+  ]
+];
+for(const [en,canonical,ja,back] of preferredCases){const r=window.linguaPreferredParaphrase(p,en);assert.equal(r.canonical,canonical,en);assert.equal(r.text,ja,en);assert.equal(r.back,back,en);}
+assert.equal(window.linguaPreferredParaphrase(p,"I am going to the shop."),null);
+assert.equal(window.linguaPreferredParaphrase(p,"I gave her a hand-written letter."),null);
