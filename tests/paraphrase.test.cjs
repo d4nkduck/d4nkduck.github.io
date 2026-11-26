@@ -277,3 +277,239 @@ assert.equal(window.linguaPreferredParaphrase(ras,"Ik nu verk.",true),null);
 assert.equal(window.linguaParaphrase(ras,"Ik nu verk.",true),null);
 assert.equal(ras.words.length,794);
 console.log(rasCases.length+" Rasnovian shared adapter cases passed.");
+
+const coverageCases=[
+  [
+    "rasnovian",
+    "I appreciate your assistance.",
+    "I thank you for your help.",
+    "Ik nu þuta for helpul þues þank.",
+    "I thank you for your help."
+  ],
+  [
+    "rasnovian",
+    "I really appreciate your help.",
+    "I thank you for your help.",
+    "Ik nu þuta for helpul þues þank.",
+    "I thank you for your help."
+  ],
+  [
+    "rasnovian",
+    "I have sufficient time.",
+    "I have enough time.",
+    "Ik nu nog tid hav.",
+    "I have enough time."
+  ],
+  [
+    "rasnovian",
+    "I have insufficient money.",
+    "I do not have enough money.",
+    "Ik nu nog gelt ne hav.",
+    "I do not have enough money."
+  ],
+  [
+    "rasnovian",
+    "I have no clue.",
+    "I do not know.",
+    "Ik nu ne wit.",
+    "I do not know."
+  ],
+  [
+    "rasnovian",
+    "I am in a hurry.",
+    "I am hurrying.",
+    "Ik dur snell.",
+    "I am hurrying."
+  ],
+  [
+    "rasnovian",
+    "I need a bit of help.",
+    "I need some help.",
+    "Ik nu sum help þurf.",
+    "I need some help."
+  ],
+  [
+    "rasnovian",
+    "I have a couple of books.",
+    "I have two books.",
+    "Ik nu tva boken hav.",
+    "I have two books."
+  ],
+  [
+    "rasnovian",
+    "I enjoy chatting with my friends.",
+    "I enjoy talking with my friends.",
+    "Ik nu miþ priatenle ikes sprekan lik.",
+    "I like speaking with my friends."
+  ],
+  [
+    "rasnovian",
+    "Please let me know.",
+    "Please tell me.",
+    "Tæl bidde im.",
+    "Tell please to me."
+  ],
+  [
+    "rasnovian",
+    "I am on my way home.",
+    "I am going home.",
+    "Ik dur heimtil gan.",
+    "I am going home."
+  ],
+  [
+    "rasnovian",
+    "I am taking a break.",
+    "I am resting.",
+    "Ik dur ræst.",
+    "I am resting."
+  ],
+  [
+    "rasnovian",
+    "I bought a pair of shoes.",
+    "I bought two shoes.",
+    "Ik er tva skoen byg.",
+    "I bought two shoes."
+  ],
+  [
+    "rasnovian",
+    "I am grateful for your help.",
+    "I thank you for your help.",
+    "Ik nu þuta for helpul þues þank.",
+    "I thank you for your help."
+  ],
+  [
+    "javenoerl",
+    "I appreciate your assistance.",
+    "I thank you for your help.",
+    "Je mercié vu für von hilf.",
+    "I thank you for your help."
+  ],
+  [
+    "javenoerl",
+    "I am starving.",
+    "I am very hungry.",
+    "Je es très hungrig.",
+    "I am very hungry."
+  ],
+  [
+    "javenoerl",
+    "I really appreciate your help.",
+    "I thank you for your help.",
+    "Je mercié vu für von hilf.",
+    "I thank you for your help."
+  ],
+  [
+    "javenoerl",
+    "I was unable to sleep.",
+    "I could not sleep.",
+    "Je ne kön dorm.",
+    "I could not sleep."
+  ],
+  [
+    "javenoerl",
+    "I am pleased with the result.",
+    "I am happy with the result.",
+    "Je es heureux mit le résult.",
+    "I am happy with the result."
+  ],
+  [
+    "javenoerl",
+    "I have sufficient time.",
+    "I have enough time.",
+    "Je hav genugé zeit.",
+    "I have enough time."
+  ],
+  [
+    "javenoerl",
+    "I have insufficient money.",
+    "I do not have enough money.",
+    "Je ne hav genugé geld.",
+    "I do not have enough money."
+  ],
+  [
+    "javenoerl",
+    "I have no clue.",
+    "I do not know.",
+    "Je ne wiss.",
+    "I do not know."
+  ],
+  [
+    "javenoerl",
+    "I will get some rest.",
+    "I will rest.",
+    "Je va ruhé.",
+    "I will rest."
+  ],
+  [
+    "javenoerl",
+    "I am in a hurry.",
+    "I am hurrying.",
+    "Je dur eilé.",
+    "I am hurrying."
+  ],
+  [
+    "javenoerl",
+    "I feel terrible.",
+    "I feel very bad.",
+    "Je fühl très mal.",
+    "I feel very bad."
+  ],
+  [
+    "javenoerl",
+    "I need a bit of help.",
+    "I need some help.",
+    "Je brauché etwas hilf.",
+    "I need some help."
+  ],
+  [
+    "javenoerl",
+    "I have a couple of books.",
+    "I have two books.",
+    "Je hav deux buchs.",
+    "I have two books."
+  ],
+  [
+    "javenoerl",
+    "I am extremely busy.",
+    "I am very busy.",
+    "Je es très occupé.",
+    "I am very busy."
+  ],
+  [
+    "javenoerl",
+    "I enjoy chatting with my friends.",
+    "I enjoy talking with my friends.",
+    "Je geniess en parlé mit mon amiens.",
+    "I enjoy speaking with my friends."
+  ],
+  [
+    "javenoerl",
+    "Please let me know.",
+    "Please tell me.",
+    "Pli erzéhl me.",
+    "Please tell me."
+  ],
+  [
+    "javenoerl",
+    "I will be there shortly.",
+    "I will be there soon.",
+    "Je va es dort bald.",
+    "I will be there soon."
+  ],
+  [
+    "javenoerl",
+    "I bought a pair of shoes.",
+    "I bought two shoes.",
+    "Je pré kaufé deux shuhs.",
+    "I bought two shoes."
+  ],
+  [
+    "javenoerl",
+    "I am grateful for your help.",
+    "I thank you for your help.",
+    "Je mercié vu für von hilf.",
+    "I thank you for your help."
+  ]
+];
+for(const [id,en,canonical,ja,back] of coverageCases){const pack=window.languagePacks.find(x=>x.id===id);const a=sharedTranslation(pack,en);assert.ok(a,en);assert.equal(a.canonical,canonical,en);assert.equal(a.text,ja,en);assert.equal(a.back,back,en);assert.ok(!pack.phrases.some(x=>x[0]===en));}
+assert.equal(ras.words.length,794);assert.equal(p.words.length,1101);
