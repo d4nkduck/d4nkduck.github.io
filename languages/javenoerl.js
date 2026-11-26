@@ -4,7 +4,7 @@ window.languagePacks.push(Object.assign({
   "id": "javenoerl",
   "name": "Javenœrl",
   "native": "Javenœrl",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "origins": [
     [
       "French",
@@ -6738,6 +6738,108 @@ window.languagePacks.push(Object.assign({
       "mer",
       "particle",
       "Comparisons & achievement"
+    ],
+    [
+      "feed",
+      "fütr",
+      "verb",
+      "Grammar & audit"
+    ],
+    [
+      "flow",
+      "flussé",
+      "verb",
+      "Grammar & audit"
+    ],
+    [
+      "watch",
+      "shaué",
+      "verb",
+      "Grammar & audit"
+    ],
+    [
+      "right",
+      "recht",
+      "adjective",
+      "Grammar & audit"
+    ],
+    [
+      "although",
+      "obwol",
+      "conjunction",
+      "Grammar & audit"
+    ],
+    [
+      "after",
+      "nachdem",
+      "conjunction",
+      "Grammar & audit"
+    ],
+    [
+      "before",
+      "bevor",
+      "conjunction",
+      "Grammar & audit"
+    ],
+    [
+      "when",
+      "kandem",
+      "conjunction",
+      "Grammar & audit"
+    ],
+    [
+      "clause complement",
+      "ke",
+      "particle",
+      "Grammar & audit"
+    ],
+    [
+      "reflexive self",
+      "sek",
+      "pronoun",
+      "Grammar & audit"
+    ],
+    [
+      "each other",
+      "samsek",
+      "pronoun",
+      "Grammar & audit"
+    ],
+    [
+      "passive voice",
+      "pas",
+      "particle",
+      "Grammar & audit"
+    ],
+    [
+      "how many",
+      "komviel",
+      "interrogative",
+      "Grammar & audit"
+    ],
+    [
+      "how much",
+      "kommeng",
+      "interrogative",
+      "Grammar & audit"
+    ],
+    [
+      "which",
+      "welk",
+      "interrogative",
+      "Grammar & audit"
+    ],
+    [
+      "duck",
+      "ent",
+      "noun",
+      "Grammar & audit"
+    ],
+    [
+      "by",
+      "par",
+      "preposition",
+      "Grammar & audit"
     ]
   ],
   "phrases": [
@@ -6826,6 +6928,14 @@ window.languagePacks.push(Object.assign({
     [
       "Comparisons and ability v0.3.3",
       "Dan introduces a comparison with a nominal phrase or a full clause. Mer precedes comparative adjectives, while mehr expresses quantity. Weit modifies comparative quantity; way or much more normalize to far more. Kapabl zu + verb expresses ability, including after modal copulas. Jemals means ever. Common would contractions are recognized."
+    ],
+    [
+      "Clause structure v0.4",
+      "Ke introduces a finite complement of knowledge, thought, speech or belief. Initial si / obwol / kandem / nachdem / bevor clauses precede a comma and main clause. Sek marks subject-bound reflexives; samsek is reciprocal. Possessors can follow a possessed definite noun with de. Recipients use zu; English double-object structures may normalize to that construction. Ja dur marks perfect progressive; pas marks passive. Komviel and kommeng distinguish quantity-subject questions from manner questions."
+    ],
+    [
+      "Audit repairs",
+      "Watch (shaué), look (regard), manage (leit), flow (flussé) and run (lauf) are distinct. Licensed compounds and -bar derivatives can be generated temporarily; test sentences are never stored. These are provisional rules."
     ]
   ],
   "synonymGroups": [
@@ -7150,13 +7260,6 @@ window.languagePacks.push(Object.assign({
       "speak",
       [
         "talk"
-      ]
-    ],
-    [
-      "verb",
-      "look",
-      [
-        "watch"
       ]
     ],
     [
@@ -9065,6 +9168,24 @@ window.languagePacks.push(Object.assign({
       "achieved",
       "achieving",
       "achieved"
+    ],
+    "feed": [
+      "feeds",
+      "fed",
+      "feeding",
+      "fed"
+    ],
+    "watch": [
+      "watches",
+      "watched",
+      "watching",
+      "watched"
+    ],
+    "flow": [
+      "flows",
+      "flowed",
+      "flowing",
+      "flowed"
     ]
   },
   "coreWords": [
@@ -15673,6 +15794,108 @@ window.languagePacks.push(Object.assign({
       "mer",
       "particle",
       "Comparisons & achievement"
+    ],
+    [
+      "feed",
+      "fütr",
+      "verb",
+      "Grammar & audit"
+    ],
+    [
+      "flow",
+      "flussé",
+      "verb",
+      "Grammar & audit"
+    ],
+    [
+      "watch",
+      "shaué",
+      "verb",
+      "Grammar & audit"
+    ],
+    [
+      "right",
+      "recht",
+      "adjective",
+      "Grammar & audit"
+    ],
+    [
+      "although",
+      "obwol",
+      "conjunction",
+      "Grammar & audit"
+    ],
+    [
+      "after",
+      "nachdem",
+      "conjunction",
+      "Grammar & audit"
+    ],
+    [
+      "before",
+      "bevor",
+      "conjunction",
+      "Grammar & audit"
+    ],
+    [
+      "when",
+      "kandem",
+      "conjunction",
+      "Grammar & audit"
+    ],
+    [
+      "clause complement",
+      "ke",
+      "particle",
+      "Grammar & audit"
+    ],
+    [
+      "reflexive self",
+      "sek",
+      "pronoun",
+      "Grammar & audit"
+    ],
+    [
+      "each other",
+      "samsek",
+      "pronoun",
+      "Grammar & audit"
+    ],
+    [
+      "passive voice",
+      "pas",
+      "particle",
+      "Grammar & audit"
+    ],
+    [
+      "how many",
+      "komviel",
+      "interrogative",
+      "Grammar & audit"
+    ],
+    [
+      "how much",
+      "kommeng",
+      "interrogative",
+      "Grammar & audit"
+    ],
+    [
+      "which",
+      "welk",
+      "interrogative",
+      "Grammar & audit"
+    ],
+    [
+      "duck",
+      "ent",
+      "noun",
+      "Grammar & audit"
+    ],
+    [
+      "by",
+      "par",
+      "preposition",
+      "Grammar & audit"
     ]
   ],
   "spellingMap": {
@@ -15868,6 +16091,7 @@ window.languagePacks.push(Object.assign({
  }return out;
  },
  normalizeEnglish(input){return input.replace(/’/g,"'").replace(/\b(i|you|he|she|we|they|it)'d\b(?=\s+(?:ever|never|always|really|be|like|want|need|go|come|try|do|say|know|work|earn|achieve|help|see|make|take|find|buy|love|prefer|rather)\b)/gi,"$1 would").replace(/\b(?:way|much)\s+(?=more\b|less\b|fewer\b)/gi,"far ").replace(/’/g,"'").replace(/\b(i|you|he|she|we|they|it)'ll\b/gi,"$1 will").replace(/\bi'm\b/gi,"I am").replace(/\b(you|we|they)'re\b/gi,"$1 are").replace(/\b(he|she|it)'s\b/gi,"$1 is").replace(/\bcan't\b/gi,"can not").replace(/\bcannot\b/gi,"can not").replace(/\bwon't\b/gi,"will not").replace(/n't\b/gi," not");},
+ senseInput(s){return s.replace(/\b(run|runs|ran|running)(?= (?:a|an|the|my|your|his|her|our|their) (?:[a-z]+ )?(?:shop|store|business|company|factory|restaurant|hotel)\b)/gi,m=>({run:"manage",runs:"manages",ran:"managed",running:"managing"}[m.toLowerCase()])).replace(/\b((?:the )?(?:water|river|stream|liquid) (?:is |was |will |can |does |did )?)(run|runs|ran|running)\b/gi,(_,s,v)=>s+({run:"flow",runs:"flows",ran:"flowed",running:"flowing"}[v.toLowerCase()]));},
  translateClause(input,reverse=false){
  const cap=s=>s?s[0].toUpperCase()+s.slice(1):s;
  const replaceTokens=(s,table)=>s.replace(/[\p{L}\p{M}-]+/gu,w=>{const k=w.toLowerCase(),m=table[k]||k.split("-").map(part=>table[part]||part).join("-");return w[0]===w[0].toUpperCase()?cap(m):m;});
@@ -15885,7 +16109,7 @@ window.languagePacks.push(Object.assign({
   const result=this.translateLegacy(s,true);if(result)return result;
   return this.translateLegacy(input,true);
  }
- let out=this.translateLegacy(input,false);if(!out)return null;
+ let out=this.translateLegacy(this.senseInput(input),false);if(!out)return null;
  if(reg==="work"){
   if(/^Stat\s/i.test(out)&&!/^Stat\s+(?:le|les|un|des|mon|von|tein|son|sen|nos|lor|iton|je|vu|tei|il|el|it|nus|els|vus|dies|das|diese|jene|etwas|viel|mengen|alle|mehr|wenig|mehrere)\b/i.test(out))out=out.replace(/^Stat\s+/i,"Statn ");
   out=out.replace(/^Stat les\s+/i,"Stats ").replace(/^Stat le\s+/i,"Stat ");
@@ -15920,7 +16144,23 @@ window.languagePacks.push(Object.assign({
  return results.size===1?{text:[...results][0],unknown}:null;
  },
  translateLegacy(input,reverse=false){
- const s=reverse?input:this.normalizeEnglish(input),direct=this.translateCore(s,reverse);if(direct)return direct;
+ const s=reverse?input:this.normalizeEnglish(input);
+ const lower=t=>/^I\b/.test(t)?t:t[0].toLowerCase()+t.slice(1);
+ for(const [en,ja] of [["if","si"],["although","obwol"],["when","kandem"],["after","nachdem"],["before","bevor"]]){
+ const m=s.match(new RegExp("^"+(reverse?ja:en)+"\\s+(.+?),\\s*(.+)$","i"));
+ if(m){const a=this.translateLegacy(m[1],reverse),b=this.translateLegacy(m[2],reverse);return a&&b?(reverse?en:ja)[0].toUpperCase()+(reverse?en:ja).slice(1)+" "+lower(a)+", "+lower(b):null;}
+ }
+ const c=s.match(reverse?/^(.+?)\s+ke\s+(.+)$/i:/^(.+?)\s+that\s+(.+)$/i);
+ if(c&&(reverse?/\b(?:denk|wiss|di|glaubé|espéré|compré)\b/i:/\b(?:think|thinks|thought|know|knows|knew|say|says|said|believe|believes|believed|hope|hopes|hoped|understand|understands|understood)$/i).test(c[1])){
+ const a=this.translateCore(c[1],reverse),b=this.translateLegacy(c[2],reverse);if(a&&b)return a+(reverse?" that ":" ke ")+lower(b);
+ }
+ const q=s.match(reverse?/^(komviel|kommeng)\s+(.+?)\?$/i:/^how (many|much) (.+?)\?$/i);
+ if(q){const many=/^(many|komviel)$/i.test(q[1]),prefix=reverse?(many?"viel ":"mengen "):(many?"many ":"much ");
+ const x=this.translateCore(prefix+q[2],reverse);if(!x)return null;
+ const bare=x.replace(reverse?/^(Many|Much)\s+/i:/^(Viel|Mengen)\s+/i,"");if(bare===x)return null;
+ return (reverse?(many?"How many ":"How much "):(many?"Komviel ":"Kommeng "))+lower(bare).replace(/[.!?]$/,"")+"?";
+ }
+ const direct=this.translateCore(s,reverse);if(direct)return direct;
  const comparison=s.match(reverse?/^(.+?)\s+dan\s+(.+)$/i:/^(.+?)\s+than\s+(.+)$/i);
  if(comparison){
   const [,left,right]=comparison;
@@ -15941,11 +16181,31 @@ window.languagePacks.push(Object.assign({
  const atom=s.trim().replace(/[.!?]$/,"").toLowerCase();const entry=this.words.find(w=>["adverb","expression"].includes(w[2])&&w[reverse?1:0].toLowerCase()===atom);if(entry){const v=entry[reverse?0:1];return v[0].toUpperCase()+v.slice(1)+(s.trim().match(/[.!?]$/)?.[0]||"");}
  return null;
  },
+ deriveWords(tokens,reverse=false){
+ const W=this.coreWords||this.words, rows=[],exists=(en,pos)=>W.some(w=>w[0]===en&&w[2]===pos),nativeExists=n=>W.some(w=>w[1]===n);
+ const stem=w=>w[1].replace(/é$/,"");
+ const push=(en,ja,pos)=>{if(!exists(en,pos)&&!nativeExists(ja)&&!rows.some(w=>w[0]===en&&w[2]===pos||w[1]===ja))rows.push([en,ja,pos,"Generated morphology"]);};
+ const heads=new Set(["report","tool","room","shop","station","plan","worker","break","time","door","machine","system","book","bag","box","garden","lesson","table","chair","house"]);
+ const modifiers=W.filter(w=>w[2]==="noun"&&!w[0].includes(" ")&&!w[1].includes("-"));
+ for(let i=0;i<tokens.length;i++){
+ const t=tokens[i];
+ if(!reverse){
+  for(const v of W.filter(w=>w[2]==="verb"&&!w[0].includes(" "))){const e=v[0],able=e.endsWith("e")?e.slice(0,-1)+"able":e+"able";if(t===able||t===e+"able")push(t,stem(v)+"-bar","adjective");}
+  const m=modifiers.find(w=>w[0]===t)||W.find(w=>w[2]==="verb"&&w[0]===t&&["repair","test","clean","wash","measure","build"].includes(t));
+  const h=W.find(w=>w[2]==="noun"&&heads.has(w[0])&&(w[0]===tokens[i+1]||w[0]+"s"===tokens[i+1]));if(m&&h)push(m[0]+" "+h[0],stem(m)+"-"+h[1],"noun");
+ }else{
+  const parts=t.split("-");if(parts.length!==2)continue;const [a,b]=parts;
+  if(b==="bar"){const v=W.find(w=>w[2]==="verb"&&stem(w)===a);if(v)push(v[0].endsWith("e")?v[0].slice(0,-1)+"able":v[0]+"able",a+"-bar","adjective");}
+  const m=modifiers.find(w=>stem(w)===a)||W.find(w=>w[2]==="verb"&&stem(w)===a&&["repair","test","clean","wash","measure","build"].includes(w[0]));
+  const h=W.find(w=>w[2]==="noun"&&heads.has(w[0])&&(w[1]===b||w[1]+"s"===b));if(m&&h)push(m[0]+" "+h[0],a+"-"+h[1],"noun");
+ }
+ }return rows;
+ },
  translateCore(input,reverse=false,mode="clause"){
  const norm=s=>s.normalize("NFC").toLowerCase().trim(),cap=s=>s?s[0].toUpperCase()+s.slice(1):s;
  const punct=input.trim().match(/[.!?]$/)?.[0]||"";
  const a=norm(reverse?input:this.normalizeEnglish(input)).replace(/[.!?]$/,"").split(/\s+/);
- const W=this.coreWords||this.words, reg=this.register||"everyday", side=reverse?1:0, other=1-side;
+ const W=[...(this.coreWords||this.words),...this.deriveWords(a,reverse)], reg=this.register||"everyday", side=reverse?1:0, other=1-side;
  const list=pos=>W.filter(w=>w[2]===pos);
  const regular=k=>[/[^aeiou]y$/.test(k)?k.slice(0,-1)+"ies":/(s|x|z|ch|sh|o)$/.test(k)?k+"es":k+"s",/[^aeiou]y$/.test(k)?k.slice(0,-1)+"ied":k.endsWith("e")?k+"d":k+"ed",k.endsWith("e")&&!k.endsWith("ee")?k.slice(0,-1)+"ing":k+"ing"];
  const forms=k=>this.forms[k]||[...regular(k),regular(k)[1]];
@@ -15958,12 +16218,15 @@ window.languagePacks.push(Object.assign({
  const revPro={je:"I",vu:"you",tei:"you",il:"he",el:"she",it:"it",nus:"we",vus:"you",els:"they"};
  const revObj={me:"me",vu:"you",tei:"you",ilu:"him",elu:"her",it:"it",nusu:"us",elsu:"them",vus:"you"};
  const revPoss={mon:"my",von:"your",tein:"your",son:"his",sen:"her",iton:"its",nos:"our",lor:"their"};
+ let subjectRef="";
  const mass=new Set("pay income employment training rent compensation fat size weight space air smoke dust noise silence sand information advice experience attention interest support cash success failure help life death news fun clothing milk meat rice pasta salt sugar butter honey chocolate hunger thirst weather wind snow ice grass soil fear sadness anger happiness shame respect patience kindness pride friendship health illness pain strength work growth progress diligence honour effort duty skill data equipment quality time rest supply material metal steel wood energy power water money love affection trust joy peace comfort hope music food bread cheese tea coffee rain language javenœrl rasnovian english".split(" "));
  const plur=k=>({person:"people",child:"children",man:"men",woman:"women",foot:"feet",tooth:"teeth",fish:"fish",sheep:"sheep"}[k]||regular(k)[0]);
  const nativePlural=k=>k.endsWith("s")?k:k+"s";
  function np(b,object=false){
  if(!b.length)return null;
  if(b.length===1){const dm=find(b[0],"determiner");if(dm&&["more","less","fewer"].includes(dm[0]))return {text:dm[other],third:true};if(dm&&["this","that","these","those"].includes(dm[0]))return {text:dm[other],third:["this","that"].includes(dm[0])};}
+ if(object){const self={i:"myself",you:"yourself",he:"himself",she:"herself",it:"itself",we:"ourselves",they:"themselves"}[subjectRef];if(!reverse&&b.join(" ")==="each other")return {text:"samsek",third:false};if(reverse&&b.join(" ")==="samsek")return {text:"each other",third:false};if(self&&!reverse&&b.join(" ")===self)return {text:"sek",third:false};if(self&&reverse&&b.join(" ")==="sek")return {text:self,third:false};}
+ if(!reverse){const poss=b.findIndex(x=>x.endsWith("'s"));if(poss>=0&&poss<b.length-1){const owner=np([...b.slice(0,poss),b[poss].slice(0,-2)]),owned=np(["the",...b.slice(poss+1)],object);if(owner&&owned)return {text:owned.text+" de "+owner.text,third:owned.third};}}
  const pron=b.length===1?(reverse?(object?revObj:revPro)[b[0]]:(object?obj:pro)[b[0]]):null;
  if(pron)return {text:pron,third:reverse?["he","she","it"].includes(pron):["he","she","it"].includes(b[0]),first:reverse?pron==="I":b[0]==="i"};
  const of=b.indexOf(reverse?"de":"of");
@@ -16023,7 +16286,7 @@ window.languagePacks.push(Object.assign({
  if(auxiliaries.includes(b[0])){aux=b.shift();q=true;}
  function output(s,tense,aspect,neg,modal,v,p){const stem=v[1];if(reg==="work"&&!q&&!tense&&!aspect&&!neg&&!modal&&v[0]==="be"&&p.text)return cap("stat "+s.text+" "+p.text)+punct;
  return cap([question?wh[question]:q?"est":"",s.text,tense,aspect,neg?"ne":"",modal,stem,p.text].filter(Boolean).join(" "))+(q?"?":punct);}
- for(let i=1;i<=b.length;i++){const s=np(b.slice(0,i));if(!s)continue;let t=b.slice(i),ax=aux;
+ for(let i=1;i<=b.length;i++){const s=np(b.slice(0,i));if(!s)continue;subjectRef=b.slice(0,i).join(" ");let t=b.slice(i),ax=aux;
  const early=[];while(["actually","honestly","already","still","often","sometimes","never","probably","maybe","even","only","always","ever","very"].includes(t[0]))early.push(t.shift());
  if(!ax&&auxiliaries.includes(t[0]))ax=t.shift();
  const neg=t[0]==="not";if(neg)t.shift();
@@ -16031,15 +16294,18 @@ window.languagePacks.push(Object.assign({
  let tense=["did","was","were","had"].includes(ax)?"pré":ax==="will"?"va":"",aspect="",modal=mod[ax]||"";
  const cop=verbs.find(v=>v[0]==="be"),beAx=["am","is","are","was","were"].includes(ax);
  if(beAx||ax==="will"&&t[0]==="be"){if(!beAx)t.shift();const p=predicate([...t,...early],true);if(p?.text)return output(s,tense,"",neg,"",cop,p);aspect="dur";}
- if(["have","has","had"].includes(ax)){const p=predicate([...t,...early]);if(p&&(p.text||!t.length))return output(s,tense,"",neg,"",verbs.find(v=>v[0]==="have"),p);aspect="ja";}
+ if(["have","has","had"].includes(ax)&&t[0]==="been"){t.shift();aspect="ja dur";}
+ else if(["have","has","had"].includes(ax)){const p=predicate([...t,...early]);if(p&&(p.text||!t.length))return output(s,tense,"",neg,"",verbs.find(v=>v[0]==="have"),p);aspect="ja";}
  if(!aspect&&t[0]==="be"&&modal){t.shift();const p=predicate([...t,...early],true);if(p?.text)return output(s,tense,"",neg,modal,cop,p);}
  for(const v of verbs.filter(v=>v[0]!=="be")){
- const variants=aspect==="dur"?[[2,tense]]:aspect==="ja"?[[3,tense]]:ax?[[-1,tense]]:[[s.third?0:-1,""],[1,"pré"]];
+ const variants=aspect==="ja dur"?[[2,tense]]:aspect==="dur"?[[2,tense],[3,tense]]:aspect==="ja"?[[3,tense]]:ax?[[-1,tense]]:[[s.third?0:-1,""],[1,"pré"]];
  for(const [idx,tm] of variants){if(!formMatch(v,t[0],idx))continue;
  let tail=t.slice(1);if(["give","send","bring","show","tell","offer"].includes(v[0])&&obj[tail[0]]&&tail.length>1&&!find(tail[1],"preposition"))tail=[...tail.slice(1),"to",tail[0]];
  let p=predicate([...tail,...early],link.has(v[0]));
+ if(!p&&["give","send","bring","show","tell","offer","lend"].includes(v[0]))for(let k=1;k<tail.length;k++){const rec=np(tail.slice(0,k),true),item=predicate([...tail.slice(k),...early]);if(rec&&item?.text){p={text:item.text+" zu "+rec.text};break;}}
+ if(!p&&["want","need","ask","tell","allow","teach","help"].includes(v[0])){const k=tail.indexOf("to");if(k>0){const rec=np(tail.slice(0,k),true),sub=verbs.find(x=>formMatch(x,tail[k+1],-1));if(rec&&sub){const rest=predicate(tail.slice(k+2),link.has(sub[0]));if(rest)p={text:[rec.text,"zu",sub[1],rest.text,...early.map(x=>find(x,"adverb")?.[1])].filter(Boolean).join(" ")};}}}
  if(!p&&complements.has(v[0])){const to=tail[0]==="to";const sub=verbs.find(x=>formMatch(x,tail[to?1:0],to?-1:2));if(sub){const rest=predicate([...tail.slice(to?2:1),...early],link.has(sub[0]));if(rest)p={text:[to?"zu":"en",sub[1],rest.text].filter(Boolean).join(" ")};}}
- if(p)return output(s,tm,aspect,neg,modal,v,p);
+ if(p){if(aspect==="dur"&&idx===3){if(tail.length&&!/^by\b/.test(tail.join(" ")))continue;return output(s,tm,"pas",neg,modal,v,p);}return output(s,tm,aspect,neg,modal,v,p);}
  }}
  }
  if(q&&!(aux==="do"&&b[0]==="not"&&punct!=="?"))return null;
@@ -16049,12 +16315,16 @@ window.languagePacks.push(Object.assign({
  }
  let b=a.slice(),status=b[0]==="stat",question=Object.keys(wh).find(k=>wh[k]===b[0]),q=b[0]==="est"||!!question;if(status||q)b.shift();
  if(status){for(let i=1;i<b.length;i++){const s=np(b.slice(0,i)),p=s&&predicate(b.slice(i),true);if(p?.text)return cap([s.text,s.first?"am":s.third?"is":"are",p.text].join(" "))+punct;}return null;}
- for(let i=1;i<b.length;i++){const s=np(b.slice(0,i));if(!s)continue;let t=b.slice(i),tense="",aspect="",neg=false,modal="";
- if(["pré","va"].includes(t[0]))tense=t.shift();if(["dur","ja"].includes(t[0]))aspect=t.shift();if(t[0]==="ne"){neg=true;t.shift();}if(Object.values(mod).includes(t[0])){const marker=t.shift();modal=Object.keys(mod).find(k=>mod[k]===marker);}
+ for(let i=1;i<b.length;i++){const s=np(b.slice(0,i));if(!s)continue;subjectRef=s.text.toLowerCase();let t=b.slice(i),tense="",aspect="",neg=false,modal="";
+ if(["pré","va"].includes(t[0]))tense=t.shift();if(["dur","ja","pas"].includes(t[0]))aspect=t.shift();if(aspect==="ja"&&t[0]==="dur"){t.shift();aspect="ja dur";}if(t[0]==="ne"){neg=true;t.shift();}if(Object.values(mod).includes(t[0])){const marker=t.shift();modal=Object.keys(mod).find(k=>mod[k]===marker);}
  const v=verbs.find(x=>x[1]===t[0]);if(!v)continue;t.shift();
- let p=predicate(t,link.has(v[0]));if(!p&&complements.has(v[0])&&["zu","en"].includes(t[0])){const sub=verbs.find(x=>x[1]===t[1]);if(sub){const rest=predicate(t.slice(2),link.has(sub[0]));if(rest)p={text:[t[0]==="zu"?"to":"",t[0]==="zu"?sub[0]:forms(sub[0])[2],rest.text].filter(Boolean).join(" ")};}}
+ let p=predicate(t,link.has(v[0]));
+ if(!p&&["want","need","ask","tell","allow","teach","help"].includes(v[0])){const k=t.indexOf("zu");if(k>0){const rec=np(t.slice(0,k),true),sub=verbs.find(x=>x[1]===t[k+1]);if(rec&&sub){const rest=predicate(t.slice(k+2),link.has(sub[0]));if(rest)p={text:[rec.text,"to",sub[0],rest.text].filter(Boolean).join(" ")};}}}
+ if(!p&&complements.has(v[0])&&["zu","en"].includes(t[0])){const sub=verbs.find(x=>x[1]===t[1]);if(sub){const rest=predicate(t.slice(2),link.has(sub[0]));if(rest)p={text:[t[0]==="zu"?"to":"",t[0]==="zu"?sub[0]:forms(sub[0])[2],rest.text].filter(Boolean).join(" ")};}}
  if(!p)continue;const past=tense==="pré",be=s.first?"am":s.third?"is":"are",pastBe=s.first||s.third?"was":"were";let aux=modal||(tense==="va"?"will":""),verb=v[0];
  if(v[0]==="be"){if(!aux){aux=past?pastBe:be;verb="";}}
+ else if(aspect==="ja dur"){if(aux)verb="have been "+forms(v[0])[2];else{aux=past?"had":s.third?"has":"have";verb="been "+forms(v[0])[2];}}
+ else if(aspect==="pas"){if(aux)verb="be "+forms(v[0])[3];else{aux=past?pastBe:be;verb=forms(v[0])[3];}}
  else if(aspect==="dur"){if(aux)verb="be "+forms(v[0])[2];else{aux=past?pastBe:be;verb=forms(v[0])[2];}}
  else if(aspect==="ja"){if(aux)verb="have "+forms(v[0])[3];else{aux=past?"had":s.third?"has":"have";verb=forms(v[0])[3];}}
  else if(!aux){if(q||neg)aux=past?"did":s.third?"does":"do";else verb=past?forms(v[0])[1]:s.third?forms(v[0])[0]:v[0];}
