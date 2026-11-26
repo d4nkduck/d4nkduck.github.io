@@ -7699,13 +7699,7 @@ window.languagePacks.push(Object.assign({
       "a lot of",
       [
         "lots of",
-        "plenty of"
-      ]
-    ],
-    [
-      "determiner",
-      "a lot of",
-      [
+        "plenty of",
         "a great deal of",
         "a large amount of",
         "a large number of"
@@ -14558,7 +14552,7 @@ window.languagePacks.push(Object.assign({
  const pron=b.length===1?(reverse?(object?revObj:revPro)[b[0]]:(object?obj:pro)[b[0]]):null;
  if(pron)return {text:pron,third:reverse?["he","she","it"].includes(pron):["he","she","it"].includes(b[0]),first:reverse?pron==="I":b[0]==="i"};
  const of=b.indexOf(reverse?"de":"of");
- if(of>0){const l=np(b.slice(0,of),object),r=np(b.slice(of+1),true);if(l&&r)return {text:l.text+(reverse?" of ":" de ")+r.text,third:l.third};}
+ if(of>0&&!(!reverse&&find(b.slice(0,of+1).join(" "),"determiner"))){const l=np(b.slice(0,of),object),r=np(b.slice(of+1),true);if(l&&r)return {text:l.text+(reverse?" of ":" de ")+r.text,third:l.third};}
  const j=b.indexOf(reverse?"et":"and");if(j>0){const l=np(b.slice(0,j),object),r=np(b.slice(j+1),object);if(l&&r)return {text:l.text+(reverse?" and ":" et ")+r.text,third:false};}
  let k=b.slice(),det="",owner="",number=null,quant="";
  let detWord=null,detLen=0;
@@ -14582,14 +14576,14 @@ window.languagePacks.push(Object.assign({
  const ad=k.slice(0,-nt.length).map(x=>find(x,"adjective"));if(ad.some(x=>!x))continue;
  const noun=reverse?(pl?plur(w[0]):w[0]):(pl?nativePlural(w[1]):w[1]);
  const body=[...ad.map(x=>x[other]),noun].join(" ");
- const prefix=quant||owner||(reverse?(det==="le"||det==="les"?"the":det==="un"?(/^[aeiou]/i.test(body)?"an":"a"):""):(det==="the"?(pl?"les":"le"):det?(pl?"des":"un"):pl&&!number?"des":""));
+ const prefix=quant||owner||(reverse?(det==="le"||det==="les"?"the":det==="un"?(/^[aeiou]/i.test(body)&&!/^(use|useful|usual|uni|euro|one)/i.test(body)?"an":"a"):""):(det==="the"?(pl?"les":"le"):det?(pl?"des":"un"):pl&&!number?"des":""));
  return {text:[prefix,number?.[other],body].filter(Boolean).join(" "),third:!pl};
  }
  }return null;
  }
  function predicate(b,link=false){
  if(!b.length)return {text:""};
- function core(x){if(!x.length)return {text:""};if(link){const ad=find(x[x.length-1],"adjective");const deg=x.length===2&&find(x[0],"adverb");if(ad&&(x.length===1||deg))return {text:[deg?.[other],ad[other]].filter(Boolean).join(" ")};}return np(x,true);}
+ function core(x){if(!x.length)return {text:""};if(!reverse&&x.join(" ")==="a lot")return null;if(link){const ad=find(x[x.length-1],"adjective");const deg=x.length===2&&find(x[0],"adverb");if(ad&&(x.length===1||deg))return {text:[deg?.[other],ad[other]].filter(Boolean).join(" ")};}return np(x,true);}
  function extra(x){if(!x.length)return [];for(let n=Math.min(x.length,3);n>=1;n--){const adv=find(x.slice(0,n).join(" "),"adverb");if(adv){const t=extra(x.slice(n));if(t)return [adv[other],...t];}}const prep=find(x[0],"preposition");if(!prep)return null;for(let i=x.length;i>=2;i--){const n=np(x.slice(1,i),true),t=n&&extra(x.slice(i));if(n&&t)return [prep[other]+" "+n.text,...t];}return null;}
  for(let i=b.length;i>=0;i--){const n=core(b.slice(0,i)),e=n&&extra(b.slice(i));if(n&&e)return {text:[n.text,...e].filter(Boolean).join(" ")};}
  return null;
