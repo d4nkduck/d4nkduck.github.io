@@ -762,3 +762,127 @@ for(const [reg,en,ja,back] of coverageCases){modern.register=reg;assert.equal(mo
 assert.equal(modern.lookupEnglish("am")[0][1],"es");
 assert.ok(modern.lookupEnglish("books").some(x=>x[1]==="buchs"));
 assert.equal(modern.translatePartial("I like the glorb.",false).text,"Je plais le [glorb].");
+
+const workLifeCases=[
+  [
+    "everyday",
+    "I work in a book shop, with great pay.",
+    "Je werké in un buch-laden mit treflich zahlgeld.",
+    "I work in a book shop with great pay."
+  ],
+  [
+    "everyday",
+    "I work in a bookshop with great pay.",
+    "Je werké in un buch-laden mit treflich zahlgeld.",
+    "I work in a book shop with great pay."
+  ],
+  [
+    "everyday",
+    "I work in a bookstore with good pay.",
+    "Je werké in un buch-laden mit bon zahlgeld.",
+    "I work in a book shop with good pay."
+  ],
+  [
+    "everyday",
+    "I earn a good salary.",
+    "Je verdien un bon lohn.",
+    "I earn a good salary."
+  ],
+  [
+    "everyday",
+    "She earns a decent income.",
+    "El verdien un anständig inkum.",
+    "She earns a decent income."
+  ],
+  [
+    "everyday",
+    "The company hired a new worker.",
+    "Le firma pré einstell un neu werkant.",
+    "The company hired a new worker."
+  ],
+  [
+    "everyday",
+    "I have a full time job.",
+    "Je hav un vollzeitig beruf.",
+    "I have a full-time job."
+  ],
+  [
+    "everyday",
+    "I have a part-time job.",
+    "Je hav un teilzeitig beruf.",
+    "I have a part-time job."
+  ],
+  [
+    "everyday",
+    "The customer paid the bill.",
+    "Le kund pré zahl le rechnung.",
+    "The customer paid the bill."
+  ],
+  [
+    "everyday",
+    "We need a progress report.",
+    "Nus brauché un progrès-raport.",
+    "We need a progress report."
+  ],
+  [
+    "everyday",
+    "We need a progress-report.",
+    "Nus brauché un progrès-raport.",
+    "We need a progress report."
+  ],
+  [
+    "everyday",
+    "The engineer has a well paid job.",
+    "Le ingeniœr hav un bonlohnig beruf.",
+    "The engineer has a well-paid job."
+  ],
+  [
+    "everyday",
+    "The employer offers flexible work.",
+    "Le werkgeber bieté flexibl werk.",
+    "The employer offers flexible work."
+  ],
+  [
+    "everyday",
+    "They work in a workshop.",
+    "Els werké in un werkstel.",
+    "They work in a workshop."
+  ],
+  [
+    "everyday",
+    "I work at a book store.",
+    "Je werké an un buch-laden.",
+    "I work at a book shop."
+  ],
+  [
+    "everyday",
+    "The cashier is here.",
+    "Le kassant es ici.",
+    "The cashier is here."
+  ],
+  [
+    "everyday",
+    "I can afford the ticket.",
+    "Je kan leisté le billet.",
+    "I can afford the ticket."
+  ],
+  [
+    "everyday",
+    "The company earns a profit.",
+    "Le firma verdien un gewinn.",
+    "The company earns a profit."
+  ],
+  [
+    "everyday",
+    "We have a contract.",
+    "Nus hav un kontrakt.",
+    "We have a contract."
+  ],
+  [
+    "everyday",
+    "She is a great teacher.",
+    "El es un treflich lehrant.",
+    "She is a great teacher."
+  ]
+];
+for(const [reg,en,ja,back] of workLifeCases){modern.register=reg;assert.equal(modern.translateClause(en,false),ja,en);assert.equal(modern.translateClause(ja,true),back,ja);assert.ok(!modern.phrases.some(x=>x[0]===en));}
