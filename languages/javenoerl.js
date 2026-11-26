@@ -4,7 +4,7 @@ window.languagePacks.push(Object.assign({
   "id": "javenoerl",
   "name": "Javenœrl",
   "native": "Javenœrl",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "origins": [
     [
       "French",
@@ -5124,6 +5124,1164 @@ window.languagePacks.push(Object.assign({
       "stats",
       "particle",
       "Work & industry"
+    ],
+    [
+      "lot",
+      "abond",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "fat",
+      "fett",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "size",
+      "grœss",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "shape",
+      "form",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "weight",
+      "gewicht",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "length",
+      "lengt",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "space",
+      "raum",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "side",
+      "seit",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "edge",
+      "kant",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "corner",
+      "eck",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "centre",
+      "mitte",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "area",
+      "zon",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "path",
+      "pfad",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "entrance",
+      "eingang",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "exit",
+      "ausgang",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "queue",
+      "reih",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "appointment",
+      "termin",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "address",
+      "adress",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "language lesson",
+      "lang-kurs",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "lesson",
+      "kurs",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "homework",
+      "haus-tásk",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "exercise",
+      "übung",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "example",
+      "beispiel",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "word",
+      "wort",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "sentence",
+      "satz",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "meaning",
+      "sinn",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "grammar",
+      "gramatik",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "voice",
+      "stimm",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "accent",
+      "akzent",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "mistake",
+      "fehltritt",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "choice",
+      "wahl",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "request",
+      "bitt",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "permission",
+      "erlaubnis",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "information",
+      "auskunft",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "advice",
+      "ratshlag",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "experience",
+      "erfahr",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "interest",
+      "interess",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "habit",
+      "gewohn",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "activity",
+      "tätig",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "breakfast cereal",
+      "kornmet",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "cheddar cheese",
+      "tshédarkes",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "sand",
+      "sand",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "beach",
+      "strand",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "ocean",
+      "ozean",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "ground",
+      "grundbod",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "air",
+      "luft",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "smoke",
+      "rauch",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "dust",
+      "staub",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "noise",
+      "lärm",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "silence",
+      "stille",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "temperature",
+      "temperatur",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "season",
+      "jahreszeit",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "animal shelter",
+      "tierheim",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "market",
+      "markt",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "cash",
+      "bargeld",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "receipt",
+      "kassenbon",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "account",
+      "konto",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "bill",
+      "rechnung",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "package",
+      "paket",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "salary",
+      "lohn",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "business",
+      "geshäft",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "company",
+      "firma",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "meeting",
+      "treff",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "agreement",
+      "vertrag",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "service",
+      "dienst",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "support",
+      "stütz",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "success",
+      "erfolg",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "failure",
+      "misserfolg",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "future",
+      "zukunft",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "past",
+      "vergang",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "present time",
+      "gegenwart",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "week day",
+      "wochentag",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "fat",
+      "dick",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "thin",
+      "dünn",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "wide",
+      "breit",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "narrow",
+      "shmal",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "round",
+      "rund",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "flat",
+      "flach",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "deep",
+      "tief",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "shallow",
+      "seicht",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "soft",
+      "weich",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "hard",
+      "hart",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "rough",
+      "rau",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "smooth",
+      "glatt",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "sharp",
+      "sharf",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "dull-edged",
+      "stumpf",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "usual",
+      "gewœhn",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "simple",
+      "einfach",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "complex",
+      "komplex",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "clear",
+      "klar",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "unclear",
+      "unklar",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "exact",
+      "genau",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "real",
+      "echt",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "false",
+      "unecht",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "true",
+      "wahr",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "useful",
+      "nützlich",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "useless",
+      "nutzlos",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "expensive",
+      "teuer",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "cheap",
+      "billig",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "empty-handed",
+      "leerhand",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "nearest",
+      "nächst",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "last",
+      "letzt",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "next",
+      "nächstig",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "early",
+      "früh",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "late",
+      "spät",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "finished",
+      "fertigd",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "whole",
+      "ganz",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "partial",
+      "teilweis",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "healthy",
+      "gesund",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "sick",
+      "krank",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "awake",
+      "wach",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "asleep",
+      "shlafend",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "familiar",
+      "bekannt",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "unknown",
+      "unbekannt",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "friendly",
+      "freundlich",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "unfriendly",
+      "unfreundlich",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "serious",
+      "ernst",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "gentle",
+      "sanft",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "polite",
+      "höflich",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "annoying",
+      "lästig",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "surprised",
+      "überrasht",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "disappointed",
+      "enttäusht",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "satisfied",
+      "zufrieden",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "lucky",
+      "glücklich",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "unlucky",
+      "unglücklich",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "better",
+      "besser",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "worse",
+      "shlechter",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "notice",
+      "merk",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "recognise",
+      "erkenn",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "realise",
+      "begreif",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "describe",
+      "beshreib",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "translate",
+      "übersetz",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "pronounce",
+      "aussprech",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "repeat",
+      "wiederhol",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "practice",
+      "übé",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "spell",
+      "buchstab",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "study",
+      "studier",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "reply",
+      "erwider",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "request",
+      "erbitt",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "recommend",
+      "empfehl",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "advise",
+      "berat",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "discuss",
+      "besprech",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "join",
+      "beitret",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "separate",
+      "trenn",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "exchange",
+      "taush",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "wear",
+      "trag",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "dress",
+      "kleidé",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "pack",
+      "packé",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "unpack",
+      "auspack",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "fill",
+      "füll",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "empty",
+      "leeré",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "cover",
+      "deck",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "uncover",
+      "entdeck",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "break",
+      "brech",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "fix",
+      "richt",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "damage",
+      "shad",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "reach",
+      "erreich",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "cross",
+      "überker",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "pass",
+      "passier",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "succeed",
+      "geling",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "fail",
+      "sheiter",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "breathe",
+      "atm",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "a lot",
+      "abondli",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "quite",
+      "ziemlich",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "rather",
+      "eher",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "completely",
+      "total",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "exactly",
+      "exakt",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "especially",
+      "besonders",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "usually",
+      "gewœhnli",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "recently",
+      "neulich",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "immediately",
+      "sofort",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "eventually",
+      "shliesslich",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "finally",
+      "endlich",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "carefully",
+      "sorgfältig",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "easily",
+      "einfachli",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "fortunately",
+      "zumglück",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "unfortunately",
+      "leider",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "perhaps",
+      "vielle",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "elsewhere",
+      "anderswo",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "everywhere",
+      "überall",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "nowhere",
+      "nirgends",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "again and again",
+      "wiederwieder",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "a lot of",
+      "abondé",
+      "determiner",
+      "Foundation"
+    ],
+    [
+      "less",
+      "min",
+      "determiner",
+      "Foundation"
+    ],
+    [
+      "fewer",
+      "wenigr",
+      "determiner",
+      "Foundation"
+    ],
+    [
+      "most",
+      "meist",
+      "determiner",
+      "Foundation"
+    ],
+    [
+      "enough",
+      "genugé",
+      "determiner",
+      "Foundation"
+    ],
+    [
+      "each",
+      "jed",
+      "determiner",
+      "Foundation"
+    ],
+    [
+      "every",
+      "jeder",
+      "determiner",
+      "Foundation"
+    ],
+    [
+      "no",
+      "kein",
+      "determiner",
+      "Foundation"
+    ],
+    [
+      "another",
+      "andern",
+      "determiner",
+      "Foundation"
+    ],
+    [
+      "both",
+      "beid",
+      "determiner",
+      "Foundation"
+    ],
+    [
+      "the",
+      "le",
+      "article",
+      "Foundation"
     ]
   ],
   "phrases": [
@@ -5200,6 +6358,10 @@ window.languagePacks.push(Object.assign({
     [
       "Scope",
       "v0.3 is a provisional synchronic standard. No measured donor percentages, complete sound history, unrestricted compounds, or speech synthesis. Older spellings and v0.2 clauses remain accepted. The written registers are still partial implementations, not simulations of a fully developed community."
+    ],
+    [
+      "Everyday coverage v0.3.1",
+      "Quantity phrases such as a lot of / lots of / plenty of use abondé before the noun, with count and mass nouns. A lot without of uses abondli as an adverb. Unknown isolated content words may be retained in square brackets in a partial grammatical parse, never silently added to the lexicon. Dictionary fallback recognises inflected English words and common function words; it remains a gloss, not a full translation."
     ]
   ],
   "synonymGroups": [
@@ -6419,6 +7581,135 @@ window.languagePacks.push(Object.assign({
         "ok",
         "alright"
       ]
+    ],
+    [
+      "noun",
+      "centre",
+      [
+        "center"
+      ]
+    ],
+    [
+      "noun",
+      "path",
+      [
+        "trail"
+      ]
+    ],
+    [
+      "noun",
+      "queue",
+      [
+        "line"
+      ]
+    ],
+    [
+      "noun",
+      "cheddar cheese",
+      [
+        "cheddar"
+      ]
+    ],
+    [
+      "noun",
+      "package",
+      [
+        "parcel"
+      ]
+    ],
+    [
+      "noun",
+      "salary",
+      [
+        "wage"
+      ]
+    ],
+    [
+      "adjective",
+      "simple",
+      [
+        "straightforward"
+      ]
+    ],
+    [
+      "adjective",
+      "complex",
+      [
+        "complicated"
+      ]
+    ],
+    [
+      "adjective",
+      "useful",
+      [
+        "helpful"
+      ]
+    ],
+    [
+      "adjective",
+      "expensive",
+      [
+        "costly"
+      ]
+    ],
+    [
+      "adjective",
+      "cheap",
+      [
+        "inexpensive"
+      ]
+    ],
+    [
+      "adjective",
+      "sick",
+      [
+        "ill"
+      ]
+    ],
+    [
+      "verb",
+      "recognise",
+      [
+        "recognize"
+      ]
+    ],
+    [
+      "verb",
+      "realise",
+      [
+        "realize"
+      ]
+    ],
+    [
+      "verb",
+      "practice",
+      [
+        "practise"
+      ]
+    ],
+    [
+      "adverb",
+      "a lot",
+      [
+        "lots"
+      ]
+    ],
+    [
+      "determiner",
+      "a lot of",
+      [
+        "lots of",
+        "plenty of"
+      ]
+    ],
+    [
+      "determiner",
+      "a lot of",
+      [
+        "a great deal of",
+        "a large amount of",
+        "a large number of"
+      ]
     ]
   ],
   "registers": [
@@ -6800,6 +8091,36 @@ window.languagePacks.push(Object.assign({
       "cried",
       "crying",
       "cried"
+    ],
+    "wear": [
+      "wears",
+      "wore",
+      "wearing",
+      "worn"
+    ],
+    "break": [
+      "breaks",
+      "broke",
+      "breaking",
+      "broken"
+    ],
+    "succeed": [
+      "succeeds",
+      "succeeded",
+      "succeeding",
+      "succeeded"
+    ],
+    "repeat": [
+      "repeats",
+      "repeated",
+      "repeating",
+      "repeated"
+    ],
+    "reply": [
+      "replies",
+      "replied",
+      "replying",
+      "replied"
     ]
   },
   "coreWords": [
@@ -11794,6 +13115,1164 @@ window.languagePacks.push(Object.assign({
       "stats",
       "particle",
       "Work & industry"
+    ],
+    [
+      "lot",
+      "abond",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "fat",
+      "fett",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "size",
+      "grœss",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "shape",
+      "form",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "weight",
+      "gewicht",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "length",
+      "lengt",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "space",
+      "raum",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "side",
+      "seit",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "edge",
+      "kant",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "corner",
+      "eck",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "centre",
+      "mitte",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "area",
+      "zon",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "path",
+      "pfad",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "entrance",
+      "eingang",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "exit",
+      "ausgang",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "queue",
+      "reih",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "appointment",
+      "termin",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "address",
+      "adress",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "language lesson",
+      "lang-kurs",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "lesson",
+      "kurs",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "homework",
+      "haus-tásk",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "exercise",
+      "übung",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "example",
+      "beispiel",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "word",
+      "wort",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "sentence",
+      "satz",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "meaning",
+      "sinn",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "grammar",
+      "gramatik",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "voice",
+      "stimm",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "accent",
+      "akzent",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "mistake",
+      "fehltritt",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "choice",
+      "wahl",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "request",
+      "bitt",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "permission",
+      "erlaubnis",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "information",
+      "auskunft",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "advice",
+      "ratshlag",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "experience",
+      "erfahr",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "interest",
+      "interess",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "habit",
+      "gewohn",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "activity",
+      "tätig",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "breakfast cereal",
+      "kornmet",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "cheddar cheese",
+      "tshédarkes",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "sand",
+      "sand",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "beach",
+      "strand",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "ocean",
+      "ozean",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "ground",
+      "grundbod",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "air",
+      "luft",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "smoke",
+      "rauch",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "dust",
+      "staub",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "noise",
+      "lärm",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "silence",
+      "stille",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "temperature",
+      "temperatur",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "season",
+      "jahreszeit",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "animal shelter",
+      "tierheim",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "market",
+      "markt",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "cash",
+      "bargeld",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "receipt",
+      "kassenbon",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "account",
+      "konto",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "bill",
+      "rechnung",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "package",
+      "paket",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "salary",
+      "lohn",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "business",
+      "geshäft",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "company",
+      "firma",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "meeting",
+      "treff",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "agreement",
+      "vertrag",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "service",
+      "dienst",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "support",
+      "stütz",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "success",
+      "erfolg",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "failure",
+      "misserfolg",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "future",
+      "zukunft",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "past",
+      "vergang",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "present time",
+      "gegenwart",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "week day",
+      "wochentag",
+      "noun",
+      "Everyday life"
+    ],
+    [
+      "fat",
+      "dick",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "thin",
+      "dünn",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "wide",
+      "breit",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "narrow",
+      "shmal",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "round",
+      "rund",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "flat",
+      "flach",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "deep",
+      "tief",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "shallow",
+      "seicht",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "soft",
+      "weich",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "hard",
+      "hart",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "rough",
+      "rau",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "smooth",
+      "glatt",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "sharp",
+      "sharf",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "dull-edged",
+      "stumpf",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "usual",
+      "gewœhn",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "simple",
+      "einfach",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "complex",
+      "komplex",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "clear",
+      "klar",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "unclear",
+      "unklar",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "exact",
+      "genau",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "real",
+      "echt",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "false",
+      "unecht",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "true",
+      "wahr",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "useful",
+      "nützlich",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "useless",
+      "nutzlos",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "expensive",
+      "teuer",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "cheap",
+      "billig",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "empty-handed",
+      "leerhand",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "nearest",
+      "nächst",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "last",
+      "letzt",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "next",
+      "nächstig",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "early",
+      "früh",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "late",
+      "spät",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "finished",
+      "fertigd",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "whole",
+      "ganz",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "partial",
+      "teilweis",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "healthy",
+      "gesund",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "sick",
+      "krank",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "awake",
+      "wach",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "asleep",
+      "shlafend",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "familiar",
+      "bekannt",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "unknown",
+      "unbekannt",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "friendly",
+      "freundlich",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "unfriendly",
+      "unfreundlich",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "serious",
+      "ernst",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "gentle",
+      "sanft",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "polite",
+      "höflich",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "annoying",
+      "lästig",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "surprised",
+      "überrasht",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "disappointed",
+      "enttäusht",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "satisfied",
+      "zufrieden",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "lucky",
+      "glücklich",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "unlucky",
+      "unglücklich",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "better",
+      "besser",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "worse",
+      "shlechter",
+      "adjective",
+      "Everyday qualities"
+    ],
+    [
+      "notice",
+      "merk",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "recognise",
+      "erkenn",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "realise",
+      "begreif",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "describe",
+      "beshreib",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "translate",
+      "übersetz",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "pronounce",
+      "aussprech",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "repeat",
+      "wiederhol",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "practice",
+      "übé",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "spell",
+      "buchstab",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "study",
+      "studier",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "reply",
+      "erwider",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "request",
+      "erbitt",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "recommend",
+      "empfehl",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "advise",
+      "berat",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "discuss",
+      "besprech",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "join",
+      "beitret",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "separate",
+      "trenn",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "exchange",
+      "taush",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "wear",
+      "trag",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "dress",
+      "kleidé",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "pack",
+      "packé",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "unpack",
+      "auspack",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "fill",
+      "füll",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "empty",
+      "leeré",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "cover",
+      "deck",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "uncover",
+      "entdeck",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "break",
+      "brech",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "fix",
+      "richt",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "damage",
+      "shad",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "reach",
+      "erreich",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "cross",
+      "überker",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "pass",
+      "passier",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "succeed",
+      "geling",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "fail",
+      "sheiter",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "breathe",
+      "atm",
+      "verb",
+      "Everyday actions"
+    ],
+    [
+      "a lot",
+      "abondli",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "quite",
+      "ziemlich",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "rather",
+      "eher",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "completely",
+      "total",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "exactly",
+      "exakt",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "especially",
+      "besonders",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "usually",
+      "gewœhnli",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "recently",
+      "neulich",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "immediately",
+      "sofort",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "eventually",
+      "shliesslich",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "finally",
+      "endlich",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "carefully",
+      "sorgfältig",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "easily",
+      "einfachli",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "fortunately",
+      "zumglück",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "unfortunately",
+      "leider",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "perhaps",
+      "vielle",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "elsewhere",
+      "anderswo",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "everywhere",
+      "überall",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "nowhere",
+      "nirgends",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "again and again",
+      "wiederwieder",
+      "adverb",
+      "Foundation"
+    ],
+    [
+      "a lot of",
+      "abondé",
+      "determiner",
+      "Foundation"
+    ],
+    [
+      "less",
+      "min",
+      "determiner",
+      "Foundation"
+    ],
+    [
+      "fewer",
+      "wenigr",
+      "determiner",
+      "Foundation"
+    ],
+    [
+      "most",
+      "meist",
+      "determiner",
+      "Foundation"
+    ],
+    [
+      "enough",
+      "genugé",
+      "determiner",
+      "Foundation"
+    ],
+    [
+      "each",
+      "jed",
+      "determiner",
+      "Foundation"
+    ],
+    [
+      "every",
+      "jeder",
+      "determiner",
+      "Foundation"
+    ],
+    [
+      "no",
+      "kein",
+      "determiner",
+      "Foundation"
+    ],
+    [
+      "another",
+      "andern",
+      "determiner",
+      "Foundation"
+    ],
+    [
+      "both",
+      "beid",
+      "determiner",
+      "Foundation"
+    ],
+    [
+      "the",
+      "le",
+      "article",
+      "Foundation"
     ]
   ],
   "spellingMap": {
@@ -11934,7 +14413,23 @@ window.languagePacks.push(Object.assign({
     "test-maschin": "test-mashin",
     "test-maschins": "test-mashins",
     "fabrik-maschin": "fabrik-mashin",
-    "fabrik-maschins": "fabrik-mashins"
+    "fabrik-maschins": "fabrik-mashins",
+    "ratschlag": "ratshlag",
+    "ratschlags": "ratshlags",
+    "geschäft": "geshäft",
+    "geschäfts": "geshäfts",
+    "schmal": "shmal",
+    "scharf": "sharf",
+    "schlafend": "shlafend",
+    "überrascht": "überrasht",
+    "enttäuscht": "enttäusht",
+    "schlechter": "shlechter",
+    "beschreib": "beshreib",
+    "tausch": "taush",
+    "schad": "shad",
+    "überquer": "überker",
+    "scheiter": "sheiter",
+    "schliesslich": "shliesslich"
   },
   "wordFormation": {
     "derivation": [
@@ -11956,7 +14451,22 @@ window.languagePacks.push(Object.assign({
   }
 },{
  register:"everyday",
- lookupEnglish(input){const k=input.toLowerCase().trim();if(this.register==="personal"&&["you","your"].includes(k))return this.words.filter(w=>w[0]===k+" (familiar)");return this.words.filter(w=>w[0].toLowerCase()===k||this.synonymGroups.some(([pos,base,ss])=>pos===w[2]&&base===w[0]&&ss.includes(k)));},
+ lookupEnglish(input){
+ const k=input.normalize("NFC").toLowerCase().trim().replace(/\s+/g," ");
+ if(this.register==="personal"&&["you","your"].includes(k))return this.words.filter(w=>w[0]===k+" (familiar)");
+ const exact=this.words.filter(w=>w[0].toLowerCase()===k||this.synonymGroups.some(([pos,base,ss])=>pos===w[2]&&base===w[0]&&ss.includes(k)));
+ if(exact.length)return exact;
+ const virtual={a:"un",an:"un",the:"le",am:"es",is:"es",are:"es",was:"pré es",were:"pré es",will:"va",not:"ne",me:"me",him:"ilu",us:"nusu",them:"elsu"};
+ if(k==="her")return [[k,"elu","pronoun","Foundation"],[k,"sen","possessive","Foundation"]];
+ if(virtual[k])return [[k,virtual[k],"grammar","Foundation"]];
+ const regular=x=>[/[^aeiou]y$/.test(x)?x.slice(0,-1)+"ies":/(s|x|z|ch|sh|o)$/.test(x)?x+"es":x+"s",/[^aeiou]y$/.test(x)?x.slice(0,-1)+"ied":x.endsWith("e")?x+"d":x+"ed",x.endsWith("e")&&!x.endsWith("ee")?x.slice(0,-1)+"ing":x+"ing"];
+ const irregular={person:"people",child:"children",man:"men",woman:"women",foot:"feet",tooth:"teeth",fish:"fish",sheep:"sheep"};
+ const out=[];
+ for(const w of this.words){const base=w[0].toLowerCase(),alts=this.synonymGroups.filter(([pos,b])=>pos===w[2]&&b===w[0]).flatMap(g=>g[2]);
+ if(w[2]==="verb"&&[base,...alts].some(x=>(this.forms[x]||regular(x)).includes(k)))out.push([k,w[1],w[2],w[3]]);
+ if(w[2]==="noun"&&[base,...alts].some(x=>(irregular[x]||regular(x)[0])===k))out.push([k,w[1].endsWith("s")?w[1]:w[1]+"s",w[2],w[3]]);
+ }return out;
+ },
  normalizeEnglish(input){return input.replace(/’/g,"'").replace(/\b(i|you|he|she|we|they|it)'ll\b/gi,"$1 will").replace(/\bi'm\b/gi,"I am").replace(/\b(you|we|they)'re\b/gi,"$1 are").replace(/\b(he|she|it)'s\b/gi,"$1 is").replace(/\bcan't\b/gi,"can not").replace(/\bcannot\b/gi,"can not").replace(/\bwon't\b/gi,"will not").replace(/n't\b/gi," not");},
  translateClause(input,reverse=false){
  const cap=s=>s?s[0].toUpperCase()+s.slice(1):s;
@@ -11992,6 +14502,23 @@ window.languagePacks.push(Object.assign({
  return cap(replaceTokens(out,old));
  },
  lookupNative(input){const k=input.normalize("NFC").toLowerCase().trim();const modern=this.spellingMap[k]||k;return this.words.filter(w=>w[1].toLowerCase()===modern);},
+ translatePartial(input,reverse=false){
+ if(reverse||this.translateClause(input,false))return null;
+ const s=this.normalizeEnglish(input),tokens=s.match(/[\p{L}\p{M}]+/gu)||[];
+ if(tokens.length>25)return null;
+ const grammar=new Set("a an the am is are was were be been being do does did have has had will would can could should must may might shall not to of and or but if when where who what why how than then as that this these those me you him her it us them i he she we they my your his its our their".split(" "));
+ const unknown=[...new Set(tokens.map(x=>x.toLowerCase()).filter(x=>!grammar.has(x)&&!this.lookupEnglish(x).length))];
+ if(!unknown.length||unknown.length>2)return null;
+ const results=new Set();
+ for(let mask=0;mask<2**unknown.length;mask++){
+ const tmp=Object.create(this),rows=unknown.map((x,i)=>[x,"zzq"+String.fromCharCode(97+i)+"qzz",(mask&(1<<i))?"adjective":"noun","temporary"]);
+ tmp.words=[...this.words,...rows];tmp.coreWords=[...this.coreWords,...rows];
+ let result=tmp.translateClause(s,false);if(!result)continue;
+ for(let i=0;i<rows.length;i++){const stem=rows[i][1];result=result.replace(new RegExp(stem,"gi"),"["+unknown[i]+"]");}
+ if(unknown.every(x=>result.toLowerCase().includes("["+x+"]")))results.add(result);
+ }
+ return results.size===1?{text:[...results][0],unknown}:null;
+ },
  translateLegacy(input,reverse=false){
  const s=reverse?input:this.normalizeEnglish(input),direct=this.translateCore(s,reverse);if(direct)return direct;
  for(const [en,ja] of [["but","mais"],["because","car"],["and","et"]]){
@@ -12022,7 +14549,7 @@ window.languagePacks.push(Object.assign({
  const revPro={je:"I",vu:"you",tei:"you",il:"he",el:"she",it:"it",nus:"we",vus:"you",els:"they"};
  const revObj={me:"me",vu:"you",tei:"you",ilu:"him",elu:"her",it:"it",nusu:"us",elsu:"them",vus:"you"};
  const revPoss={mon:"my",von:"your",tein:"your",son:"his",sen:"her",iton:"its",nos:"our",lor:"their"};
- const mass=new Set("help life death news fun clothing milk meat rice pasta salt sugar butter honey chocolate hunger thirst weather wind snow ice grass soil fear sadness anger happiness shame respect patience kindness pride friendship health illness pain strength work growth progress diligence honour effort duty skill data equipment quality time rest supply material metal steel wood energy power water money love affection trust joy peace comfort hope music food bread cheese tea coffee rain language javenœrl rasnovian english".split(" "));
+ const mass=new Set("fat size weight space air smoke dust noise silence sand information advice experience attention interest support cash success failure help life death news fun clothing milk meat rice pasta salt sugar butter honey chocolate hunger thirst weather wind snow ice grass soil fear sadness anger happiness shame respect patience kindness pride friendship health illness pain strength work growth progress diligence honour effort duty skill data equipment quality time rest supply material metal steel wood energy power water money love affection trust joy peace comfort hope music food bread cheese tea coffee rain language javenœrl rasnovian english".split(" "));
  const plur=k=>({person:"people",child:"children",man:"men",woman:"women",foot:"feet",tooth:"teeth",fish:"fish",sheep:"sheep"}[k]||regular(k)[0]);
  const nativePlural=k=>k.endsWith("s")?k:k+"s";
  function np(b,object=false){
@@ -12034,7 +14561,9 @@ window.languagePacks.push(Object.assign({
  if(of>0){const l=np(b.slice(0,of),object),r=np(b.slice(of+1),true);if(l&&r)return {text:l.text+(reverse?" of ":" de ")+r.text,third:l.third};}
  const j=b.indexOf(reverse?"et":"and");if(j>0){const l=np(b.slice(0,j),object),r=np(b.slice(j+1),object);if(l&&r)return {text:l.text+(reverse?" and ":" et ")+r.text,third:false};}
  let k=b.slice(),det="",owner="",number=null,quant="";
- const detWord=find(k[0],"determiner");if(detWord){quant=detWord[other];det=k.shift();}
+ let detWord=null,detLen=0;
+ for(let n=Math.min(k.length-1,5);n>=1;n--){const hit=find(k.slice(0,n).join(" "),"determiner");if(hit){detWord=hit;detLen=n;break;}}
+ if(detWord){quant=detWord[other];det=k.splice(0,detLen).join(" ");}
  if(reverse){if(["le","un","les","des"].includes(k[0]))det=k.shift();else if(revPoss[k[0]])owner=revPoss[k.shift()];}
  else{if(["a","an","the"].includes(k[0]))det=k.shift();else if(possess[k[0]])owner=possess[k.shift()];}
  number=find(k[0],"number");if(number)k.shift();
@@ -12045,8 +14574,8 @@ window.languagePacks.push(Object.assign({
  if(reverse&&((["les","des"].includes(det)&&!pl)||(["le","un"].includes(det)&&pl)))continue;
  if(!reverse&&pl&&["a","an","this","that"].includes(det))continue;
  if(reverse&&pl&&["dies","das"].includes(det))continue;
- if(!pl&&["these","those","many","several","few","diese","jene","viel","mehrere","wenig"].includes(det))continue;
- if(pl&&["much","mengen"].includes(det))continue;
+ if(!pl&&["these","those","many","several","few","diese","jene","viel","mehrere","wenig","fewer","wenigr","both","beid"].includes(det))continue;
+ if(pl&&["much","mengen","less","min","each","jed","every","jeder","another","andern"].includes(det))continue;
  if(!det&&!owner&&!number&&!pl&&!isMass)continue;
  const candidates=reverse?[pl?nativePlural(w[1]):w[1]]:[pl?plur(base):base,...synonyms(w).map(x=>pl?plur(x):x)];
  for(const n of candidates){const nt=n.split(" ");if(k.slice(-nt.length).join(" ")!==n)continue;
@@ -12061,7 +14590,7 @@ window.languagePacks.push(Object.assign({
  function predicate(b,link=false){
  if(!b.length)return {text:""};
  function core(x){if(!x.length)return {text:""};if(link){const ad=find(x[x.length-1],"adjective");const deg=x.length===2&&find(x[0],"adverb");if(ad&&(x.length===1||deg))return {text:[deg?.[other],ad[other]].filter(Boolean).join(" ")};}return np(x,true);}
- function extra(x){if(!x.length)return [];const adv=find(x[0],"adverb");if(adv){const t=extra(x.slice(1));if(t)return [adv[other],...t];}const prep=find(x[0],"preposition");if(!prep)return null;for(let i=x.length;i>=2;i--){const n=np(x.slice(1,i),true),t=n&&extra(x.slice(i));if(n&&t)return [prep[other]+" "+n.text,...t];}return null;}
+ function extra(x){if(!x.length)return [];for(let n=Math.min(x.length,3);n>=1;n--){const adv=find(x.slice(0,n).join(" "),"adverb");if(adv){const t=extra(x.slice(n));if(t)return [adv[other],...t];}}const prep=find(x[0],"preposition");if(!prep)return null;for(let i=x.length;i>=2;i--){const n=np(x.slice(1,i),true),t=n&&extra(x.slice(i));if(n&&t)return [prep[other]+" "+n.text,...t];}return null;}
  for(let i=b.length;i>=0;i--){const n=core(b.slice(0,i)),e=n&&extra(b.slice(i));if(n&&e)return {text:[n.text,...e].filter(Boolean).join(" ")};}
  return null;
  }
