@@ -61,7 +61,3 @@ package.json                 Local test command
 - [Lexicon research inventory](reconstruction/lexicon-audit.csv)
 
 These audits describe earlier development snapshots, not current independent accuracy benchmarks. New linguistic rules should be tested compositionally; regression sentences must not become public phrasebook entries.
-
-## Project history
-
-The repository originally hosted MLGizer. Its previous README remains available in [Git history](https://github.com/d4nkduck/d4nkduck.github.io/blob/8ab009b5b435e2df5206f4b5b1db336b5b04f64a/README.md). The current project is Lingua Atlas.
