@@ -34,13 +34,36 @@ const rules=[
  ["negation",/\b(?:ain't)\b/gi,null,1]
 ].filter(r=>r[2]!==null);
 const normalize=s=>s.replace(/’/g,"'").replace(/\b(i|you|he|she|we|they|it)'ve\b/gi,"$1 have").replace(/\b(he|she|it)'s (?=(?:got|been)\b)/gi,"$1 has ").replace(/\b(gonna|gotta)\b/gi,m=>m.toLowerCase()==="gonna"?"going to":"got to");
+
+// Selected idioms and obligation constructions can be literal-parser false positives.
+// Rewriting them before the direct parse avoids "have to work" becoming possession.
+function preferred(pack,input){
+ if(input.length>300)return {text:input,steps:[]};
+ let text=normalize(input);text=pack.normalizeEnglish?pack.normalizeEnglish(text):text;
+ const steps=[];
+ const change=(label,re,value)=>{const n=text.replace(re,value);if(n!==text){text=n;steps.push(label);}};
+ change("negative obligation",new RegExp("\\b"+subject+" (do|does) not have to\\b","gi"),"$1 $2 not need to");
+ change("past obligation",new RegExp("\\b"+subject+" had to\\b","gi"),"$1 needed to");
+ change("obligation",new RegExp("\\b"+subject+" (?:have|has) (?:got )?to\\b","gi"),"$1 must");
+ change("assistance",/\b(?:give|gives|gave|giving) (me|you|him|her|us|them) a hand(?=\s*(?:[.!?]|$))/gi,(m,o)=>({give:"help",gives:"helps",gave:"helped",giving:"helping"}[m.split(" ")[0].toLowerCase()])+" "+o);
+ change("time",/\bat the moment\b/gi,"now");
+ return {text,steps};
+}
+function prefer(pack,input,reverse=false){
+ if(reverse)return null;
+ const p=preferred(pack,input);if(!p.steps.length)return null;
+ const out=pack.translateClause(p.text,false),back=out&&pack.translateClause(out,true);
+ if(out&&back&&!/\[[^\]]+\]/.test(out+back))return {text:out,canonical:p.text,back,steps:p.steps};
+ return null;
+}
+
 function adapt(pack,input,reverse=false){
  if(reverse||typeof pack.translateClause!=="function"||input.length>300||input.split(/\s+/).length>40)return null;
  // All direct parses are preferred. Candidate rewrites are local, bounded and never persisted.
  const source=pack.normalizeEnglish?pack.normalizeEnglish(input):input;
- const first=normalize(input);
- const queue=[{text:first,cost:0,steps:[]}],seen=new Set([first.toLowerCase()]);let attempts=0;
- if(first!==input&&first!==source){const r=pack.translateClause(first,false);if(r&&pack.translateClause(r,true))return {text:r,canonical:first,back:pack.translateClause(r,true),steps:["English contraction"]};}
+ const pre=preferred(pack,input);const first=pre.steps.length?pre.text:normalize(input);
+ const queue=[{text:first,cost:0,steps:pre.steps}],seen=new Set([first.toLowerCase()]);let attempts=0;
+ if(first!==input&&first!==source){const r=pack.translateClause(first,false);if(r&&pack.translateClause(r,true))return {text:r,canonical:first,back:pack.translateClause(r,true),steps:pre.steps.length?pre.steps:["English contraction"]};}
  const safe=s=>!/\[[^\]]+\]/.test(s);
  const transformations=[...rules];
  // Explicitly selected lexical paraphrases, constrained to particular semantic phrases.
@@ -62,4 +85,5 @@ function adapt(pack,input,reverse=false){
  return null;
 }
 root.linguaParaphrase=adapt;
+root.linguaPreferredParaphrase=prefer;
 })(typeof window!=="undefined"?window:globalThis);
