@@ -4,7 +4,7 @@
 
 ## Architecture
 
-Lingua Atlas is a static, dependency-free browser application. Each language pack registers itself in `window.languagePacks`. The UI reads pack metadata, the dictionary, grammar documentation and curated phrases. Keep language-specific morphology and syntax in the language pack, and general English expression recognition in `languages/paraphrase.js`.
+Lingua Atlas is a static, dependency-free browser application. Each language pack registers itself in `window.languagePacks`. The page structure lives in `index.html`, visual rules in `assets/styles.css`, and interface logic in `assets/app.js`. The UI reads pack metadata, the dictionary, grammar documentation and curated phrases. Keep language-specific morphology and syntax in the language pack, and general English expression recognition in `languages/paraphrase.js`.
 
 The translation pipeline uses recorded phrases and lexical matches, preferred idiomatic rewrites, full grammar parsing, bounded paraphrase search, partial grammar, then labelled word-by-word fallback. English paraphrases must remain inspectable. A reverse parse is a useful grammar check, not proof of semantic equivalence. Native-to-English translation does not use English paraphrase rules.
 

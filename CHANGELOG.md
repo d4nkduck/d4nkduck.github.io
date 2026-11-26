@@ -2,6 +2,14 @@
 
 Selected project milestones. Earlier versions are preserved in Git history. Language-pack versions describe the fictional standards and their implementations, not the maturity of the entire website.
 
+## Workspace redesign
+
+- Mobile-first navigation, stacked translation panels, touch controls and responsive desktop layout.
+- Local light/dark theme preference, character count, separate clipboard feedback and shareable language/view URLs.
+- Searchable, sortable and paginated dictionary; quick links within the language guide.
+- Extracted CSS and application JavaScript into assets/ and expanded site integration checks.
+- Language packs, curated phrases and translation algorithm unchanged.
+
 ## Repository maintenance — 2026-11-26
 
 - Replaced the unrelated legacy README with Lingua Atlas documentation.

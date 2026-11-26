@@ -17,6 +17,8 @@ Ancestry percentages in the archive are fictional design targets, not measured e
 
 ## What you can do
 
+The mobile-first workspace includes compact navigation, stacked translation panels on phones, a paginated dictionary and persistent light/dark themes.
+
 - Translate English into either language and back.
 - Explore grammar, pronunciation, historical notes and cultural vocabulary.
 - Switch Javenœrl between Werk (working), Jour (everyday) and Cœur (personal) registers.
@@ -40,7 +42,11 @@ No package installation or third-party JavaScript dependencies are required. The
 ## Repository map
 
 ```text
-index.html                   Browser interface and translation pipeline
+index.html                   Semantic page structure
+assets/
+  styles.css                 Responsive visual system and themes
+  app.js                     Navigation, translation pipeline and UI logic
+  atlas.svg                  Site identity
 languages/
   rasnovian.js               Rasnovian grammar and vocabulary
   javenoerl.js               Javenœrl grammar, vocabulary and registers
