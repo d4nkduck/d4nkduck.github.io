@@ -393,7 +393,7 @@ const modernCases=[
   [
     "work",
     "The engineer repaired the machine.",
-    "L-ingeniœr pré réparé l-maschin.",
+    "L-ingeniœr pré réparé l-mashin.",
     "The engineer repaired the machine."
   ],
   [
@@ -411,8 +411,8 @@ const modernCases=[
   [
     "work",
     "Work is important.",
-    "Stat werk wichtig.",
-    "The work is important."
+    "Statn werk wichtig.",
+    "Work is important."
   ],
   [
     "work",
@@ -527,6 +527,42 @@ const modernCases=[
     "The efficiency is important.",
     "Le efizient-heit es wichtig.",
     "The efficiency is important."
+  ],
+  [
+    "work",
+    "This machine is broken.",
+    "Stat dies mashin kaputt.",
+    "This machine is broken."
+  ],
+  [
+    "work",
+    "The machines are ready.",
+    "Stats mashins prêt.",
+    "The machines are ready."
+  ],
+  [
+    "work",
+    "Water is cold.",
+    "Statn o kalt.",
+    "Water is cold."
+  ],
+  [
+    "work",
+    "Check the machine!",
+    "Prüfé l-mashin!",
+    "Check the machine!"
+  ],
+  [
+    "personal",
+    "My dear sister is here.",
+    "Mon sœr-lin es ici.",
+    "My dear sister is here."
+  ],
+  [
+    "personal",
+    "We write together.",
+    "Nus shreib-sam.",
+    "We write together."
   ]
 ];
 for(const [reg,en,ja,back] of modernCases){modern.register=reg;assert.equal(modern.translateClause(en,false),ja,en);assert.equal(modern.translateClause(ja,true),back,ja);}
