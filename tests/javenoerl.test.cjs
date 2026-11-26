@@ -886,3 +886,103 @@ const workLifeCases=[
   ]
 ];
 for(const [reg,en,ja,back] of workLifeCases){modern.register=reg;assert.equal(modern.translateClause(en,false),ja,en);assert.equal(modern.translateClause(ja,true),back,ja);assert.ok(!modern.phrases.some(x=>x[0]===en));}
+
+const comparisonCases=[
+  [
+    "everyday",
+    "I earn way more money than you'd ever be able to achieve in your life.",
+    "Je verdien weit mehr geld dan vu würd es kapabl zu erziel in von vie jemals.",
+    "I earn far more money than you would ever be able to achieve in your life."
+  ],
+  [
+    "everyday",
+    "I earn far more money than you would ever be able to achieve in your life.",
+    "Je verdien weit mehr geld dan vu würd es kapabl zu erziel in von vie jemals.",
+    "I earn far more money than you would ever be able to achieve in your life."
+  ],
+  [
+    "everyday",
+    "I earn more money than you.",
+    "Je verdien mehr geld dan vu.",
+    "I earn more money than you."
+  ],
+  [
+    "everyday",
+    "She has fewer books than him.",
+    "El hav wenigr buchs dan ilu.",
+    "She has fewer books than him."
+  ],
+  [
+    "everyday",
+    "This machine is faster than the old machine.",
+    "Dies mashin es mer shnell dan le alt mashin.",
+    "This machine is faster than the old machine."
+  ],
+  [
+    "everyday",
+    "The house is bigger than the shop.",
+    "Le haus es mer grand dan le laden.",
+    "The house is bigger than the shop."
+  ],
+  [
+    "everyday",
+    "The task is more difficult than the test.",
+    "Le tásk es mer shwer dan le test.",
+    "The task is more difficult than the test."
+  ],
+  [
+    "everyday",
+    "I have more time than she has.",
+    "Je hav mehr zeit dan el hav.",
+    "I have more time than she has."
+  ],
+  [
+    "everyday",
+    "We need less water than they need.",
+    "Nus brauché min o dan els brauché.",
+    "We need less water than they need."
+  ],
+  [
+    "everyday",
+    "You could achieve your goal.",
+    "Vu kön erziel von ziel.",
+    "You could achieve your goal."
+  ],
+  [
+    "everyday",
+    "I am able to repair the machine.",
+    "Je es kapabl zu réparé le mashin.",
+    "I am able to repair the machine."
+  ],
+  [
+    "everyday",
+    "We will be able to finish the task.",
+    "Nus va es kapabl zu ferté le tásk.",
+    "We will be able to finish the task."
+  ],
+  [
+    "everyday",
+    "I would be able to help you.",
+    "Je würd es kapabl zu hilfé vu.",
+    "I would be able to help you."
+  ],
+  [
+    "everyday",
+    "She achieved her goal.",
+    "El pré erziel sen ziel.",
+    "She achieved her goal."
+  ],
+  [
+    "everyday",
+    "I can achieve more.",
+    "Je kan erziel mehr.",
+    "I can achieve more."
+  ],
+  [
+    "everyday",
+    "I earn much more money than my brother.",
+    "Je verdien weit mehr geld dan mon brüder.",
+    "I earn far more money than my brother."
+  ]
+];
+for(const [reg,en,ja,back] of comparisonCases){modern.register=reg;assert.equal(modern.translateClause(en,false),ja,en);assert.equal(modern.translateClause(ja,true),back,ja);assert.ok(!modern.phrases.some(x=>x[0]===en));}
