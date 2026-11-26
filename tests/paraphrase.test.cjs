@@ -172,3 +172,108 @@ const preferredCases=[
 for(const [en,canonical,ja,back] of preferredCases){const r=window.linguaPreferredParaphrase(p,en);assert.equal(r.canonical,canonical,en);assert.equal(r.text,ja,en);assert.equal(r.back,back,en);}
 assert.equal(window.linguaPreferredParaphrase(p,"I am going to the shop."),null);
 assert.equal(window.linguaPreferredParaphrase(p,"I gave her a hand-written letter."),null);
+
+// Shared adapter integration: Rasnovian uses the identical precedence as the browser.
+require("../languages/rasnovian.js");
+const ras=window.languagePacks.find(p=>p.id==="rasnovian");
+const rasCases=[
+  [
+    "She has to work tomorrow.",
+    "She must work tomorrow.",
+    "Ea nu amorgăn skul verk.",
+    "She must work tomorrow."
+  ],
+  [
+    "I do not have to work.",
+    "I do not need to work.",
+    "Ik nu til verk ne þurf.",
+    "I do not need to work."
+  ],
+  [
+    "Can you give me a hand?",
+    "Can you help me?",
+    "Þu nu ikta kæn help li?",
+    "Can you help me?"
+  ],
+  [
+    "He gave me a hand.",
+    "He helped me.",
+    "Han er ikta help.",
+    "He helped me."
+  ],
+  [
+    "I am working at the moment.",
+    "I am working now.",
+    "Ik dur nuna verk.",
+    "I am working now."
+  ],
+  [
+    "I have to give you a hand.",
+    "I must help you.",
+    "Ik nu þuta skul help.",
+    "I must help you."
+  ],
+  [
+    "I am in need of help.",
+    "I need help.",
+    "Ik nu help þurf.",
+    "I need help."
+  ],
+  [
+    "She is fond of music.",
+    "She likes music.",
+    "Ea nu muzik lik.",
+    "She likes music."
+  ],
+  [
+    "I cannot figure out the problem.",
+    "I cannot understand the problem.",
+    "Ik nu truduta ne kæn understand.",
+    "I can not understand the problem."
+  ],
+  [
+    "We bought loads of books.",
+    "We bought a lot of books.",
+    "Vi er mang boken byg.",
+    "We bought many books."
+  ],
+  [
+    "I will return before long.",
+    "I will return soon.",
+    "Ik va snat vend.",
+    "I will return soon."
+  ],
+  [
+    "I reside in a small house.",
+    "I live in a small house.",
+    "Ik nu in hus lit lev.",
+    "I live in a small house."
+  ],
+  [
+    "We have to go home right this minute.",
+    "We must go home now.",
+    "Vi nu heimtil nuna skul gan.",
+    "We must go home now."
+  ],
+  [
+    "She did not give me a hand.",
+    "She did not help me.",
+    "Ea er ikta ne help.",
+    "She did not help me."
+  ],
+  [
+    "We are going to eat dinner.",
+    "We will eat dinner.",
+    "Vi va ævenmet et.",
+    "We will eat dinner."
+  ]
+];
+function sharedTranslation(pack,en){const preferred=window.linguaPreferredParaphrase(pack,en);if(preferred)return preferred;const direct=pack.translateClause(en,false);if(direct)return {text:direct,canonical:en,back:pack.translateClause(direct,true)};return window.linguaParaphrase(pack,en);}
+for(const [en,canonical,ja,back] of rasCases){const result=sharedTranslation(ras,en);assert.ok(result,en);assert.equal(result.canonical,canonical,en);assert.equal(result.text,ja,en);assert.equal(result.back,back,en);assert.ok(!ras.phrases.some(x=>x[0]===en));}
+for(const en of ["I am going to the shop.","I am going to work."]){const result=sharedTranslation(ras,en);assert.equal(result.canonical,en,en);assert.equal(result.text,ras.translateClause(en),en);}
+for(const en of ["The machine is worn out.","I gave her a hand-written letter."]){assert.equal(window.linguaPreferredParaphrase(ras,en),null,en);assert.equal(window.linguaParaphrase(ras,en),null,en);}
+assert.equal(window.linguaPreferredParaphrase({}, "I have to work."),null);
+assert.equal(window.linguaPreferredParaphrase(ras,"Ik nu verk.",true),null);
+assert.equal(window.linguaParaphrase(ras,"Ik nu verk.",true),null);
+assert.equal(ras.words.length,794);
+console.log(rasCases.length+" Rasnovian shared adapter cases passed.");
