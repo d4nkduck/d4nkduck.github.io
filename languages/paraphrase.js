@@ -50,7 +50,7 @@ function preferred(pack,input){
  return {text,steps};
 }
 function prefer(pack,input,reverse=false){
- if(reverse)return null;
+ if(reverse||typeof pack.translateClause!=="function")return null;
  const p=preferred(pack,input);if(!p.steps.length)return null;
  const out=pack.translateClause(p.text,false),back=out&&pack.translateClause(out,true);
  if(out&&back&&!/\[[^\]]+\]/.test(out+back))return {text:out,canonical:p.text,back,steps:p.steps};
