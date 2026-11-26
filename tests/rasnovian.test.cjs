@@ -1283,3 +1283,92 @@ const releaseCases=[
   ]
 ];
 for(const [en,ra,back] of releaseCases){assert.equal(pack.translateClause(en,false),ra,en);assert.equal(pack.translateClause(ra,true),back,ra);assert.ok(!pack.phrases.some(p=>p[0]===en),en);}
+
+const auditCases=[
+  [
+    "The farmer feeds the horse.",
+    "Feldmannul nu horsuta fod.",
+    "The farmer feeds the horse."
+  ],
+  [
+    "The farmer fed the horse.",
+    "Feldmannul er horsuta fod.",
+    "The farmer fed the horse."
+  ],
+  [
+    "I run a shop.",
+    "Ik nu bod styr.",
+    "I manage a shop."
+  ],
+  [
+    "The water is running.",
+    "Vætărul dur flot.",
+    "The water is flowing."
+  ],
+  [
+    "I watched the movie.",
+    "Ik er filmuta vakanse.",
+    "I watched the movie."
+  ],
+  [
+    "I looked at the movie.",
+    "Ik er bi filmul skav.",
+    "I looked at the movie."
+  ],
+  [
+    "My father's friend lives here.",
+    "Priatul fædărules ikes nu her lev.",
+    "My father's friend lives here."
+  ],
+  [
+    "They helped each other.",
+    "Dei er samsek help.",
+    "They helped each other."
+  ],
+  [
+    "She washed herself.",
+    "Ea er sek vaș.",
+    "She washed herself."
+  ],
+  [
+    "I think that they are right.",
+    "Ik nu þenk atþe dei nu rișt es.",
+    "I think that they are right."
+  ],
+  [
+    "I know where she lives.",
+    "Ik nu wit hvar ea nu lev.",
+    "I know where she lives."
+  ],
+  [
+    "When the rain stopped, we went outside.",
+    "Hven regnul er stopp, vi er utanhus gan.",
+    "When the rain stopped, we went outside."
+  ],
+  [
+    "If you come tomorrow, we will eat together.",
+    "Gif þu nu amorgăn kum, vi va samăn et.",
+    "If you come tomorrow, we will eat together."
+  ],
+  [
+    "Although he was tired, he finished the task.",
+    "Þoh han er mæd es, han er verkdeluta end.",
+    "Although he was tired, he finished the task."
+  ],
+  [
+    "The window was opened by the child.",
+    "Vindagul er av țildul ves opn.",
+    "The window was opened by the child."
+  ],
+  [
+    "I had been waiting for two hours.",
+    "Ik er ju dur for tva orătiden bid.",
+    "I had been waiting for two hours."
+  ],
+  [
+    "The farmer sowed the seed.",
+    "Feldmannul er sæduta sæv.",
+    "The farmer sowed the seed."
+  ]
+];
+for(const [en,ra,back] of auditCases){assert.equal(pack.translateClause(en,false),ra,en);assert.equal(pack.translateClause(ra,true),back,ra);}
