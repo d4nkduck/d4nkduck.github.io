@@ -121,7 +121,7 @@ window.languagePacks.push(Object.assign({
     ],
     [
       "K",
-      "/k/; older qu spellings use k"
+      "/k/; older qu spellings use k; the inherited quoi becomes kwa"
     ],
     [
       "U",
@@ -5112,6 +5112,18 @@ window.languagePacks.push(Object.assign({
       "fabrik-mashin",
       "noun",
       "Productive compounds"
+    ],
+    [
+      "bare subject status",
+      "statn",
+      "particle",
+      "Work & industry"
+    ],
+    [
+      "plural definite status",
+      "stats",
+      "particle",
+      "Work & industry"
     ]
   ],
   "phrases": [
@@ -5179,7 +5191,7 @@ window.languagePacks.push(Object.assign({
     ],
     [
       "Werk — working speech",
-      "Present affirmative status reports with definite subjects omit the article and copula: stat marks a singular definite subject, stats marks a plural definite subject. Other status reports keep their subject markers. Definite articles in other work phrases fuse as l- (singular) and ls- (plural); number, tense and negation remain explicit. Subject omission is restricted to ordinary imperatives because an omitted subject in a statement can change meaning."
+      "Present affirmative status reports with definite subjects omit the article and copula: stat marks a singular definite subject, stats marks a plural definite subject. Other status reports keep their subject markers; statn explicitly marks a bare noun subject, preserving the absence of a definite article. Definite articles in other work phrases fuse as l- (singular) and ls- (plural); number, tense and negation remain explicit. Subject omission is restricted to ordinary imperatives because an omitted subject in a statement can change meaning."
     ],
     [
       "Cœur — personal speech",
@@ -11770,6 +11782,18 @@ window.languagePacks.push(Object.assign({
       "fabrik-maschin",
       "noun",
       "Productive compounds"
+    ],
+    [
+      "bare subject status",
+      "statn",
+      "particle",
+      "Work & industry"
+    ],
+    [
+      "plural definite status",
+      "stats",
+      "particle",
+      "Work & industry"
     ]
   ],
   "spellingMap": {
@@ -11936,12 +11960,12 @@ window.languagePacks.push(Object.assign({
  normalizeEnglish(input){return input.replace(/’/g,"'").replace(/\b(i|you|he|she|we|they|it)'ll\b/gi,"$1 will").replace(/\bi'm\b/gi,"I am").replace(/\b(you|we|they)'re\b/gi,"$1 are").replace(/\b(he|she|it)'s\b/gi,"$1 is").replace(/\bcan't\b/gi,"can not").replace(/\bcannot\b/gi,"can not").replace(/\bwon't\b/gi,"will not").replace(/n't\b/gi," not");},
  translateClause(input,reverse=false){
  const cap=s=>s?s[0].toUpperCase()+s.slice(1):s;
- const replaceTokens=(s,table)=>s.replace(/[\p{L}\p{M}-]+/gu,w=>{const m=table[w.toLowerCase()];return m?(w[0]===w[0].toUpperCase()?cap(m):m):w;});
+ const replaceTokens=(s,table)=>s.replace(/[\p{L}\p{M}-]+/gu,w=>{const k=w.toLowerCase(),m=table[k]||k.split("-").map(part=>table[part]||part).join("-");return w[0]===w[0].toUpperCase()?cap(m):m;});
  const old=this.spellingMap,back=Object.fromEntries(Object.entries(old).map(([k,v])=>[v,k]));
  const reg=this.register||"everyday";
  const kin=this.coreWords.filter(w=>w[2]==="noun"&&["friend","family","mother","father","sister","brother","child","parent","partner","guest","neighbour"].includes(w[0])).map(w=>w[1]);
  if(reverse){
-  let s=input.replace(/\b(stats|stat)\s+(?!le\b|les\b|un\b|des\b|mon\b|von\b|tein\b|son\b|sen\b|nos\b|lor\b|iton\b|je\b|vu\b|tei\b|il\b|el\b|it\b|nus\b|els\b|vus\b)/gi,(m,k)=>k.toLowerCase()==="stats"?"Stat les ":"Stat le ");
+  let s=input.replace(/\b(stats|stat)\s+(?!le\b|les\b|un\b|des\b|mon\b|von\b|tein\b|son\b|sen\b|nos\b|lor\b|iton\b|je\b|vu\b|tei\b|il\b|el\b|it\b|nus\b|els\b|vus\b|dies\b|das\b|diese\b|jene\b|etwas\b|viel\b|mengen\b|alle\b|mehr\b|wenig\b|mehrere\b)/gi,(m,k)=>k.toLowerCase()==="stats"?"Stat les ":"Stat le ").replace(/\bstatn\s+/gi,"Stat ");
   s=s.replace(/(?<![\p{L}\p{M}])ls-([\p{L}\p{M}-]+)/giu,"les $1").replace(/(?<![\p{L}\p{M}])l-([\p{L}\p{M}-]+)/giu,"le $1");
   s=replaceTokens(s,back);
   s=s.replace(/[\p{L}\p{M}-]+/gu,w=>{const k=w.toLowerCase();if(k.endsWith("-lin")){const n=k.slice(0,-4);if(kin.includes(n)||kin.some(x=>x+"s"===n))return "chér "+n;}return w;});
@@ -11953,6 +11977,7 @@ window.languagePacks.push(Object.assign({
  }
  let out=this.translateLegacy(input,false);if(!out)return null;
  if(reg==="work"){
+  if(/^Stat\s/i.test(out)&&!/^Stat\s+(?:le|les|un|des|mon|von|tein|son|sen|nos|lor|iton|je|vu|tei|il|el|it|nus|els|vus|dies|das|diese|jene|etwas|viel|mengen|alle|mehr|wenig|mehrere)\b/i.test(out))out=out.replace(/^Stat\s+/i,"Statn ");
   out=out.replace(/^Stat les\s+/i,"Stats ").replace(/^Stat le\s+/i,"Stat ");
   out=out.replace(/\bles\s+([\p{L}\p{M}-]+)/giu,"ls-$1").replace(/\ble\s+([\p{L}\p{M}-]+)/giu,"l-$1");
  }
