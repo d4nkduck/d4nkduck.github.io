@@ -574,7 +574,7 @@ const coverageCases=[
   [
     "everyday",
     "I eat a lot of food.",
-    "Je mangé un abond de nahr.",
+    "Je mangé abondé nahr.",
     "I eat a lot of food."
   ],
   [
@@ -586,8 +586,8 @@ const coverageCases=[
   [
     "everyday",
     "We have lots of work.",
-    "Nus hav des abonds de werk.",
-    "We have lots of work."
+    "Nus hav abondé werk.",
+    "We have a lot of work."
   ],
   [
     "everyday",
@@ -598,20 +598,20 @@ const coverageCases=[
   [
     "everyday",
     "He drinks a lot of water.",
-    "Il bwav un abond de o.",
+    "Il bwav abondé o.",
     "He drinks a lot of water."
   ],
   [
     "everyday",
     "I read a lot.",
-    "Je lis un abond.",
+    "Je lis abondli.",
     "I read a lot."
   ],
   [
     "everyday",
     "They have a large number of questions.",
-    "Els hav un grand numér de des kestións.",
-    "They have a big number of questions."
+    "Els hav abondé kestións.",
+    "They have a lot of questions."
   ],
   [
     "everyday",
@@ -664,7 +664,7 @@ const coverageCases=[
   [
     "everyday",
     "I have a lot of questions.",
-    "Je hav un abond de des kestións.",
+    "Je hav abondé kestións.",
     "I have a lot of questions."
   ],
   [
@@ -725,7 +725,37 @@ const coverageCases=[
     "everyday",
     "This is a useful example.",
     "Dies es un nützlich beispiel.",
-    "This is an useful example."
+    "This is a useful example."
+  ],
+  [
+    "everyday",
+    "I need a great deal of help.",
+    "Je brauché abondé hilf.",
+    "I need a lot of help."
+  ],
+  [
+    "everyday",
+    "They read a lot of books.",
+    "Els lis abondé buchs.",
+    "They read a lot of books."
+  ],
+  [
+    "everyday",
+    "We need plenty of time.",
+    "Nus brauché abondé zeit.",
+    "We need a lot of time."
+  ],
+  [
+    "everyday",
+    "I have lots of questions.",
+    "Je hav abondé kestións.",
+    "I have a lot of questions."
+  ],
+  [
+    "everyday",
+    "The team needs a large amount of material.",
+    "Le ékip brauché abondé stoff.",
+    "The team needs a lot of material."
   ]
 ];
 for(const [reg,en,ja,back] of coverageCases){modern.register=reg;assert.equal(modern.translateClause(en,false),ja,en);assert.equal(modern.translateClause(ja,true),back,ja);assert.ok(!modern.phrases.some(x=>x[0]===en));}
