@@ -33,6 +33,31 @@ const rules=[
  ["degree",/\b(?:a great deal|a whole lot)\b(?=\s+(?:more|less|fewer)\b)/gi,"far",1],
  ["negation",/\b(?:ain't)\b/gi,null,1]
 ].filter(r=>r[2]!==null);
+
+const coverageRules=[
+ ["negative ability",new RegExp("\\b"+subject+" (?:am|is|are) unable to\\b","gi"),"$1 cannot",1],
+ ["negative past ability",new RegExp("\\b"+subject+" (?:was|were) unable to\\b","gi"),"$1 could not",1],
+ ["intention",new RegExp("\\b"+subject+" intend(s?) to\\b","gi"),(_,s)=>s+" "+conj(s,"plan","plans")+" to",1],
+ ["intention",new RegExp("\\b"+subject+" intend(s?) to\\b","gi"),(_,s)=>s+" "+conj(s,"want","wants")+" to",3],
+ ["gratitude",new RegExp("\\b"+subject+" (?:really )?appreciate(s?) (your|his|her|their) (?:help|assistance|aid)\\b","gi"),(_,s,end,owner)=>s+" "+conj(s,"thank","thanks")+" "+({your:"you",his:"him",her:"her",their:"them"}[owner.toLowerCase()])+" for "+owner+" help",2],
+ ["gratitude",new RegExp("\\b"+subject+" (?:am|is|are) grateful for (your|his|her|their) help\\b","gi"),(_,s,owner)=>s+" "+conj(s,"thank","thanks")+" "+({your:"you",his:"him",her:"her",their:"them"}[owner.toLowerCase()])+" for "+owner+" help",2],
+ ["quantity",new RegExp("\\b"+subject+" (have|has) insufficient\\b","gi"),(_,s)=>s+" "+conj(s,"do","does")+" not have enough",1],
+ ["unknown",new RegExp("\\b"+subject+" (?:have|has) no (?:clue|idea)(?=\\s*(?:[.!?]|$))","gi"),(_,s)=>s+" "+conj(s,"do","does")+" not know",1],
+ ["certainty",new RegExp("\\b"+subject+" (?:am|is|are) not sure(?=\\s*(?:[.!?]|$))","gi"),(_,s)=>s+" "+conj(s,"do","does")+" not know for sure",2],
+ ["search",/\b(?:look|looks|looked|looking) for\b/gi,m=>({look:"search",looks:"searches",looked:"searched",looking:"searching"}[m.split(" ")[0].toLowerCase()])+" for",1],
+ ["rest",/\b(?:get|gets|got|getting) some rest\b/gi,m=>({get:"rest",gets:"rests",got:"rested",getting:"resting"}[m.split(" ")[0].toLowerCase()]),1],
+ ["rest",/\b(?:take|takes|took|taking) a break\b/gi,m=>({take:"rest",takes:"rests",took:"rested",taking:"resting"}[m.split(" ")[0].toLowerCase()]),2],
+ ["progress",/\b(?:manage|manages|managed|managing) to\b/gi,m=>({manage:"succeed in",manages:"succeeds in",managed:"succeeded in",managing:"succeeding in"}[m.split(" ")[0].toLowerCase()]),3],
+ ["travel",new RegExp("\\b"+subject+" (am|is|are|was|were) on (?:my|your|his|her|our|their) way home\\b","gi"),"$1 $2 going home",1],
+ ["hurry",new RegExp("\\b"+subject+" (am|is|are|was|were) in a hurry\\b","gi"),"$1 $2 hurrying",1],
+ ["health",new RegExp("\\b"+subject+" (am|is|are|was|were) not feeling well\\b","gi"),(_,s,aux)=>s+" "+(/was|were/i.test(aux)?"felt":"feel")+" unwell",2],
+ ["degree",new RegExp("\\b"+subject+" (am|is|are|was|were) starving(?=\\s*(?:[.!?]|$))","gi"),"$1 $2 very hungry",2],
+ ["possession",new RegExp("\\b"+subject+" (?:have|has) got (?=(?:a|an|the|some|my|your|his|her|our|their)\\b)","gi"),(_,s)=>s+" "+conj(s,"have","has")+" ",1],
+ ["politeness",/\bplease let me know(?=\s*(?:[.!?]|$))/gi,"Please tell me",1],
+ ["meal",/\b(?:make|makes|made|making) (breakfast|lunch|dinner)\b/gi,(m,meal)=>({make:"prepare",makes:"prepares",made:"prepared",making:"preparing"}[m.split(" ")[0].toLowerCase()])+" "+meal,1],
+ ["difficulty",new RegExp("\\b"+subject+" (have|has) difficulty understanding\\b","gi"),(_,s)=>"It is difficult for "+({i:"me",you:"you",he:"him",she:"her",it:"it",we:"us",they:"them"}[s.toLowerCase()])+" to understand",3],
+];
+
 const normalize=s=>s.replace(/’/g,"'").replace(/\b(i|you|he|she|we|they|it)'ve\b/gi,"$1 have").replace(/\b(he|she|it)'s (?=(?:got|been)\b)/gi,"$1 has ").replace(/\b(gonna|gotta)\b/gi,m=>m.toLowerCase()==="gonna"?"going to":"got to");
 
 // Selected idioms and obligation constructions can be literal-parser false positives.
@@ -65,7 +90,9 @@ function adapt(pack,input,reverse=false){
  const queue=[{text:first,cost:0,steps:pre.steps}],seen=new Set([first.toLowerCase()]);let attempts=0;
  if(first!==input&&first!==source){const r=pack.translateClause(first,false);if(r&&pack.translateClause(r,true))return {text:r,canonical:first,back:pack.translateClause(r,true),steps:pre.steps.length?pre.steps:["English contraction"]};}
  const safe=s=>!/\[[^\]]+\]/.test(s);
- const transformations=[...rules];
+ const transformations=[...rules,...coverageRules];
+ const families=[["assistance",["assistance","aid"],"help"],["quantity",["sufficient"],"enough"],["quantity",["numerous"],"many"],["quantity",["a bit of","a little bit of"],"some"],["quantity",["a couple of"],"two"],["quantity",["a pair of"],"two"],["time",["currently","at present","right now"],"now"],["time",["shortly","in a short while"],"soon"],["time",["immediately","straight away","right away"],"now"],["emotion",["delighted","thrilled"],"very happy"],["emotion",["pleased","glad"],"happy"],["emotion",["concerned","anxious"],"worried"],["emotion",["terrible","awful"],"very bad"],["degree",["extremely","exceptionally","incredibly"],"very"],["degree",["rather"],"quite"],["language",["clarify"],"explain"],["work",["sort out","resolve"],"solve"],["communication",["notify","inform"],"tell"],["communication",["notify me","inform me","let me know"],"tell me"],["transport",["journey"],"trip"],["work",["undertake"],"do"],["work",["obtain"],"get"],["work",["commence"],"start"],["work",["utilise","utilize"],"use"],["work",["accomplish","attain"],"achieve"],["work",["mend"],"repair"],["work",["fix"],"repair"],["action",["depart"],"leave"],["action",["converse","chat"],"talk"],["action",["conversing","chatting"],"talking"],["action",["reply"],"answer"],["action",["replied"],"answered"],["action",["assist"],"help"],["action",["assisted"],"helped"],["action",["assisting"],"helping"],["action",["require"],"need"],["action",["requires"],"needs"],["action",["required"],"needed"],["action",["intended"],"planned"],["action",["recall"],"remember"],["action",["recalls"],"remembers"],["action",["recalled"],"remembered"]];
+ for(const [label,alternatives,target] of families)for(const a of alternatives)transformations.push([label,new RegExp("\\b"+escape(a)+"\\b","gi"),target,2]);
  // Explicitly selected lexical paraphrases, constrained to particular semantic phrases.
  const lex=[
  ["have a look at","look at"],["take a look at","look at"],["take a seat","sit"],["make an effort","try"],["make a decision","decide"],["make a mistake","make an error"],["purchase","buy"],["purchased","bought"],["utilise","use"],["utilize","use"],["commence","start"],["commenced","started"],["conclude","finish"],["concluded","finished"],["reside","live"],["resides","lives"],["resided","lived"],["residing","living"],["in the vicinity of","near"],["prior to","before"],["subsequent to","after"],["in order to","to"],["on account of","because of"],["as a consequence of","because of"]
@@ -84,6 +111,18 @@ function adapt(pack,input,reverse=false){
  }
  return null;
 }
+const LEXICAL_FAMILIES=[["noun",["assistance","aid"],"help"],["noun",["occupation","profession"],"job"],["noun",["dwelling"],"house"],["noun",["automobile"],"car"],["noun",["photograph","snapshot"],"picture"],["noun",["physician"],"doctor"],["noun",["pupil"],"student"],["noun",["response","reply"],"answer"],["noun",["difficulty"],"problem"],["noun",["wages"],"salary"],["noun",["objective","target"],"goal"],["noun",["accomplishment"],"achievement"],["verb",["assist"],"help"],["verb",["depart"],"leave"],["verb",["mend"],"repair"],["verb",["purchase"],"buy"],["verb",["commence"],"start"],["verb",["reside"],"live"],["verb",["utilise","utilize"],"use"],["verb",["converse","chat"],"talk"],["verb",["recall"],"remember"],["verb",["require"],"need"],["adjective",["delighted","glad","pleased"],"happy"],["adjective",["concerned"],"worried"],["adjective",["exhausted","weary"],"tired"],["adjective",["sufficient"],"enough"],["adverb",["currently","at present"],"now"],["adverb",["shortly"],"soon"],["adverb",["immediately","straight away"],"now"],["quantity",["numerous"],"many"]];
+
+function lexicalAlternatives(pack,input){
+ if(typeof pack.lookupEnglish!=="function"||input.length>90)return [];
+ const direct=pack.lookupEnglish(input);if(direct.length)return direct;
+ const k=input.toLowerCase().trim().replace(/\s+/g," ");
+ const alternatives=LEXICAL_FAMILIES.filter(([,ss])=>ss.includes(k));
+ const entries=alternatives.flatMap(([pos,,base])=>pack.lookupEnglish(base).filter(w=>w[2]===pos||(pos==="quantity"&&["quantifier","determiner"].includes(w[2]))));
+ return [...new Map(entries.map(w=>[w[1]+"|"+w[2],w])).values()];
+}
+
+root.linguaLookupEnglish=lexicalAlternatives;
 root.linguaParaphrase=adapt;
 root.linguaPreferredParaphrase=prefer;
 })(typeof window!=="undefined"?window:globalThis);
