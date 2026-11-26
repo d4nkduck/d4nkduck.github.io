@@ -6,9 +6,13 @@ Static website: open `index.html` with `languages/` alongside it. No API keys or
 
 Copy `languages/rasnovian.js` to a new file and register a pack in `window.languagePacks`. Set a unique `id`, `name`, `native`, `version`, `origins` (name and percent), `alphabet`, `sounds` (symbol and pronunciation), `words` (English lemma, native lemma, part of speech), `phrases` (English and native), and `grammar` (heading and text). Include the new script before the main application script in `index.html`. Supply at least five phrases and enough unambiguous vocabulary for quizzes. Implement an optional `translateClause(input, reverse)` returning a translated string or null when unsupported. Keep each language's rules independent.
 
-## Javenœrl v0.3.1
+## Javenœrl v0.3.3
 
 The Javes speak Javenœrl, with a French 40%, technical English 30%, German 30% design target. The independent pack provides work (Werk), everyday (Jour), and personal (Cœur) modes. Work definite status reports use `stat/stats` without article or copula, and other definite articles fuse as `l-/ls-`. Personal singular address uses `tei/tein`, with explicit dear and together morphology. The spelling standard accepts v0.2 legacy forms, and the word formation inventory includes transparent derivations and compounds. The spelling Javenœrl is retained even when its final œrl is silent. Select Javenœrl from the language menu or use `?lang=javenoerl`. Run `node tests/javenoerl.test.cjs` for grammar regression cases. The pack recognises common quantity phrases, inflected lexical fallback, and limited partial grammar for unknown nouns or adjectives. The language is an initial prototype; vocabulary ancestry and full translation coverage are not audited.
+
+## Translation paraphrase adapter (Javenœrl)
+
+The optional local adapter in `languages/paraphrase.js` runs after a direct grammar parse fails and before partial/word-by-word fallback. It uses bounded, explicit English expression and construction rewrites, then requires a full forward and reverse grammar parse. The UI identifies the English paraphrase used. This is not a neural or semantic-equivalence model: reverse parsing checks grammatical recoverability, not meaning guarantees. No new native words, no saved user sentences, no API. Run `node tests/paraphrase.test.cjs`. Rasnovian remains unchanged.
 
 ## Current scope
 
