@@ -569,3 +569,166 @@ for(const [reg,en,ja,back] of modernCases){modern.register=reg;assert.equal(mode
 assert.equal(new Set(modern.words.map(x=>x[1])).size,modern.words.length);
 for(const w of modern.words)for(const ch of w[1])if(/\p{L}/u.test(ch))assert.ok(modern.alphabet.includes(ch.toUpperCase()),w[1]);
 for(const [old,newForm] of Object.entries(modern.spellingMap))assert.equal(modern.lookupNative(old).length,modern.lookupNative(newForm).length);
+
+const coverageCases=[
+  [
+    "everyday",
+    "I eat a lot of food.",
+    "Je mangé un abond de nahr.",
+    "I eat a lot of food."
+  ],
+  [
+    "everyday",
+    "I am very fat.",
+    "Je es très dick.",
+    "I am very fat."
+  ],
+  [
+    "everyday",
+    "We have lots of work.",
+    "Nus hav des abonds de werk.",
+    "We have lots of work."
+  ],
+  [
+    "everyday",
+    "She bought plenty of books.",
+    "El pré kaufé abondé buchs.",
+    "She bought a lot of books."
+  ],
+  [
+    "everyday",
+    "He drinks a lot of water.",
+    "Il bwav un abond de o.",
+    "He drinks a lot of water."
+  ],
+  [
+    "everyday",
+    "I read a lot.",
+    "Je lis un abond.",
+    "I read a lot."
+  ],
+  [
+    "everyday",
+    "They have a large number of questions.",
+    "Els hav un grand numér de des kestións.",
+    "They have a big number of questions."
+  ],
+  [
+    "everyday",
+    "We have fewer problems.",
+    "Nus hav wenigr probléms.",
+    "We have fewer problems."
+  ],
+  [
+    "everyday",
+    "I want enough time.",
+    "Je vulé genugé zeit.",
+    "I want enough time."
+  ],
+  [
+    "everyday",
+    "Every child is here.",
+    "Jeder enfant es ici.",
+    "Every child is here."
+  ],
+  [
+    "everyday",
+    "I have no money.",
+    "Je hav kein geld.",
+    "I have no money."
+  ],
+  [
+    "everyday",
+    "I bought another book.",
+    "Je pré kaufé andern buch.",
+    "I bought another book."
+  ],
+  [
+    "everyday",
+    "The shirt is too expensive.",
+    "Le hemd es zuviel teuer.",
+    "The shirt is too expensive."
+  ],
+  [
+    "everyday",
+    "She is listening to music.",
+    "El dur écut zu musike.",
+    "She is listening to music."
+  ],
+  [
+    "everyday",
+    "The teacher explains the grammar.",
+    "Le lehrant erkläré le gramatik.",
+    "The teacher explains the grammar."
+  ],
+  [
+    "everyday",
+    "I have a lot of questions.",
+    "Je hav un abond de des kestións.",
+    "I have a lot of questions."
+  ],
+  [
+    "everyday",
+    "We are learning a new language.",
+    "Nus dur lerné un neu lang.",
+    "We are learning a new language."
+  ],
+  [
+    "everyday",
+    "I will translate the sentence.",
+    "Je va übersetz le satz.",
+    "I will translate the sentence."
+  ],
+  [
+    "everyday",
+    "The engineer received a package.",
+    "Le ingeniœr pré recevé un paket.",
+    "The engineer received a package."
+  ],
+  [
+    "everyday",
+    "He repaired the broken computer.",
+    "Il pré réparé le kaputt rechner.",
+    "He repaired the broken computer."
+  ],
+  [
+    "everyday",
+    "I work at the market.",
+    "Je werké an le markt.",
+    "I work at the market."
+  ],
+  [
+    "everyday",
+    "I am very tired.",
+    "Je es très müde.",
+    "I am very tired."
+  ],
+  [
+    "everyday",
+    "The fat is in the bowl.",
+    "Le fett es in le shal.",
+    "The fat is in the bowl."
+  ],
+  [
+    "everyday",
+    "We are very happy.",
+    "Nus es très heureux.",
+    "We are very happy."
+  ],
+  [
+    "everyday",
+    "The bread is fresh.",
+    "Le brot es frish.",
+    "The bread is fresh."
+  ],
+  [
+    "everyday",
+    "This is a useful example.",
+    "Dies es un nützlich beispiel.",
+    "This is an useful example."
+  ]
+];
+for(const [reg,en,ja,back] of coverageCases){modern.register=reg;assert.equal(modern.translateClause(en,false),ja,en);assert.equal(modern.translateClause(ja,true),back,ja);assert.ok(!modern.phrases.some(x=>x[0]===en));}
+assert.equal(modern.lookupEnglish("am")[0][1],"es");
+assert.ok(modern.lookupEnglish("books").some(x=>x[1]==="buchs"));
+assert.equal(modern.translatePartial("I like the glorb.",false).text,"Je plais le [glorb].");
