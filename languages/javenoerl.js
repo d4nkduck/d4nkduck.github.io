@@ -4,7 +4,7 @@ window.languagePacks.push(Object.assign({
   "id": "javenoerl",
   "name": "Javenœrl",
   "native": "Javenœrl",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "origins": [
     [
       "French",
@@ -6282,6 +6282,228 @@ window.languagePacks.push(Object.assign({
       "le",
       "article",
       "Foundation"
+    ],
+    [
+      "pay",
+      "zahlgeld",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "income",
+      "inkum",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "profit",
+      "gewinn",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "payment",
+      "zahlung",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "employer",
+      "werkgeber",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "employment",
+      "berufstand",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "cashier",
+      "kassant",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "contract",
+      "kontrakt",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "pension",
+      "rent",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "bonus",
+      "bonus",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "tax",
+      "steuer-geld",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "budget",
+      "budjet",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "rent",
+      "miet",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "interview",
+      "gespreh",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "training",
+      "lern-kurs",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "application",
+      "antrag",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "vacancy",
+      "frei-stel",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "promotion",
+      "aufstieg",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "great",
+      "treflich",
+      "adjective",
+      "Employment & commerce"
+    ],
+    [
+      "decent",
+      "anständig",
+      "adjective",
+      "Employment & commerce"
+    ],
+    [
+      "fair",
+      "just",
+      "adjective",
+      "Employment & commerce"
+    ],
+    [
+      "reasonable",
+      "vernünftig",
+      "adjective",
+      "Employment & commerce"
+    ],
+    [
+      "well-paid",
+      "bonlohnig",
+      "adjective",
+      "Employment & commerce"
+    ],
+    [
+      "full-time",
+      "vollzeitig",
+      "adjective",
+      "Employment & commerce"
+    ],
+    [
+      "part-time",
+      "teilzeitig",
+      "adjective",
+      "Employment & commerce"
+    ],
+    [
+      "flexible",
+      "flexibl",
+      "adjective",
+      "Employment & commerce"
+    ],
+    [
+      "temporary",
+      "zeitlich",
+      "adjective",
+      "Employment & commerce"
+    ],
+    [
+      "permanent",
+      "dauerig",
+      "adjective",
+      "Employment & commerce"
+    ],
+    [
+      "earn",
+      "verdien",
+      "verb",
+      "Employment & commerce"
+    ],
+    [
+      "hire",
+      "einstell",
+      "verb",
+      "Employment & commerce"
+    ],
+    [
+      "apply",
+      "bewerb",
+      "verb",
+      "Employment & commerce"
+    ],
+    [
+      "train",
+      "trainé",
+      "verb",
+      "Employment & commerce"
+    ],
+    [
+      "retire",
+      "ruhestandé",
+      "verb",
+      "Employment & commerce"
+    ],
+    [
+      "charge",
+      "berechn",
+      "verb",
+      "Employment & commerce"
+    ],
+    [
+      "afford",
+      "leisté",
+      "verb",
+      "Employment & commerce"
+    ],
+    [
+      "owe",
+      "schuldé",
+      "verb",
+      "Employment & commerce"
+    ],
+    [
+      "deserve",
+      "verdiené",
+      "verb",
+      "Employment & commerce"
     ]
   ],
   "phrases": [
@@ -6362,6 +6584,10 @@ window.languagePacks.push(Object.assign({
     [
       "Everyday coverage v0.3.1",
       "Quantity phrases such as a lot of / lots of / plenty of use abondé before the noun, with count and mass nouns. A lot without of uses abondli as an adverb. Unknown isolated content words may be retained in square brackets in a partial grammatical parse, never silently added to the lexicon. Dictionary fallback recognises inflected English words and common function words; it remains a gloss, not a full translation."
+    ],
+    [
+      "Employment and compounds v0.3.2",
+      "Established compounds accept spaced, joined and hyphenated English forms. Pay as a noun is zahlgeld, distinct from zahl (verb). Commas before trailing prepositional adjuncts are optional and do not break the clause parser."
     ]
   ],
   "synonymGroups": [
@@ -7621,7 +7847,8 @@ window.languagePacks.push(Object.assign({
       "noun",
       "salary",
       [
-        "wage"
+        "wage",
+        "wages"
       ]
     ],
     [
@@ -7703,6 +7930,435 @@ window.languagePacks.push(Object.assign({
         "a great deal of",
         "a large amount of",
         "a large number of"
+      ]
+    ],
+    [
+      "noun",
+      "pay",
+      [
+        "compensation",
+        "remuneration"
+      ]
+    ],
+    [
+      "noun",
+      "income",
+      [
+        "earnings"
+      ]
+    ],
+    [
+      "noun",
+      "vacancy",
+      [
+        "job opening"
+      ]
+    ],
+    [
+      "adjective",
+      "great",
+      [
+        "excellent",
+        "wonderful",
+        "terrific",
+        "fantastic"
+      ]
+    ],
+    [
+      "adjective",
+      "decent",
+      [
+        "adequate"
+      ]
+    ],
+    [
+      "adjective",
+      "well-paid",
+      [
+        "well paid"
+      ]
+    ],
+    [
+      "adjective",
+      "full-time",
+      [
+        "full time"
+      ]
+    ],
+    [
+      "adjective",
+      "part-time",
+      [
+        "part time"
+      ]
+    ],
+    [
+      "verb",
+      "hire",
+      [
+        "recruit"
+      ]
+    ],
+    [
+      "noun",
+      "water system",
+      [
+        "watersystem",
+        "water-system"
+      ]
+    ],
+    [
+      "noun",
+      "power system",
+      [
+        "powersystem",
+        "power-system"
+      ]
+    ],
+    [
+      "noun",
+      "signal system",
+      [
+        "signalsystem",
+        "signal-system"
+      ]
+    ],
+    [
+      "noun",
+      "delivery system",
+      [
+        "deliverysystem",
+        "delivery-system"
+      ]
+    ],
+    [
+      "noun",
+      "supply system",
+      [
+        "supplysystem",
+        "supply-system"
+      ]
+    ],
+    [
+      "noun",
+      "computer system",
+      [
+        "computersystem",
+        "computer-system"
+      ]
+    ],
+    [
+      "noun",
+      "energy system",
+      [
+        "energysystem",
+        "energy-system"
+      ]
+    ],
+    [
+      "noun",
+      "measurement tool",
+      [
+        "measurementtool",
+        "measurement-tool"
+      ]
+    ],
+    [
+      "noun",
+      "garden tool",
+      [
+        "gardentool",
+        "garden-tool"
+      ]
+    ],
+    [
+      "noun",
+      "work tool",
+      [
+        "worktool",
+        "work-tool"
+      ]
+    ],
+    [
+      "noun",
+      "test tool",
+      [
+        "testtool",
+        "test-tool"
+      ]
+    ],
+    [
+      "noun",
+      "progress report",
+      [
+        "progressreport",
+        "progress-report"
+      ]
+    ],
+    [
+      "noun",
+      "test report",
+      [
+        "testreport",
+        "test-report"
+      ]
+    ],
+    [
+      "noun",
+      "error report",
+      [
+        "errorreport",
+        "error-report"
+      ]
+    ],
+    [
+      "noun",
+      "quality report",
+      [
+        "qualityreport",
+        "quality-report"
+      ]
+    ],
+    [
+      "noun",
+      "work report",
+      [
+        "workreport",
+        "work-report"
+      ]
+    ],
+    [
+      "noun",
+      "delivery report",
+      [
+        "deliveryreport",
+        "delivery-report"
+      ]
+    ],
+    [
+      "noun",
+      "work room",
+      [
+        "workroom",
+        "work-room"
+      ]
+    ],
+    [
+      "noun",
+      "rest room",
+      [
+        "restroom",
+        "rest-room"
+      ]
+    ],
+    [
+      "noun",
+      "train station",
+      [
+        "trainstation",
+        "train-station"
+      ]
+    ],
+    [
+      "noun",
+      "bus station",
+      [
+        "busstation",
+        "bus-station"
+      ]
+    ],
+    [
+      "noun",
+      "power station",
+      [
+        "powerstation",
+        "power-station"
+      ]
+    ],
+    [
+      "noun",
+      "test station",
+      [
+        "teststation",
+        "test-station"
+      ]
+    ],
+    [
+      "noun",
+      "work plan",
+      [
+        "workplan",
+        "work-plan"
+      ]
+    ],
+    [
+      "noun",
+      "project plan",
+      [
+        "projectplan",
+        "project-plan"
+      ]
+    ],
+    [
+      "noun",
+      "delivery plan",
+      [
+        "deliveryplan",
+        "delivery-plan"
+      ]
+    ],
+    [
+      "noun",
+      "growth plan",
+      [
+        "growthplan",
+        "growth-plan"
+      ]
+    ],
+    [
+      "noun",
+      "book shop",
+      [
+        "bookshop",
+        "book-shop",
+        "bookstore",
+        "book store"
+      ]
+    ],
+    [
+      "noun",
+      "food shop",
+      [
+        "foodshop",
+        "food-shop"
+      ]
+    ],
+    [
+      "noun",
+      "flower shop",
+      [
+        "flowershop",
+        "flower-shop"
+      ]
+    ],
+    [
+      "noun",
+      "tool shop",
+      [
+        "toolshop",
+        "tool-shop"
+      ]
+    ],
+    [
+      "noun",
+      "factory worker",
+      [
+        "factoryworker",
+        "factory-worker"
+      ]
+    ],
+    [
+      "noun",
+      "warehouse worker",
+      [
+        "warehouseworker",
+        "warehouse-worker"
+      ]
+    ],
+    [
+      "noun",
+      "coffee break",
+      [
+        "coffeebreak",
+        "coffee-break"
+      ]
+    ],
+    [
+      "noun",
+      "tea break",
+      [
+        "teabreak",
+        "tea-break"
+      ]
+    ],
+    [
+      "noun",
+      "lunch break",
+      [
+        "lunchbreak",
+        "lunch-break"
+      ]
+    ],
+    [
+      "noun",
+      "work break",
+      [
+        "workbreak",
+        "work-break"
+      ]
+    ],
+    [
+      "noun",
+      "family time",
+      [
+        "familytime",
+        "family-time"
+      ]
+    ],
+    [
+      "noun",
+      "work time",
+      [
+        "worktime",
+        "work-time"
+      ]
+    ],
+    [
+      "noun",
+      "rest time",
+      [
+        "resttime",
+        "rest-time"
+      ]
+    ],
+    [
+      "noun",
+      "house door",
+      [
+        "housedoor",
+        "house-door"
+      ]
+    ],
+    [
+      "noun",
+      "garden door",
+      [
+        "gardendoor",
+        "garden-door"
+      ]
+    ],
+    [
+      "noun",
+      "office door",
+      [
+        "officedoor",
+        "office-door"
+      ]
+    ],
+    [
+      "noun",
+      "test machine",
+      [
+        "testmachine",
+        "test-machine"
+      ]
+    ],
+    [
+      "noun",
+      "factory machine",
+      [
+        "factorymachine",
+        "factory-machine"
       ]
     ]
   ],
@@ -14267,6 +14923,228 @@ window.languagePacks.push(Object.assign({
       "le",
       "article",
       "Foundation"
+    ],
+    [
+      "pay",
+      "zahlgeld",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "income",
+      "inkum",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "profit",
+      "gewinn",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "payment",
+      "zahlung",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "employer",
+      "werkgeber",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "employment",
+      "berufstand",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "cashier",
+      "kassant",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "contract",
+      "kontrakt",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "pension",
+      "rent",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "bonus",
+      "bonus",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "tax",
+      "steuer-geld",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "budget",
+      "budjet",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "rent",
+      "miet",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "interview",
+      "gespreh",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "training",
+      "lern-kurs",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "application",
+      "antrag",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "vacancy",
+      "frei-stel",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "promotion",
+      "aufstieg",
+      "noun",
+      "Employment & commerce"
+    ],
+    [
+      "great",
+      "treflich",
+      "adjective",
+      "Employment & commerce"
+    ],
+    [
+      "decent",
+      "anständig",
+      "adjective",
+      "Employment & commerce"
+    ],
+    [
+      "fair",
+      "just",
+      "adjective",
+      "Employment & commerce"
+    ],
+    [
+      "reasonable",
+      "vernünftig",
+      "adjective",
+      "Employment & commerce"
+    ],
+    [
+      "well-paid",
+      "bonlohnig",
+      "adjective",
+      "Employment & commerce"
+    ],
+    [
+      "full-time",
+      "vollzeitig",
+      "adjective",
+      "Employment & commerce"
+    ],
+    [
+      "part-time",
+      "teilzeitig",
+      "adjective",
+      "Employment & commerce"
+    ],
+    [
+      "flexible",
+      "flexibl",
+      "adjective",
+      "Employment & commerce"
+    ],
+    [
+      "temporary",
+      "zeitlich",
+      "adjective",
+      "Employment & commerce"
+    ],
+    [
+      "permanent",
+      "dauerig",
+      "adjective",
+      "Employment & commerce"
+    ],
+    [
+      "earn",
+      "verdien",
+      "verb",
+      "Employment & commerce"
+    ],
+    [
+      "hire",
+      "einstell",
+      "verb",
+      "Employment & commerce"
+    ],
+    [
+      "apply",
+      "bewerb",
+      "verb",
+      "Employment & commerce"
+    ],
+    [
+      "train",
+      "trainé",
+      "verb",
+      "Employment & commerce"
+    ],
+    [
+      "retire",
+      "ruhestandé",
+      "verb",
+      "Employment & commerce"
+    ],
+    [
+      "charge",
+      "berechn",
+      "verb",
+      "Employment & commerce"
+    ],
+    [
+      "afford",
+      "leisté",
+      "verb",
+      "Employment & commerce"
+    ],
+    [
+      "owe",
+      "schuldé",
+      "verb",
+      "Employment & commerce"
+    ],
+    [
+      "deserve",
+      "verdiené",
+      "verb",
+      "Employment & commerce"
     ]
   ],
   "spellingMap": {
@@ -14515,6 +15393,9 @@ window.languagePacks.push(Object.assign({
  },
  translateLegacy(input,reverse=false){
  const s=reverse?input:this.normalizeEnglish(input),direct=this.translateCore(s,reverse);if(direct)return direct;
+ // Optional punctuation before a trailing prepositional adjunct: remove only when a full parse succeeds.
+ const clean=s.replace(reverse?/,\s+(?=(?:mit|in|an|auf|für|aus|zu|de|sans|nach|vor)\b)/gi:/,\s+(?=(?:with|in|at|on|for|from|to|of|without|after|before)\b)/gi," ");
+ if(clean!==s){const parsed=this.translateCore(clean,reverse);if(parsed)return parsed;}
  for(const [en,ja] of [["but","mais"],["because","car"],["and","et"]]){
   const re=new RegExp("(,?\\s+"+(reverse?ja:en)+"\\s+)","gi");let m;
   while((m=re.exec(s))){const a=this.translateCore(s.slice(0,m.index).trim(),reverse),b=this.translateLegacy(s.slice(m.index+m[0].length).trim(),reverse);if(a&&b)return a+(m[0].trim().startsWith(",")?", ":" ")+(reverse?en:ja)+" "+(/^I\b/.test(b)?b:b[0].toLowerCase()+b.slice(1));}
@@ -14543,7 +15424,7 @@ window.languagePacks.push(Object.assign({
  const revPro={je:"I",vu:"you",tei:"you",il:"he",el:"she",it:"it",nus:"we",vus:"you",els:"they"};
  const revObj={me:"me",vu:"you",tei:"you",ilu:"him",elu:"her",it:"it",nusu:"us",elsu:"them",vus:"you"};
  const revPoss={mon:"my",von:"your",tein:"your",son:"his",sen:"her",iton:"its",nos:"our",lor:"their"};
- const mass=new Set("fat size weight space air smoke dust noise silence sand information advice experience attention interest support cash success failure help life death news fun clothing milk meat rice pasta salt sugar butter honey chocolate hunger thirst weather wind snow ice grass soil fear sadness anger happiness shame respect patience kindness pride friendship health illness pain strength work growth progress diligence honour effort duty skill data equipment quality time rest supply material metal steel wood energy power water money love affection trust joy peace comfort hope music food bread cheese tea coffee rain language javenœrl rasnovian english".split(" "));
+ const mass=new Set("pay income employment training rent compensation fat size weight space air smoke dust noise silence sand information advice experience attention interest support cash success failure help life death news fun clothing milk meat rice pasta salt sugar butter honey chocolate hunger thirst weather wind snow ice grass soil fear sadness anger happiness shame respect patience kindness pride friendship health illness pain strength work growth progress diligence honour effort duty skill data equipment quality time rest supply material metal steel wood energy power water money love affection trust joy peace comfort hope music food bread cheese tea coffee rain language javenœrl rasnovian english".split(" "));
  const plur=k=>({person:"people",child:"children",man:"men",woman:"women",foot:"feet",tooth:"teeth",fish:"fish",sheep:"sheep"}[k]||regular(k)[0]);
  const nativePlural=k=>k.endsWith("s")?k:k+"s";
  function np(b,object=false){
@@ -14573,7 +15454,7 @@ window.languagePacks.push(Object.assign({
  if(!det&&!owner&&!number&&!pl&&!isMass)continue;
  const candidates=reverse?[pl?nativePlural(w[1]):w[1]]:[pl?plur(base):base,...synonyms(w).map(x=>pl?plur(x):x)];
  for(const n of candidates){const nt=n.split(" ");if(k.slice(-nt.length).join(" ")!==n)continue;
- const ad=k.slice(0,-nt.length).map(x=>find(x,"adjective"));if(ad.some(x=>!x))continue;
+ const adjectives=k.slice(0,-nt.length),ad=[];let ai=0;while(ai<adjectives.length){let hit=null,len=0;for(let n=Math.min(3,adjectives.length-ai);n>=1;n--){hit=find(adjectives.slice(ai,ai+n).join(" "),"adjective");if(hit){len=n;break;}}if(!hit)break;ad.push(hit);ai+=len;}if(ai!==adjectives.length)continue;
  const noun=reverse?(pl?plur(w[0]):w[0]):(pl?nativePlural(w[1]):w[1]);
  const body=[...ad.map(x=>x[other]),noun].join(" ");
  const prefix=quant||owner||(reverse?(det==="le"||det==="les"?"the":det==="un"?(/^[aeiou]/i.test(body)&&!/^(use|useful|usual|uni|euro|one)/i.test(body)?"an":"a"):""):(det==="the"?(pl?"les":"le"):det?(pl?"des":"un"):pl&&!number?"des":""));
