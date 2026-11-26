@@ -191,3 +191,187 @@ assert.equal(p.translateClause("flibble zork glorb",false),null);
 p.register="personal";assert.equal(p.lookupEnglish("you")[0][1],"tei");
 p.register="everyday";assert.equal(p.lookupEnglish("you")[0][1],"vu");
 console.log(cases.length+" bidirectional cases passed.");
+
+const expansionCases=[
+  [
+    "everyday",
+    "I love my job.",
+    "Je aimé mon beruf.",
+    "I love my job."
+  ],
+  [
+    "everyday",
+    "She loves her profession.",
+    "El aimé sen beruf.",
+    "She loves her job."
+  ],
+  [
+    "everyday",
+    "I like this movie.",
+    "Je plais dies film.",
+    "I like this movie."
+  ],
+  [
+    "everyday",
+    "He is watching the film.",
+    "Il dur regard le film.",
+    "He is looking the movie."
+  ],
+  [
+    "everyday",
+    "The food tastes delicious.",
+    "Le nahr schmeck lecker.",
+    "The food tastes delicious."
+  ],
+  [
+    "everyday",
+    "I have a new phone.",
+    "Je hav un neu téléfon.",
+    "I have a new phone."
+  ],
+  [
+    "everyday",
+    "We bought some apples.",
+    "Nus pré kaufé etwas apfels.",
+    "We bought some apples."
+  ],
+  [
+    "everyday",
+    "We will travel tomorrow.",
+    "Nus va reisé morgen.",
+    "We will travel tomorrow."
+  ],
+  [
+    "everyday",
+    "I really enjoy my work.",
+    "Je geniess mon werk très.",
+    "I enjoy my work very."
+  ],
+  [
+    "everyday",
+    "The engineer repaired the broken device.",
+    "Le ingeniœr pré réparé le kaputt gerät.",
+    "The engineer repaired the broken device."
+  ],
+  [
+    "everyday",
+    "I need a cup of coffee.",
+    "Je brauché un tass de kafé.",
+    "I need a cup of coffee."
+  ],
+  [
+    "everyday",
+    "The child is playing a game.",
+    "Le enfant dur joué un spiel.",
+    "The child is playing a game."
+  ],
+  [
+    "everyday",
+    "They are happy but we are tired.",
+    "Els es heureux mais nus es müde.",
+    "They are happy but we are tired."
+  ],
+  [
+    "everyday",
+    "I want to visit my family.",
+    "Je voulé zu besuché mon famél.",
+    "I want to visit my family."
+  ],
+  [
+    "everyday",
+    "She is talking about her job.",
+    "El dur parlé über sen beruf.",
+    "She is speaking about her job."
+  ],
+  [
+    "everyday",
+    "He found his keys.",
+    "Il pré findé son schlüssels.",
+    "He found his keys."
+  ],
+  [
+    "everyday",
+    "The weather is cold today.",
+    "Le wetter es kalt heut.",
+    "The weather is cold today."
+  ],
+  [
+    "everyday",
+    "The dog is sleeping.",
+    "Le hund dur dorm.",
+    "The dog is sleeping."
+  ],
+  [
+    "everyday",
+    "We can improve the system.",
+    "Nus kan verbesser le sistém.",
+    "We can improve the system."
+  ],
+  [
+    "everyday",
+    "She gave me a book.",
+    "El pré gebé un buch zu me.",
+    "She gave a book to me."
+  ],
+  [
+    "everyday",
+    "Please check the report.",
+    "Pli prüfé le raport.",
+    "Please check the report."
+  ],
+  [
+    "everyday",
+    "I am bored.",
+    "Je es gelangweilt.",
+    "I am bored."
+  ],
+  [
+    "everyday",
+    "My friend seems worried.",
+    "Mon amien schein besorgt.",
+    "My friend seems worried."
+  ],
+  [
+    "everyday",
+    "They bought a mobile phone.",
+    "Els pré kaufé un téléfon.",
+    "They bought a phone."
+  ],
+  [
+    "everyday",
+    "I am learning English.",
+    "Je dur lerné englisch.",
+    "I am learning English."
+  ],
+  [
+    "everyday",
+    "She honestly likes her job.",
+    "El plais sen beruf franchement.",
+    "She likes her job honestly."
+  ],
+  [
+    "everyday",
+    "We must protect the environment.",
+    "Nus mus schützé le umwelt.",
+    "We must protect the environment."
+  ],
+  [
+    "everyday",
+    "This is my favourite song.",
+    "Dies es mon favori lied.",
+    "This is my favourite song."
+  ],
+  [
+    "everyday",
+    "Do you know the answer?",
+    "Est vu wiss le antwort?",
+    "Do you know the answer?"
+  ],
+  [
+    "everyday",
+    "I want more tea.",
+    "Je voulé mehr té.",
+    "I want more tea."
+  ]
+];
+for(const [register,en,ja,back] of expansionCases){p.register=register;assert.equal(p.translateClause(en,false),ja,en);assert.equal(p.translateClause(ja,true),back,ja);assert.ok(!p.phrases.some(x=>x[0]===en));}
