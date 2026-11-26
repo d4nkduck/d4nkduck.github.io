@@ -4,7 +4,7 @@ window.languagePacks.push(Object.assign({
   "id": "javenoerl",
   "name": "Javenœrl",
   "native": "Javenœrl",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "origins": [
     [
       "French",
@@ -6504,6 +6504,240 @@ window.languagePacks.push(Object.assign({
       "verdiené",
       "verb",
       "Employment & commerce"
+    ],
+    [
+      "than",
+      "dan",
+      "conjunction",
+      "Comparisons & achievement"
+    ],
+    [
+      "ever",
+      "jemals",
+      "adverb",
+      "Comparisons & achievement"
+    ],
+    [
+      "far",
+      "weit",
+      "adverb",
+      "Comparisons & achievement"
+    ],
+    [
+      "able",
+      "kapabl",
+      "adjective",
+      "Comparisons & achievement"
+    ],
+    [
+      "achieve",
+      "erziel",
+      "verb",
+      "Comparisons & achievement"
+    ],
+    [
+      "achievement",
+      "erzielung",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "goal",
+      "ziel",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "ability",
+      "könnheit",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "ambition",
+      "ehrgeiz",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "advantage",
+      "vorteil",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "disadvantage",
+      "nachteil",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "difference",
+      "untersheid",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "comparison",
+      "vergleich",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "limit",
+      "grenzwert",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "potential",
+      "potenz",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "resource",
+      "ressurs",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "challenge",
+      "herausford",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "competition",
+      "wettstreit",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "victory",
+      "sieg",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "loss",
+      "verlust",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "reward",
+      "belohnung",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "improvement",
+      "verbesserung",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "increase",
+      "anstieg",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "decrease",
+      "abstieg",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "tall",
+      "hochlang",
+      "adjective",
+      "Comparisons & achievement"
+    ],
+    [
+      "successful",
+      "erfolgig",
+      "adjective",
+      "Comparisons & achievement"
+    ],
+    [
+      "unsuccessful",
+      "onerfolgig",
+      "adjective",
+      "Comparisons & achievement"
+    ],
+    [
+      "equal",
+      "gleichwert",
+      "adjective",
+      "Comparisons & achievement"
+    ],
+    [
+      "superior",
+      "überwert",
+      "adjective",
+      "Comparisons & achievement"
+    ],
+    [
+      "inferior",
+      "unterwert",
+      "adjective",
+      "Comparisons & achievement"
+    ],
+    [
+      "compare",
+      "vergleiché",
+      "verb",
+      "Comparisons & achievement"
+    ],
+    [
+      "increase",
+      "steiger",
+      "verb",
+      "Comparisons & achievement"
+    ],
+    [
+      "decrease",
+      "senké",
+      "verb",
+      "Comparisons & achievement"
+    ],
+    [
+      "exceed",
+      "übersteig",
+      "verb",
+      "Comparisons & achievement"
+    ],
+    [
+      "compete",
+      "wetté",
+      "verb",
+      "Comparisons & achievement"
+    ],
+    [
+      "win",
+      "gewinné",
+      "verb",
+      "Comparisons & achievement"
+    ],
+    [
+      "reward",
+      "belohn",
+      "verb",
+      "Comparisons & achievement"
+    ],
+    [
+      "could",
+      "kön",
+      "modal",
+      "Comparisons & achievement"
+    ],
+    [
+      "comparative degree",
+      "mer",
+      "particle",
+      "Comparisons & achievement"
     ]
   ],
   "phrases": [
@@ -6588,6 +6822,10 @@ window.languagePacks.push(Object.assign({
     [
       "Employment and compounds v0.3.2",
       "Established compounds accept spaced, joined and hyphenated English forms. Pay as a noun is zahlgeld, distinct from zahl (verb). Commas before trailing prepositional adjuncts are optional and do not break the clause parser."
+    ],
+    [
+      "Comparisons and ability v0.3.3",
+      "Dan introduces a comparison with a nominal phrase or a full clause. Mer precedes comparative adjectives, while mehr expresses quantity. Weit modifies comparative quantity; way or much more normalize to far more. Kapabl zu + verb expresses ability, including after modal copulas. Jemals means ever. Common would contractions are recognized."
     ]
   ],
   "synonymGroups": [
@@ -8360,6 +8598,50 @@ window.languagePacks.push(Object.assign({
         "factorymachine",
         "factory-machine"
       ]
+    ],
+    [
+      "adjective",
+      "able",
+      [
+        "capable"
+      ]
+    ],
+    [
+      "verb",
+      "achieve",
+      [
+        "accomplish",
+        "attain"
+      ]
+    ],
+    [
+      "noun",
+      "achievement",
+      [
+        "accomplishment"
+      ]
+    ],
+    [
+      "noun",
+      "goal",
+      [
+        "objective",
+        "target"
+      ]
+    ],
+    [
+      "noun",
+      "ability",
+      [
+        "capability"
+      ]
+    ],
+    [
+      "verb",
+      "exceed",
+      [
+        "surpass"
+      ]
     ]
   ],
   "registers": [
@@ -8771,6 +9053,18 @@ window.languagePacks.push(Object.assign({
       "replied",
       "replying",
       "replied"
+    ],
+    "win": [
+      "wins",
+      "won",
+      "winning",
+      "won"
+    ],
+    "achieve": [
+      "achieves",
+      "achieved",
+      "achieving",
+      "achieved"
     ]
   },
   "coreWords": [
@@ -15145,6 +15439,240 @@ window.languagePacks.push(Object.assign({
       "verdiené",
       "verb",
       "Employment & commerce"
+    ],
+    [
+      "than",
+      "dan",
+      "conjunction",
+      "Comparisons & achievement"
+    ],
+    [
+      "ever",
+      "jemals",
+      "adverb",
+      "Comparisons & achievement"
+    ],
+    [
+      "far",
+      "weit",
+      "adverb",
+      "Comparisons & achievement"
+    ],
+    [
+      "able",
+      "kapabl",
+      "adjective",
+      "Comparisons & achievement"
+    ],
+    [
+      "achieve",
+      "erziel",
+      "verb",
+      "Comparisons & achievement"
+    ],
+    [
+      "achievement",
+      "erzielung",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "goal",
+      "ziel",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "ability",
+      "könnheit",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "ambition",
+      "ehrgeiz",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "advantage",
+      "vorteil",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "disadvantage",
+      "nachteil",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "difference",
+      "untersheid",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "comparison",
+      "vergleich",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "limit",
+      "grenzwert",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "potential",
+      "potenz",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "resource",
+      "ressurs",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "challenge",
+      "herausford",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "competition",
+      "wettstreit",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "victory",
+      "sieg",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "loss",
+      "verlust",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "reward",
+      "belohnung",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "improvement",
+      "verbesserung",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "increase",
+      "anstieg",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "decrease",
+      "abstieg",
+      "noun",
+      "Comparisons & achievement"
+    ],
+    [
+      "tall",
+      "hochlang",
+      "adjective",
+      "Comparisons & achievement"
+    ],
+    [
+      "successful",
+      "erfolgig",
+      "adjective",
+      "Comparisons & achievement"
+    ],
+    [
+      "unsuccessful",
+      "onerfolgig",
+      "adjective",
+      "Comparisons & achievement"
+    ],
+    [
+      "equal",
+      "gleichwert",
+      "adjective",
+      "Comparisons & achievement"
+    ],
+    [
+      "superior",
+      "überwert",
+      "adjective",
+      "Comparisons & achievement"
+    ],
+    [
+      "inferior",
+      "unterwert",
+      "adjective",
+      "Comparisons & achievement"
+    ],
+    [
+      "compare",
+      "vergleiché",
+      "verb",
+      "Comparisons & achievement"
+    ],
+    [
+      "increase",
+      "steiger",
+      "verb",
+      "Comparisons & achievement"
+    ],
+    [
+      "decrease",
+      "senké",
+      "verb",
+      "Comparisons & achievement"
+    ],
+    [
+      "exceed",
+      "übersteig",
+      "verb",
+      "Comparisons & achievement"
+    ],
+    [
+      "compete",
+      "wetté",
+      "verb",
+      "Comparisons & achievement"
+    ],
+    [
+      "win",
+      "gewinné",
+      "verb",
+      "Comparisons & achievement"
+    ],
+    [
+      "reward",
+      "belohn",
+      "verb",
+      "Comparisons & achievement"
+    ],
+    [
+      "could",
+      "kön",
+      "modal",
+      "Comparisons & achievement"
+    ],
+    [
+      "comparative degree",
+      "mer",
+      "particle",
+      "Comparisons & achievement"
     ]
   ],
   "spellingMap": {
@@ -15339,7 +15867,7 @@ window.languagePacks.push(Object.assign({
  if(w[2]==="noun"&&[base,...alts].some(x=>(irregular[x]||regular(x)[0])===k))out.push([k,w[1].endsWith("s")?w[1]:w[1]+"s",w[2],w[3]]);
  }return out;
  },
- normalizeEnglish(input){return input.replace(/’/g,"'").replace(/\b(i|you|he|she|we|they|it)'ll\b/gi,"$1 will").replace(/\bi'm\b/gi,"I am").replace(/\b(you|we|they)'re\b/gi,"$1 are").replace(/\b(he|she|it)'s\b/gi,"$1 is").replace(/\bcan't\b/gi,"can not").replace(/\bcannot\b/gi,"can not").replace(/\bwon't\b/gi,"will not").replace(/n't\b/gi," not");},
+ normalizeEnglish(input){return input.replace(/’/g,"'").replace(/\b(i|you|he|she|we|they|it)'d\b(?=\s+(?:ever|never|always|really|be|like|want|need|go|come|try|do|say|know|work|earn|achieve|help|see|make|take|find|buy|love|prefer|rather)\b)/gi,"$1 would").replace(/\b(?:way|much)\s+(?=more\b|less\b|fewer\b)/gi,"far ").replace(/’/g,"'").replace(/\b(i|you|he|she|we|they|it)'ll\b/gi,"$1 will").replace(/\bi'm\b/gi,"I am").replace(/\b(you|we|they)'re\b/gi,"$1 are").replace(/\b(he|she|it)'s\b/gi,"$1 is").replace(/\bcan't\b/gi,"can not").replace(/\bcannot\b/gi,"can not").replace(/\bwon't\b/gi,"will not").replace(/n't\b/gi," not");},
  translateClause(input,reverse=false){
  const cap=s=>s?s[0].toUpperCase()+s.slice(1):s;
  const replaceTokens=(s,table)=>s.replace(/[\p{L}\p{M}-]+/gu,w=>{const k=w.toLowerCase(),m=table[k]||k.split("-").map(part=>table[part]||part).join("-");return w[0]===w[0].toUpperCase()?cap(m):m;});
@@ -15393,6 +15921,12 @@ window.languagePacks.push(Object.assign({
  },
  translateLegacy(input,reverse=false){
  const s=reverse?input:this.normalizeEnglish(input),direct=this.translateCore(s,reverse);if(direct)return direct;
+ const comparison=s.match(reverse?/^(.+?)\s+dan\s+(.+)$/i:/^(.+?)\s+than\s+(.+)$/i);
+ if(comparison){
+  const [,left,right]=comparison;
+  const degree=reverse?/\b(?:mehr|min|wenigr|mer|besser|shlechter)\b/i:/\b(?:more|less|fewer|better|worse|[a-z]+er)\b/i;
+  if(degree.test(left)){const l=this.translateCore(left,reverse),r=this.translateCore(right,reverse)||this.translateCore(right,reverse,"nominal");if(l&&r)return l+(reverse?" than ":" dan ")+(/^I\b/.test(r)?r:r[0].toLowerCase()+r.slice(1));}
+ }
  // Optional punctuation before a trailing prepositional adjunct: remove only when a full parse succeeds.
  const clean=s.replace(reverse?/,\s+(?=(?:mit|in|an|auf|für|aus|zu|de|sans|nach|vor)\b)/gi:/,\s+(?=(?:with|in|at|on|for|from|to|of|without|after|before)\b)/gi," ");
  if(clean!==s){const parsed=this.translateCore(clean,reverse);if(parsed)return parsed;}
@@ -15407,7 +15941,7 @@ window.languagePacks.push(Object.assign({
  const atom=s.trim().replace(/[.!?]$/,"").toLowerCase();const entry=this.words.find(w=>["adverb","expression"].includes(w[2])&&w[reverse?1:0].toLowerCase()===atom);if(entry){const v=entry[reverse?0:1];return v[0].toUpperCase()+v.slice(1)+(s.trim().match(/[.!?]$/)?.[0]||"");}
  return null;
  },
- translateCore(input,reverse=false){
+ translateCore(input,reverse=false,mode="clause"){
  const norm=s=>s.normalize("NFC").toLowerCase().trim(),cap=s=>s?s[0].toUpperCase()+s.slice(1):s;
  const punct=input.trim().match(/[.!?]$/)?.[0]||"";
  const a=norm(reverse?input:this.normalizeEnglish(input)).replace(/[.!?]$/,"").split(/\s+/);
@@ -15429,13 +15963,14 @@ window.languagePacks.push(Object.assign({
  const nativePlural=k=>k.endsWith("s")?k:k+"s";
  function np(b,object=false){
  if(!b.length)return null;
- if(b.length===1){const dm=find(b[0],"determiner");if(dm&&["this","that","these","those"].includes(dm[0]))return {text:dm[other],third:["this","that"].includes(dm[0])};}
+ if(b.length===1){const dm=find(b[0],"determiner");if(dm&&["more","less","fewer"].includes(dm[0]))return {text:dm[other],third:true};if(dm&&["this","that","these","those"].includes(dm[0]))return {text:dm[other],third:["this","that"].includes(dm[0])};}
  const pron=b.length===1?(reverse?(object?revObj:revPro)[b[0]]:(object?obj:pro)[b[0]]):null;
  if(pron)return {text:pron,third:reverse?["he","she","it"].includes(pron):["he","she","it"].includes(b[0]),first:reverse?pron==="I":b[0]==="i"};
  const of=b.indexOf(reverse?"de":"of");
  if(of>0&&!(!reverse&&find(b.slice(0,of+1).join(" "),"determiner"))){const l=np(b.slice(0,of),object),r=np(b.slice(of+1),true);if(l&&r)return {text:l.text+(reverse?" of ":" de ")+r.text,third:l.third};}
  const j=b.indexOf(reverse?"et":"and");if(j>0){const l=np(b.slice(0,j),object),r=np(b.slice(j+1),object);if(l&&r)return {text:l.text+(reverse?" and ":" et ")+r.text,third:false};}
- let k=b.slice(),det="",owner="",number=null,quant="";
+ let k=b.slice(),det="",owner="",number=null,quant="",intensity="";
+ if((reverse?k[0]==="weit":k[0]==="far")&&["more","less","fewer","mehr","min","wenigr"].includes(k[1])){k.shift();intensity=reverse?"far":"weit";}
  let detWord=null,detLen=0;
  for(let n=Math.min(k.length-1,5);n>=1;n--){const hit=find(k.slice(0,n).join(" "),"determiner");if(hit){detWord=hit;detLen=n;break;}}
  if(detWord){quant=detWord[other];det=k.splice(0,detLen).join(" ");}
@@ -15458,19 +15993,28 @@ window.languagePacks.push(Object.assign({
  const noun=reverse?(pl?plur(w[0]):w[0]):(pl?nativePlural(w[1]):w[1]);
  const body=[...ad.map(x=>x[other]),noun].join(" ");
  const prefix=quant||owner||(reverse?(det==="le"||det==="les"?"the":det==="un"?(/^[aeiou]/i.test(body)&&!/^(use|useful|usual|uni|euro|one)/i.test(body)?"an":"a"):""):(det==="the"?(pl?"les":"le"):det?(pl?"des":"un"):pl&&!number?"des":""));
- return {text:[prefix,number?.[other],body].filter(Boolean).join(" "),third:!pl};
+ return {text:[intensity,prefix,number?.[other],body].filter(Boolean).join(" "),third:!pl};
  }
  }return null;
  }
+ if(mode==="nominal"){const n=np(a,true)||np(a,false);return n?n.text+punct:null;}
  function predicate(b,link=false){
  if(!b.length)return {text:""};
- function core(x){if(!x.length)return {text:""};if(!reverse&&x.join(" ")==="a lot")return null;if(link){const ad=find(x[x.length-1],"adjective");const deg=x.length===2&&find(x[0],"adverb");if(ad&&(x.length===1||deg))return {text:[deg?.[other],ad[other]].filter(Boolean).join(" ")};}return np(x,true);}
+ function core(x){if(!x.length)return {text:""};if(!reverse&&x.join(" ")==="a lot")return null;if(link){
+ if((reverse?x[0]==="kapabl"&&x[1]==="zu":(x[0]==="able"||x[0]==="capable")&&x[1]==="to")&&x.length>=3){
+ const sub=verbs.find(v=>reverse?v[1]===x[2]:formMatch(v,x[2],-1));if(sub){const p=predicate(x.slice(3),linkSet(sub[0]));if(p)return {text:[reverse?"able to":"kapabl zu",sub[other],p.text].filter(Boolean).join(" ")};}
+ }
+ const cmp=s=>({big:"bigger",small:"smaller",hot:"hotter",thin:"thinner",easy:"easier",happy:"happier",early:"earlier"}[s]||(/[^aeiou]y$/.test(s)?s.slice(0,-1)+"ier":s.endsWith("e")?s+"r":s+"er"));
+ if(reverse&&x[0]==="mer"&&x.length===2){const ad=find(x[1],"adjective");if(ad)return {text:ad[0].length<=5?cmp(ad[0]):"more "+ad[0]};}
+ if(!reverse){const ad=x.length===2&&x[0]==="more"?find(x[1],"adjective"):x.length===1?list("adjective").find(w=>!["better","worse"].includes(w[0])&&cmp(w[0])===x[0]):null;if(ad)return {text:"mer "+ad[1]};}
+ const ad=find(x[x.length-1],"adjective");const deg=x.length===2&&find(x[0],"adverb");if(ad&&(x.length===1||deg))return {text:[deg?.[other],ad[other]].filter(Boolean).join(" ")};}return np(x,true);}
  function extra(x){if(!x.length)return [];for(let n=Math.min(x.length,3);n>=1;n--){const adv=find(x.slice(0,n).join(" "),"adverb");if(adv){const t=extra(x.slice(n));if(t)return [adv[other],...t];}}const prep=find(x[0],"preposition");if(!prep)return null;for(let i=x.length;i>=2;i--){const n=np(x.slice(1,i),true),t=n&&extra(x.slice(i));if(n&&t)return [prep[other]+" "+n.text,...t];}return null;}
  for(let i=b.length;i>=0;i--){const n=core(b.slice(0,i)),e=n&&extra(b.slice(i));if(n&&e)return {text:[n.text,...e].filter(Boolean).join(" ")};}
  return null;
  }
- const verbs=list("verb"), mod={can:"kan",must:"mus",should:"sol",would:"würd"}, wh={who:"qui",what:"quoi",where:"où",when:"quand",why:"pourqui",how:"comment"};
+ const verbs=list("verb"), mod={can:"kan",could:"kön",must:"mus",should:"sol",would:"würd"}, wh={who:"qui",what:"quoi",where:"où",when:"quand",why:"pourqui",how:"comment"};
  const link=new Set(["be","feel","sound","seem","become","taste","smell"]), complements=new Set(["enjoy","prefer","try","decide","continue","hate","want","need","like","love","start","finish","learn","hope","stop"]);
+ const linkSet=k=>link.has(k);
  const formMatch=(v,k,idx)=>[idx<0?norm(v[0]):forms(v[0])[idx],...synonyms(v).filter(x=>!x.includes(" ")).map(x=>idx<0?x:forms(x)[idx])].includes(k);
  if(!reverse){
  let b=a.slice(),q=false,question="",aux="";
@@ -15480,15 +16024,15 @@ window.languagePacks.push(Object.assign({
  function output(s,tense,aspect,neg,modal,v,p){const stem=v[1];if(reg==="work"&&!q&&!tense&&!aspect&&!neg&&!modal&&v[0]==="be"&&p.text)return cap("stat "+s.text+" "+p.text)+punct;
  return cap([question?wh[question]:q?"est":"",s.text,tense,aspect,neg?"ne":"",modal,stem,p.text].filter(Boolean).join(" "))+(q?"?":punct);}
  for(let i=1;i<=b.length;i++){const s=np(b.slice(0,i));if(!s)continue;let t=b.slice(i),ax=aux;
- const early=[];while(["actually","honestly","already","still","often","sometimes","never","probably","maybe","even","only","always","very"].includes(t[0]))early.push(t.shift());
+ const early=[];while(["actually","honestly","already","still","often","sometimes","never","probably","maybe","even","only","always","ever","very"].includes(t[0]))early.push(t.shift());
  if(!ax&&auxiliaries.includes(t[0]))ax=t.shift();
  const neg=t[0]==="not";if(neg)t.shift();
- while(["actually","honestly","already","still","often","sometimes","never","probably","maybe","even","only","always"].includes(t[0]))early.push(t.shift());
+ while(["actually","honestly","already","still","often","sometimes","never","probably","maybe","even","only","always","ever"].includes(t[0]))early.push(t.shift());
  let tense=["did","was","were","had"].includes(ax)?"pré":ax==="will"?"va":"",aspect="",modal=mod[ax]||"";
  const cop=verbs.find(v=>v[0]==="be"),beAx=["am","is","are","was","were"].includes(ax);
  if(beAx||ax==="will"&&t[0]==="be"){if(!beAx)t.shift();const p=predicate([...t,...early],true);if(p?.text)return output(s,tense,"",neg,"",cop,p);aspect="dur";}
- if(["have","has","had"].includes(ax)){const p=predicate([...t,...early]);if(p?.text)return output(s,tense,"",neg,"",verbs.find(v=>v[0]==="have"),p);aspect="ja";}
- if(!aspect&&t[0]==="be"&&modal){t.shift();const p=predicate(t,true);if(p?.text)return output(s,tense,"",neg,modal,cop,p);}
+ if(["have","has","had"].includes(ax)){const p=predicate([...t,...early]);if(p&&(p.text||!t.length))return output(s,tense,"",neg,"",verbs.find(v=>v[0]==="have"),p);aspect="ja";}
+ if(!aspect&&t[0]==="be"&&modal){t.shift();const p=predicate([...t,...early],true);if(p?.text)return output(s,tense,"",neg,modal,cop,p);}
  for(const v of verbs.filter(v=>v[0]!=="be")){
  const variants=aspect==="dur"?[[2,tense]]:aspect==="ja"?[[3,tense]]:ax?[[-1,tense]]:[[s.third?0:-1,""],[1,"pré"]];
  for(const [idx,tm] of variants){if(!formMatch(v,t[0],idx))continue;
@@ -15514,7 +16058,7 @@ window.languagePacks.push(Object.assign({
  else if(aspect==="dur"){if(aux)verb="be "+forms(v[0])[2];else{aux=past?pastBe:be;verb=forms(v[0])[2];}}
  else if(aspect==="ja"){if(aux)verb="have "+forms(v[0])[3];else{aux=past?"had":s.third?"has":"have";verb=forms(v[0])[3];}}
  else if(!aux){if(q||neg)aux=past?"did":s.third?"does":"do";else verb=past?forms(v[0])[1]:s.third?forms(v[0])[0]:v[0];}
- return cap((q?[question,aux,s.text,neg?"not":"",verb,p.text]:[s.text,aux,neg?"not":"",verb,p.text]).filter(Boolean).join(" "))+(q?"?":punct);
+ const ever=/\bever$/.test(p.text);if(ever)p.text=p.text.replace(/(?:^|\s)ever$/,"");return cap((q?[question,aux,s.text,neg?"not":"",ever?"ever":"",verb,p.text]:[s.text,aux,neg?"not":"",ever?"ever":"",verb,p.text]).filter(Boolean).join(" "))+(q?"?":punct);
  }
  let polite=b[0]==="pli";if(polite)b.shift();let neg=b[0]==="ne";if(neg)b.shift();const v=verbs.find(x=>x[1]===b[0]);if(!q&&v){const p=predicate(b.slice(1),link.has(v[0]));if(p)return cap([polite?"please":"",neg?"do not":"",v[0],p.text].filter(Boolean).join(" "))+punct;}
  return null;
