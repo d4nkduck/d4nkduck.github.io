@@ -215,8 +215,8 @@ const expansionCases=[
   [
     "everyday",
     "He is watching the film.",
-    "Il dur regard le film.",
-    "He is looking the movie."
+    "Il dur shaué le film.",
+    "He is watching the movie."
   ],
   [
     "everyday",
@@ -986,3 +986,117 @@ const comparisonCases=[
   ]
 ];
 for(const [reg,en,ja,back] of comparisonCases){modern.register=reg;assert.equal(modern.translateClause(en,false),ja,en);assert.equal(modern.translateClause(ja,true),back,ja);assert.ok(!modern.phrases.some(x=>x[0]===en));}
+
+const auditCases=[
+  [
+    "The farmer feeds the horse.",
+    "Le bauer fütr le pferd.",
+    "The farmer feeds the horse."
+  ],
+  [
+    "The farmer fed the horse.",
+    "Le bauer pré fütr le pferd.",
+    "The farmer fed the horse."
+  ],
+  [
+    "I run a shop.",
+    "Je leit un laden.",
+    "I manage a shop."
+  ],
+  [
+    "The water is running.",
+    "Le o dur flussé.",
+    "The water is flowing."
+  ],
+  [
+    "I watched the movie.",
+    "Je pré shaué le film.",
+    "I watched the movie."
+  ],
+  [
+    "I looked at the movie.",
+    "Je pré regard an le film.",
+    "I looked at the movie."
+  ],
+  [
+    "I gave my sister a book.",
+    "Je pré gebé un buch zu mon sœr.",
+    "I gave a book to my sister."
+  ],
+  [
+    "My father's friend lives here.",
+    "Le amien de mon père viv ici.",
+    "The friend of my father lives here."
+  ],
+  [
+    "They helped each other.",
+    "Els pré hilfé samsek.",
+    "They helped each other."
+  ],
+  [
+    "She washed herself.",
+    "El pré washé sek.",
+    "She washed herself."
+  ],
+  [
+    "I think that they are right.",
+    "Je denk ke els es korrekt.",
+    "I think that they are correct."
+  ],
+  [
+    "I want my brother to come home.",
+    "Je vulé mon brüder zu vien heim.",
+    "I want my brother to come home."
+  ],
+  [
+    "She asked me to open the door.",
+    "El pré frag me zu uvr le tür.",
+    "She asked me to open the door."
+  ],
+  [
+    "When the rain stopped, we went outside.",
+    "Kandem le pluie pré halté, nus pré geh drauss.",
+    "When the rain stopped, we went outside."
+  ],
+  [
+    "If you come tomorrow, we will eat together.",
+    "Si vu vien morgen, nus va mangé ensam.",
+    "If you come tomorrow, we will eat together."
+  ],
+  [
+    "Although he was tired, he finished the task.",
+    "Obwol il pré es müde, il pré ferté le tásk.",
+    "Although he was tired, he finished the task."
+  ],
+  [
+    "The window was opened by the child.",
+    "Le fenstr pré pas uvr par le enfant.",
+    "The window was opened by the child."
+  ],
+  [
+    "I had been waiting for two hours.",
+    "Je pré ja dur warté für deux stunds.",
+    "I had been waiting for two hours."
+  ],
+  [
+    "How many people live here?",
+    "Komviel persóns viv ici?",
+    "How many people live here?"
+  ],
+  [
+    "I need a repair tool.",
+    "Je brauché un répar-werkzœg.",
+    "I need a repair tool."
+  ],
+  [
+    "I need a school report.",
+    "Je brauché un shul-raport.",
+    "I need a school report."
+  ],
+  [
+    "The teachable child is here.",
+    "Le lehr-bar enfant es ici.",
+    "The teachable child is here."
+  ]
+];
+for(const [en,ja,back] of auditCases){modern.register="everyday";assert.equal(modern.translateClause(en,false),ja,en);assert.equal(modern.translateClause(ja,true),back,ja);}
