@@ -110,7 +110,7 @@ const cases=[
 for(const [en,canonical,ja,back] of cases){assert.equal(p.translateClause(en),null,en);const r=window.linguaParaphrase(p,en);assert.equal(r.canonical,canonical,en);assert.equal(r.text,ja,en);assert.equal(r.back,back,en);assert.ok(!p.phrases.some(x=>x[0]===en));}
 for(const en of ["I am going to the shop.","The machine is worn out.","I am not fond of this movie."]){assert.equal(window.linguaParaphrase(p,en),null,en);}
 assert.equal(window.linguaParaphrase(p,"Je werké.",true),null);
-assert.equal(p.words.length,1101);
+assert.equal(p.words.length,1118);
 console.log(cases.length+" paraphrase cases passed.");
 
 const preferredCases=[
@@ -275,7 +275,7 @@ for(const en of ["The machine is worn out.","I gave her a hand-written letter."]
 assert.equal(window.linguaPreferredParaphrase({}, "I have to work."),null);
 assert.equal(window.linguaPreferredParaphrase(ras,"Ik nu verk.",true),null);
 assert.equal(window.linguaParaphrase(ras,"Ik nu verk.",true),null);
-assert.equal(ras.words.length,794);
+assert.equal(ras.words.length,810);
 console.log(rasCases.length+" Rasnovian shared adapter cases passed.");
 
 const coverageCases=[
@@ -512,4 +512,4 @@ const coverageCases=[
   ]
 ];
 for(const [id,en,canonical,ja,back] of coverageCases){const pack=window.languagePacks.find(x=>x.id===id);const a=sharedTranslation(pack,en);assert.ok(a,en);assert.equal(a.canonical,canonical,en);assert.equal(a.text,ja,en);assert.equal(a.back,back,en);assert.ok(!pack.phrases.some(x=>x[0]===en));}
-assert.equal(ras.words.length,794);assert.equal(p.words.length,1101);
+assert.equal(ras.words.length,810);assert.equal(p.words.length,1118);
