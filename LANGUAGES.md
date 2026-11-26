@@ -6,9 +6,9 @@ Static website: open `index.html` with `languages/` alongside it. No API keys or
 
 Copy `languages/rasnovian.js` to a new file and register a pack in `window.languagePacks`. Set a unique `id`, `name`, `native`, `version`, `origins` (name and percent), `alphabet`, `sounds` (symbol and pronunciation), `words` (English lemma, native lemma, part of speech), `phrases` (English and native), and `grammar` (heading and text). Include the new script before the main application script in `index.html`. Supply at least five phrases and enough unambiguous vocabulary for quizzes. Implement an optional `translateClause(input, reverse)` returning a translated string or null when unsupported. Keep each language's rules independent.
 
-## Javenœrl v0.1.0
+## Javenœrl v0.3.0
 
-The Javes speak Javenœrl, with a French 40%, technical English 30%, German 30% design target. The independent pack provides work (Werk), everyday (Jour), and personal (Cœur) modes. Work status reports use `stat`, personal singular address uses `tei/tein`. The spelling Javenœrl is retained even when its final œrl is silent. Select Javenœrl from the language menu or use `?lang=javenoerl`. Run `node tests/javenoerl.test.cjs` for grammar regression cases. The language is an initial prototype; vocabulary ancestry and full translation coverage are not audited.
+The Javes speak Javenœrl, with a French 40%, technical English 30%, German 30% design target. The independent pack provides work (Werk), everyday (Jour), and personal (Cœur) modes. Work definite status reports use `stat/stats` without article or copula, and other definite articles fuse as `l-/ls-`. Personal singular address uses `tei/tein`, with explicit dear and together morphology. The spelling standard accepts v0.2 legacy forms, and the word formation inventory includes transparent derivations and compounds. The spelling Javenœrl is retained even when its final œrl is silent. Select Javenœrl from the language menu or use `?lang=javenoerl`. Run `node tests/javenoerl.test.cjs` for grammar regression cases. The language is an initial prototype; vocabulary ancestry and full translation coverage are not audited.
 
 ## Current scope
 
